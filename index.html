@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IdeoSorter</title>
+</head>
+<style>
+    html,
+    body {
+        background-color: #101010;
+        width: 100%;
+        height: 100%;
+        padding: 0%;
+        margin: 0%;
+    }
+
+    * {
+        font-family: sans-serif;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    button {
+        margin: 8px auto;
+        border: none;
+        background-color: #202020;
+        display: block;
+        padding: 32px;
+        font-size: 16px;
+        width: 512px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #404040;
+    }
+</style>
+
+<body>
+    <section id="quiz">
+        <h1 id="question">Loading...</h1>
+        <button id="button1"></button>
+        <button id="button2"></button>
+        <button id="button3"></button>
+        <button id="button4"></button>
+        <button id="button5"></button>
+    </section>
+    <section id="results">
+        <h1 id="match"></h1>
+        <div id="flag"></div>
+        <h1 id="quote"></h1>
+    </section>
+    <button id="back">Back</button>
+</body>
+<script>
+    const quiz = document.getElementById("quiz")
+    const results = document.getElementById("results")
+    const question = document.getElementById("question")
+    const button1 = document.getElementById("button1")
+    const button2 = document.getElementById("button2")
+    const button3 = document.getElementById("button3")
+    const button4 = document.getElementById("button4")
+    const button5 = document.getElementById("button5")
+    const back = document.getElementById("back")
+    const flag = document.getElementById("flag")
+    const quote = document.getElementById("quote")
+    const buttons = [button1, button2, button3, button4, button5]
+
+    function q(p = "", q = "Broken", b1 = "", n1 = "", b2 = "", n2 = "", b3 = "", n3 = "", b4 = "", n4 = "", b5 = "", n5 = "") {
+        question.innerText = q
+        button1.innerText = b1
+        button1.onclick = n1
+        button2.innerText = b2
+        button2.onclick = n2
+        button3.innerText = b3
+        button3.onclick = n3
+        button4.innerText = b4
+        button4.onclick = n4
+        button5.innerText = b5
+        button5.onclick = n5
+        back.onclick = p
+        quiz.style.display = "block"
+        results.style.display = "none"
+        for (let i in buttons) {
+            if (buttons[i].innerText == "") {
+                buttons[i].style.display = "none"
+            } else {
+                buttons[i].style.display = "block"
+            }
+        }
+    }
+
+    function r(p = null, ideology = null, larp = null) {
+        match.innerText = ideology
+        flag.innerHTML = "<img style='width:512px' src='./flags/" + ideology + ".svg'>"
+        quote.innerText = larp
+        back.onclick = p
+        quiz.style.display = "none"
+        results.style.display = "block"
+    }
+
+    function q_privateProperty() {
+        q("", "Should private property exist?", "Yes", q_sovereignRuler, "No", q_markets)
+    }
+
+    function q_sovereignRuler() {
+        q(q_privateProperty, "Should there be a sovereign with absolute power?", "Yes", q_sovereignType, "No", q_distribution)
+    }
+
+    function q_sovereignType() {
+        q(q_sovereignRuler, "Who should be such sovereign?", "Heir", () => r(q_sovereignType, "Absolute monarchy", "It is legal because I wish it."), "Sage", () => r(q_sovereignType, "Noocracy", "If you do not take an interest in the affairs of your government, then you are doomed to live under the rule of fools."), "Priest", () => r(q_sovereignType, "Theocracy", "He who doesn't pray to the Lord prays to the devil."), "CEO", () => r(q_sovereignType, "Neocameralism", "It is not a coincidence that the century of murder and the century of democracy were one and the same."), "Strongest", q_weak)
+    }
+
+    function q_weak() {
+        q(q_sovereignType, "Should the weak be subjugated?", "Yes", () => r(q_weak, "Kraterocracy", "Might makes right."), "No", () => r(q_weak, "Combatocracy", "Only the weak are cruel. Gentleness can only be expected from the strong."))
+    }
+
+    function q_distribution() {
+        q(q_sovereignRuler, "Should private property be made as widely owned as possible?", "Yes", q_concentration, "No", q_lvt)
+    }
+
+    function q_concentration() {
+        q(q_distribution, "Is property concentration caused by regulation?", "Yes", q_distState, "No", q_distNeeds)
+    }
+
+    function q_distState() {
+        q(q_concentration, "Should the state be abolished?", "Yes", () => r(q_distState, "Anarcho-distributism", "One sees great things from the valley; only small things from the peak."), "No", () => r(q_distState, "Libertarian distributism", "The poor have sometimes objected to being governed badly. The rich have always objected to being governed at all."))
+    }
+
+    function q_distNeeds() {
+        q(q_concentration, "Should people's needs be met unconditionally?", "Yes", () => r(q_distNeeds, "Social distributism", "To be clever enough to get all that money, one must be stupid enough to want it."), "No", () => r(q_distNeeds, "Distributism", "Men feel that cruelty to the poor is a kind of cruelty to animals. They never feel that it is an injustice to equals."))
+    }
+
+    function q_lvt() {
+        q(q_distribution, "Should resource use be compensated to society?", "Yes", q_geoState, "No", q_capState)
+    }
+
+    function q_geoState() {
+        q(q_lvt, "Should the scope of government be limited?", "Yes", () => r(q_geoState, "Geo-libertarianism", "It is not the business of government to make men virtuous or religious, or to preserve the fool from the consequences of his own folly."), "No", q_geoWelfare, "The state should not exist", () => r(q_geoState, "Geo-anarchism", "As no man made the land, so no man can claim a right of ownership in the land."))
+    }
+
+    function q_geoWelfare() {
+        q(q_geoState, "Should the revenue from resource tax be spent on welfare?", "Yes", () => r(q_geoWelfare, "Social georgism", "Laissez faire opens the way to the realization of the noble dreams of socialism."), "No", () => r(q_geoWelfare, "Georgism", "Free trade, free land, free people."))
+    }
+
+    function q_markets() {
+        q(q_privateProperty, "Should markets allocate resources?", "Yes", q_titoism, "No", q_communism)
+    }
+
+    function q_capState() {
+        q(q_lvt, "Should the scope of government be limited?", "Yes", q_minarchy, "No", q_trad, "The state should not exist", q_counterEcon)
+    }
+
+    function q_minarchy() {
+        q(q_capState, "Should the government only cover basic state functions?", "Yes", () => r(q_minarchy, "Minarchism", "Individuals have rights, and there are things no person or group may do to them."), "No", q_disadvantaged)
+    }
+
+    function q_disadvantaged() {
+        q(q_minarchy, "Should the disadvantaged be helped?", "Yes", q_bertWelfare, "No", q_bertWar)
+    }
+
+    function q_bertWelfare() {
+        q(q_disadvantaged, "Should there be welfare programs in place?", "Yes", () => r(q_bertWelfare, "Social libertarianism", "I'm a capitalist, and I believe that universal basic income is necessary for capitalism to continue."), "No", () => r(q_bertWelfare, "Bleeding-heart libertarianism", ""))
+    }
+
+    function q_bertWar() {
+        q(q_disadvantaged, "Should liberty be spread around the globe by force?", "Yes", () => r(q_bertWar, "Neo-libertarianism", "It's far more common for leftists to routinely pick up weapons and try to kill those with whom they disagree than it is for those on the other side of the ideological spectrum."), "No", q_bertTrad)
+    }
+
+    function q_bertTrad() {
+        q(q_bertWar, "Will a smaller government cause a return to traditional values?", "Yes", () => r(q_bertTrad, "Paleolibertarianism", "Real patriotism is a willingness to challenge the government when it's wrong."), "No", () => r(q_bertTrad, "Right-libertarianism", "When one gets in bed with government, one must expect the diseases it spreads."))
+    }
+
+    function q_trad() {
+        q(q_capState, "Should traditional values be promoted?", "Yes", q_authNat, "No", q_needs)
+    }
+
+    function q_authNat() {
+        q(q_trad, "Should an authoritarian state protect the nation?", "Yes", q_fashEcon, "No", q_safetyNet)
+    }
+
+    function q_fashEcon() {
+        q(q_authNat, "Who should manage the economy?", "State", q_fashClergy, "Unions", () => r(q_fashEcon, "National syndicalism", "Nothing is more false than the axiom that governments are belligerent and peoples are pacific."), "Companies", q_fashRegulation)
+    }
+
+    function q_fashClergy() {
+        q(q_fashEcon, "Should the clergy be part of the government?", "Yes", () => r(q_fashClergy, "Clerical fascism", "You must train harder than the enemy who is trying to kill you. You will get all the rest you need in the grave."), "No", q_racism)
+    }
+
+    function q_racism() {
+        q(q_fashClergy, "Is there a race superior to all others?", "Yes", q_raceLarp, "No", () => r(q_racism, "Classical fascism", "The truth is that men are tired of liberty."))
+    }
+
+    function q_raceLarp() {
+        q(q_racism, "What gives that race such superiority?", "Biology", () => r(q_raceLarp, "National socialism", "Anyone can deal with victory. Only the mighty can bear defeat."), "Spirits", () => r(q_raceLarp, "Esoteric fascism", "The blood of the heroes is closer to God than the ink of the philosophers and the prayers of the faithful."))
+    }
+
+    function q_fashRegulation() {
+        q(q_fashEcon, "Should the state intervene in the economy?", "Yes", () => r(q_fashRegulation, "Social nationalism", "It is not that miserable if a person dies, as every single man dies each day. The true misery is if a person lives like being dead."), "No", () => r(q_fashRegulation, "National capitalism", "Material loss can be made up through renewed labor, but the moral wrong which has been inflicted upon the conquered peoples, in the peace dictates, leaves a burning scar on the people's conscience."))
+    }
+
+    function q_safetyNet() {
+        q(q_authNat, "Should a social safety net protect the poor?", "Yes", () => r(q_safetyNet, "Paternalistic conservatism", "The greatest good you can do for another is not just to share your riches but to reveal to him his own."), "No", q_conIntervention)
+    }
+
+    function q_conIntervention() {
+        q(q_safetyNet, "Should the government intervene in wars overseas?", "Yes", () => r(q_conIntervention, "Mesoconservatism", "Those who believe in nothing are very, very jealous and angry at those who believe in something."), "No", () => r(q_conIntervention, "Paleoconservatism", "I oppose any regulation of private property, but when I see some developer clear-cutting one-hundred-year-old trees, I want to pass a law to pound the hell out of him."))
+    }
+
+    function q_needs() {
+        q(q_trad, "Should people's needs be met unconditionally?", "Yes", () => r(q_needs, "Social democracy", "Better things are not possible."), "No", q_regulation)
+    }
+
+    function q_regulation() {
+        q(q_needs, "Should the economy be tightly regulated?", "Yes", q_bigBusiness, "No", q_hegemony)
+    }
+
+    function q_bigBusiness() {
+        q(q_regulation, "Should big businesses have more social responsibilites?", "Yes", () => r(q_bigBusiness, "Ordoliberalism", "When it comes to human dignity, we cannot make compromises."), "No", () => r(q_bigBusiness, "Social liberalism", "A person may cause evil to others not only by his actions but by his inaction, and in either case he is justly accountable to them for the injury."))
+    }
+
+    function q_hegemony() {
+        q(q_regulation, "Which gives the most power globally?", "Markets", () => r(q_hegemony, "Neoliberalism", "Eat some chocolate chocolate chip."), "Military", () => r(q_hegemony, "Neoconservatism", "I just want you to know that, when we talk about war, we're really talking about peace."))
+    }
+
+    function q_counterEcon() {
+        q(q_capState, "Should black markets be used to push change?", "Yes", q_redMarket, "No", q_coop)
+    }
+
+    function q_redMarket() {
+        q(q_counterEcon, "Should violent markets be allowed?", "Yes", () => r(q_redMarket, "Avaritionism", "I have a dream. That one day every person in this nation will control their own destiny. A nation of the truly free, dammit. A nation of action, not words, ruled by strength, not committee!"), "No", () => r(q_redMarket, "Agorism", "Every action you take outside the scope of government control strengthens the market and weakens the state."))
+    }
+
+    function q_coop() {
+        q(q_counterEcon, "Will cooperatives dominate the free market?", "Yes", () => r(q_coop, "Left-rothbardianism", "Libertarianism is rejected by the modern left, which preaches individualism but practices collectivism. Capitalism is rejected by the modern right, which preaches enterprise but practices protectionism."), "No", q_covenant)
+    }
+
+    function q_covenant() {
+        q(q_coop, "Will covenant communities revive traditional values?", "Yes", () => r(q_covenant, "Hoppeanism", "Democracy has nothing to do with freedom. Democracy is a soft variant of communism."), "No", () => r(q_covenant, "Anarcho-capitalism", "It is evident that the State needs the intellectuals. It is not so evident why intellectuals need the State."))
+    }
+
+    q_privateProperty()
+</script>
+
+</html>
