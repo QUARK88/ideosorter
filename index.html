@@ -22,11 +22,43 @@
         text-align: center;
     }
 
-    h1 {
+    #question {
+        font-size: 3vw;
+    }
+
+    #match {
         text-align: center;
-        font-size: 2vw;
+        font-size: 3vw;
         width: 50vw;
         margin: 2vw auto;
+        text-transform: uppercase;
+    }
+
+    #quote {
+        display: table;
+        text-align: center;
+        font-size: 2vw;
+        max-width: 50vw;
+        margin: 2vw auto;
+        position: relative;
+    }
+
+    #quote::before,
+    #quote::after {
+        font-size: 4vw;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #quote::before {
+        content: '“';
+        left: -3vw;
+    }
+
+    #quote::after {
+        content: '”';
+        right: -3vw;
     }
 
     button {
@@ -38,47 +70,74 @@
         font-size: 2vw;
         width: 30vw;
         cursor: pointer;
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), calc(100% - 2vw) 100%, 0 100%, 0 0);
     }
 
     button:hover {
         background-color: #404040;
     }
 
-    img {
-        width: 30vw;
+    #back {
+        width: 20vw;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 2vw 100%, 0 calc(100% - 2vw), 0 0);
     }
 
-    @media only screen and (max-width: 1200px) {
-        h1 {
-            font-size: 4vw;
-            width: 60vw;
-        }
-
-        button {
-            width: 60vw;
-            font-size: 4vw;
-            padding: 3vw;
-        }
-
-        img {
-            width: 60vw;
-        }
+    #flag {
+        width: 30vw;
+        clip-path: polygon(4vw 0, 100% 0, 100% calc(100% - 4vw), calc(100% - 4vw) 100%, 0 100%, 0 4vw);
     }
 
     @media only screen and (max-width: 800px) {
-        h1 {
-            font-size: 5vw;
-            width: 80vw;
+
+        #question {
+            font-size: 8vw;
         }
 
         button {
             width: 80vw;
             font-size: 8vw;
             padding: 8vw;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8vw), calc(100% - 8vw) 100%, 0 100%, 0 0);
         }
 
-        img {
+        #back {
+            width: 60vw;
+            font-size: 8vw;
+            padding: 8vw;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 8vw 100%, 0 calc(100% - 8vw), 0 0);
+        }
+
+        #match {
+            font-size: 5vw;
             width: 80vw;
+        }
+
+        #quote {
+            font-size: 6vw;
+            max-width: 70vw;
+        }
+
+        #quote::before,
+        #quote::after {
+            font-size: 12vw;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #quote::before {
+            content: '“';
+            left: -8vw;
+        }
+
+        #quote::after {
+            content: '”';
+            right: -8vw;
+        }
+
+        #flag {
+            width: 80vw;
+            clip-path: polygon(8vw 0, 100% 0, 100% calc(100% - 8vw), calc(100% - 8vw) 100%, 0 100%, 0 8vw);
         }
     }
 </style>
@@ -94,7 +153,7 @@
     </section>
     <section id="results">
         <h1 id="match"></h1>
-        <div id="flag"></div>
+        <img id="flag">
         <h1 id="quote"></h1>
     </section>
     <button id="back">Back</button>
@@ -139,7 +198,7 @@
 
     function r(p = null, ideology = null, larp = null) {
         match.innerText = ideology
-        flag.innerHTML = "<img src='./flags/" + ideology + ".svg'>"
+        flag.src = "./flags/" + ideology + ".svg"
         quote.innerText = larp
         back.onclick = p
         quiz.style.display = "none"
@@ -286,7 +345,8 @@
         q(q_coop, "Will covenant communities revive traditional values?", "Yes", () => r(q_covenant, "Hoppeanism", "Democracy has nothing to do with freedom. Democracy is a soft variant of communism."), "No", () => r(q_covenant, "Anarcho-capitalism", "It is evident that the State needs the intellectuals. It is not so evident why intellectuals need the State."))
     }
 
-    q_privateProperty()
+    r(q_weak, "Kraterocracy", "Might makes right.")
+    /*q_privateProperty()*/
 </script>
 
 </html>
