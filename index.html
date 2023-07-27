@@ -223,7 +223,7 @@
     }
 
     function q_sovereignType() {
-        q(q_sovereignRuler, "Who should be such sovereign?", "Heir", () => r(q_sovereignType, "Absolute monarchy", "It is legal because I wish it."), "Sage", () => r(q_sovereignType, "Noocracy", "If you do not take an interest in the affairs of your government, then you are doomed to live under the rule of fools."), "Priest", () => r(q_sovereignType, "Theocracy", "He who doesn't pray to the Lord prays to the devil."), "CEO", () => r(q_sovereignType, "Neocameralism", "It is not a coincidence that the century of murder and the century of democracy were one and the same."), "Strongest", q_weak)
+        q(q_sovereignRuler, "Where should the ruler's sovereignty come from?", "Inheritance", () => r(q_sovereignType, "Absolute monarchy", "It is legal because I wish it."), "Wisdom", () => r(q_sovereignType, "Noocracy", "If you do not take an interest in the affairs of your government, then you are doomed to live under the rule of fools."), "God", () => r(q_sovereignType, "Theocracy", "He who doesn't pray to the Lord prays to the devil."), "Enterprise", () => r(q_sovereignType, "Neocameralism", "It is not a coincidence that the century of murder and the century of democracy were one and the same."), "Stength", q_weak)
     }
 
     function q_weak() {
@@ -255,7 +255,7 @@
     }
 
     function q_geoWelfare() {
-        q(q_geoState, "Should the revenue from resource tax be spent on welfare?", "Yes", () => r(q_geoWelfare, "Social georgism", "Laissez faire opens the way to the realization of the noble dreams of socialism."), "No", () => r(q_geoWelfare, "Georgism", "Free trade, free land, free people."))
+        q(q_geoState, "Should the revenue from resource tax be spent on welfare?", "Yes", () => r(q_geoWelfare, "Social georgism", "Laissez faire opens the way to the realization of the noble dreams of socialism."), "No", () => r(q_geoWelfare, "Georgism", "There are three ways by which an individual can get wealth-by work, by gift, and by theft. And, clearly, the reasons why the workers get so little is that the beggars and thieves get so much."))
     }
 
     function q_capState() {
@@ -400,6 +400,10 @@
 
     function q_transition() {
         q(q_experts, "Which way should be used to bring about change?", "Election", () => r(q_transition, "Democratic socialism", "The future belongs to the socialism which is democratic, to the democracy which is socialist."), "Revolution", q_idfk2)
+    }
+
+    function q_idfk2() {
+
     }
 
     q_privateProperty()
