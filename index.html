@@ -20,6 +20,12 @@
         font-family: sans-serif;
         color: #ffffff;
         text-align: center;
+        margin: 0;
+    }
+
+    #title {
+        font-size: 3vw;
+        margin: 2vw auto;
     }
 
     #question {
@@ -27,7 +33,6 @@
     }
 
     #match {
-        text-align: center;
         font-size: 3vw;
         width: 50vw;
         margin: 2vw auto;
@@ -36,8 +41,7 @@
 
     #quote {
         display: table;
-        text-align: center;
-        font-size: 2vw;
+        font-size: 1.5vw;
         max-width: 50vw;
         margin: 2vw auto;
         position: relative;
@@ -88,6 +92,10 @@
     }
 
     @media only screen and (max-width: 800px) {
+
+        #title {
+            font-size: 6vw;
+        }
 
         #question {
             font-size: 8vw;
@@ -143,6 +151,7 @@
 </style>
 
 <body>
+    <h1 id="title">IdeoSorter</h1>
     <section id="quiz">
         <h1 id="question">Loading...</h1>
         <button id="button1"></button>
@@ -249,10 +258,6 @@
         q(q_geoState, "Should the revenue from resource tax be spent on welfare?", "Yes", () => r(q_geoWelfare, "Social georgism", "Laissez faire opens the way to the realization of the noble dreams of socialism."), "No", () => r(q_geoWelfare, "Georgism", "Free trade, free land, free people."))
     }
 
-    function q_markets() {
-        q(q_privateProperty, "Should markets allocate resources?", "Yes", q_titoism, "No", q_communism)
-    }
-
     function q_capState() {
         q(q_lvt, "Should the scope of government be limited?", "Yes", q_minarchy, "No", q_trad, "The state should not exist", q_counterEcon)
     }
@@ -345,8 +350,59 @@
         q(q_coop, "Will covenant communities revive traditional values?", "Yes", () => r(q_covenant, "Hoppeanism", "Democracy has nothing to do with freedom. Democracy is a soft variant of communism."), "No", () => r(q_covenant, "Anarcho-capitalism", "It is evident that the State needs the intellectuals. It is not so evident why intellectuals need the State."))
     }
 
-    r(q_weak, "Kraterocracy", "Might makes right.")
-    /*q_privateProperty()*/
+    function q_markets() {
+        q(q_privateProperty, "Should markets allocate resources?", "Yes", q_titoism, "No", q_communism)
+    }
+
+    function q_titoism() {
+        q(q_markets, "Should an authoritarian state protect the workers?", "Yes", () => r(q_titoism, "Titoism", "With them, the basic factor is the class issue, with us, it is both the nationalities and the class issue."), "No", () => r(q_titoism, "Market socialism", "To achieve a society that exhibits liberty, equality, fraternity and democracy, the object to change first and foremost is production."), "The state should not exist", q_mutualAid)
+    }
+
+    function q_mutualAid() {
+        q(q_titoism, "Should the economy be based on mutual aid?", "Yes", q_ethnic, "No", () => r(q_mutualAid, "Market anarchism", "Capitalism depends on ever-growing amounts of regulation in the market for its survival, and the system is hitting the point where the teat runs dry."))
+    }
+
+    function q_ethnic() {
+        q(q_mutualAid, "Should communities be ethnically homogenous?", "Yes", () => r(q_ethnic, "National anarchism", "Today, only the person who no longer believes in a happy ending, only he who has consciously renounced it, is able to live."), "No", () => r(q_ethnic, "Mutualism", "The great are only great because we are on our knees. Let us rise."))
+    }
+
+    function q_communism() {
+        q(q_markets, "Should we reach a classless, stateless, moneyless society?", "Yes", q_commieState, "No", q_experts)
+    }
+
+    function q_commieState() {
+        q(q_communism, "Is a transitory state required for this?", "Yes", q_idfk, "No", q_vouchers)
+    }
+
+    function q_idfk() {
+
+    }
+
+    function q_vouchers() {
+        q(q_commieState, "Should labor vouchers be given in exchange for work?", "Yes", q_intelligentsia, "No", q_agriculture)
+    }
+
+    function q_intelligentsia() {
+        q(q_vouchers, "Should the intelligentsia be done away with?", "Yes", () => r(q_intelligentsia, "Machajskism", "The proletarians are told that the intelligentsia is not implicated in exploitation and lives by selling its own intellectual work power."), "No", () => r(q_intelligentsia, "Anarcho-collectivism", "When the people are being beaten with a stick, they are not much happier if it is called the People's Stick."))
+    }
+
+    function q_agriculture() {
+        q(q_vouchers, "Should agriculture be practiced?", "Yes", q_anarchoUnions, "No", () => r(q_agriculture, "Anarcho-primitivism", "There is good reason to believe that primitive man suffered from less stress and frustration and was better satisfied with his way of life than modern man is."))
+    }
+
+    function q_anarchoUnions() {
+        q(q_agriculture, "Should society be organized through unions?", "Yes", () => r(q_anarchoUnions, "Anarcho-syndicalism", "The state can only be what it is: the defender of mass exploitation and social privileges, the creator of privileged classes and castes and of new monopolies."), "No", () => r(q_anarchoUnions, "Anarcho-communism", "Prisons are universities of crime, maintained by the state."))
+    }
+
+    function q_experts() {
+        q(q_communism, "Should the economy be run only by experts?", "Yes", () => r(q_experts, "Technocracy", "A criminal is a person with predatory instincts who has insufficient capital to form a corporation."), "No", q_transition)
+    }
+
+    function q_transition() {
+        q(q_experts, "Which way should be used to bring about change?", "Election", () => r(q_transition, "Democratic socialism", "The future belongs to the socialism which is democratic, to the democracy which is socialist."), "Revolution", q_idfk2)
+    }
+
+    q_privateProperty()
 </script>
 
 </html>
