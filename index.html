@@ -534,7 +534,7 @@
     }
 
     function q_transition() {
-        q(q_experts, "Which way should be used to bring about change?", "Election", () => r(q_transition, "Democratic socialism", "The future belongs to the socialism which is democratic, to the democracy which is socialist."), "Revolution", q_idfk2)
+        q(q_experts, "Which way should be used to bring about change?", "Election", () => r(q_transition, "Democratic socialism", "The future belongs to the socialism which is democratic, to the democracy which is socialist."), "Revolution", q_idfk2, "", "", "", "", "", "", ["#e04080", "#c04000"], ["#a00040", "#800000"], ["election", "revolution"])
     }
 
     function q_idfk2() {
@@ -544,6 +544,8 @@
     q_privateProperty()
 
     init()
+
+    q_transition()
 </script>
 
 </html>
