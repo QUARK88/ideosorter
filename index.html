@@ -28,40 +28,69 @@
         margin: 0;
     }
 
+    a,
+    a:visited,
+    a:hover,
+    a:focus,
+    a:active {
+        color: var(--text) !important;
+        text-decoration: none;
+    }
+
     #title {
-        font-size: 3vw;
-        margin: 2vw auto;
+        font-size: 3vmax;
+        margin: 2vmax auto;
+    }
+
+    .footer {
+        font-size: 2vmax;
+        margin: 2vmax;
+    }
+
+    .socialsicon {
+        height: 4vmax;
+        width: 4vmax;
+        margin: 0 1vmax;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 100%;
+        transition: 0.1s ease-in-out;
+    }
+
+    .socialsicon:hover {
+        scale: 1.1;
     }
 
     .intro {
-        font-size: 2vw;
-        margin: 2vw auto;
+        font-size: 2vmax;
+        margin: 2vmax auto;
+        width: 60vmax;
     }
 
     #question {
-        font-size: 2.5vw;
-        width: 60vw;
+        font-size: 2.5vmax;
+        width: 60vmax;
         margin: auto;
     }
 
     #match {
-        font-size: 3vw;
-        width: 50vw;
-        margin: 2vw auto;
+        font-size: 3vmax;
+        width: 50vmax;
+        margin: 2vmax auto;
         text-transform: uppercase;
     }
 
     #quote {
         display: table;
-        font-size: 1.5vw;
-        max-width: 50vw;
-        margin: 2vw auto;
+        font-size: 1.5vmax;
+        max-width: 50vmax;
+        margin: 2vmax auto;
         position: relative;
     }
 
     #quote::before,
     #quote::after {
-        font-size: 3vw;
+        font-size: 3vmax;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -69,31 +98,31 @@
 
     #quote::before {
         content: '“';
-        left: -3vw;
+        left: -3vmax;
     }
 
     #quote::after {
         content: '”';
-        right: -3vw;
+        right: -3vmax;
     }
 
     .button {
         align-items: center;
         justify-content: center;
-        margin: 1vw auto;
+        margin: 1vmax auto;
         border: none;
         display: flex;
-        padding: 1.5vw;
-        font-size: 2vw;
+        padding: 1.5vmax;
+        font-size: 2vmax;
         cursor: pointer;
-        width: 30vw;
+        width: 30vmax;
         text-transform: uppercase;
         font-weight: 700;
         outline: none;
         position: relative;
         background: #404040;
-        box-shadow: 0 0.5vw #303030;
-        border-radius: 1vw 1vw 1vw 1vw;
+        box-shadow: 0 0.5vmax #303030;
+        border-radius: 1vmax;
     }
 
     .button:hover {
@@ -102,12 +131,12 @@
 
     .button:active {
         box-shadow: none !important;
-        top: 0.5vw;
+        top: 0.5vmax;
     }
 
     .button img {
-        margin-right: 0.5vw;
-        width: 2vw;
+        margin-right: 0.5vmax;
+        width: 2vmax;
     }
 
     .button span {
@@ -116,70 +145,49 @@
     }
 
     #back {
-        width: 15vw;
-        font-size: 1.5vw;
-        padding: 1vw;
+        width: 15vmax;
+        font-size: 1.5vmax;
+        padding: 1vmax;
     }
 
     #flag {
-        width: 30vw;
-        border-radius: 3vw;
-        border: 0.25vw solid #404040;
+        width: 30vmax;
+        border-radius: 3vmax;
+        border: 0.25vmax solid #404040;
     }
 
     @media only screen and (max-width: 800px) {
 
-        #title {
-            font-size: 6vw;
+        .socialsicon {
+            height: 12vmin;
+            width: 12vmin;
+            margin: 0 2vmin;
+        }
+
+        .socialsicon:hover {
+            scale: 1.1;
+        }
+
+        .footer {
+            font-size: 6vmin;
+            margin: 6vmin;
+        }
+
+        .intro {
+            width: 80vmin;
         }
 
         #question {
-            font-size: 8vw;
+            width: 80vmin;
         }
 
         .button {
-            width: 80vw;
-            font-size: 8vw;
-            padding: 8vw;
+            padding: 8vmin 4vmin;
+            width: 80vmin;
         }
 
-        #back {
-            width: 60vw;
-            font-size: 8vw;
-            padding: 8vw;
-        }
-
-        #match {
-            font-size: 5vw;
-            width: 80vw;
-        }
-
-        #quote {
-            font-size: 6vw;
-            max-width: 70vw;
-        }
-
-        #quote::before,
-        #quote::after {
-            font-size: 12vw;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        #quote::before {
-            content: '“';
-            left: -8vw;
-        }
-
-        #quote::after {
-            content: '”';
-            right: -8vw;
-        }
-
-        #flag {
-            width: 80vw;
-            clip-path: polygon(8vw 0, 100% 0, 100% calc(100% - 8vw), calc(100% - 8vw) 100%, 0 100%, 0 8vw);
+        .button img {
+            width: 4vmin;
         }
     }
 </style>
@@ -189,7 +197,7 @@
     <div id="home">
         <h2 class="intro">Discover your political ideology in only a few questions</h2>
         <button class="button" id="startButton" onclick="start()">Start<span><img
-                    style="margin-right:0;margin-left:0.5vw;" src="./icons/start.svg"></span></button>
+                    style="margin-right:0;margin-left:0.5vmax;" src="./icons/start.svg"></span></button>
     </div>
     <div id="test">
         <section id="quiz">
@@ -205,7 +213,17 @@
             <img id="flag">
             <h2 id="quote"></h2>
         </section>
-        <button class="button" id="back"><span><img style="width: 1.5vw;" src="./icons/back.svg"></span>Back</button>
+        <button class="button" id="back"><span><img style="width: 1.5vmax;" src="./icons/back.svg"></span>Back</button>
+    </div>
+    <div style="height: 16vh;"></div>
+    <p class="footer">
+        <a target="_blank" href="https://github.com/QUARK88">Quark 2023</a>
+    </p>
+    <div>
+        <img src="discord.svg" class="socialsicon"
+            onclick="navigator.clipboard.writeText('realquark');confirm('Discord tag copied!');">
+        <a target="_blank" href="https://www.reddit.com/user/QK_QUARK88"><img src="reddit.svg" class="socialsicon"></a>
+        <a target="_blank" href="https://twitter.com/RenaudBeaulieuQ"><img src="twitter.svg" class="socialsicon"></a>
     </div>
 </body>
 <script>
@@ -281,11 +299,11 @@
 
         if (s === "") {
             for (let x in buttons) {
-                buttons[x].style.boxShadow = `0 0.5vw ${standardBackgroundColors[x]}`
+                buttons[x].style.boxShadow = `0 0.5vmax ${standardBackgroundColors[x]}`
             }
         } else {
             for (let x in s) {
-                buttons[x].style.boxShadow = `0 0.5vw ${s[x]}`
+                buttons[x].style.boxShadow = `0 0.5vmax ${s[x]}`
             }
         }
     }
