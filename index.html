@@ -7,6 +7,11 @@
     <title>IdeoSorter</title>
 </head>
 <style>
+    @font-face {
+        font-family: lemonmilk;
+        src: url(./lemonmilk.otf);
+    }
+
     html,
     body {
         background-color: #101010;
@@ -17,7 +22,7 @@
     }
 
     * {
-        font-family: sans-serif;
+        font-family: lemonmilk, sans-serif;
         color: #ffffff;
         text-align: center;
         margin: 0;
@@ -28,8 +33,15 @@
         margin: 2vw auto;
     }
 
+    .intro {
+        font-size: 2vw;
+        margin: 2vw auto;
+    }
+
     #question {
-        font-size: 3vw;
+        font-size: 2.5vw;
+        width: 60vw;
+        margin: auto;
     }
 
     #match {
@@ -49,7 +61,7 @@
 
     #quote::before,
     #quote::after {
-        font-size: 4vw;
+        font-size: 3vw;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -65,30 +77,54 @@
         right: -3vw;
     }
 
-    button {
+    .button {
+        align-items: center;
+        justify-content: center;
         margin: 1vw auto;
         border: none;
-        background-color: #202020;
-        display: block;
+        display: flex;
         padding: 1.5vw;
         font-size: 2vw;
-        width: 30vw;
         cursor: pointer;
-        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), calc(100% - 2vw) 100%, 0 100%, 0 0);
+        width: 30vw;
+        text-transform: uppercase;
+        font-weight: 700;
+        outline: none;
+        position: relative;
+        background: #404040;
+        box-shadow: 0 0.5vw #303030;
+        border-radius: 1vw 1vw 1vw 1vw;
     }
 
-    button:hover {
-        background-color: #404040;
+    .button:hover {
+        filter: brightness(1.1);
+    }
+
+    .button:active {
+        box-shadow: none !important;
+        top: 0.5vw;
+    }
+
+    .button img {
+        margin-right: 0.5vw;
+        width: 2vw;
+    }
+
+    .button span {
+        align-items: center;
+        display: flex;
     }
 
     #back {
-        width: 20vw;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 2vw 100%, 0 calc(100% - 2vw), 0 0);
+        width: 15vw;
+        font-size: 1.5vw;
+        padding: 1vw;
     }
 
     #flag {
         width: 30vw;
-        clip-path: polygon(4vw 0, 100% 0, 100% calc(100% - 4vw), calc(100% - 4vw) 100%, 0 100%, 0 4vw);
+        border-radius: 3vw;
+        border: 0.25vw solid #404040;
     }
 
     @media only screen and (max-width: 800px) {
@@ -101,18 +137,16 @@
             font-size: 8vw;
         }
 
-        button {
+        .button {
             width: 80vw;
             font-size: 8vw;
             padding: 8vw;
-            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8vw), calc(100% - 8vw) 100%, 0 100%, 0 0);
         }
 
         #back {
             width: 60vw;
             font-size: 8vw;
             padding: 8vw;
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 8vw 100%, 0 calc(100% - 8vw), 0 0);
         }
 
         #match {
@@ -152,22 +186,32 @@
 
 <body>
     <h1 id="title">IdeoSorter</h1>
-    <section id="quiz">
-        <h1 id="question">Loading...</h1>
-        <button id="button1"></button>
-        <button id="button2"></button>
-        <button id="button3"></button>
-        <button id="button4"></button>
-        <button id="button5"></button>
-    </section>
-    <section id="results">
-        <h1 id="match"></h1>
-        <img id="flag">
-        <h1 id="quote"></h1>
-    </section>
-    <button id="back">Back</button>
+    <div id="home">
+        <h2 class="intro">Discover your political ideology in only a few questions</h2>
+        <button class="button" id="startButton" onclick="start()">Start<span><img
+                    style="margin-right:0;margin-left:0.5vw;" src="./icons/start.svg"></span></button>
+    </div>
+    <div id="test">
+        <section id="quiz">
+            <h2 id="question">Loading...</h2>
+            <button class="button" id="button1"></button>
+            <button class="button" id="button2"></button>
+            <button class="button" id="button3"></button>
+            <button class="button" id="button4"></button>
+            <button class="button" id="button5"></button>
+        </section>
+        <section id="results">
+            <h2 id="match"></h2>
+            <img id="flag">
+            <h2 id="quote"></h2>
+        </section>
+        <button class="button" id="back"><span><img style="width: 1.5vw;" src="./icons/back.svg"></span>Back</button>
+    </div>
 </body>
 <script>
+    const home = document.getElementById("home")
+    const startButton = document.getElementById("startButton")
+    const test = document.getElementById("test")
     const quiz = document.getElementById("quiz")
     const results = document.getElementById("results")
     const question = document.getElementById("question")
@@ -180,30 +224,72 @@
     const flag = document.getElementById("flag")
     const quote = document.getElementById("quote")
     const buttons = [button1, button2, button3, button4, button5]
+    const standardColors = ["#20c020", "#c02020", "#802080"]
+    const standardBackgroundColors = ["#008000", "#800000", "#602060"]
+    const standardIcons = ["yes", "no", "nostate"]
 
-    function q(p = "", q = "Broken", b1 = "", n1 = "", b2 = "", n2 = "", b3 = "", n3 = "", b4 = "", n4 = "", b5 = "", n5 = "") {
+    function init() {
+        home.style.display = "block"
+        test.style.display = "none"
+    }
+
+    function start() {
+        home.style.display = "none"
+        test.style.display = "block"
+    }
+
+    function q(p = "", q = "Broken", b1 = "", n1 = "", b2 = "", n2 = "", b3 = "", n3 = "", b4 = "", n4 = "", b5 = "", n5 = "", c = "", s = "", i = ""
+    ) {
+        if (i === "") {
+            for (let x in buttons) {
+                buttons[x].innerHTML = `<span><img src='./icons/${standardIcons[x]}.svg'></span>`
+            }
+        } else {
+            for (let x in i) {
+                buttons[x].innerHTML = `<span><img src='./icons/${i[x]}.svg'></span>`
+            }
+        }
+
         question.innerText = q
-        button1.innerText = b1
+        button1.innerHTML += b1
         button1.onclick = n1
-        button2.innerText = b2
+        button2.innerHTML += b2
         button2.onclick = n2
-        button3.innerText = b3
+        button3.innerHTML += b3
         button3.onclick = n3
-        button4.innerText = b4
+        button4.innerHTML += b4
         button4.onclick = n4
-        button5.innerText = b5
+        button5.innerHTML += b5
         button5.onclick = n5
         back.onclick = p
         quiz.style.display = "block"
         results.style.display = "none"
-        for (let i in buttons) {
-            if (buttons[i].innerText == "") {
-                buttons[i].style.display = "none"
-            } else {
-                buttons[i].style.display = "block"
+
+        for (let x in buttons) {
+            buttons[x].style.display = buttons[x].innerText === "" ? "none" : "flex"
+        }
+
+        if (c === "") {
+            for (let x in buttons) {
+                buttons[x].style.backgroundColor = standardColors[x]
+            }
+        } else {
+            for (let x in c) {
+                buttons[x].style.backgroundColor = c[x]
+            }
+        }
+
+        if (s === "") {
+            for (let x in buttons) {
+                buttons[x].style.boxShadow = `0 0.5vw ${standardBackgroundColors[x]}`
+            }
+        } else {
+            for (let x in s) {
+                buttons[x].style.boxShadow = `0 0.5vw ${s[x]}`
             }
         }
     }
+
 
     function r(p = null, ideology = null, larp = null) {
         match.innerText = ideology
@@ -215,7 +301,7 @@
     }
 
     function q_privateProperty() {
-        q("", "Should private property exist?", "Yes", q_sovereignRuler, "No", q_markets)
+        q(init, "Should private property exist?", "Yes", q_sovereignRuler, "No", q_markets)
     }
 
     function q_sovereignRuler() {
@@ -223,7 +309,7 @@
     }
 
     function q_sovereignType() {
-        q(q_sovereignRuler, "Where should the ruler's sovereignty come from?", "Inheritance", () => r(q_sovereignType, "Absolute monarchy", "It is legal because I wish it."), "Wisdom", () => r(q_sovereignType, "Noocracy", "If you do not take an interest in the affairs of your government, then you are doomed to live under the rule of fools."), "God", () => r(q_sovereignType, "Theocracy", "He who doesn't pray to the Lord prays to the devil."), "Enterprise", () => r(q_sovereignType, "Neocameralism", "It is not a coincidence that the century of murder and the century of democracy were one and the same."), "Stength", q_weak)
+        q(q_sovereignRuler, "Where should the ruler's sovereignty come from?", "Inheritance", () => r(q_sovereignType, "Absolute monarchy", "It is legal because I wish it."), "Wisdom", () => r(q_sovereignType, "Noocracy", "If you do not take an interest in the affairs of your government, then you are doomed to live under the rule of fools."), "God", () => r(q_sovereignType, "Theocracy", "He who doesn't pray to the Lord prays to the devil."), "Enterprise", () => r(q_sovereignType, "Neocameralism", "It is not a coincidence that the century of murder and the century of democracy were one and the same."), "Stength", q_weak, ["#4060c0", "#a0c020", "#8000a0", "#ffc000", "#c00000"], ["#0040a0", "#608000", "#600080", "#e08000", "#800000"], ["inheritance", "wisdom", "god", "enterprise", "strength"])
     }
 
     function q_weak() {
@@ -239,7 +325,7 @@
     }
 
     function q_distState() {
-        q(q_concentration, "Should the state be abolished?", "Yes", () => r(q_distState, "Anarcho-distributism", "One sees great things from the valley; only small things from the peak."), "No", () => r(q_distState, "Libertarian distributism", "The poor have sometimes objected to being governed badly. The rich have always objected to being governed at all."))
+        q(q_concentration, "Should the state be abolished?", "Yes", () => r(q_distState, "Anarcho-distributism", "One sees great things from the valley, but only small things from the peak."), "No", () => r(q_distState, "Libertarian distributism", "The poor have sometimes objected to being governed badly. The rich have always objected to being governed at all."))
     }
 
     function q_distNeeds() {
@@ -331,7 +417,7 @@
     }
 
     function q_hegemony() {
-        q(q_regulation, "Which gives the most power globally?", "Markets", () => r(q_hegemony, "Neoliberalism", "Eat some chocolate chocolate chip."), "Military", () => r(q_hegemony, "Neoconservatism", "I just want you to know that, when we talk about war, we're really talking about peace."))
+        q(q_regulation, "Which gives the most power globally?", "Trade", () => r(q_hegemony, "Neoliberalism", "Eat some chocolate chocolate chip."), "Military", () => r(q_hegemony, "Neoconservatism", "I just want you to know that, when we talk about war, we're really talking about peace."), "", "", "", "", "", "", ["#c00020", "#0020a0"], ["#800000", "#000060"], ["trade", "military"])
     }
 
     function q_counterEcon() {
@@ -407,6 +493,8 @@
     }
 
     q_privateProperty()
+
+    init()
 </script>
 
 </html>
