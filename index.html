@@ -426,7 +426,7 @@
     }
 
     function q_fashEcon() {
-        q(q_authNat, "Who should manage the economy?", "State", q_fashClergy, "Unions", () => r(q_fashEcon, "National syndicalism", "Nothing is more false than the axiom that governments are belligerent and peoples are pacific."), "Companies", q_fashRegulation)
+        q(q_authNat, "Who should manage the economy?", "State", q_fashClergy, "Unions", () => r(q_fashEcon, "National syndicalism", "Nothing is more false than the axiom that governments are belligerent and peoples are pacific."), "Companies", q_fashRegulation, "", "", "", "", ["#4060c0", "#c02040", "#ffc000"], ["#004080", "#800020", "#c08000"], ["state", "unions", "companies"])
     }
 
     function q_fashClergy() {
@@ -438,7 +438,7 @@
     }
 
     function q_raceLarp() {
-        q(q_racism, "What gives that race such superiority?", "Biology", () => r(q_raceLarp, "National socialism", "Anyone can deal with victory. Only the mighty can bear defeat."), "Spirits", () => r(q_raceLarp, "Esoteric fascism", "The blood of the heroes is closer to God than the ink of the philosophers and the prayers of the faithful."))
+        q(q_racism, "What gives that race such superiority?", "Biology", () => r(q_raceLarp, "National socialism", "Anyone can deal with victory. Only the mighty can bear defeat."), "Spirits", () => r(q_raceLarp, "Esoteric fascism", "The blood of the heroes is closer to God than the ink of the philosophers and the prayers of the faithful."), "", "", "", "", "", "", ["#20a0a0", "#a02080"], ["#006060", "#800060"], ["biology", "spirits"])
     }
 
     function q_fashRegulation() {
@@ -542,6 +542,8 @@
     }
 
     q_privateProperty()
+
+    q_raceLarp()
 
     init()
 </script>
