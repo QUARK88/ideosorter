@@ -17,8 +17,8 @@
         background-color: #101010;
         width: 100%;
         height: 100%;
-        padding: 0%;
-        margin: 0%;
+        margin: 0;
+        position: relative;
     }
 
     * {
@@ -42,6 +42,10 @@
         margin: 2vmax auto;
     }
 
+    #svgHolder {
+        margin-top: 16vmax;
+    }
+
     .footer {
         font-size: 2vmax;
         margin: 2vmax;
@@ -61,10 +65,16 @@
         scale: 1.1;
     }
 
+
     .intro {
         font-size: 2vmax;
         margin: 2vmax auto;
         width: 60vmax;
+    }
+
+    #startButton img {
+        margin-right: 0;
+        margin-left: 0.5vmax;
     }
 
     #question {
@@ -168,6 +178,10 @@
             scale: 1.1;
         }
 
+        #svgHolder {
+            margin-top: 32vmin;
+        }
+
         .footer {
             font-size: 6vmin;
             margin: 6vmin;
@@ -177,17 +191,33 @@
             width: 80vmin;
         }
 
+        #startButton img {
+            margin-left: 2vmin;
+        }
+
         #question {
             width: 80vmin;
         }
 
         .button {
+            font-size: 6vmin;
             padding: 8vmin 4vmin;
             width: 80vmin;
         }
 
         .button img {
-            width: 4vmin;
+            width: 6vmin;
+            padding-right: 2vmin;
+        }
+
+        #back {
+            width: 50vmin;
+            font-size: 4vmin;
+            padding: 4vmin;
+        }
+
+        #back img {
+            width: 6vmin;
         }
     }
 </style>
@@ -196,8 +226,8 @@
     <h1 id="title">IdeoSorter</h1>
     <div id="home">
         <h2 class="intro">Discover your political ideology in only a few questions</h2>
-        <button class="button" id="startButton" onclick="start()">Start<span><img
-                    style="margin-right:0;margin-left:0.5vmax;" src="./icons/start.svg"></span></button>
+        <button class="button" id="startButton" onclick="start()">Start<span><img class="startIcon"
+                    src="./icons/start.svg"></span></button>
     </div>
     <div id="test">
         <section id="quiz">
@@ -213,13 +243,12 @@
             <img id="flag">
             <h2 id="quote"></h2>
         </section>
-        <button class="button" id="back"><span><img style="width: 1.5vmax;" src="./icons/back.svg"></span>Back</button>
+        <button class="button" id="back"><span><img src="./icons/back.svg"></span>Back</button>
     </div>
-    <div style="height: 16vh;"></div>
-    <p class="footer">
-        <a target="_blank" href="https://github.com/QUARK88">Quark 2023</a>
-    </p>
-    <div>
+    <div id="svgHolder">
+        <p class="footer">
+            <a target="_blank" href="https://github.com/QUARK88">Quark 2023</a>
+        </p>
         <img src="discord.svg" class="socialsicon"
             onclick="navigator.clipboard.writeText('realquark');confirm('Discord tag copied!');">
         <a target="_blank" href="https://www.reddit.com/user/QK_QUARK88"><img src="reddit.svg" class="socialsicon"></a>
