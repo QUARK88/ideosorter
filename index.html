@@ -2,9 +2,19 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
     <title>IdeoSorter</title>
+    <meta property="og:site_name" content="quark88.github.io/ideosorter">
+    <meta property="og:title" content="IdeoSorter">
+    <meta property="og:type" content="website">
+    <meta property="og:description"
+        content="Discover your political ideology in only a few questions using a flowchart quiz!">
+    <meta property="og:url" content="https://quark88.github.io/ideosorter/">
+    <meta property="og:image" content="https://quark88.github.io/ideosorter/embed-icon.png">
+    <meta name="theme-color" content="#00a0ff" data-react-helmet="true">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <style>
     @font-face {
@@ -363,7 +373,7 @@
     }
 
     function q_sovereignType() {
-        q(q_sovereignRuler, "Where should the ruler's sovereignty come from?", "Inheritance", () => r(q_sovereignType, "Absolute monarchy", "It is legal because I wish it."), "Wisdom", () => r(q_sovereignType, "Noocracy", "If you do not take an interest in the affairs of your government, then you are doomed to live under the rule of fools."), "God", () => r(q_sovereignType, "Theocracy", "He who doesn't pray to the Lord prays to the devil."), "Enterprise", () => r(q_sovereignType, "Neocameralism", "It is not a coincidence that the century of murder and the century of democracy were one and the same."), "Stength", q_weak, ["#4060c0", "#a0c020", "#8000a0", "#ffc000", "#c00000"], ["#0040a0", "#608000", "#600080", "#e08000", "#800000"], ["inheritance", "wisdom", "god", "enterprise", "strength"])
+        q(q_sovereignRuler, "Where should the ruler's sovereignty come from?", "Inheritance", () => r(q_sovereignType, "Absolute monarchy", "It is legal because I wish it."), "Wisdom", () => r(q_sovereignType, "Noocracy", "If you do not take an interest in the affairs of your government, then you are doomed to live under the rule of fools."), "God", () => r(q_sovereignType, "Theocracy", "He who doesn't pray to the Lord prays to the devil."), "Enterprise", () => r(q_sovereignType, "Neocameralism", "It is not a coincidence that the century of murder and the century of democracy were one and the same."), "Strength", q_weak, ["#4060c0", "#a0c020", "#8000a0", "#ffc000", "#c00000"], ["#0040a0", "#608000", "#600080", "#e08000", "#800000"], ["inheritance", "wisdom", "god", "enterprise", "strength"])
     }
 
     function q_weak() {
