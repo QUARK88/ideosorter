@@ -36,6 +36,7 @@
         color: #ffffff;
         text-align: center;
         margin: 0;
+        font-weight: 200;
 
     }
 
@@ -86,6 +87,10 @@
         font-size: 2vmax;
         margin: 2vmax auto;
         width: 60vmax;
+    }
+
+    #flowchart {
+        width: 40vmax;
     }
 
     #startButton img {
@@ -143,7 +148,6 @@
         cursor: pointer;
         width: 30vmax;
         text-transform: uppercase;
-        font-weight: 700;
         outline: none;
         position: relative;
         background: #404040;
@@ -208,6 +212,10 @@
             width: 80vmin;
         }
 
+        #flowchart {
+            width: 80vmin;
+        }
+
         #startButton img {
             margin-left: 2vmin;
         }
@@ -247,6 +255,7 @@
     <h1 id="title">IdeoSorter</h1>
     <div id="home">
         <h2 class="intro">Discover your political ideology in only a few questions</h2>
+        <img id="flowchart" src="./flowchart.svg">
         <button class="button" id="startButton" onclick="start()">Start<span><img class="startIcon"
                     src="./icons/start.svg"></span></button>
     </div>
@@ -533,11 +542,15 @@
     }
 
     function q_oneCountrySoc() {
-        q(q_demCent, "Is socialism possible in a single country?", "Yes", q_peopleWar, "No", () => r(q_oneCountrySoc, "Trotskyism", "You may not be interested in war, but war is interested in you."))
+        q(q_demCent, "Is socialism possible in a single country?", "Yes", q_socCommodity, "No", () => r(q_oneCountrySoc, "Trotskyism", "You may not be interested in war, but war is interested in you."))
+    }
+
+    function q_socCommodity() {
+        q(q_oneCountrySoc, "Should commodity production occur under socialism?", "Yes", q_peopleWar, "No", () => r(q_socCommodity, "Leninism", "Every society is three meals away from chaos."))
     }
 
     function q_peopleWar() {
-        q(q_oneCountrySoc, "Should the old society be overthrown through protracted guerrilla warfare?", "Yes", q_universalPPW, "No", q_natCom)
+        q(q_socCommodity, "Should the old society be overthrown through protracted guerrilla warfare?", "Yes", q_universalPPW, "No", q_natCom)
     }
 
     function q_universalPPW() {
