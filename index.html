@@ -236,6 +236,10 @@
         #back img {
             width: 6vmin;
         }
+
+        #quote {
+            max-width: 80vmin;
+        }
     }
 </style>
 
@@ -405,7 +409,7 @@
     }
 
     function q_geoWelfare() {
-        q(q_geoState, "Should the revenue from resource tax be spent on welfare?", "Yes", () => r(q_geoWelfare, "Social georgism", "Laissez faire opens the way to the realization of the noble dreams of socialism."), "No", () => r(q_geoWelfare, "Georgism", "There are three ways by which an individual can get wealth-by work, by gift, and by theft. And, clearly, the reasons why the workers get so little is that the beggars and thieves get so much."))
+        q(q_geoState, "Should the revenue from resource tax be spent on welfare?", "Yes", () => r(q_geoWelfare, "Social georgism", "Laissez-faire opens the way to the realization of the noble dreams of socialism."), "No", () => r(q_geoWelfare, "Georgism", "There are three ways by which an individual can get wealth - by work, by gift, and by theft. And, clearly, the reasons why the workers get so little is that the beggars and thieves get so much."))
     }
 
     function q_capState() {
@@ -413,7 +417,7 @@
     }
 
     function q_minarchy() {
-        q(q_capState, "Should the government only cover basic state functions?", "Yes", () => r(q_minarchy, "Minarchism", "Individuals have rights, and there are things no person or group may do to them."), "No", q_disadvantaged)
+        q(q_capState, "Should the role of the state be limited to law enforcement and defense?", "Yes", () => r(q_minarchy, "Minarchism", "Individuals have rights, and there are things no person or group may do to them."), "No", q_disadvantaged)
     }
 
     function q_disadvantaged() {
@@ -521,11 +525,63 @@
     }
 
     function q_commieState() {
-        q(q_communism, "Is a transitory state required for this?", "Yes", q_idfk, "No", q_vouchers)
+        q(q_communism, "Is a transitory state required for this?", "Yes", q_demCent, "No", q_communization)
     }
 
-    function q_idfk() {
+    function q_demCent() {
+        q(q_commieState, "Should proletarian organization be based on democratic centralism?", "Yes", q_oneCountrySoc, "No", q_party)
+    }
 
+    function q_oneCountrySoc() {
+        q(q_demCent, "Is socialism possible in a single country?", "Yes", q_peopleWar, "No", () => r(q_oneCountrySoc, "Trotskyism", "You may not be interested in war, but war is interested in you."))
+    }
+
+    function q_peopleWar() {
+        q(q_oneCountrySoc, "Should the old society be overthrown through protracted guerrilla warfare?", "Yes", q_universalPPW, "No", q_natCom)
+    }
+
+    function q_universalPPW() {
+        q(q_peopleWar, "Are these tactics applicable across all countries?", "Yes", () => r(q_universalPPW, "Marxism-leninism-maoism", "Today's Maoist parties are, without doubt, continuators of yesteryear communist parties. But their foundations must be the heights attained by Maoism in the vanguard concept, not the outlook or methods of their past."), "No", q_laborAristocracy)
+    }
+
+    function q_laborAristocracy() {
+        q(q_universalPPW, "Is the first world working class an anti-revolutionary one?", "Yes", () => r(q_laborAristocracy, "Maoism-third-worldism", "I already know everything about the White Man, and he knows nothing about me."), "No", () => r(q_laborAristocracy, "Maoism", "War can only be abolished through war, and in order to get rid of the gun it is necessary to take up the gun."))
+    }
+
+    function q_natCom() {
+        q(q_peopleWar, "Should the main priority of communists be the liberation of the nation?", "Yes", () => r(q_natCom, "National communism", "The foetus is the property of the entire society. Anyone who avoids having children is a deserter who abandons the laws of national continuity."), "No", () => r(q_natCom, "Marxism-leninism", "In the Soviet Union, it takes more courage to retreat than advance."))
+    }
+
+    function q_party() {
+        q(q_demCent, "Should there be a vanguard party to lead the working force?", "Yes", q_partyForm, "No", q_commodity)
+    }
+
+    function q_partyForm() {
+        q(q_party, "What should the purpose of the party be?", "Dictate", () => r(q_partyForm, "Bordigism", "The hell is the firm, not the fact it has a boss."), "Educate", q_councils, "Participate", q_entireClass, "", "", "", "", ["#a06020", "#a02020", "#a02060"], ["#604000", "#600000", "#600020"], ["dictate", "educate", "participate"])
+    }
+
+    function q_councils() {
+        q(q_partyForm, "Are councils the only true form of worker self-organization?", "Yes", q_germanNazbol, "No", () => r(q_councils, "Kautskyism", "But if socialism is a social necessity, then it would be human nature and not socialism which would have to readjust itself, if ever the two clashed."))
+    }
+
+    function q_germanNazbol() {
+        q(q_councils, "Should traditional and national values be upheld?", "Yes", () => r(q_germanNazbol, "Paetelism", "All problems Strasser has with Marx, would be solved by reading Marx."), "No", () => r(q_germanNazbol, "Council communism", "In order that some may lead, others must be powerless. To be the vanguard of the workers, the elite has to usurp all social key positions."))
+    }
+
+    function q_entireClass() {
+        q(q_partyForm, "Should the party be equivalent to the entire class?", "Yes", () => r(q_entireClass, "Luxemburgism", "Those who do not move, do not notice their chains."), "No", () => r(q_entireClass, "De leonism", "Make no mistake: The organization of the working class must be both economic and political. The capitalist is organized upon both lines. You must attack him on both."))
+    }
+
+    function q_commodity() {
+        q(q_party, "Is commodity fetishism the biggest problem with capitalism?", "Yes", () => r(q_commodity, "Situationism", "Never work."), "No", () => r(q_commodity, "Libertarian marxism", "For the laboring class, there cannot exist a peace of compromise on the basis of a capitalist regime."))
+    }
+
+    function q_communization() {
+        q(q_commieState, "Should capitalist production relations be socialized through armed insurrection?", "Yes", q_oogaBooga, "No", q_vouchers)
+    }
+
+    function q_oogaBooga() {
+        q(q_communization, "Is communism only possible in a pre-capitalist way?", "Yes", () => r(q_oogaBooga, "Camattism", "The human being is dead and is no more than a ritual of capital."), "No", () => r(q_oogaBooga, "Communization", "Communism is the end of the economy as a separate and privileged field on which everything else depends while despising and fearing it."))
     }
 
     function q_vouchers() {
