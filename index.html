@@ -40,10 +40,6 @@
 
     }
 
-    img {
-        image-rendering: pixelated;
-    }
-
     a,
     a:visited,
     a:hover,
@@ -54,7 +50,7 @@
     }
 
     #title {
-        font-size: 3vmax;
+        width: 40vmax;
         margin: 2vmax auto;
     }
 
@@ -252,10 +248,9 @@
 </style>
 
 <body>
-    <h1 id="title">IdeoSorter</h1>
+    <img src="./title.svg" id="title">
     <div id="home">
         <h2 class="intro">Discover your political ideology in only a few questions</h2>
-        <img id="flowchart" src="./flowchart.svg">
         <button class="button" id="startButton" onclick="start()">Start<span><img class="startIcon"
                     src="./icons/start.svg"></span></button>
     </div>
@@ -434,7 +429,7 @@
     }
 
     function q_bertWelfare() {
-        q(q_disadvantaged, "Should there be welfare programs in place?", "Yes", () => r(q_bertWelfare, "Social libertarianism", "I'm a capitalist, and I believe that universal basic income is necessary for capitalism to continue."), "No", () => r(q_bertWelfare, "Bleeding-heart libertarianism", ""))
+        q(q_disadvantaged, "Should there be welfare programs in place?", "Yes", () => r(q_bertWelfare, "Social libertarianism", "I'm a capitalist, and I believe that universal basic income is necessary for capitalism to continue."), "No", () => r(q_bertWelfare, "Bleeding-heart libertarianism", "No self-respecting person who loves humanity or wishes for a world of greater equality and justice should have anything to do with whitewashing the slavery and extermination of Marxism-Leninism."))
     }
 
     function q_bertWar() {
@@ -618,11 +613,31 @@
     }
 
     function q_transition() {
-        q(q_experts, "Which way should be used to bring about change?", "Election", () => r(q_transition, "Democratic socialism", "The future belongs to the socialism which is democratic, to the democracy which is socialist."), "Revolution", q_idfk2, "", "", "", "", "", "", ["#e04080", "#c04000"], ["#a00040", "#800000"], ["election", "revolution"])
+        q(q_experts, "Which way should be used to bring about change?", "Election", () => r(q_transition, "Democratic socialism", "The future belongs to the socialism which is democratic, to the democracy which is socialist."), "Revolution", q_authSoc, "", "", "", "", "", "", ["#e04080", "#c04000"], ["#a00040", "#800000"], ["election", "revolution"])
     }
 
-    function q_idfk2() {
+    function q_authSoc() {
+        q(q_transition, "Should strongly authoritarian measures be used to build and maintain socialism?", "Yes", q_dasein, "No", q_agrSoc)
+    }
 
+    function q_dasein() {
+        q(q_authSoc, "Should human essence be the focus of society?", "Yes", () => r(q_dasein, "Fourth theory", "If you are in favour of global liberal hegemony, you are the enemy."), "No", q_daJoos)
+    }
+
+    function q_daJoos() {
+        q(q_dasein, "Are jews the cause for harsh worker conditions?", "Yes", () => r(q_daJoos, "Strasserism", "We must take from the right nationalism without capitalism and from the left socialism without internationalism."), "No", q_nazbol)
+    }
+
+    function q_nazbol() {
+        q(q_daJoos, "Should the nation come before all else?", "Yes", () => r(q_nazbol, "National bolshevism", "A country whose population gets its living by cheating is a bad country."), "No", () => r(q_nazbol, "State socialism", "In this sense, the theory of the Communists may be summed up in the single sentence: Abolition of private property."))
+    }
+
+    function q_agrSoc() {
+        q(q_authSoc, "Should the economy be centered on agriculture?", "Yes", () => r(q_agrSoc, "Agrarian socialism", "The land belongs to those who work it with their hands."), "No", q_unions)
+    }
+
+    function q_unions() {
+        q(q_agrSoc, "Should society be organized through unions?", "Yes", () => r(q_unions, "Syndicalism", "Nothing can so impress the mind and soul of the worker as this enduring battle for daily bread."), "No", () => r(q_unions, "Libertarian socialism", "Socialism will be free, or it will not be at all."))
     }
 
     q_privateProperty()
