@@ -356,7 +356,7 @@ function q_partyDict() {
     q(q_reform, "Will the dictatorship of the proletariat be the dictatorship of the party?", "Yes", q_natLib, "No", () => r(q_partyDict, "Council communism"))
 }
 function q_natLib() {
-    q(q_partyDict, "Should communists support national liberation?", "Yes", () => r(q_natLib, "Damenism"), "No", q_nature)
+    q(q_partyDict, "Should communists support national liberation?", "Yes", q_nature, "No", () => r(q_natLib, "Damenism"))
 }
 function q_nature() {
     q(q_natLib, "Is an exit back into nature our only option to escape capitalism?", "Yes", () => r(q_nature, "Camattism"), "No", () => r(q_nature, "Bordigism"))
