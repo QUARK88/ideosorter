@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/x-icon" href="./assets/meta/icon.png">
+    <title>IdeoSorter</title>
+    <meta property="og:site_name" content="quark88.github.io/ideosorter">
+    <meta property="og:title" content="IdeoSorter">
+    <meta property="og:type" content="website">
+    <meta property="og:description"
+        content="Discover your political ideology in only a few questions using a flowchart quiz!">
+    <meta property="og:url" content="https://quark88.github.io/ideosorter/">
+    <meta property="og:image" content="https://quark88.github.io/ideosorter/assets/meta/embed-icon.png">
+    <meta name="theme-color" content="#00a0ff" data-react-helmet="true">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <section id="title">
+        <div class="version"></div>
+        <img src="./assets/common/title.svg" id="logo">
+        <div class="version">
+            <a target="_blank" href="https://youtu.be/1qAqQQrW4E8">V2.0.0</a>
+        </div>
+    </section>
+    <section id="home">
+        <h2 class="intro">Discover your political ideology in only a few questions</h2>
+        <button class="button" id="startButton" onclick="show(quiz),q_privateProperty()">
+            Start
+            <span>
+                <img class="startIcon" src="./assets/buttons/start.svg">
+            </span>
+        </button>
+        <div class="smallButtons">
+            <button class="button small" onclick="show(custom)">
+                <span>
+                    <img src="./assets/buttons/create.svg">
+                </span>
+                Create
+            </button>
+            <button class="button small" onclick="show(tree)">
+                <span>
+                    <img src="./assets/buttons/tree.svg">
+                </span>
+                Tree
+            </button>
+        </div>
+        <h2 class="notice">Check out those other cool tests also</h2>
+        <div id="homeTests">
+            <a target="_blank" href="https://quark88.github.io/dozenvalues">
+                <button class="button homeTest">DozenValues<img class="testIcon" src="./assets/sites/dv.svg">
+                </button>
+            </a>
+            <a target="_blank" href="https://quark88.github.io/polithex">
+                <button class="button homeTest">PolitHex<img class="testIcon" src="./assets/sites/ph.svg"></button>
+            </a>
+            <a target="_blank" href="https://quark88.github.io/sapplykiller">
+                <button class="button homeTest">SapplyKiller<img class="testIcon" src="./assets/sites/sk.svg"></button>
+            </a>
+        </div>
+    </section>
+    <section id="quiz">
+        <h2 id="question">Loading...</h2>
+        <button class="button" id="button1">Loading...</button>
+        <button class="button" id="button2">Loading...</button>
+        <button class="button" id="button3">Loading...</button>
+        <button class="button" id="button4">Loading...</button>
+        <button class="button" id="button5">Loading...</button>
+        <button class="button small back" id="quizBack"><span><img src="./assets/buttons/back.svg"></span>Back</button>
+    </section>
+    <section id="results">
+        <div class="screenshot">
+            <h2 id="match" class="match">Ideology</h2>
+            <img id="flag" class="flag" src="./assets/flags/None.svg">
+            <h2 id="quote" class="quote">Quote</h2>
+            <h2 id="author" class="author">Author</h2>
+        </div>
+        <button class="button small back" id="resultsBack"><span><img
+                    src="./assets/buttons/back.svg"></span>Back</button>
+    </section>
+    <section id="custom">
+        <div class="screenshot">
+            <h2 id="customMatch" class="match" onclick="editText(this)">Loading...</h2>
+            <img id="customFlag" class="flag" src="./assets/flags/Drop.svg" onclick="selectFile()"
+                ondrop="dropHandler(event)" ondragover="dragOverHandler(event)">
+            <h2 id="customQuote" class="quote" onclick="editText(this)">Loading...</h2>
+            <h2 id="customAuthor" class="author" onclick="editText(this)">Loading...</h2>
+        </div>
+        <button class="button small back" onclick="show(home)"><span><img
+                    src="./assets/buttons/back.svg"></span>Back</button>
+    </section>
+    <section id="tree">
+        <h2 class="notice">Legend<h2/>
+            <img src="./tree/legend.svg" style="width:50vw;">
+        <h2 class="notice">Pro-private property tree</h2>
+        <img src="./tree/tree1.svg" style="width:90vw;">
+        <h2 class="notice">Anti-private property tree</h2>
+        <img src="./tree/tree2.svg" style="width:90vw;">
+        <div style="height: 4vmax;"></div>
+        <button class="button small back" onclick="show(home)"><span><img
+                    src="./assets/buttons/back.svg"></span>Back</button>
+    </section>
+    <section id="svgHolder">
+        <p class="footer">
+            <a target="_blank" href="https://github.com/QUARK88">Quark 2024</a>
+        </p>
+        <img src="./assets/sites/discord.svg" class="socialsicon"
+            onclick="navigator.clipboard.writeText('realquark');confirm('Discord tag copied!');">
+        <a target="_blank" href="https://www.reddit.com/user/QK_QUARK88"><img src="./assets/sites/reddit.svg"
+                class="socialsicon"></a>
+        <a target="_blank" href="https://x.com/RenaudBeaulieuQ"><img src="./assets/sites/x.svg" class="socialsicon"></a>
+    </section>
+</body>
+<script src="./script.js">
+</script>
+
+</html>
