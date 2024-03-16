@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="3072"
+   height="2048"
+   viewBox="0 0 812.8 541.867"
+   version="1.1"
+   id="svg2"
+   sodipodi:docname="Geo-libertarianism.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="namedview2"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="0.16048177"
+     inkscape:cx="1536"
+     inkscape:cy="1025.0385"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <path
+     fill="#406000"
+     d="M0 0h812.8v541.867H0Z"
+     paint-order="stroke fill markers"
+     id="path1"
+     style="fill:#00d040;fill-opacity:1" />
+  <path
+     fill="#fff"
+     d="M406.4 33.867 169.333 270.933 406.4 508l237.067-237.067L406.4 33.867zm0 67.733 67.733 67.733-67.733 67.734-67.733-67.734L406.4 101.6zM304.8 203.2l67.733 67.733-67.733 67.734-67.733-67.734L304.8 203.2zm203.2 0 67.733 67.733L508 338.667l-67.733-67.734L508 203.2zM406.4 304.8l67.733 67.733-67.733 67.734-67.733-67.734L406.4 304.8z"
+     paint-order="stroke fill markers"
+     id="path2" />
+</svg>
