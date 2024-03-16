@@ -270,7 +270,6 @@ section {
 }
 
 .flag {
-    image-rendering: pixelated;
     max-width: 30vmax;
     min-height: 10vmax;
     max-height: 20vmax;
