@@ -230,7 +230,10 @@ function q_coop() {
     q(q_landRent, "Will cooperatives dominate the free market?", "Yes", () => r(q_coop, "Left-rothbardianism"), "No", q_covenant)
 }
 function q_covenant() {
-    q(q_coop, "Will covenant communities revive traditional norms?", "Yes", () => r(q_covenant, "Hoppeanism"), "No", () => r(q_covenant, "Anarcho-capitalism"))
+    q(q_coop, "Will covenant communities revive traditional norms?", "Yes", q_separation, "No", () => r(q_covenant, "Anarcho-capitalism"))
+}
+function q_separation() {
+    q(q_covenant, "How should separation of covenants occur?", "Peacefully", () => r(q_separation, "Hoppeanism"), "Aggressively", () => r(q_separation, "Nilssonianism"), "", "", "", "", "", "", ["#ffc040", "#c06020"], ["#c08000", "#802000"], ["peacefully", "aggressively"])
 }
 function q_stateFunctions() {
     q(q_constitution, "Who should assume state functions?", "Elected Officials", q_dist, "Strongman", q_total, "Sovereign", q_sovereignType, "", "", "", "", ["#2060e0", "#c02040", "#c0a020"], ["#2040a0", "#802020", "#806020"], ["elected officials", "strongman", "sovereign"])
@@ -290,13 +293,19 @@ function q_control() {
     q(q_castes, "How should control over society be ensured?", "Apathy", () => r(q_control, "Fordism"), "Terror", () => r(q_control, "Orwellianism"), "", "", "", "", "", "", ["#e060c0", "#c00000"], ["#c040a0", "#800000"], ["apathy", "terror"])
 }
 function q_corpo() {
-    q(q_total, "Should profession groups partake in policy making?", "Yes", () => r(q_corpo, "State corporatism"), "No", q_soe)
+    q(q_total, "Should profession groups partake in policy making?", "Yes", q_yellow, "No", q_soe)
+}
+function q_yellow() {
+    q(q_corpo, "Should worker unions be supported in their struggle for higher wages?", "Yes", () => r(q_yellow, "Yellow socialism"), "No", () => r(q_yellow, "State corporatism"))
 }
 function q_soe() {
     q(q_corpo, "Should the state get involved in the allocation of capital?", "Yes", () => r(q_soe, "State capitalism"), "No", () => r(q_soe, "Autocratic capitalism"))
 }
 function q_sovereignType() {
-    q(q_stateFunctions, "Where should the sovereign's legitimacy come from?", "Inheritance", () => r(q_sovereignType, "Absolute monarchy"), "Wisdom", () => r(q_sovereignType, "Noocracy"), "God", () => r(q_sovereignType, "Theocracy"), "Enterprise", () => r(q_sovereignType, "Neocameralism"), "Strength", q_weak, ["#4060c0", "#a0c020", "#8000a0", "#ffc000", "#c00000"], ["#0040a0", "#608000", "#600080", "#e08000", "#800000"], ["inheritance", "wisdom", "god", "enterprise", "strength"])
+    q(q_stateFunctions, "Where should the sovereign's legitimacy come from?", "Inheritance", () => r(q_sovereignType, "Absolute monarchy"), "Wisdom", () => r(q_sovereignType, "Noocracy"), "God", q_guelph, "Enterprise", () => r(q_sovereignType, "Neocameralism"), "Strength", q_weak, ["#4060c0", "#a0c020", "#8000a0", "#ffc000", "#c00000"], ["#0040a0", "#608000", "#600080", "#e08000", "#800000"], ["inheritance", "wisdom", "god", "enterprise", "strength"])
+}
+function q_guelph() {
+    q(q_sovereignType, "Should the government engage in secular legislation?", "Yes", () => r(q_guelph, "Divine monarchy"), "No", () => r(q_guelph, "Theocracy"))
 }
 function q_weak() {
     q(q_sovereignType, "Should the weak be subjugated?", "Yes", () => r(q_weak, "Kraterocracy"), "No", () => r(q_weak, "Combatocracy"))
