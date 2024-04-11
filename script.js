@@ -24,6 +24,7 @@ const { home,
     customMatch,
     customFlag,
     customQuote,
+    matches,
     tree } = DomProxy()
 const sections = [home, quiz, results, custom, tree]
 const buttons = [button1, button2, button3, button4, button5]
@@ -40,9 +41,17 @@ async function fetchData() {
         return null
     }
 }
+matches.addEventListener('change', function () {
+    r("tree", matches.options[matches.selectedIndex].text)
+})
 let ideologies
 (async () => {
     ideologies = await fetchData()
+    for (i in ideologies) {
+        var option = document.createElement('option')
+        option.innerHTML = i
+        matches.appendChild(option)
+    }
 })()
 function show(section = home) {
     document.documentElement.scrollTop = 0
@@ -179,10 +188,12 @@ async function r(p, ideology) {
     } else {
         author.innerText = "No author"
     }
-    if (p) {
-        resultsBack.onclick = p
-    } else {
+    if (p == "tree") {
+        resultsBack.onclick = () => show(tree)
+    } else if (p == "") {
         resultsBack.onclick = () => show(home)
+    } else {
+        resultsBack.onclick = p
     }
     show(results)
     match.scrollIntoView({ behavior: "auto" })
@@ -233,7 +244,7 @@ function q_covenant() {
     q(q_coop, "Will covenant communities revive traditional norms?", "Yes", q_separation, "No", () => r(q_covenant, "Anarcho-capitalism"))
 }
 function q_separation() {
-    q(q_covenant, "How should separation of covenants occur?", "Peacefully", () => r(q_separation, "Hoppeanism"), "Aggressively", () => r(q_separation, "Nilssonianism"), "", "", "", "", "", "", ["#ffc040", "#c06020"], ["#c08000", "#802000"], ["peacefully", "aggressively"])
+    q(q_covenant, "How should separation of covenants occur?", "Peacefully", () => r(q_separation, "Hoppeanism"), "Aggressively", () => r(q_separation, "Nilssonianism"), "", "", "", "", "", "", ["#ffc040", "#c06020"], ["#c08000", "#804000"], ["peacefully", "aggressively"])
 }
 function q_stateFunctions() {
     q(q_constitution, "Who should assume state functions?", "Elected Officials", q_dist, "Strongman", q_total, "Sovereign", q_sovereignType, "", "", "", "", ["#2060e0", "#c02040", "#c0a020"], ["#2040a0", "#802020", "#806020"], ["elected officials", "strongman", "sovereign"])
@@ -410,7 +421,10 @@ function q_natSynd() {
     q(q_natSocAuth, "Should state-coordinated unions organize society?", "Yes", () => r(q_natSynd, "National syndicalism"), "No", q_daJoos)
 }
 function q_daJoos() {
-    q(q_natSynd, "Are jews the cause for harsh worker conditions?", "Yes", () => r(q_daJoos, "Strasserism"), "No", () => r(q_daJoos, "National bolshevism"))
+    q(q_natSynd, "Are jews the cause for harsh worker conditions?", "Yes", () => r(q_daJoos, "Strasserism"), "No", q_nazbol)
+}
+function q_nazbol() {
+    q(q_daJoos, "How should the will of the people be executed?", "Vanguard", () => r(q_nazbol, "National bolshevism"), "Parliament", () => r(q_nazbol, "Limonovism"), "Direct democracy", () => r(q_nazbol, "Third international theory"), "", "", "", "", ["#a00000", "#c00040", "#c04000"], ["#600000", "#800020", "#802000"], ["vanguard", "parliament", "direct democracy"])
 }
 function q_agrSoc() {
     q(q_authSoc, "Should the economy be centered on agriculture?", "Yes", () => r(q_agrSoc, "Agrarian socialism"), "No", q_unions)

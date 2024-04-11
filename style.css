@@ -227,13 +227,14 @@ section {
     width: 30vmax;
     outline: none;
     position: relative;
-    background: var(--button);
+    background-color: var(--button);
     box-shadow: 0 0.5vmax var(--buttonShadow);
     border-radius: 1vmax;
 }
 
 .button:hover,
-.homeTest:hover {
+.homeTest:hover,
+#matches:hover {
     filter: brightness(1.1);
 }
 
@@ -294,6 +295,18 @@ section {
 #customFlag:hover {
     cursor: pointer;
     filter: brightness(1.1);
+}
+
+#matches, option {
+    width: 30vmax;
+    background-color: var(--button);
+    box-shadow: 0 0.5vmax var(--buttonShadow);
+    border: none;
+    padding: 1.5vmax;
+    font-size: 1vmax;
+    cursor: pointer;
+    border-radius: 1vmax;
+    text-align: left;
 }
 
 @media only screen and (max-width: 800px) {
