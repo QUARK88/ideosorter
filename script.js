@@ -424,7 +424,10 @@ function q_natSynd() {
     q(q_natSocAuth, "Should state-coordinated unions organize society?", "Yes", () => r(q_natSynd, "National syndicalism"), "No", q_daJoos)
 }
 function q_daJoos() {
-    q(q_natSynd, "Are jews the cause for harsh worker conditions?", "Yes", () => r(q_daJoos, "Strasserism"), "No", q_nazbol)
+    q(q_natSynd, "Are jews the cause for harsh worker conditions?", "Yes", q_agrNazi, "No", q_nazbol)
+}
+function q_agrNazi(){
+    q(q_daJoos, "Should agriculture be the main focus of the economy?", "Yes", () => r(q_agrNazi, "Strasserism"), "No", ()=>r(q_agrNazi, "Niekischism"))
 }
 function q_nazbol() {
     q(q_daJoos, "How should the will of the people be executed?", "Vanguard", () => r(q_nazbol, "National bolshevism"), "Parliament", () => r(q_nazbol, "Limonovism"), "Direct democracy", () => r(q_nazbol, "Third international theory"), "", "", "", "", ["#a00000", "#c00040", "#c04000"], ["#600000", "#800020", "#802000"], ["vanguard", "parliament", "direct democracy"])
