@@ -373,7 +373,7 @@ function q_reform() {
     q(q_parliament, "Should we reform capitalism on the short term?", "Yes", () => r(q_reform, "Classical social democracy"), "No", () => r(q_reform, "De leonism"))
 }
 function q_partyDict() {
-    q(q_reform, "Will the dictatorship of the proletariat be the dictatorship of the party?", "Yes", q_natLib, "No", () => r(q_partyDict, "Council communism"))
+    q(q_reform, "Will the dictatorship of the proletariat be the dictatorship of the party?", "Yes", q_natLib, "No", () => r(q_partyDict, "Dutch-german left communism"))
 }
 function q_natLib() {
     q(q_partyDict, "Should communists support national liberation?", "Yes", q_nature, "No", () => r(q_natLib, "Damenism"))
@@ -382,7 +382,10 @@ function q_nature() {
     q(q_natLib, "Is an exit back into nature our only option to escape capitalism?", "Yes", () => r(q_nature, "Camattism"), "No", () => r(q_nature, "Bordigism"))
 }
 function q_commodity() {
-    q(q_party, "Should proletarian revolution be that of everyday life?", "Yes", () => r(q_commodity, "Situationism"), "No", () => r(q_commodity, "Libertarian marxism"))
+    q(q_party, "Should proletarian revolution be that of everyday life?", "Yes", () => r(q_commodity, "Situationism"), "No", q_dotp)
+}
+function q_dotp() {
+    q(q_commodity, "Should there be a dictatorship of the proletariat?", "Yes", () => r(q_dotp, "Council communism"), "No", () => r(q_dotp, "Libertarian marxism"))
 }
 function q_communization() {
     q(q_commieState, "Should capitalist relations be socialized through armed insurrection?", "Yes", () => r(q_communization, "Communization"), "No", q_vouchers)
