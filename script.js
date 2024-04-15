@@ -373,7 +373,7 @@ function q_reform() {
     q(q_parliament, "Should we reform capitalism on the short term?", "Yes", () => r(q_reform, "Classical social democracy"), "No", () => r(q_reform, "De leonism"))
 }
 function q_partyDict() {
-    q(q_reform, "Will the dictatorship of the proletariat be the dictatorship of the party?", "Yes", q_natLib, "No", () => r(q_partyDict, "Dutch-german left communism"))
+    q(q_parliament, "Will the dictatorship of the proletariat be the dictatorship of the party?", "Yes", q_natLib, "No", () => r(q_partyDict, "Dutch-german left communism"))
 }
 function q_natLib() {
     q(q_partyDict, "Should communists support national liberation?", "Yes", q_nature, "No", () => r(q_natLib, "Damenism"))
