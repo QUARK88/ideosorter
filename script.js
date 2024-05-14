@@ -6,7 +6,9 @@ function DomProxy() {
     }
     return new Proxy({}, handler)
 }
-const { home,
+const { navToggle,
+    navToggled,
+    home,
     quiz,
     question,
     button1,
@@ -71,6 +73,17 @@ function show(section = home) {
     }
 }
 show(home)
+navToggled.style.display = "none"
+function navigate() {
+    console.log("Bruh")
+    if (navToggled.style.display == "none"){
+        navToggle.src = "./assets/buttons/no.svg"
+        navToggled.style.display = "block"
+    } else {
+        navToggle.src = "./assets/buttons/navigation.svg"
+        navToggled.style.display = "none"
+    }
+}
 function editText(element) {
     const newText = prompt("Enter new text:")
     if (newText != "") {
@@ -211,16 +224,13 @@ function q_distBert() {
     q(q_minarchy, "Should private property be made as widely owned as possible?", "Yes", () => r(q_distBert, "Libertarian distributism"), "No", q_singleTax)
 }
 function q_singleTax() {
-    q(q_distBert, "Should the only tax be a levy on public resource usage?", "Yes", () => r(q_singleTax, "Geolibertarianism"), "No", q_disadvantaged)
+    q(q_distBert, "Should the only tax be a levy on public resource usage?", "Yes", () => r(q_singleTax, "Geolibertarianism"), "No", q_ubi)
 }
-function q_disadvantaged() {
-    q(q_singleTax, "Should the disadvantaged be helped?", "Yes", q_bertWelfare, "No", q_bertWar)
-}
-function q_bertWelfare() {
-    q(q_disadvantaged, "Should there be welfare programs in place?", "Yes", () => r(q_bertWelfare, "Social libertarianism"), "No", () => r(q_bertWelfare, "Bleeding-heart libertarianism"))
+function q_ubi() {
+    q(q_singleTax, "Should there be an universal basic income?", "Yes", () => r(q_ubi, "Social libertarianism"), "No", q_bertWar)
 }
 function q_bertWar() {
-    q(q_disadvantaged, "Should liberty be spread around the globe by force?", "Yes", () => r(q_bertWar, "Neo-libertarianism"), "No", q_bertTrad)
+    q(q_ubi, "Should liberty be spread around the globe by force?", "Yes", () => r(q_bertWar, "Neo-libertarianism"), "No", q_bertTrad)
 }
 function q_bertTrad() {
     q(q_bertWar, "Will a smaller government cause a return to traditional values?", "Yes", () => r(q_bertTrad, "Paleolibertarianism"), "No", () => r(q_bertTrad, "Right-libertarianism"))
@@ -274,13 +284,16 @@ function q_needs() {
     q(q_trad, "Should people's needs be met unconditionally?", "Yes", () => r(q_needs, "Social democracy"), "No", q_regulation)
 }
 function q_regulation() {
-    q(q_needs, "Should the economy be tightly regulated?", "Yes", q_bigBusiness, "No", q_hegemony)
+    q(q_needs, "Should the economy be tightly regulated?", "Yes", q_bigBusiness, "No", q_mobility)
 }
 function q_bigBusiness() {
     q(q_regulation, "Should big businesses have more social responsibilites?", "Yes", () => r(q_bigBusiness, "Ordoliberalism"), "No", () => r(q_bigBusiness, "Social liberalism"))
 }
+function q_mobility() {
+    q(q_regulation, "Should social mobility be promoted through state spending?", "Yes", () => r(q_mobility, "Third way"), "No", q_hegemony)
+}
 function q_hegemony() {
-    q(q_regulation, "Which gives the most power globally?", "Trade", () => r(q_hegemony, "Neoliberalism"), "Military", () => r(q_hegemony, "Neoconservatism"), "", "", "", "", "", "", ["#c00020", "#0020a0"], ["#800000", "#000080"], ["trade", "military"])
+    q(q_mobility, "Which gives the most power globally?", "Trade", () => r(q_hegemony, "Neoliberalism"), "Military", () => r(q_hegemony, "Neoconservatism"), "", "", "", "", "", "", ["#c00020", "#0020a0"], ["#800000", "#000080"], ["trade", "military"])
 }
 function q_total() {
     q(q_stateFunctions, "Should the state have a role in all aspects of society?", "Yes", q_racism, "No", q_corpo)
@@ -301,7 +314,7 @@ function q_castes() {
     q(q_palingenesis, "Should a system of castes be in place?", "Yes", q_control, "No", () => r(q_castes, "Jacobinism"))
 }
 function q_control() {
-    q(q_castes, "How should control over society be ensured?", "Apathy", () => r(q_control, "Fordism"), "Terror", () => r(q_control, "Orwellianism"), "", "", "", "", "", "", ["#e060c0", "#c00000"], ["#c040a0", "#800000"], ["apathy", "terror"])
+    q(q_castes, "How should control over society be ensured?", "Apathy", () => r(q_control, "Fordism"), "Terror", () => r(q_control, "Orwellianism"), "", "", "", "", "", "", ["#e060c0", "#a00000"], ["#c020a0", "#600000"], ["apathy", "terror"])
 }
 function q_corpo() {
     q(q_total, "Should profession groups partake in policy making?", "Yes", q_yellow, "No", q_soe)
@@ -310,13 +323,22 @@ function q_yellow() {
     q(q_corpo, "Should worker unions be supported in their struggle for higher wages?", "Yes", () => r(q_yellow, "Yellow socialism"), "No", () => r(q_yellow, "State corporatism"))
 }
 function q_soe() {
-    q(q_corpo, "Should the state get involved in the allocation of capital?", "Yes", () => r(q_soe, "State capitalism"), "No", () => r(q_soe, "Autocratic capitalism"))
+    q(q_corpo, "Should the state get involved in the allocation of capital?", "Yes", q_authWelf, "No", () => r(q_soe, "Autocratic capitalism"))
+}
+function q_authWelf() {
+    q(q_soe, "Should compliant citizens receive extensive welfare?", "Yes", () => r(q_authWelf, "Social authoritarianism"), "No", () => r(q_authWelf, "State capitalism"))
 }
 function q_sovereignType() {
-    q(q_stateFunctions, "Where should the sovereign's legitimacy come from?", "Inheritance", () => r(q_sovereignType, "Absolute monarchy"), "Wisdom", () => r(q_sovereignType, "Noocracy"), "God", q_guelph, "Enterprise", () => r(q_sovereignType, "Neocameralism"), "Strength", q_weak, ["#4060c0", "#a0c020", "#8000a0", "#ffc000", "#c00000"], ["#0040a0", "#608000", "#600080", "#e08000", "#800000"], ["inheritance", "wisdom", "god", "enterprise", "strength"])
+    q(q_stateFunctions, "Where should the sovereign's legitimacy come from?", "Inheritance", q_absolute, "Wisdom", () => r(q_sovereignType, "Noocracy"), "God", q_guelph, "Selection", q_electMon, "Strength", q_weak, ["#4060c0", "#a0c020", "#8000a0", "#ffc020", "#c02040"], ["#0040a0", "#608000", "#600080", "#c08000", "#800000"], ["inheritance", "wisdom", "god", "selection", "strength"])
+}
+function q_absolute(){
+    q(q_sovereignType, "Should the sovereign be equivalent to the state?", "Yes", () => r(q_absolute, "Absolute monarchy"), "No", () => r(q_absolute, "Hereditary monarchy"))
 }
 function q_guelph() {
     q(q_sovereignType, "Should the government engage in secular legislation?", "Yes", () => r(q_guelph, "Divine monarchy"), "No", () => r(q_guelph, "Theocracy"))
+}
+function q_electMon() {
+    q(q_sovereignType, "Who should hold the power to select the ruler?", "Nobles", () => r(q_electMon, "Elective monarchy"), "Investors", () => r(q_electMon, "Neocameralism"), "", "", "", "", "", "", ["#a080ff", "#e08040"], ["#6040c0", "#a04000"], ["nobles", "investors"])
 }
 function q_weak() {
     q(q_sovereignType, "Should the weak be subjugated?", "Yes", () => r(q_weak, "Kraterocracy"), "No", () => r(q_weak, "Combatocracy"))
@@ -358,10 +380,16 @@ function q_universalPPW() {
     q(q_peopleWar, "Are these tactics applicable across all countries?", "Yes", () => r(q_universalPPW, "Marxism-leninism-maoism"), "No", q_laborAristocracy)
 }
 function q_laborAristocracy() {
-    q(q_universalPPW, "Is the first world working class an anti-revolutionary one?", "Yes", () => r(q_laborAristocracy, "Maoism-third-worldism"), "No", () => r(q_laborAristocracy, "Maoism"))
+    q(q_universalPPW, "Is the first world working class an anti-revolutionary one?", "Yes", () => r(q_laborAristocracy, "Maoism-third-worldism"), "No", q_chingChong)
+}
+function q_chingChong() {
+    q(q_laborAristocracy, "Should civilians be allowed to run independent enterprises under socialism?", "Yes", () => r(q_chingChong, "Dengism"), "No", () => r(q_chingChong, "Maoism"))
 }
 function q_natCom() {
-    q(q_peopleWar, "Should the main priority of communists be the liberation of the nation?", "Yes", () => r(q_natCom, "National communism"), "No", () => r(q_natCom, "Marxism-leninism"))
+    q(q_peopleWar, "Should the main priority of communists be the liberation of the nation?", "Yes", q_songun, "No", () => r(q_natCom, "Marxism-leninism"))
+}
+function q_songun(){
+q(q_natCom, "Is giving resource precedence to the military necessary to secure the revolution?", "Yes", () => r(q_songun, "Juche"), "No", () => r(q_songun, "National communism"))
 }
 function q_party() {
     q(q_demCent, "Should there be a vanguard party to lead the working class?", "Yes", q_parliament, "No", q_commodity)
@@ -403,7 +431,10 @@ function q_myth() {
     q(q_anarchoUnions, "Should we adopt the myth of our victory as our movement's unifier?", "Yes", () => r(q_myth, "Sorelianism"), "No", () => r(q_myth, "Anarcho-syndicalism"))
 }
 function q_bookchin() {
-    q(q_anarchoUnions, "Should the state be opposed through local direct democracy?", "Yes", () => r(q_bookchin, "Libertarian municipalism"), "No", () => r(q_bookchin, "Anarcho-communism"))
+    q(q_anarchoUnions, "Should the state be opposed through local direct democracy?", "Yes", () => r(q_bookchin, "Libertarian municipalism"), "No", q_platform)
+}
+function q_platform() {
+    q(q_bookchin, "Should the working class be organized by a group of tacticians?", "Yes", () => r(q_platform, "Platformism"), "No", () => r(q_platform, "Anarcho-communism"))
 }
 function q_experts() {
     q(q_communism, "Should an expert committee optimize distribution to eliminate scarcity?", "Yes", () => r(q_experts, "Technocracy"), "No", q_transition)
@@ -426,8 +457,8 @@ function q_natSynd() {
 function q_daJoos() {
     q(q_natSynd, "Are jews the cause for harsh worker conditions?", "Yes", q_agrNazi, "No", q_nazbol)
 }
-function q_agrNazi(){
-    q(q_daJoos, "Should agriculture be the main focus of the economy?", "Yes", () => r(q_agrNazi, "Strasserism"), "No", ()=>r(q_agrNazi, "Niekischism"))
+function q_agrNazi() {
+    q(q_daJoos, "Should agriculture be the main focus of the economy?", "Yes", () => r(q_agrNazi, "Strasserism"), "No", () => r(q_agrNazi, "Niekischism"))
 }
 function q_nazbol() {
     q(q_daJoos, "How should the will of the people be executed?", "Vanguard", () => r(q_nazbol, "National bolshevism"), "Parliament", () => r(q_nazbol, "Limonovism"), "Direct democracy", () => r(q_nazbol, "Third international theory"), "", "", "", "", ["#a00000", "#c00040", "#c04000"], ["#600000", "#800020", "#802000"], ["vanguard", "parliament", "direct democracy"])

@@ -10,7 +10,7 @@
     <meta property="og:type" content="website">
     <meta property="og:description"
         content="Discover your political ideology in only a few questions using a flowchart quiz!">
-    <meta property="og:url" content="https://quark88.github.io/ideosorter/">
+    <meta property="og:url" content="https://quark88.github.io/ideosorter">
     <meta property="og:image" content="https://quark88.github.io/ideosorter/assets/meta/embed-icon.png">
     <meta name="theme-color" content="#00a0ff" data-react-helmet="true">
     <meta charset="utf-8">
@@ -18,11 +18,20 @@
 </head>
 
 <body>
+    <div id="nav">
+        <div title="Show/hide navigation tools" class="navButton" onclick="navigate()"><img id="navToggle" class="navIcon" src="./assets/buttons/navigation.svg"></div>
+        <div id="navToggled">
+            <div title="Home" class="navButton" onclick="show(home)"><img class="navIcon" src="./assets/buttons/home.svg"></div>
+            <div title="Quiz" class="navButton" onclick="show(quiz),q_privateProperty()"><img class="navIcon" src="./assets/buttons/yes.svg"></div>
+            <div title="Create" class="navButton" onclick="show(custom)"><img class="navIcon" src="./assets/buttons/create.svg"></div>
+            <div title="Tree" class="navButton" onclick="show(tree)"><img class="navIcon" src="./assets/buttons/tree.svg"></div>
+        </div>
+    </div>
     <section id="title">
         <div class="version"></div>
         <img src="./assets/common/title.svg" id="logo">
-        <div class="version">
-            <a target="_blank" href="https://youtu.be/m2Ma2OW1IeQ">V2.4.1</a>
+        <div title="🧐" class="version">
+            <a target="_blank" href="https://youtu.be/j7RlsUdPPns?t=16">V2.5.0</a>
         </div>
     </section>
     <section id="home">
@@ -60,6 +69,8 @@
                 <button class="button homeTest">SapplyKiller<img class="testIcon" src="./assets/sites/sk.svg"></button>
             </a>
         </div>
+        <h2 class="mention">Special thanks to uamee, XS Project, GSPD, DJ Blyatman, Alan Aztec, Russian Village Boys, Hard Bass School, milda, Hotzzen, Starslav, SrpskiBass, Badwor7h and the hardbass community in general for making the music that gave me the energy to create all of this</h2>
+        <h2 class="mention">Also thanks to the Free PolCompBall community for helping me in the conception, design and other synonyms for "thinking" of the test's function and structure, through feedback, information, popularization and drawing. Also Mish wants me to mention "Kill The Leader"</h2>
     </section>
     <section id="quiz">
         <h2 id="question">Loading...</h2>
