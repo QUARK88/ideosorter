@@ -227,7 +227,7 @@ function q_singleTax() {
     q(q_distBert, "Should the only tax be a levy on public resource usage?", "Yes", () => r(q_singleTax, "Geolibertarianism"), "No", q_ubi)
 }
 function q_ubi() {
-    q(q_singleTax, "Should there be an universal basic income?", "Yes", () => r(q_ubi, "Social libertarianism"), "No", q_bertWar)
+    q(q_singleTax, "Should there be a universal basic income?", "Yes", () => r(q_ubi, "Social libertarianism"), "No", q_bertWar)
 }
 function q_bertWar() {
     q(q_ubi, "Should liberty be spread around the globe by force?", "Yes", () => r(q_bertWar, "Neo-libertarianism"), "No", q_bertTrad)
