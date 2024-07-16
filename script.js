@@ -1,1 +1,506 @@
-const _0x2893ed=_0x270a;(function(_0x2b5afa,_0x58813d){const _0x465a34=_0x270a,_0x38bd13=_0x2b5afa();while(!![]){try{const _0x1d9f1f=parseInt(_0x465a34(0xa4))/0x1*(-parseInt(_0x465a34(0xb4))/0x2)+-parseInt(_0x465a34(0x10a))/0x3+-parseInt(_0x465a34(0xa1))/0x4*(parseInt(_0x465a34(0x15e))/0x5)+-parseInt(_0x465a34(0xbc))/0x6+parseInt(_0x465a34(0x157))/0x7+-parseInt(_0x465a34(0xfa))/0x8+parseInt(_0x465a34(0x15d))/0x9;if(_0x1d9f1f===_0x58813d)break;else _0x38bd13['push'](_0x38bd13['shift']());}catch(_0x287623){_0x38bd13['push'](_0x38bd13['shift']());}}}(_0x2e0f,0xd9b2c));function DomProxy(){return new Proxy({},{'get':function(_0x4f4d97,_0x5f2b80){const _0x47b603=_0x270a;return document[_0x47b603(0x160)](_0x5f2b80);}});}const {navToggle:e,navToggled:o,home:t,quiz:n,question:a,button1:s,button2:c,button3:l,button4:u,button5:m,quizBack:d,results:h,match:$,flag:f,quote:p,resultsBack:g,custom:y,customMatch:b,customFlag:v,customQuote:S,matches:N,tree:Y}=DomProxy(),sections=[t,n,h,y,Y],buttons=[s,c,l,u,m],defaultColors=[_0x2893ed(0x121),_0x2893ed(0x10c),_0x2893ed(0x112),_0x2893ed(0x112),_0x2893ed(0x112)],defaultBackgroundColors=[_0x2893ed(0xd6),_0x2893ed(0x8c),_0x2893ed(0xc5),_0x2893ed(0xc5),_0x2893ed(0xc5)],defaultIcons=[_0x2893ed(0x142),'no',_0x2893ed(0xe4),_0x2893ed(0xe4),'none'];async function fetchData(){const _0x5ec141=_0x2893ed;try{let _0x47ed9f=await fetch(_0x5ec141(0x72)),_0x4c13d9=await _0x47ed9f[_0x5ec141(0x134)]();return _0x4c13d9;}catch(_0x31266f){return console['error'](_0x5ec141(0x169),_0x31266f),null;}}N[_0x2893ed(0x100)](_0x2893ed(0x14d),function(){const _0x33d9be=_0x2893ed;r('tree',N[_0x33d9be(0x7d)][N[_0x33d9be(0x95)]][_0x33d9be(0x164)]);});let ideologies;function show(_0x36537a=t){const _0x420564=_0x2893ed;for(i of(document[_0x420564(0x146)][_0x420564(0x10b)]=0x0,sections))i==_0x36537a?(i[_0x420564(0x92)]['display']=_0x420564(0x12c),_0x36537a==y&&(b['innerText']=_0x420564(0xf9),v['src']=_0x420564(0xfe),S[_0x420564(0x6c)]='Click\x20to\x20change\x20quote',customAuthor[_0x420564(0x6c)]=_0x420564(0x122),b[_0x420564(0xaf)]({'behavior':_0x420564(0x84)}))):i[_0x420564(0x92)][_0x420564(0xb3)]=_0x420564(0xe4);}function navigate(){const _0x4e2670=_0x2893ed;_0x4e2670(0xe4)==o[_0x4e2670(0x92)][_0x4e2670(0xb3)]?(e[_0x4e2670(0x102)]=_0x4e2670(0xfb),o[_0x4e2670(0x92)][_0x4e2670(0xb3)]='block'):(e[_0x4e2670(0x102)]=_0x4e2670(0xd0),o['style']['display']=_0x4e2670(0xe4));}function editText(_0x3d3df1){const _0x688ecb=_0x2893ed;let _0x3a30a2=prompt(_0x688ecb(0x89));''!=_0x3a30a2&&(_0x3d3df1[_0x688ecb(0x6c)]=_0x3a30a2);}function selectFile(){const _0x36edc4=_0x2893ed;let _0x5f368e=document['createElement']('input');_0x5f368e[_0x36edc4(0x114)]=_0x36edc4(0x148),_0x5f368e[_0x36edc4(0x100)]('change',function(){const _0x4ee052=_0x36edc4;let _0x5d0138=this['files'][0x0];if(_0x5d0138){let _0x35a55e=new FileReader();_0x35a55e[_0x4ee052(0x15c)]=function(_0x11d4da){const _0x5ed48a=_0x4ee052;let _0x32ef90=_0x11d4da[_0x5ed48a(0x139)][_0x5ed48a(0x176)];v[_0x5ed48a(0x102)]=_0x32ef90;},_0x35a55e['readAsDataURL'](_0x5d0138);}else alert(_0x4ee052(0xdf));document[_0x4ee052(0xa2)][_0x4ee052(0xd9)](_0x5f368e);}),_0x5f368e[_0x36edc4(0xf3)](),document[_0x36edc4(0xa2)][_0x36edc4(0x12b)](_0x5f368e);}function dragOverHandler(_0x593ce5){const _0x45e46c=_0x2893ed;_0x593ce5[_0x45e46c(0x7b)](),_0x593ce5[_0x45e46c(0x137)]['dropEffect']='copy';}function dropHandler(_0x1ddc3a){const _0x51004f=_0x2893ed;_0x1ddc3a[_0x51004f(0x7b)]();let _0x1bca8c=_0x1ddc3a[_0x51004f(0x137)][_0x51004f(0x11c)],_0x54ef89=Array[_0x51004f(0x97)](_0x1bca8c)[_0x51004f(0x172)](_0x216086=>_0x216086[_0x51004f(0x114)][_0x51004f(0xe3)](_0x51004f(0x77)));if(_0x54ef89){let _0x392f92=new FileReader();_0x392f92[_0x51004f(0x15c)]=function(_0x2b4d58){const _0x34ba79=_0x51004f;let _0x54f1f7=_0x2b4d58[_0x34ba79(0x139)]['result'];document['getElementById']('customFlag')[_0x34ba79(0x102)]=_0x54f1f7;},_0x392f92[_0x51004f(0x167)](_0x54ef89);}else alert(_0x51004f(0x88));}function q(_0x1a8d6e='',_0x46b974='Loading...',_0x40c3ac='',_0x2c644c='',_0x3a413d='',_0x3002c7='',_0x151aa9='',_0x20525d='',_0x1c5c42='',_0x1d94b4='',_0x53079f='',_0x51b12b='',_0x3cd7d2='',_0x5cd786='',_0x1a6fc6=''){const _0x3ae582=_0x2893ed;for(x of(n[_0x3ae582(0x92)][_0x3ae582(0xb3)]='block',h[_0x3ae582(0x92)][_0x3ae582(0xb3)]=_0x3ae582(0xe4),buttons))x[_0x3ae582(0x6c)]='';if(''==_0x1a6fc6){for(let _0x2a526a in buttons)buttons[_0x2a526a][_0x3ae582(0xb1)]=_0x3ae582(0x138)+defaultIcons[_0x2a526a]+_0x3ae582(0x115);}else{for(let _0x33a4e3 in _0x1a6fc6)buttons[_0x33a4e3][_0x3ae582(0xb1)]=_0x3ae582(0x138)+_0x1a6fc6[_0x33a4e3]+_0x3ae582(0x115);}if(a[_0x3ae582(0x6c)]=_0x46b974,s['innerHTML']+=_0x40c3ac,s[_0x3ae582(0xc6)]=_0x2c644c,c['innerHTML']+=_0x3a413d,c[_0x3ae582(0xc6)]=_0x3002c7,l['innerHTML']+=_0x151aa9,l[_0x3ae582(0xc6)]=_0x20525d,u[_0x3ae582(0xb1)]+=_0x1c5c42,u[_0x3ae582(0xc6)]=_0x1d94b4,m[_0x3ae582(0xb1)]+=_0x53079f,m['onclick']=_0x51b12b,''==_0x1a8d6e?d['onclick']=()=>show(t):d[_0x3ae582(0xc6)]=_0x1a8d6e,''===_0x3cd7d2){for(let _0x2f0880 in buttons)buttons[_0x2f0880][_0x3ae582(0x92)]['backgroundColor']=defaultColors[_0x2f0880];}else{for(let _0x1e1b7a in _0x3cd7d2)buttons[_0x1e1b7a]['style'][_0x3ae582(0x8a)]=_0x3cd7d2[_0x1e1b7a];}if(''===_0x5cd786){for(let _0x477bd4 in buttons)buttons[_0x477bd4]['style']['boxShadow']='0\x200.5vmax\x20'+defaultBackgroundColors[_0x477bd4];}else{for(let _0x44760e in _0x5cd786)buttons[_0x44760e][_0x3ae582(0x92)][_0x3ae582(0x17c)]=_0x3ae582(0xae)+_0x5cd786[_0x44760e];}for(let _0x366020 of buttons)_0x366020[_0x3ae582(0x92)][_0x3ae582(0xb3)]=_0x366020[_0x3ae582(0x6c)]?_0x3ae582(0x105):_0x3ae582(0xe4);document[_0x3ae582(0x146)]['scrollTop']=0x0;}async function r(_0x121c90,_0x311a3a){const _0x41b4d1=_0x2893ed;''!=_0x311a3a?($['innerText']=_0x311a3a,f[_0x41b4d1(0x102)]=_0x41b4d1(0xdd)+_0x311a3a+_0x41b4d1(0x9f)):($[_0x41b4d1(0x6c)]=_0x41b4d1(0x13b),f[_0x41b4d1(0x102)]=_0x41b4d1(0x12e)),''!=ideologies[_0x311a3a][0x0]?p[_0x41b4d1(0x6c)]=ideologies[_0x311a3a][0x0]:p[_0x41b4d1(0x6c)]='No\x20quote',''!=ideologies[_0x311a3a][0x1]?author[_0x41b4d1(0x6c)]=ideologies[_0x311a3a][0x1]:author[_0x41b4d1(0x6c)]=_0x41b4d1(0x168),'tree'==_0x121c90?g[_0x41b4d1(0xc6)]=()=>show(Y):''==_0x121c90?g[_0x41b4d1(0xc6)]=()=>show(t):g[_0x41b4d1(0xc6)]=_0x121c90,show(h),$[_0x41b4d1(0xaf)]({'behavior':_0x41b4d1(0x84)});}function q_privateProperty(){const _0x2dc905=_0x2893ed;q('',_0x2dc905(0xc9),_0x2dc905(0xb9),q_constitution,'No',q_markets);}function q_constitution(){const _0x2aaa85=_0x2893ed;q(q_privateProperty,_0x2aaa85(0x10f),_0x2aaa85(0xb9),q_minarchy,'No',q_stateFunctions,_0x2aaa85(0xf4),q_counterEcon,'','','','',[_0x2aaa85(0x121),_0x2aaa85(0x10c),'#802080'],[_0x2aaa85(0xd6),_0x2aaa85(0x8c),_0x2aaa85(0x12a)],[_0x2aaa85(0x142),'no',_0x2aaa85(0x149)]);}function q_minarchy(){const _0x3b0e8d=_0x2893ed;q(q_constitution,_0x3b0e8d(0x166),_0x3b0e8d(0xb9),()=>r(q_minarchy,'Minarchism'),'No',q_distBert);}function q_distBert(){const _0x36c989=_0x2893ed;q(q_minarchy,'Should\x20private\x20property\x20be\x20made\x20as\x20widely\x20owned\x20as\x20possible?',_0x36c989(0xb9),()=>r(q_distBert,_0x36c989(0xce)),'No',q_singleTax);}function q_singleTax(){const _0x513d77=_0x2893ed;q(q_distBert,'Should\x20the\x20only\x20tax\x20be\x20a\x20levy\x20on\x20public\x20resource\x20usage?',_0x513d77(0xb9),()=>r(q_singleTax,_0x513d77(0xd8)),'No',q_ubi);}function q_ubi(){const _0x50a42c=_0x2893ed;q(q_singleTax,_0x50a42c(0x154),_0x50a42c(0xb9),()=>r(q_ubi,_0x50a42c(0xac)),'No',q_bertWar);}function q_bertWar(){const _0x221934=_0x2893ed;q(q_ubi,_0x221934(0xe1),'Yes',()=>r(q_bertWar,_0x221934(0xa0)),'No',q_bertTrad);}function q_bertTrad(){const _0x289a68=_0x2893ed;q(q_bertWar,_0x289a68(0xbe),_0x289a68(0xb9),()=>r(q_bertTrad,'Paleolibertarianism'),'No',()=>r(q_bertTrad,_0x289a68(0x140)));}function q_counterEcon(){const _0x4e7d82=_0x2893ed;q(q_constitution,_0x4e7d82(0xe2),_0x4e7d82(0xb9),q_redMarket,'No',q_anDist);}function q_redMarket(){const _0x30d3ac=_0x2893ed;q(q_counterEcon,_0x30d3ac(0x173),_0x30d3ac(0xb9),()=>r(q_redMarket,_0x30d3ac(0xd5)),'No',()=>r(q_redMarket,_0x30d3ac(0x13e)));}function q_anDist(){const _0x1e5b3d=_0x2893ed;q(q_counterEcon,_0x1e5b3d(0xe7),_0x1e5b3d(0xb9),()=>r(q_anDist,'Anarcho-distributism'),'No',q_landRent);}function q_landRent(){const _0x490d23=_0x2893ed;q(q_anDist,'Is\x20earning\x20rent\x20from\x20the\x20land\x20a\x20form\x20of\x20theft?','Yes',()=>r(q_landRent,_0x490d23(0xe6)),'No',q_coop);}function q_coop(){q(q_landRent,'Will\x20cooperatives\x20dominate\x20the\x20free\x20market?','Yes',()=>r(q_coop,'Left-rothbardianism'),'No',q_covenant);}function q_covenant(){const _0x4190af=_0x2893ed;q(q_coop,_0x4190af(0xee),_0x4190af(0xb9),q_separation,'No',()=>r(q_covenant,'Anarcho-capitalism'));}function q_separation(){const _0x3f54dc=_0x2893ed;q(q_covenant,_0x3f54dc(0x13c),_0x3f54dc(0x129),()=>r(q_separation,_0x3f54dc(0x175)),'Aggressively',()=>r(q_separation,_0x3f54dc(0x141)),'','','','','','',['#ffc040',_0x3f54dc(0xaa)],[_0x3f54dc(0x111),_0x3f54dc(0x124)],[_0x3f54dc(0xb0),_0x3f54dc(0xe8)]);}function q_stateFunctions(){const _0x24ed76=_0x2893ed;q(q_constitution,_0x24ed76(0x116),_0x24ed76(0x104),q_dist,_0x24ed76(0x14f),q_total,_0x24ed76(0x16d),q_sovereignType,'','','','',['#2060e0',_0x24ed76(0x70),_0x24ed76(0xc4)],[_0x24ed76(0x17a),_0x24ed76(0x98),_0x24ed76(0xd2)],['elected\x20officials',_0x24ed76(0xca),_0x24ed76(0x71)]);}function q_dist(){const _0x2c124c=_0x2893ed;q(q_stateFunctions,_0x2c124c(0xe7),'Yes',q_distNeeds,'No',q_lvt);}function q_distNeeds(){const _0x2efa38=_0x2893ed;q(q_dist,'Should\x20people\x27s\x20needs\x20be\x20met\x20unconditionally?',_0x2efa38(0xb9),()=>r(q_distNeeds,'Social\x20distributism'),'No',()=>r(q_distNeeds,_0x2efa38(0x10d)));}function q_lvt(){const _0x50295c=_0x2893ed;q(q_dist,_0x50295c(0x8d),'Yes',q_geoWelf,'No',q_trad);}function q_geoWelf(){const _0x2cf870=_0x2893ed;q(q_lvt,'Should\x20the\x20revenue\x20from\x20the\x20land\x20rents\x20be\x20spent\x20on\x20welfare?',_0x2cf870(0xb9),()=>r(q_geoWelf,_0x2cf870(0x158)),'No',()=>r(q_geoWelf,_0x2cf870(0xfc)));}function _0x270a(_0x31c563,_0x33c045){const _0x2e0f8e=_0x2e0f();return _0x270a=function(_0x270ae1,_0x5b7a35){_0x270ae1=_0x270ae1-0x6b;let _0x2b7a79=_0x2e0f8e[_0x270ae1];return _0x2b7a79;},_0x270a(_0x31c563,_0x33c045);}function q_trad(){const _0x28370b=_0x2893ed;q(q_lvt,_0x28370b(0x7f),_0x28370b(0xb9),q_safetyNet,'No',q_needs);}function q_safetyNet(){const _0x41e3db=_0x2893ed;q(q_trad,'Should\x20a\x20social\x20safety\x20net\x20protect\x20the\x20poor?',_0x41e3db(0xb9),()=>r(q_safetyNet,_0x41e3db(0xb5)),'No',q_conIntervention);}function q_conIntervention(){const _0x2a6341=_0x2893ed;q(q_safetyNet,'Should\x20the\x20government\x20intervene\x20in\x20wars\x20overseas?',_0x2a6341(0xb9),()=>r(q_conIntervention,'Mesoconservatism'),'No',()=>r(q_conIntervention,_0x2a6341(0xbf)));}function q_needs(){const _0x40ca25=_0x2893ed;q(q_trad,_0x40ca25(0xde),_0x40ca25(0xb9),()=>r(q_needs,_0x40ca25(0x120)),'No',q_regulation);}function q_regulation(){const _0xc2a99=_0x2893ed;q(q_needs,_0xc2a99(0xab),_0xc2a99(0xb9),q_bigBusiness,'No',q_mobility);}function q_bigBusiness(){const _0xe5fde6=_0x2893ed;q(q_regulation,_0xe5fde6(0x118),_0xe5fde6(0xb9),()=>r(q_bigBusiness,_0xe5fde6(0x109)),'No',()=>r(q_bigBusiness,'Social\x20liberalism'));}function q_mobility(){const _0x5a1e01=_0x2893ed;q(q_regulation,_0x5a1e01(0xd4),_0x5a1e01(0xb9),()=>r(q_mobility,_0x5a1e01(0xba)),'No',q_hegemony);}function q_hegemony(){const _0x22ae0a=_0x2893ed;q(q_mobility,_0x22ae0a(0xa7),_0x22ae0a(0x17b),()=>r(q_hegemony,'Neoliberalism'),_0x22ae0a(0x150),()=>r(q_hegemony,'Neoconservatism'),'','','','','','',['#c00020',_0x22ae0a(0x113)],[_0x22ae0a(0x8c),'#000080'],[_0x22ae0a(0x85),_0x22ae0a(0x17e)]);}function q_total(){const _0x2c0f8e=_0x2893ed;q(q_stateFunctions,_0x2c0f8e(0x153),_0x2c0f8e(0xb9),q_racism,'No',q_corpo);}function q_racism(){const _0x24ff32=_0x2893ed;q(q_total,'Should\x20we\x20be\x20devoted\x20to\x20a\x20race\x20superior\x20to\x20all\x20others?',_0x24ff32(0xb9),q_raceLarp,'No',q_palingenesis);}function q_raceLarp(){const _0x28a475=_0x2893ed;q(q_racism,_0x28a475(0x165),'Biology',()=>r(q_raceLarp,_0x28a475(0x12f)),_0x28a475(0x82),()=>r(q_raceLarp,_0x28a475(0x11f)),'','','','','','',[_0x28a475(0xb8),_0x28a475(0x91)],[_0x28a475(0xa9),_0x28a475(0xf0)],['biology',_0x28a475(0x6d)]);}function q_palingenesis(){const _0x43fac9=_0x2893ed;q(q_racism,'Should\x20we\x20secure\x20the\x20nation\x20through\x20a\x20rebirth\x20or\x20revival?',_0x43fac9(0xb9),q_fashClergy,'No',q_castes);}function q_fashClergy(){const _0x242cf7=_0x2893ed;q(q_palingenesis,_0x242cf7(0x17f),_0x242cf7(0xb9),()=>r(q_fashClergy,'Clerical\x20fascism'),'No',()=>r(q_fashClergy,'Fascism'));}function q_castes(){const _0x3854ad=_0x2893ed;q(q_palingenesis,'Should\x20a\x20system\x20of\x20castes\x20be\x20in\x20place?','Yes',q_control,'No',()=>r(q_castes,_0x3854ad(0x80)));}function q_control(){const _0x125674=_0x2893ed;q(q_castes,_0x125674(0x170),_0x125674(0x10e),()=>r(q_control,_0x125674(0xa6)),_0x125674(0x75),()=>r(q_control,_0x125674(0x147)),'','','','','','',[_0x125674(0x110),_0x125674(0xa3)],['#c020a0',_0x125674(0xfd)],[_0x125674(0xb2),'terror']);}function q_corpo(){const _0x2abe96=_0x2893ed;q(q_total,_0x2abe96(0xc2),_0x2abe96(0xb9),q_yellow,'No',q_soe);}function q_yellow(){const _0x163405=_0x2893ed;q(q_corpo,'Should\x20worker\x20unions\x20be\x20supported\x20in\x20their\x20struggle\x20for\x20higher\x20wages?',_0x163405(0xb9),()=>r(q_yellow,_0x163405(0xa5)),'No',()=>r(q_yellow,'State\x20corporatism'));}function q_soe(){const _0xbc7c0c=_0x2893ed;q(q_corpo,_0xbc7c0c(0x16c),_0xbc7c0c(0xb9),q_authWelf,'No',()=>r(q_soe,_0xbc7c0c(0x128)));}function q_authWelf(){const _0x2e6140=_0x2893ed;q(q_soe,'Should\x20compliant\x20citizens\x20receive\x20extensive\x20welfare?',_0x2e6140(0xb9),()=>r(q_authWelf,_0x2e6140(0x13d)),'No',()=>r(q_authWelf,_0x2e6140(0x11e)));}function q_sovereignType(){const _0x583e7e=_0x2893ed;q(q_stateFunctions,_0x583e7e(0xed),_0x583e7e(0xda),q_absolute,_0x583e7e(0x9b),()=>r(q_sovereignType,'Noocracy'),_0x583e7e(0x9a),q_guelph,_0x583e7e(0x16f),q_electMon,_0x583e7e(0xc7),q_weak,[_0x583e7e(0x74),'#a0c020','#8000a0',_0x583e7e(0x11a),_0x583e7e(0x70)],[_0x583e7e(0x101),_0x583e7e(0x16b),_0x583e7e(0xf6),_0x583e7e(0x111),'#800000'],[_0x583e7e(0x83),_0x583e7e(0x14b),_0x583e7e(0x7e),_0x583e7e(0x119),_0x583e7e(0xf1)]);}function q_absolute(){const _0xdf391c=_0x2893ed;q(q_sovereignType,_0xdf391c(0xb6),_0xdf391c(0xb9),()=>r(q_absolute,'Absolute\x20monarchy'),'No',()=>r(q_absolute,_0xdf391c(0xcf)));}function q_guelph(){const _0x888554=_0x2893ed;q(q_sovereignType,_0x888554(0x162),_0x888554(0xb9),()=>r(q_guelph,_0x888554(0x90)),'No',()=>r(q_guelph,_0x888554(0x8f)));}function q_electMon(){const _0x102ea2=_0x2893ed;q(q_sovereignType,_0x102ea2(0xad),_0x102ea2(0x76),()=>r(q_electMon,_0x102ea2(0x135)),_0x102ea2(0x12d),()=>r(q_electMon,_0x102ea2(0x81)),'','','','','','',[_0x102ea2(0x96),_0x102ea2(0x143)],[_0x102ea2(0xe9),_0x102ea2(0xdc)],[_0x102ea2(0x15f),_0x102ea2(0x9e)]);}function q_weak(){const _0x1ac7f0=_0x2893ed;q(q_sovereignType,'Should\x20the\x20weak\x20be\x20subjugated?',_0x1ac7f0(0xb9),()=>r(q_weak,_0x1ac7f0(0xd7)),'No',()=>r(q_weak,_0x1ac7f0(0xe0)));}function q_markets(){const _0x561508=_0x2893ed;q(q_privateProperty,_0x561508(0xff),_0x561508(0xb9),q_titoism,'No',q_communism);}function q_titoism(){const _0x4ee8b7=_0x2893ed;q(q_markets,_0x4ee8b7(0x177),_0x4ee8b7(0xb9),()=>r(q_titoism,_0x4ee8b7(0x127)),'No',q_guilds,'The\x20state\x20should\x20not\x20exist',q_mutual,'','','','',[_0x4ee8b7(0x121),_0x4ee8b7(0x10c),_0x4ee8b7(0x13a)],[_0x4ee8b7(0xd6),_0x4ee8b7(0x8c),_0x4ee8b7(0x12a)],[_0x4ee8b7(0x142),'no',_0x4ee8b7(0x149)]);}function q_guilds(){const _0xc42721=_0x2893ed;q(q_titoism,_0xc42721(0x94),_0xc42721(0xb9),()=>r(q_guilds,_0xc42721(0x16e)),'No',()=>r(q_guilds,_0xc42721(0x14e)));}function q_mutual(){const _0xba8e88=_0x2893ed;q(q_titoism,_0xba8e88(0xef),_0xba8e88(0xb9),q_ethnic,'No',()=>r(q_mutual,_0xba8e88(0x7c)));}function q_ethnic(){const _0x5ef059=_0x2893ed;q(q_mutual,_0x5ef059(0xb7),'Yes',()=>r(q_ethnic,'National\x20anarchism'),'No',()=>r(q_ethnic,_0x5ef059(0x8e)));}function q_communism(){const _0x16360c=_0x2893ed;q(q_markets,_0x16360c(0xf5),_0x16360c(0xb9),q_commieState,'No',q_experts);}function q_commieState(){const _0x961df4=_0x2893ed;q(q_communism,_0x961df4(0x179),_0x961df4(0xb9),q_demCent,'No',q_communization);}function q_demCent(){const _0x1adb59=_0x2893ed;q(q_commieState,_0x1adb59(0x108),'Yes',q_oneCountrySoc,'No',q_party);}function q_oneCountrySoc(){const _0x301919=_0x2893ed;q(q_demCent,_0x301919(0x171),_0x301919(0xb9),q_socCommodity,'No',()=>r(q_oneCountrySoc,'Trotskyism'));}function q_socCommodity(){const _0x21b1b9=_0x2893ed;q(q_oneCountrySoc,_0x21b1b9(0x106),'Yes',q_peopleWar,'No',()=>r(q_socCommodity,_0x21b1b9(0x145)));}function q_peopleWar(){const _0x5630da=_0x2893ed;q(q_socCommodity,'Should\x20the\x20old\x20society\x20be\x20overthrown\x20through\x20protracted\x20guerrilla\x20warfare?',_0x5630da(0xb9),q_universalPPW,'No',q_natCom);}function q_universalPPW(){const _0x2d0294=_0x2893ed;q(q_peopleWar,_0x2d0294(0x6b),_0x2d0294(0xb9),()=>r(q_universalPPW,_0x2d0294(0x6f)),'No',q_laborAristocracy);}function q_laborAristocracy(){const _0x2a7ecf=_0x2893ed;q(q_universalPPW,_0x2a7ecf(0xeb),_0x2a7ecf(0xb9),()=>r(q_laborAristocracy,'Maoism-third-worldism'),'No',q_chingChong);}function q_chingChong(){const _0x6433a8=_0x2893ed;q(q_laborAristocracy,'Should\x20civilians\x20be\x20allowed\x20to\x20run\x20independent\x20enterprises\x20under\x20socialism?','Yes',()=>r(q_chingChong,_0x6433a8(0x15b)),'No',()=>r(q_chingChong,_0x6433a8(0xbb)));}function q_natCom(){const _0x353caf=_0x2893ed;q(q_peopleWar,_0x353caf(0x15a),_0x353caf(0xb9),q_songun,'No',()=>r(q_natCom,'Marxism-leninism'));}function q_songun(){const _0x176c1e=_0x2893ed;q(q_natCom,_0x176c1e(0x17d),'Yes',()=>r(q_songun,_0x176c1e(0x86)),'No',()=>r(q_songun,_0x176c1e(0x6e)));}function q_party(){const _0x2632ee=_0x2893ed;q(q_demCent,_0x2632ee(0x11b),_0x2632ee(0xb9),q_parliament,'No',q_commodity);}function q_parliament(){const _0x5b9228=_0x2893ed;q(q_party,_0x5b9228(0x151),_0x5b9228(0xb9),q_reform,'No',q_partyDict);}function q_reform(){const _0x124dcb=_0x2893ed;q(q_parliament,_0x124dcb(0xf8),'Yes',()=>r(q_reform,_0x124dcb(0xc8)),'No',()=>r(q_reform,_0x124dcb(0x117)));}function q_partyDict(){const _0x384917=_0x2893ed;q(q_parliament,'Will\x20the\x20dictatorship\x20of\x20the\x20proletariat\x20be\x20the\x20dictatorship\x20of\x20the\x20party?',_0x384917(0xb9),q_natLib,'No',()=>r(q_partyDict,_0x384917(0xe5)));}function q_natLib(){const _0x20db32=_0x2893ed;q(q_partyDict,_0x20db32(0x126),_0x20db32(0xb9),q_nature,'No',()=>r(q_natLib,_0x20db32(0xd3)));}function q_nature(){const _0x42fd9b=_0x2893ed;q(q_natLib,_0x42fd9b(0x161),_0x42fd9b(0xb9),()=>r(q_nature,'Camattism'),'No',()=>r(q_nature,'Bordigism'));}function q_commodity(){const _0x2bfe48=_0x2893ed;q(q_party,'Should\x20proletarian\x20revolution\x20be\x20that\x20of\x20everyday\x20life?',_0x2bfe48(0xb9),()=>r(q_commodity,'Situationism'),'No',q_dotp);}function q_dotp(){const _0x572bca=_0x2893ed;q(q_commodity,_0x572bca(0x133),'Yes',()=>r(q_dotp,_0x572bca(0xc0)),'No',()=>r(q_dotp,_0x572bca(0xc1)));}function q_communization(){const _0x3bf2f3=_0x2893ed;q(q_commieState,_0x3bf2f3(0x79),'Yes',()=>r(q_communization,'Communization'),'No',q_vouchers);}function q_vouchers(){const _0x160afd=_0x2893ed;q(q_communization,'Should\x20labor\x20vouchers\x20be\x20given\x20in\x20exchange\x20for\x20work?',_0x160afd(0xb9),()=>r(q_vouchers,_0x160afd(0x11d)),'No',q_agriculture);}function q_agriculture(){const _0x3a188c=_0x2893ed;q(q_vouchers,'Should\x20agriculture\x20be\x20practiced?',_0x3a188c(0xb9),q_anarchoUnions,'No',()=>r(q_agriculture,'Anarcho-primitivism'));}function q_anarchoUnions(){const _0x29e447=_0x2893ed;q(q_agriculture,'Should\x20society\x20be\x20organized\x20through\x20unions?',_0x29e447(0xb9),q_myth,'No',q_bookchin);}function _0x2e0f(){const _0x30e4d9=['Strength','Classical\x20social\x20democracy','Should\x20private\x20property\x20exist?','strongman','Should\x20the\x20state\x20be\x20opposed\x20through\x20local\x20direct\x20democracy?','Platformism','Should\x20agriculture\x20be\x20the\x20main\x20focus\x20of\x20the\x20economy?','Libertarian\x20distributism','Hereditary\x20monarchy','./assets/buttons/navigation.svg','Fourth\x20theory','#806020','Damenism','Should\x20social\x20mobility\x20be\x20promoted\x20through\x20state\x20spending?','Avaritionism','#008000','Kraterocracy','Geolibertarianism','removeChild','Inheritance','createElement','#a04000','./assets/flags/','Should\x20people\x27s\x20needs\x20be\x20met\x20unconditionally?','Please\x20select\x20an\x20image\x20file\x20(SVG,\x20PNG,\x20JPG,\x20etc.).','Combatocracy','Should\x20liberty\x20be\x20spread\x20around\x20the\x20globe\x20by\x20force?','Should\x20black\x20markets\x20be\x20used\x20to\x20push\x20change?','startsWith','none','Dutch-german\x20left\x20communism','Geo-anarchism','Should\x20private\x20property\x20be\x20made\x20as\x20widely\x20owned\x20as\x20possible?','aggressively','#6040c0','How\x20should\x20the\x20will\x20of\x20the\x20people\x20be\x20executed?','Is\x20the\x20first\x20world\x20working\x20class\x20an\x20anti-revolutionary\x20one?','State\x20socialism','Where\x20should\x20the\x20sovereign\x27s\x20legitimacy\x20come\x20from?','Will\x20covenant\x20communities\x20revive\x20traditional\x20norms?','Should\x20the\x20economy\x20be\x20based\x20on\x20mutual\x20credit?','#800060','strength','Should\x20society\x20be\x20organized\x20through\x20unions?','click','The\x20state\x20should\x20not\x20exist','Should\x20we\x20reach\x20a\x20classless,\x20stateless,\x20moneyless\x20society?','#600080','Third\x20international\x20theory','Should\x20we\x20reform\x20capitalism\x20on\x20the\x20short\x20term?','Click\x20to\x20change\x20ideology','5983032PExwJa','./assets/buttons/no.svg','Georgism','#600000','./assets/flags/Drop.svg','Should\x20markets\x20allocate\x20resources?','addEventListener','#0040a0','src','Sorelianism','Elected\x20Officials','flex','Should\x20commodity\x20production\x20occur\x20under\x20socialism?','Vanguard','Should\x20proletarian\x20organization\x20be\x20based\x20on\x20democratic\x20centralism?','Ordoliberalism','2218152ABrdrt','scrollTop','#c02020','Distributism','Apathy','Should\x20a\x20constitution\x20limit\x20the\x20government\x27s\x20scope?','#e060c0','#c08000','#404040','#0020a0','type','.svg\x22></span>','Who\x20should\x20assume\x20state\x20functions?','De\x20leonism','Should\x20big\x20businesses\x20have\x20more\x20social\x20responsibilites?','selection','#ffc020','Should\x20there\x20be\x20a\x20vanguard\x20party\x20to\x20lead\x20the\x20working\x20class?','files','Anarcho-collectivism','State\x20capitalism','Esoteric\x20fascism','Social\x20democracy','#20c020','Click\x20to\x20change\x20author','Agrarian\x20socialism','#804000','Libertarian\x20socialism','Should\x20communists\x20support\x20national\x20liberation?','Titoism','Autocratic\x20capitalism','Peacefully','#600060','appendChild','block','Investors','./assets/flags/null.svg','National\x20socialism','Libertarian\x20municipalism','Anarcho-syndicalism','Should\x20socialism\x20be\x20built\x20and\x20maintained\x20through\x20centralized\x20authority?','Should\x20there\x20be\x20a\x20dictatorship\x20of\x20the\x20proletariat?','json','Elective\x20monarchy','National\x20syndicalism','dataTransfer','<span><img\x20src=\x22./assets/buttons/','target','#802080','No\x20ideology','How\x20should\x20separation\x20of\x20covenants\x20occur?','Social\x20authoritarianism','Agorism','Niekischism','Right-libertarianism','Nilssonianism','yes','#e08040','#e04080','Bukharinism','documentElement','Orwellianism','file','nostate','revolution','wisdom','Are\x20jews\x20the\x20cause\x20for\x20harsh\x20worker\x20conditions?','change','Guild\x20socialism','Strongman','Military','Should\x20communists\x20participate\x20strategically\x20in\x20parliamentary\x20politics?','Should\x20an\x20expert\x20committee\x20optimize\x20distribution\x20to\x20eliminate\x20scarcity?','Should\x20the\x20state\x20have\x20a\x20role\x20in\x20all\x20aspects\x20of\x20society?','Should\x20there\x20be\x20a\x20universal\x20basic\x20income?','#802000','#800020','2831010ZCPdIN','Social\x20georgism','Direct\x20democracy','Should\x20the\x20main\x20priority\x20of\x20communists\x20be\x20the\x20liberation\x20of\x20the\x20nation?','Dengism','onload','47752326bXXTGg','250PYHiJb','nobles','getElementById','Is\x20an\x20exit\x20back\x20into\x20nature\x20our\x20only\x20option\x20to\x20escape\x20capitalism?','Should\x20the\x20government\x20engage\x20in\x20secular\x20legislation?','Should\x20the\x20economy\x20be\x20centered\x20on\x20agriculture?','text','What\x20gives\x20that\x20race\x20such\x20superiority?','Should\x20the\x20role\x20of\x20the\x20state\x20be\x20limited\x20to\x20law\x20enforcement\x20and\x20defense?','readAsDataURL','No\x20author','Error\x20fetching\x20data:','parliament','#608000','Should\x20the\x20state\x20get\x20involved\x20in\x20the\x20allocation\x20of\x20capital?','Sovereign','Market\x20socialism','Selection','How\x20should\x20control\x20over\x20society\x20be\x20ensured?','Is\x20socialism\x20possible\x20in\x20a\x20single\x20country?','find','Should\x20coercive\x20markets\x20be\x20allowed?','vanguard','Hoppeanism','result','Should\x20an\x20authoritarian\x20state\x20protect\x20the\x20workers?','direct\x20democracy','Is\x20a\x20transitory\x20state\x20required\x20for\x20this?','#2040a0','Trade','boxShadow','Is\x20giving\x20resource\x20precedence\x20to\x20the\x20military\x20necessary\x20to\x20secure\x20the\x20revolution?','military','Should\x20the\x20clergy\x20be\x20part\x20of\x20the\x20government?','Are\x20these\x20tactics\x20applicable\x20across\x20all\x20countries?','innerText','spirits','National\x20communism','Marxism-leninism-maoism','#c02040','sovereign','./ideologies.json','#c04000','#4060c0','Terror','Nobles','image','Syndicalism','Should\x20capitalist\x20relations\x20be\x20socialized\x20through\x20armed\x20insurrection?','Should\x20state-coordinated\x20unions\x20organize\x20society?','preventDefault','Market\x20anarchism','options','god','Should\x20traditional\x20values\x20be\x20promoted?','Jacobinism','Neocameralism','Spirits','inheritance','auto','trade','Juche','Democratic\x20socialism','Please\x20drop\x20an\x20image\x20file\x20(SVG,\x20PNG,\x20JPG,\x20etc.).','Enter\x20new\x20text:','backgroundColor','Should\x20the\x20working\x20class\x20be\x20organized\x20by\x20a\x20group\x20of\x20tacticians?','#800000','Should\x20land\x20rents\x20be\x20repaid\x20to\x20society?','Mutualism','Theocracy','Divine\x20monarchy','#a02080','style','election','Should\x20public\x20services\x20be\x20competitive?','selectedIndex','#a080ff','from','#802020','Parliament','God','Wisdom','Election','option','investors','.svg','Neo-libertarianism','48236ayYDKE','body','#a00000','3dJaeNW','Yellow\x20socialism','Fordism','Which\x20gives\x20the\x20most\x20power\x20globally?','Which\x20way\x20should\x20be\x20used\x20to\x20bring\x20about\x20change?','#006060','#c06020','Should\x20the\x20economy\x20be\x20tightly\x20regulated?','Social\x20libertarianism','Who\x20should\x20hold\x20the\x20power\x20to\x20select\x20the\x20ruler?','0\x200.5vmax\x20','scrollIntoView','peacefully','innerHTML','apathy','display','752138EocvGe','Paternalistic\x20conservatism','Should\x20the\x20sovereign\x20be\x20equivalent\x20to\x20the\x20state?','Should\x20communities\x20be\x20ethnically\x20homogenous?','#20a0a0','Yes','Third\x20way','Maoism','9600792SUqpgv','National\x20bolshevism','Will\x20a\x20smaller\x20government\x20cause\x20a\x20return\x20to\x20traditional\x20values?','Paleoconservatism','Council\x20communism','Libertarian\x20marxism','Should\x20profession\x20groups\x20partake\x20in\x20policy\x20making?','#c00040','#c0a020','#303030','onclick'];_0x2e0f=function(){return _0x30e4d9;};return _0x2e0f();}function q_myth(){const _0x59bcd9=_0x2893ed;q(q_anarchoUnions,'Should\x20we\x20adopt\x20the\x20myth\x20of\x20our\x20victory\x20as\x20our\x20movement\x27s\x20unifier?',_0x59bcd9(0xb9),()=>r(q_myth,_0x59bcd9(0x103)),'No',()=>r(q_myth,_0x59bcd9(0x131)));}function q_bookchin(){const _0x5046bd=_0x2893ed;q(q_anarchoUnions,_0x5046bd(0xcb),_0x5046bd(0xb9),()=>r(q_bookchin,_0x5046bd(0x130)),'No',q_platform);}function q_platform(){const _0x3282d2=_0x2893ed;q(q_bookchin,_0x3282d2(0x8b),'Yes',()=>r(q_platform,_0x3282d2(0xcc)),'No',()=>r(q_platform,'Anarcho-communism'));}function q_experts(){const _0x1125d4=_0x2893ed;q(q_communism,_0x1125d4(0x152),_0x1125d4(0xb9),()=>r(q_experts,'Technocracy'),'No',q_transition);}function q_transition(){const _0x514d3e=_0x2893ed;q(q_experts,_0x514d3e(0xa8),_0x514d3e(0x9c),()=>r(q_transition,_0x514d3e(0x87)),'Revolution',q_authSoc,'','','','','','',[_0x514d3e(0x144),_0x514d3e(0x73)],['#a00040',_0x514d3e(0x8c)],[_0x514d3e(0x93),_0x514d3e(0x14a)]);}function q_authSoc(){const _0x1b5ba3=_0x2893ed;q(q_transition,_0x1b5ba3(0x132),_0x1b5ba3(0xb9),q_dugin,'No',q_agrSoc);}function q_dugin(){const _0x1b07f6=_0x2893ed;q(q_authSoc,'Should\x20we\x20create\x20multipolarity\x20between\x20civilizations?',_0x1b07f6(0xb9),()=>r(q_dugin,_0x1b07f6(0xd1)),'No',q_natSocAuth);}function q_natSocAuth(){const _0x3ab146=_0x2893ed;q(q_dugin,'Should\x20the\x20nation\x20come\x20before\x20all\x20else?','Yes',q_natSynd,'No',()=>r(q_natSocAuth,_0x3ab146(0xec)));}function q_natSynd(){const _0x3e32ac=_0x2893ed;q(q_natSocAuth,_0x3e32ac(0x7a),'Yes',()=>r(q_natSynd,_0x3e32ac(0x136)),'No',q_daJoos);}function q_daJoos(){const _0x3ad5b3=_0x2893ed;q(q_natSynd,_0x3ad5b3(0x14c),'Yes',q_agrNazi,'No',q_nazbol);}function q_agrNazi(){const _0x17b6a6=_0x2893ed;q(q_daJoos,_0x17b6a6(0xcd),_0x17b6a6(0xb9),()=>r(q_agrNazi,'Strasserism'),'No',()=>r(q_agrNazi,_0x17b6a6(0x13f)));}function q_nazbol(){const _0x50717e=_0x2893ed;q(q_daJoos,_0x50717e(0xea),_0x50717e(0x107),()=>r(q_nazbol,_0x50717e(0xbd)),_0x50717e(0x99),()=>r(q_nazbol,'Limonovism'),_0x50717e(0x159),()=>r(q_nazbol,_0x50717e(0xf7)),'','','','',[_0x50717e(0xa3),_0x50717e(0xc3),_0x50717e(0x73)],[_0x50717e(0xfd),_0x50717e(0x156),_0x50717e(0x155)],[_0x50717e(0x174),_0x50717e(0x16a),_0x50717e(0x178)]);}function q_agrSoc(){const _0x3ea397=_0x2893ed;q(q_authSoc,_0x3ea397(0x163),'Yes',()=>r(q_agrSoc,_0x3ea397(0x123)),'No',q_unions);}function q_unions(){const _0x100d35=_0x2893ed;q(q_agrSoc,_0x100d35(0xf2),_0x100d35(0xb9),()=>r(q_unions,_0x100d35(0x78)),'No',()=>r(q_unions,_0x100d35(0x125)));}((async()=>{const _0x11d55e=_0x2893ed;for(i in ideologies=await fetchData()){var _0xa05847=document[_0x11d55e(0xdb)](_0x11d55e(0x9d));_0xa05847['innerHTML']=i,N[_0x11d55e(0x12b)](_0xa05847);}})()),show(t),o[_0x2893ed(0x92)][_0x2893ed(0xb3)]=_0x2893ed(0xe4);
+function DomProxy() {
+    const handler = {
+        get: function (_, prop) {
+            return document.getElementById(prop)
+        }
+    }
+    return new Proxy({}, handler)
+}
+const { navToggle,
+    navToggled,
+    home,
+    quiz,
+    question,
+    button1,
+    button2,
+    button3,
+    button4,
+    button5,
+    quizBack,
+    results,
+    match,
+    flag,
+    quote,
+    resultsBack,
+    lSwitch,
+    rSwitch,
+    custom,
+    customMatch,
+    customFlag,
+    customQuote,
+    matches,
+    tree,
+    tree1 } = DomProxy()
+const sections = ["home", "quiz", "results", "custom", "tree"]
+const buttons = [button1, button2, button3, button4, button5]
+const defaultColors = ["hsl(120,70%,45%)", "hsl(0,70%,45%)", "hsl(0,0%,25%)", "hsl(0,0%,25%)", "hsl(0,0%,25%)"]
+const defaultBackgroundColors = ["hsl(120,70%,30%)", "hsl(0,70%,30%)", "hsl(0,0%,17.5%)", "hsl(0,0%,17.5%)", "hsl(0,0%,17.5%)"]
+const defaultIcons = ["yes", "no", "none", "none", "none"]
+async function fetchData() {
+    try {
+        const response = await fetch("./ideologies.json")
+        const data = await response.json()
+        return data
+    } catch (error) {
+        console.error("Error fetching data:", error)
+        return null
+    }
+}
+matches.addEventListener('change', function () {
+    r("tree", matches.options[matches.selectedIndex].text)
+})
+let ideologies
+(async () => {
+    ideologies = await fetchData()
+    for (i in ideologies) {
+        var option = document.createElement('option')
+        option.innerHTML = i
+        matches.appendChild(option)
+    }
+})()
+fetchData().then(ideologies => {
+    if (!ideologies) return
+    const titles = Object.keys(ideologies)
+    document.querySelectorAll('.treeGrid .treeCell').forEach(cell => {
+        const text = cell.childNodes.length === 1 && cell.childNodes[0].nodeType === Node.TEXT_NODE ? cell.textContent.trim() : ''
+        if (text && titles.includes(text)) {
+            cell.style.backgroundImage = `url('./assets/flags/${text}.svg')`
+            cell.classList.add("resultCell")
+            cell.onclick = () => r("tree", text)
+        } else if (text) {
+            cell.classList.add("questionCell")
+        }
+    })
+})
+function show(section = "home") {
+        document.documentElement.scrollTop = 0
+    for (i of sections) {
+        if (i == section) {
+            eval(i).style.display = "block"
+            if (section == "custom") {
+                customMatch.innerText = "Click to change ideology"
+                customFlag.src = "./assets/flags/Drop.svg"
+                customQuote.innerText = "Click to change quote"
+                customAuthor.innerText = "Click to change author"
+                customMatch.scrollIntoView({ behavior: "auto" })
+            }
+        } else {
+            eval(i).style.display = "none"
+        }
+    }
+}
+show("home")
+navToggled.style.display = "none"
+function navigate() {
+    if (navToggled.style.display == "none") {
+        navToggle.src = "./assets/buttons/no.svg"
+        navToggled.style.display = "block"
+    } else {
+        navToggle.src = "./assets/buttons/navigation.svg"
+        navToggled.style.display = "none"
+    }
+}
+function editText(element) {
+    const newText = prompt("Enter new text:")
+    if (newText != "") {
+        element.innerText = newText
+    }
+}
+function selectFile() {
+    const fileInput = document.createElement("input")
+    fileInput.type = "file"
+    fileInput.addEventListener("change", function () {
+        const selectedFile = this.files[0]
+        if (selectedFile) {
+            const reader = new FileReader()
+            reader.onload = function (e) {
+                const imageUrl = e.target.result
+                customFlag.src = imageUrl
+            };
+            reader.readAsDataURL(selectedFile)
+        } else {
+            alert("Please select an image file (SVG, PNG, JPG, etc.).")
+        }
+        document.body.removeChild(fileInput)
+    })
+    fileInput.click()
+    document.body.appendChild(fileInput)
+}
+function dragOverHandler(event) {
+    event.preventDefault()
+    event.dataTransfer.dropEffect = "copy"
+}
+function dropHandler(event) {
+    event.preventDefault()
+    const files = event.dataTransfer.files
+    const imageFile = Array.from(files).find(file => file.type.startsWith("image"))
+    if (imageFile) {
+        const reader = new FileReader()
+        reader.onload = function (e) {
+            const imageUrl = e.target.result;
+            document.getElementById("customFlag").src = imageUrl
+        }
+        reader.readAsDataURL(imageFile)
+    } else {
+        alert("Please drop an image file (SVG, PNG, JPG, etc.).")
+    }
+}
+function q(p = "", q = "Loading...", b1 = "", n1 = "", b2 = "", n2 = "", b3 = "", n3 = "", b4 = "", n4 = "", b5 = "", n5 = "", c = "", s = "", i = "") {
+    quiz.style.display = "block"
+    results.style.display = "none"
+    for (x of buttons) {
+        x.innerText = ""
+    }
+    if (i == "") {
+        for (let x in buttons) {
+            buttons[x].innerHTML = `<span><img src="./assets/buttons/${defaultIcons[x]}.svg"></span>`
+        }
+    } else {
+        for (let x in i) {
+            buttons[x].innerHTML = `<span><img src="./assets/buttons/${i[x]}.svg"></span>`
+        }
+    }
+    question.innerText = q
+    button1.innerHTML += b1
+    button1.onclick = n1
+    button2.innerHTML += b2
+    button2.onclick = n2
+    button3.innerHTML += b3
+    button3.onclick = n3
+    button4.innerHTML += b4
+    button4.onclick = n4
+    button5.innerHTML += b5
+    button5.onclick = n5
+    if (p == "") {
+        quizBack.onclick = () => show("home")
+    } else {
+        quizBack.onclick = p
+    }
+    if (c === "") {
+        for (let x in buttons) {
+            buttons[x].style.backgroundColor = defaultColors[x]
+        }
+    } else {
+        for (let x in c) {
+            buttons[x].style.backgroundColor = c[x]
+        }
+    }
+    if (s === "") {
+        for (let x in buttons) {
+            buttons[x].style.boxShadow = `0 0.5vmax ${defaultBackgroundColors[x]}`
+        }
+    } else {
+        for (let x in s) {
+            buttons[x].style.boxShadow = `0 0.5vmax ${s[x]}`
+        }
+    }
+    for (let x of buttons) {
+        x.style.display = x.innerText ? "flex" : "none"
+    }
+    document.documentElement.scrollTop = 0
+}
+async function r(p, ideology) {
+    if (ideology != "") {
+        match.innerText = ideology
+        flag.src = "./assets/flags/" + ideology + ".svg"
+    } else {
+        match.innerText = "No ideology"
+        flag.src = "./assets/flags/null.svg"
+    }
+    if (ideologies[ideology][0] != "") {
+        quote.innerText = ideologies[ideology][0]
+    } else {
+        quote.innerText = "No quote"
+    }
+    if (ideologies[ideology][1] != "") {
+        author.innerText = ideologies[ideology][1]
+    } else {
+        author.innerText = "No author"
+    }
+    if (p == "tree") {
+        lSwitch.style.display = "block"
+        rSwitch.style.display = "block"
+        resultsBack.onclick = () => show("tree")
+        list = Object.keys(ideologies)
+        const selected = list.indexOf(ideology)
+        if (selected > 0) {
+            lSwitch.onclick = () => r("tree", list[selected - 1])
+        } else {
+            lSwitch.onclick = () => r("tree", list[list.length - 1])
+        }
+        if (selected < list.length - 1) {
+            rSwitch.onclick = () => r("tree", list[selected + 1])
+        } else {
+            rSwitch.onclick = () => r("tree", list[0])
+        }
+    } else if (p == "") {
+        resultsBack.onclick = () => show("home")
+    } else {
+        lSwitch.style.display = "none"
+        rSwitch.style.display = "none"
+        resultsBack.onclick = p
+    }
+    show("results")
+    match.scrollIntoView({ behavior: "auto" })
+}
+function q_privateProperty() {
+    q("", "Should private property exist?", "Yes", q_constitution, "No", q_markets)
+}
+function q_constitution() {
+    q(q_privateProperty, "Should a constitution limit the government's scope?", "Yes", q_minarchy, "No", q_stateFunctions, "The state should not exist", q_counterEcon, "", "", "", "", ["hsl(120,70%,45%)", "hsl(0,70%,45%)", "hsl(280,60%,35%)"], ["hsl(120,70%,30%)", "hsl(0,70%,30%)", "hsl(280,60%,20%)"], ["yes", "no", "nostate"])
+}
+function q_minarchy() {
+    q(q_constitution, "Should the role of the state be limited to law enforcement and defense?", "Yes", () => r(q_minarchy, "Minarchism"), "No", q_distBert)
+}
+function q_distBert() {
+    q(q_minarchy, "Should private property be made as widely owned as possible?", "Yes", () => r(q_distBert, "Libertarian distributism"), "No", q_singleTax)
+}
+function q_singleTax() {
+    q(q_distBert, "Should the only tax be a levy on public resource usage?", "Yes", () => r(q_singleTax, "Geolibertarianism"), "No", q_ubi)
+}
+function q_ubi() {
+    q(q_singleTax, "Should there be a universal basic income?", "Yes", () => r(q_ubi, "Social libertarianism"), "No", q_bertWar)
+}
+function q_bertWar() {
+    q(q_ubi, "Should liberty be spread around the globe by force?", "Yes", () => r(q_bertWar, "Neo-libertarianism"), "No", q_bertTrad)
+}
+function q_bertTrad() {
+    q(q_bertWar, "Will a smaller government cause a return to traditional values?", "Yes", () => r(q_bertTrad, "Paleolibertarianism"), "No", () => r(q_bertTrad, "Right-libertarianism"))
+}
+function q_counterEcon() {
+    q(q_constitution, "Should the state be opposed through illegal trade?", "Yes", q_redMarket, "No", q_anDist)
+}
+function q_redMarket() {
+    q(q_counterEcon, "Should coercive markets be tolerated?", "Yes", () => r(q_redMarket, "Avaritionism"), "No", () => r(q_redMarket, "Agorism"))
+}
+function q_anDist() {
+    q(q_counterEcon, "Should private property be made as widely owned as possible?", "Yes", () => r(q_anDist, "Anarcho-distributism"), "No", q_landRent)
+}
+function q_landRent() {
+    q(q_anDist, "Is earning rent from the land a form of theft?", "Yes", () => r(q_landRent, "Geo-anarchism"), "No", q_coop)
+}
+function q_coop() {
+    q(q_landRent, "Will cooperatives dominate the free market?", "Yes", () => r(q_coop, "Left-rothbardianism"), "No", q_covenant)
+}
+function q_covenant() {
+    q(q_coop, "Will covenant communities revive traditional norms?", "Yes", q_separation, "No", () => r(q_covenant, "Anarcho-capitalism"))
+}
+function q_separation() {
+    q(q_covenant, "How should separation of covenants occur?", "Peacefully", () => r(q_separation, "Hoppeanism"), "Aggressively", () => r(q_separation, "Nilssonianism"), "", "", "", "", "", "", ["hsl(40,100%,60%)", "hsl(25,70%,45%)"], ["hsl(40,100%,40%)", "hsl(25,70%,30%)"], ["peacefully", "aggressively"])
+}
+function q_stateFunctions() {
+    q(q_constitution, "Who should assume state functions?", "Elected Officials", q_dist, "Strongman", q_total, "Sovereign", q_sovereignType, "", "", "", "", ["hsl(220,70%,45%)", "hsl(350,70%,45%)", "hsl(50,70%,45%)"], ["hsl(220,70%,30%)", "hsl(350,70%,30%)", "hsl(50,70%,30%)"], ["elected officials", "strongman", "sovereign"])
+}
+function q_dist() {
+    q(q_stateFunctions, "Should private property be made as widely owned as possible?", "Yes", q_distNeeds, "No", q_lvt)
+}
+function q_distNeeds() {
+    q(q_dist, "Should people's needs be met unconditionally?", "Yes", () => r(q_distNeeds, "Social distributism"), "No", () => r(q_distNeeds, "Distributism"))
+}
+function q_lvt() {
+    q(q_dist, "Should land rents be repaid to society?", "Yes", q_geoWelf, "No", q_trad)
+}
+function q_geoWelf() {
+    q(q_lvt, "Should the revenue from land rents be spent on welfare?", "Yes", () => r(q_geoWelf, "Social georgism"), "No", () => r(q_geoWelf, "Georgism"))
+}
+function q_trad() {
+    q(q_lvt, "Should traditional values be promoted?", "Yes", q_safetyNet, "No", q_needs)
+}
+function q_safetyNet() {
+    q(q_trad, "Should a social safety net protect the poor?", "Yes", () => r(q_safetyNet, "Paternalistic conservatism"), "No", q_conIntervention)
+}
+function q_conIntervention() {
+    q(q_safetyNet, "Should the government intervene in wars overseas?", "Yes", () => r(q_conIntervention, "Mesoconservatism"), "No", () => r(q_conIntervention, "Paleoconservatism"))
+}
+function q_needs() {
+    q(q_trad, "Should people's needs be met unconditionally?", "Yes", () => r(q_needs, "Social democracy"), "No", q_regulation)
+}
+function q_regulation() {
+    q(q_needs, "Should the economy be tightly regulated?", "Yes", q_bigBusiness, "No", q_mobility)
+}
+function q_bigBusiness() {
+    q(q_regulation, "Should big businesses have more social responsibilities?", "Yes", () => r(q_bigBusiness, "Ordoliberalism"), "No", () => r(q_bigBusiness, "Social liberalism"))
+}
+function q_mobility() {
+    q(q_regulation, "Should social mobility be promoted through state spending?", "Yes", () => r(q_mobility, "Third way"), "No", q_hegemony)
+}
+function q_hegemony() {
+    q(q_mobility, "Which gives the most power globally?", "Trade", () => r(q_hegemony, "Neoliberalism"), "Military", () => r(q_hegemony, "Neoconservatism"), "", "", "", "", "", "", ["hsl(350,70%,45%)", "hsl(230,70%,45%)"], ["hsl(350,70%,30%)", "hsl(230,70%,30%"], ["trade", "military"])
+}
+function q_total() {
+    q(q_stateFunctions, "Should the state have a role in all aspects of society?", "Yes", q_racism, "No", q_corpo)
+}
+function q_racism() {
+    q(q_total, "Should we be devoted to a race superior to all others?", "Yes", q_raceLarp, "No", q_palingenesis)
+}
+function q_raceLarp() {
+    q(q_racism, "What gives that race such superiority?", "Biology", () => r(q_raceLarp, "National socialism"), "Spirits", () => r(q_raceLarp, "Esoteric fascism"), "", "", "", "", "", "", ["hsl(180,70%,40%)", "hsl(320,70%,40%)"], ["hsl(180,70%,25%)", "hsl(320,70%,25%)"], ["biology", "spirits"])
+}
+function q_palingenesis() {
+    q(q_racism, "Should we secure the nation through a rebirth or revival?", "Yes", q_fashClergy, "No", q_castes)
+}
+function q_fashClergy() {
+    q(q_palingenesis, "Should the clergy be part of the government?", "Yes", () => r(q_fashClergy, "Clerical fascism"), "No", () => r(q_fashClergy, "Fascism"))
+}
+function q_castes() {
+    q(q_palingenesis, "Should a system of castes be in place?", "Yes", q_control, "No", () => r(q_castes, "Jacobinism"))
+}
+function q_control() {
+    q(q_castes, "How should control over society be ensured?", "Apathy", () => r(q_control, "Fordism"), "Terror", () => r(q_control, "Orwellianism"), "", "", "", "", "", "", ["hsl(320,50%,65%)", "hsl(0,70%,40%)"], ["hsl(320,50%,55%)", "hsl(0,70%,25%)"], ["apathy", "terror"])
+}
+function q_corpo() {
+    q(q_total, "Should profession groups partake in policy making?", "Yes", q_yellow, "No", q_soe)
+}
+function q_yellow() {
+    q(q_corpo, "Should worker unions be supported in their struggle for higher wages?", "Yes", () => r(q_yellow, "Yellow socialism"), "No", () => r(q_yellow, "State corporatism"))
+}
+function q_soe() {
+    q(q_corpo, "Should the state get involved in the allocation of capital?", "Yes", q_authWelf, "No", () => r(q_soe, "Autocratic capitalism"))
+}
+function q_authWelf() {
+    q(q_soe, "Should compliant citizens receive extensive welfare?", "Yes", () => r(q_authWelf, "Social authoritarianism"), "No", () => r(q_authWelf, "State capitalism"))
+}
+function q_sovereignType() {
+    q(q_stateFunctions, "Where should the sovereign's legitimacy come from?", "Inheritance", q_absolute, "Wisdom", () => r(q_sovereignType, "Noocracy"), "God", q_guelph, "Selection", q_electMon, "Strength", q_weak, ["hsl(230,70%,60%)", "hsl(70,70%,45%)", "hsl(290,70%,45%)", "hsl(35,80%,55%)", "hsl(350,70%,45%)"], ["hsl(230,70%,50%)", "hsl(70,70%,30%)", "hsl(290,70%,30%)", "hsl(35,80%,40%)", "hsl(350,70%,30%)"], ["inheritance", "wisdom", "god", "selection", "strength"])
+}
+function q_absolute() {
+    q(q_sovereignType, "Should the sovereign be equivalent to the state?", "Yes", () => r(q_absolute, "Absolute monarchy"), "No", () => r(q_absolute, "Hereditary monarchy"))
+}
+function q_guelph() {
+    q(q_sovereignType, "Should the government engage in secular legislation?", "Yes", () => r(q_guelph, "Divine monarchy"), "No", () => r(q_guelph, "Theocracy"))
+}
+function q_electMon() {
+    q(q_sovereignType, "Who should hold the power to select the ruler?", "Nobles", () => r(q_electMon, "Elective monarchy"), "Investors", () => r(q_electMon, "Neocameralism"), "", "", "", "", "", "", ["hsl(255,70%,70%)", "hsl(25,80%,60%)"], ["hsl(255,70%,60%)", "hsl(25,80%,45%)"], ["nobles", "investors"])
+}
+function q_weak() {
+    q(q_sovereignType, "Should the weak be subjugated?", "Yes", () => r(q_weak, "Kraterocracy"), "No", () => r(q_weak, "Combatocracy"))
+}
+function q_markets() {
+    q(q_privateProperty, "Should goods be distributed through markets?", "Yes", q_authMarkSoc, "No", q_communism)
+}
+function q_authMarkSoc() {
+    q(q_markets, "Should the state be governed by a single, central party?", "Yes", q_lange, "No", q_guilds, "The state should not exist", q_mutual, "", "", "", "", ["hsl(120,70%,45%)", "hsl(0,70%,45%)", "hsl(280,60%,35%)"], ["hsl(120,70%,30%)", "hsl(0,70%,30%)", "hsl(280,60%,20%)"], ["yes", "no", "nostate"])
+}
+function q_lange() {
+    q(q_authMarkSoc, "Should central planners allocate resources and industry?", "Yes", () => r(q_lange, "Langean socialism"), "No", () => r(q_lange, "Titoism"))
+}
+function q_guilds() {
+    q(q_authMarkSoc, "Should public services be competitive?", "Yes", () => r(q_guilds, "Market socialism"), "No", () => r(q_guilds, "Guild socialism"))
+}
+function q_mutual() {
+    q(q_authMarkSoc, "Should the economy be based on mutual credit?", "Yes", q_ethnic, "No", () => r(q_mutual, "Market anarchism"))
+}
+function q_ethnic() {
+    q(q_mutual, "Should communities be ethnically homogenous?", "Yes", () => r(q_ethnic, "National anarchism"), "No", () => r(q_ethnic, "Mutualism"))
+}
+function q_communism() {
+    q(q_markets, "Should we reach a classless, stateless, moneyless society?", "Yes", q_commieState, "No", q_experts)
+}
+function q_commieState() {
+    q(q_communism, "Is a transitory state required for this?", "Yes", q_demCent, "No", q_communization)
+}
+function q_demCent() {
+    q(q_commieState, "Should proletarian organization be based on democratic centralism?", "Yes", q_oneCountrySoc, "No", q_party)
+}
+function q_oneCountrySoc() {
+    q(q_demCent, "Is socialism possible in a single country?", "Yes", q_socCommodity, "No", q_natLib)
+}
+function q_socCommodity() {
+    q(q_oneCountrySoc, "Should commodity production occur under socialism?", "Yes", q_peopleWar, "No", () => r(q_socCommodity, "Bukharinism"))
+}
+function q_peopleWar() {
+    q(q_socCommodity, "Should protracted guerrilla warfare be used to remove the old society?", "Yes", q_universalPPW, "No", q_natCom)
+}
+function q_universalPPW() {
+    q(q_peopleWar, "Are these tactics applicable across all countries?", "Yes", () => r(q_universalPPW, "Marxism-leninism-maoism"), "No", q_laborAristocracy)
+}
+function q_laborAristocracy() {
+    q(q_universalPPW, "Is the first world working class an anti-revolutionary one?", "Yes", () => r(q_laborAristocracy, "Maoism-third-worldism"), "No", q_chingChong)
+}
+function q_chingChong() {
+    q(q_laborAristocracy, "Should civilians be allowed to run independent enterprises?", "Yes", () => r(q_chingChong, "Dengism"), "No", () => r(q_chingChong, "Maoism"))
+}
+function q_natCom() {
+    q(q_peopleWar, "Should the revolution's main priority be the nation's liberation?", "Yes", q_songun, "No", () => r(q_natCom, "Marxism-leninism"))
+}
+function q_songun() {
+    q(q_natCom, "Is giving resource precedence to the military necessary?", "Yes", () => r(q_songun, "Juche"), "No", () => r(q_songun, "National communism"))
+}
+function q_natLib() {
+    q(q_oneCountrySoc, "Should communists support national liberation?", "Yes", () => r(q_natLib, "Trotskyism"), "No", () => r(q_natLib, "Damenism"))
+}
+function q_party() {
+    q(q_demCent, "Should there be a vanguard party to lead the working class?", "Yes", q_parliament, "No", q_commodity)
+}
+function q_parliament() {
+    q(q_party, "Should communists participate in parliamentary politics?", "Yes", q_reform, "No", q_partyDict)
+}
+function q_reform() {
+    q(q_parliament, "Should we reform capitalism on the short term?", "Yes", () => r(q_reform, "Classical social democracy"), "No", () => r(q_reform, "De leonism"))
+}
+function q_partyDict() {
+    q(q_parliament, "Will the dictatorship of the proletariat be a party dictatorship?", "Yes", q_nature, "No", () => r(q_partyDict, "Dutch-german left communism"))
+}
+function q_nature() {
+    q(q_partyDict, "Is an exit back in nature the only way to escape capitalism?", "Yes", () => r(q_nature, "Camattism"), "No", () => r(q_nature, "Bordigism"))
+}
+function q_commodity() {
+    q(q_party, "Should proletarian revolution be that of everyday life?", "Yes", () => r(q_commodity, "Situationism"), "No", q_dotp)
+}
+function q_dotp() {
+    q(q_commodity, "Should there be a dictatorship of the proletariat?", "Yes", () => r(q_dotp, "Council communism"), "No", () => r(q_dotp, "Libertarian marxism"))
+}
+function q_communization() {
+    q(q_commieState, "Should capitalist relations be socialized through armed insurrection?", "Yes", () => r(q_communization, "Communization"), "No", q_vouchers)
+}
+function q_vouchers() {
+    q(q_communization, "Should labor vouchers be given in exchange for work?", "Yes", () => r(q_vouchers, "Anarcho-collectivism"), "No", q_agriculture)
+}
+function q_agriculture() {
+    q(q_vouchers, "Should agriculture be practiced?", "Yes", q_anarchoUnions, "No", () => r(q_agriculture, "Anarcho-primitivism"))
+}
+function q_anarchoUnions() {
+    q(q_agriculture, "Should society be organized through unions?", "Yes", q_myth, "No", q_bookchin)
+}
+function q_myth() {
+    q(q_anarchoUnions, "Should we adopt the myth of our victory as our movement's unifier?", "Yes", () => r(q_myth, "Sorelianism"), "No", () => r(q_myth, "Anarcho-syndicalism"))
+}
+function q_bookchin() {
+    q(q_anarchoUnions, "Should the state be opposed through local direct democracy?", "Yes", () => r(q_bookchin, "Libertarian municipalism"), "No", q_platform)
+}
+function q_platform() {
+    q(q_bookchin, "Should the working class be organized by a group of tacticians?", "Yes", () => r(q_platform, "Platformism"), "No", () => r(q_platform, "Anarcho-communism"))
+}
+function q_experts() {
+    q(q_communism, "Should an expert committee optimize distribution to eliminate scarcity?", "Yes", () => r(q_experts, "Technocracy"), "No", q_transition)
+}
+function q_transition() {
+    q(q_experts, "Which way should be used to bring about change?", "Election", () => r(q_transition, "Democratic socialism"), "Revolution", q_authSoc, "", "", "", "", "", "", ["hsl(335,70%,45%)", "hsl(10,70%,35%)"], ["hsl(335,70%,30%)", "hsl(10,70%,20%)"], ["election", "revolution"])
+}
+function q_authSoc() {
+    q(q_transition, "Should socialism be built and maintained through centralized authority?", "Yes", q_dugin, "No", q_agrSoc)
+}
+function q_dugin() {
+    q(q_authSoc, "Should we create multipolarity between civilizations?", "Yes", () => r(q_dugin, "Fourth theory"), "No", q_natSocAuth)
+}
+function q_natSocAuth() {
+    q(q_dugin, "Should the nation come before all else?", "Yes", q_natSynd, "No", () => r(q_natSocAuth, "State socialism"))
+}
+function q_natSynd() {
+    q(q_natSocAuth, "Should state-coordinated unions organize society?", "Yes", () => r(q_natSynd, "National syndicalism"), "No", q_daJoos)
+}
+function q_daJoos() {
+    q(q_natSynd, "Are jews the cause for harsh worker conditions?", "Yes", q_agrNazi, "No", q_nazbol)
+}
+function q_agrNazi() {
+    q(q_daJoos, "Should agriculture be the main focus of the economy?", "Yes", () => r(q_agrNazi, "Strasserism"), "No", () => r(q_agrNazi, "Niekischism"))
+}
+function q_nazbol() {
+    q(q_daJoos, "How should the will of the people be executed?", "Vanguard", () => r(q_nazbol, "National bolshevism"), "Parliament", () => r(q_nazbol, "Limonovism"), "Direct democracy", () => r(q_nazbol, "Third international theory"), "", "", "", "", ["hsl(0,70%,45%)", "hsl(340,70%,45%)", "hsl(20,70%,45%)"], ["hsl(0,70%,30%)", "hsl(340,70%,30%)", "hsl(20,70%,30%)"], ["vanguard", "parliament", "direct democracy"])
+}
+function q_agrSoc() {
+    q(q_authSoc, "Should the economy be centered on agriculture?", "Yes", () => r(q_agrSoc, "Agrarian socialism"), "No", q_unions)
+}
+function q_unions() {
+    q(q_agrSoc, "Should society be organized through unions?", "Yes", () => r(q_unions, "Syndicalism"), "No", () => r(q_unions, "Libertarian socialism"))
+}
