@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="./style.css">
-    <link rel="icon" type="image/x-icon" href="./assets/meta/icon.png">
+    <link rel="icon" type="image/x-icon" href="./assets/logos/icon.png">
     <title>IdeoSorter</title>
     <meta property="og:site_name" content="quark88.github.io/ideosorter">
     <meta property="og:title" content="IdeoSorter">
@@ -11,7 +11,7 @@
     <meta property="og:description"
         content="Discover your political ideology in only a few questions using a flowchart quiz!">
     <meta property="og:url" content="https://quark88.github.io/ideosorter">
-    <meta property="og:image" content="https://quark88.github.io/ideosorter/assets/meta/embed-icon.png">
+    <meta property="og:image" content="https://quark88.github.io/ideosorter/assets/logos/embed.png">
     <meta name="theme-color" content="hsl(200,100%,50%)" data-react-helmet="true">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,15 +23,16 @@
         <div id="navToggled">
             <div title="Home" class="navButton" onclick="show('home')"><img class="navIcon" src="./assets/buttons/home.svg"></div>
             <div title="Quiz" class="navButton" onclick="show('quiz'),q_privateProperty()"><img class="navIcon" src="./assets/buttons/yes.svg"></div>
-            <div title="Create" class="navButton" onclick="show('custom')"><img class="navIcon" src="./assets/buttons/create.svg"></div>
+            <div title="Create" class="navButton" onclick="show('create')"><img class="navIcon" src="./assets/buttons/create.svg"></div>
+            <div title="About" class="navButton" onclick="show('about')"><img class="navIcon" src="./assets/buttons/about.svg"></div>
             <div title="Tree" class="navButton" onclick="show('tree')"><img class="navIcon" src="./assets/buttons/tree.svg"></div>
         </div>
     </div>
     <section id="title">
         <div class="version"></div>
-        <img src="./assets/common/title.svg" id="logo">
-        <div title="💊" class="version">
-            <a target="_blank" href="https://youtu.be/LzOP8NWKGPA?t=20">V2.6.0</a>
+        <img src="./assets/logos/title.svg" id="logo">
+        <div class="version">
+            <a title="🥙" target="_blank" href="https://youtu.be/tLq0npAVQm8">V2.7.0</a>
         </div>
     </section>
     <section id="home">
@@ -43,11 +44,17 @@
             </span>
         </button>
         <div class="smallButtons">
-            <button class="button small" onclick="show('custom')">
+            <button class="button small" onclick="show('create')">
                 <span>
                     <img src="./assets/buttons/create.svg">
                 </span>
                 Create
+            </button>
+            <button class="button small" onclick="show('about')">
+                <span>
+                    <img src="./assets/buttons/about.svg">
+                </span>
+                About
             </button>
             <button class="button small" onclick="show('tree')">
                 <span>
@@ -59,13 +66,13 @@
         <h2 class="notice">Check out those other cool tests also</h2>
         <div id="homeTests">
             <a target="_blank" href="https://quark88.github.io/dozenvalues">
-                <button class="button homeTest">DozenValues<img class="testIcon" src="./assets/sites/dv.svg"></button>
+                <button class="button homeTest">DozenValues<img class="testIcon" src="./assets/logos/dv.svg"></button>
             </a>
             <a target="_blank" href="https://quark88.github.io/polithex">
-                <button class="button homeTest">PolitHex<img class="testIcon" src="./assets/sites/ph.svg"></button>
+                <button class="button homeTest">PolitHex<img class="testIcon" src="./assets/logos/ph.svg"></button>
             </a>
             <a target="_blank" href="https://quark88.github.io/sapplykiller">
-                <button class="button homeTest">SapplyKiller<img class="testIcon" src="./assets/sites/sk.svg"></button>
+                <button class="button homeTest">SapplyKiller<img class="testIcon" src="./assets/logos/sk.svg"></button>
             </a>
         </div>
         <h2 class="mention">Special thanks to uamee, XS Project, GSPD, DJ Blyatman, Alan Aztec, Russian Village Boys, Hard Bass School, milda, Hotzzen, Starslav, SrpskiBass, Badwor7h and the hardbass community in general for making the music that gave me the energy to create all of this</h2>
@@ -81,7 +88,7 @@
         <button class="button small back" id="quizBack"><span><img src="./assets/buttons/back.svg"></span>Back</button>
     </section>
     <section id="results">
-        <div class="screenshot">
+        <div id="screenshot" class="screenshot">
             <h2 id="match" class="match">Ideology</h2>
             <div id="switchBar">
             <button class="button switch" id="lSwitch"><span><img src="./assets/buttons/left.svg"></span></button>
@@ -93,13 +100,32 @@
         </div>
         <button class="button small back" id="resultsBack"><span><img src="./assets/buttons/back.svg"></span>Back</button>
     </section>
-    <section id="custom">
-        <div class="screenshot">
-            <h2 id="customMatch" class="match" onclick="editText(this)">Loading...</h2>
-            <img id="customFlag" class="flag" src="./assets/flags/Drop.svg" onclick="selectFile()" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)">
-            <h2 id="customQuote" class="quote" onclick="editText(this)">Loading...</h2>
-            <h2 id="customAuthor" class="author" onclick="editText(this)">Loading...</h2>
+    <section id="create">
+        <div id="createScreenshot" class="screenshot">
+            <h2 id="createMatch" class="match" onclick="editText(this, 'name')">Loading...</h2>
+            <img id="createFlag" class="flag" src="./assets/flags/Drop.svg" onclick="selectFile()" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)">
+            <h2 id="createQuote" class="quote" onclick="editText(this, 'quote')">Loading...</h2>
+            <h2 id="createAuthor" class="author" onclick="editText(this, 'author')">Loading...</h2>
         </div>
+        <button class="button small back" onclick="show('home')"><span><img src="./assets/buttons/back.svg"></span>Back</button>
+    </section>
+    <section id="about">
+        <h2 class="notice">About</h2>
+        <p>IdeoSorter is a political test website created entirely by myself (Quark), including a custom result maker and a tool to view all possible results. It is based on TheGhostOfInky's <a target="_blank" href="https://ideosorter.github.io">own site</a> of the same name, which operates on a similar concept, but which i felt fell short in scope, efficiency and presentation. Knowing it would not be updated further, i went ahead and developed my own take on it. After nine years in development, hopefully it will have been worth the wait. I can be reached at <a target="_blank" href="mailto:beaulieu.renaud@gmail.com">beaulieu.renaud@gmail.com</a>, and my favorite ideology is neocameralism.</p>
+        <h2 class="question">What is the quiz's purpose?</h2>
+        <p>While many tests prioritize covering as many ideologies as possible, down to the smallest detail, whereas others attempt to provide a quiz focused on a specific political group, IdeoSorter instead aims for generality and ease of comprehension. Rather than asking a plethora of advanced questions for hardened ideologists, it avoids all the math work and offers a predetermined result drawn from the path chosen by the user, as they select their stances on simple, broad topics. It is thus rather beginner-friendly, and intended as a means of discovering one's likely ideological affiliations, or to confirm them beyond doubt.</p>
+        <h2 class="question">My ideology is missing, could you add it?</h2>
+        <p>Perhaps you will wander around the website and notice that your preferred political label is absent. You go through the 100 available options, and the proposed result just isn't fitting enough, if at all. Prior to contacting me so that i implement it, consider the following guidelines:</p>
+        <ul>
+            <li>This is a political test, not a philosophical one. What is evalutated here is not your outlook on politics as a whole, but your position within it. All questions implicitly abstain from engaging in the "why?" behind your opinions, all that matters is the concrete implications. As such, political philosophies, such as "stirnerite egoism", "reactionaryism", "marxism", "machiavellianism", etc. do not fit the test and will be rejected if adjured.</li>
+            <li>The test's granularity is defined by the largest denomination which is accurate to label anything falling under it. Once a degree of precision is reached at which people can be correctly described with the match they get, no further fragmentation is required. Something like "socialism of the 21st century" fits under the democratic socialist umbrella, and as such would be superfluous. Same goes for any distinction of cultural or regional order. "Anti-LGBT+ neoliberalism" is still a form of neoliberalism, and "singaporean state capitalism" is still state capitalism.</li>
+            <li>Whilst ideologies are fixed in time and internally consistent, people oftentimes are not. If your suggested addition revolves around a person or group of persons, such as "trumpism" or "putinism", and isn't linked to any written and well-defined doctrine, unlike the case of maoism or georgism, then it is wholly invalid. Similarly, buzzwords or otherwise ill-defined and widely controversial designations, as per "alt-right" or "neo-fascism", are equally worthless to this project.</li>
+        </ul>
+        <p>If you believe you have found something that would meet all of the above criteria, you can <a target="_blank" href="https://github.com/QUARK88/ideosorter/issues/new">open a GitHub issue</a> explaining and justifying it, or do the same through email at my address (beaulieu.renaud@gmail.com), or contact me at one of my social media accounts found at the bottom of every page (realquark on Discord, <a target="_blank" href="https://www.reddit.com/user/QK_QUARK88">u/QK_QUARK88</a> on Reddit and <a target="_blank" href="https://x.com/RenaudBeaulieuQ">@RenaudBeaulieuQ</a> on X).</p>
+        <h2 class="question">Can i reuse your code and assets?</h2>
+        <p>Sure. All of it is open-source on <a target="_blank" href="https://github.com/QUARK88/ideosorter">GitHub</a> for you to look at or simply copy-paste or download. You can even have a try at creating your own version of the test, but i can't guarantee that you will be able to understand how my programming works, or that people won't make fun of you for it (Potentially including me). Be aware that the entirety of the project's iterations are under the <a target="_blank" href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License</a>, meaning that you can copy, distribute and edit any of its parts at will, but you are strictly forbidden from making people pay to use it afterwards, or prevent them from accessing your source code openly and freely. My generosity comes at the cost of yours.</p>
+        <h2 class="question">Other questions?</h2>
+        <p>Go ahead and contact me at the places i have linked. It can be for partnerships, general propositions, clarifications, whatever. I'm nowhere near open-minded or welcoming, but i can recognize a good idea when i see one.</p>
         <button class="button small back" onclick="show('home')"><span><img src="./assets/buttons/back.svg"></span>Back</button>
     </section>
     <section id="tree">
@@ -114,774 +140,809 @@
         </div>
         <h2 class="tip">Tip: Click on a result box to view it</h2>
         <h2 class="notice">Pro-private property tree</h2>
-    <div class="treeGrid">
-        <div class="treeCell">State corporatism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Autocratic capitalism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Social authoritarianism</div>
-        <div class="treeCell"><img src="./assets/grid/yesl.svg"></div>
-        <div class="treeCell">Should compliant citizens receive extensive welfare?</div>
-        <div class="treeCell"><img src="./assets/grid/nor.svg"></div>
-        <div class="treeCell">State capitalism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
+    <grid id="tree1">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>Corporatocracy</cell>
+        <cell><img src="./assets/grid/yesl.svg"></cell>
+        <cell>Should state regulations favor large conglomerates?</cell>
+        <cell><img src="./assets/grid/nol.svg"></cell>
+        <cell>Should the state get involved in the allocation of capital?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Should all actors in supply chains be of equal concern?</cell>
+        <cell><img src="./assets/grid/nor.svg"></cell>
+        <cell>State capitalism</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/notl.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/notl.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yestr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nobl.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/notr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesbr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
 
-        <div class="treeCell">Yellow socialism</div>
-        <div class="treeCell"><img src="./assets/grid/yesl.svg"></div>
-        <div class="treeCell">Should worker unions be supported in their struggle for higher wages?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should the state get involved in the allocation of capital?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Kraterocracy</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Combatocracy</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Absolute monarchy</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Hereditary monarchy</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Right-libertarianism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Paleolibertarianism</div>
+        <cell>State corporatism</cell>
+        <cell></cell>
+        <cell>National distributism</cell>
+        <cell></cell>
+        <cell>Autocratic capitalism</cell>
+        <cell></cell>
+        <cell>Should compliant citizens receive extensive welfare?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Social authoritarianism</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>Stakeholder capitalism</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yest.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/notr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yestl.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/not.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yest.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/notr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/not.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/yestr.svg"></div>
-        <div class="treeCell"></div>
+        <cell></cell>
+        <cell><img src="./assets/grid/notl.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yestl.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/notr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
 
-        <div class="treeCell">Clerical fascism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should profession groups partake in policy making?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Theocracy</div>
-        <div class="treeCell"><img src="./assets/grid/nol.svg"></div>
-        <div class="treeCell">Should the government engage in secular legislation?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should the weak be subjugated?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should the sovereign be equivalent to the state?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Elective monarchy</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Will a smaller government cause a return to traditional values?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Neo-libertarianism</div>
+        <cell>Yellow socialism</cell>
+        <cell><img src="./assets/grid/yesl.svg"></cell>
+        <cell>Should worker unions be supported in their struggle for higher wages?</cell>
+        <cell></cell>
+        <cell>Should property be made as widely owned as possible?</cell>
+        <cell></cell>
+        <cell>Kraterocracy</cell>
+        <cell></cell>
+        <cell>Combatocracy</cell>
+        <cell></cell>
+        <cell>Absolute monarchy</cell>
+        <cell></cell>
+        <cell>Hereditary monarchy</cell>
+        <cell></cell>
+        <cell>Right-libertarianism</cell>
+        <cell></cell>
+        <cell>Paleolibertarianism</cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yestl.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/notl.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesb.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/godtl.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/strengtht.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/inheritancetr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/noblestr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/notl.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/yest.svg"></div>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yest.svg"></cell>
+        <cell><img src="./assets/grid/notr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yestl.svg"></cell>
+        <cell><img src="./assets/grid/not.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yest.svg"></cell>
+        <cell><img src="./assets/grid/notr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/not.svg"></cell>
+        <cell><img src="./assets/grid/yestr.svg"></cell>
+        <cell></cell>
 
-        <div class="treeCell">Fascism</div>
-        <div class="treeCell"><img src="./assets/grid/nol.svg"></div>
-        <div class="treeCell">Should the clergy be part of the government?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should the state have a role in all aspects of society?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Divine monarchy</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Where should the sovereign's legitimacy come from?</div>
-        <div class="treeCell"><img src="./assets/grid/selectionr.svg"></div>
-        <div class="treeCell">Who should hold the power to select the ruler?</div>
-        <div class="treeCell"><img src="./assets/grid/investorsr.svg"></div>
-        <div class="treeCell">Neocameralism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should liberty be spread around the globe by force?</div>
+        <cell>Clerical fascism</cell>
+        <cell></cell>
+        <cell>Should profession groups partake in policy making?</cell>
+        <cell></cell>
+        <cell>Theocracy</cell>
+        <cell><img src="./assets/grid/nol.svg"></cell>
+        <cell>Should the government engage in secular legislation?</cell>
+        <cell></cell>
+        <cell>Should the weak be subjugated?</cell>
+        <cell></cell>
+        <cell>Should the sovereign be equivalent to the state?</cell>
+        <cell></cell>
+        <cell>Timocracy</cell>
+        <cell></cell>
+        <cell>Should local communities ensure law and order?</cell>
+        <cell></cell>
+        <cell>Neo-libertarianism</cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yest.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesb.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/strongmantl.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/sovereigntr.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/wisdomb.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/not.svg"></div>
+        <cell></cell>
+        <cell><img src="./assets/grid/yestl.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/notl.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell><img src="./assets/grid/godtl.svg"></cell>
+        <cell><img src="./assets/grid/strengtht.svg"></cell>
+        <cell><img src="./assets/grid/inheritancetr.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/landownershiptr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/notl.svg"></cell>
+        <cell><img src="./assets/grid/yest.svg"></cell>
 
-        <div class="treeCell">Jacobinism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should we secure the nation through a rebirth or revival?</div>
-        <div class="treeCell"><img src="./assets/grid/nol.svg"></div>
-        <div class="treeCell">Should we be devoted to a race superior to all others?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Who should assume state functions?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Noocracy</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Minarchism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should private property be made as widely owned as possible?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">Libertarian distributism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should there be a universal basic income?</div>
+        <cell>Fascism</cell>
+        <cell><img src="./assets/grid/nol.svg"></cell>
+        <cell>Should the clergy be part of the government?</cell>
+        <cell></cell>
+        <cell>Should the state have a role in all aspects of society?</cell>
+        <cell></cell>
+        <cell>Divine monarchy</cell>
+        <cell></cell>
+        <cell>Where should the sovereign's legitimacy come from?</cell>
+        <cell><img src="./assets/grid/selectionr.svg"></cell>
+        <cell>What should grant power to select the sovereign?</cell>
+        <cell><img src="./assets/grid/shareholdingr.svg"></cell>
+        <cell>Neocameralism</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>Should freedom be spread around the globe by force?</cell>
 
-        <div class="treeCell"><img src="./assets/grid/not.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nobl.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesbl.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/electedofficialsb.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/notl.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yest.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/notr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nobr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/notr.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/yesb.svg"></div>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yest.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell><img src="./assets/grid/strongmantl.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/sovereigntr.svg"></cell>
+        <cell><img src="./assets/grid/wisdomb.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/not.svg"></cell>
 
-        <div class="treeCell">Should a system of castes be in place?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">What gives that race such superiority?</div>
-        <div class="treeCell"><img src="./assets/grid/spiritsr.svg"></div>
-        <div class="treeCell">Esoteric fascism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should private property be made as widely owned as possible?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell startCell">Should a constitution limit the government's scope?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">Should the role of the state be limited to law enforcement and defense?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Avaritionism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should the only tax be a levy on public resource usage?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Social libertarianism</div>
+        <cell>Jacobinism</cell>
+        <cell></cell>
+        <cell>Should we secure the nation through a rebirth or revival?</cell>
+        <cell><img src="./assets/grid/nol.svg"></cell>
+        <cell>Should we be devoted to a race superior to all others?</cell>
+        <cell></cell>
+        <cell>Who should assume state functions?</cell>
+        <cell></cell>
+        <cell>Noocracy</cell>
+        <cell></cell>
+        <cell>Minarchism</cell>
+        <cell></cell>
+        <cell>Should property be made as widely owned as possible?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Libertarian distributism</cell>
+        <cell></cell>
+        <cell>Should there be a universal basic income?</cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesbr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/biologybr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nob.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/yesbr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nostatebr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yest.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesbr.svg"></div>
-        <div class="treeCell"></div>
+        <cell><img src="./assets/grid/not.svg"></cell>
+        <cell><img src="./assets/grid/nobl.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesbl.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/electedofficialsb.svg"></cell>
+        <cell><img src="./assets/grid/notl.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yest.svg"></cell>
+        <cell><img src="./assets/grid/notr.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nobr.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/notr.svg"></cell>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
 
-        <div class="treeCell">Orwellianism</div>
-        <div class="treeCell"><img src="./assets/grid/terrorl.svg"></div>
-        <div class="treeCell">How should control over society be ensured?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">National socialism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should land rents be repaid to society?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should people's needs be met unconditionally?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should the state be opposed through illegal trade?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">Should coercive markets be tolerated?</div>
-        <div class="treeCell"><img src="./assets/grid/nor.svg"></div>
-        <div class="treeCell">Agorism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Geolibertarianism</div>
+        <cell>Should a system of castes be in place?</cell>
+        <cell></cell>
+        <cell>What gives that race such superiority?</cell>
+        <cell><img src="./assets/grid/spiritsr.svg"></cell>
+        <cell>Esoteric fascism</cell>
+        <cell></cell>
+        <cell>Should property be made as widely owned as possible?</cell>
+        <cell></cell>
+        <cell class="startCell">Should the state be strictly limited in its scope?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Should the state only enforce law, property and defense?</cell>
+        <cell></cell>
+        <cell>Avaritionism</cell>
+        <cell></cell>
+        <cell>Should the only tax be a levy on public resource usage?</cell>
+        <cell></cell>
+        <cell>Social libertarianism</cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/apathyb.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesbl.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nob.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesb.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nobr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nobr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/biologybr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nob.svg"></cell>
+        <cell><img src="./assets/grid/yesbr.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nostatebr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yest.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesbr.svg"></cell>
+        <cell></cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Fordism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should the revenue from land rents be spent on welfare?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should traditional values be promoted?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Social distributism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Distributism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should private property be made as widely owned as possible?</div>
-        <div class="treeCell"><img src="./assets/grid/nor.svg"></div>
-        <div class="treeCell">Is earning rent from the land a form of theft?</div>
-        <div class="treeCell"><img src="./assets/grid/nor.svg"></div>
-        <div class="treeCell">Geo-anarchism</div>
+        <cell>How should control over society be ensured?</cell>
+        <cell><img src="./assets/grid/apathyr.svg"></cell>
+        <cell>Fordism</cell>
+        <cell></cell>
+        <cell>National socialism</cell>
+        <cell></cell>
+        <cell>Should land rents be given back to society?</cell>
+        <cell></cell>
+        <cell>Should people's needs be met unconditionally?</cell>
+        <cell></cell>
+        <cell>Which method should be used to bring down the state?</cell>
+        <cell><img src="./assets/grid/illegaltrader.svg"></cell>
+        <cell>Should coercive markets be tolerated?</cell>
+        <cell><img src="./assets/grid/nor.svg"></cell>
+        <cell>Agorism</cell>
+        <cell></cell>
+        <cell>Geolibertarianism</cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nobl.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/yesb.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nob.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/yesbr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesb.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nob.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
+        <cell><img src="./assets/grid/terrorb.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesbl.svg"></cell>
+        <cell><img src="./assets/grid/nob.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell><img src="./assets/grid/nobr.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/insurrectionbr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Georgism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Social georgism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should people's needs be met unconditionally?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should a social safety net protect the poor?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">Paternalistic conservatism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Anarcho-distributism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Will cooperatives dominate the free market?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">Left-rothbardianism</div>
+        <cell>Orwellianism</cell>
+        <cell></cell>
+        <cell>Social georgism</cell>
+        <cell><img src="./assets/grid/yesl.svg"></cell>
+        <cell>Should the revenue from land rents be spent on welfare?</cell>
+        <cell></cell>
+        <cell>Should the state and society prioritize order and stability?</cell>
+        <cell></cell>
+        <cell>Social distributism</cell>
+        <cell></cell>
+        <cell>Distributism</cell>
+        <cell></cell>
+        <cell>Should property be made as widely owned as possible?</cell>
+        <cell><img src="./assets/grid/nor.svg"></cell>
+        <cell>Is earning rent from the land a form of theft?</cell>
+        <cell><img src="./assets/grid/nor.svg"></cell>
+        <cell>Geo-anarchism</cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nobl.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesbr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nobr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nob.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nobl.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nobl.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesbr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nob.svg"></cell>
+        <cell></cell>
+        <cell></cell>
 
-        <div class="treeCell">Neoliberalism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Third way</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should the economy be tightly regulated?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Ordoliberalism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Social democracy</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should the government intervene in wars overseas?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">Mesoconservatism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Will covenant communities revive traditional norms?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Nilssonianism</div>
+        <cell>Neoliberalism</cell>
+        <cell></cell>
+        <cell>Georgism</cell>
+        <cell></cell>
+        <cell>Should people's needs be met unconditionally?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Social democracy</cell>
+        <cell></cell>
+        <cell>Should a social safety net protect the poor?</cell>
+        <cell><img src="./assets/grid/nor.svg"></cell>
+        <cell>Should the government intervene in wars overseas?</cell>
+        <cell></cell>
+        <cell>Anarcho-distributism</cell>
+        <cell></cell>
+        <cell>Are cooperatives preferable to hierarchical business models?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Left-rothbardianism</cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/tradetl.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yestl.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nob.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/yesbr.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/yest.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nob.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nobl.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/yesb.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/aggressivelytr.svg"></div>
-        <div class="treeCell"></div>
+        <cell><img src="./assets/grid/tradet.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nob.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nob.svg"></cell>
+        <cell><img src="./assets/grid/yesbr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nob.svg"></cell>
+        <cell></cell>
+        <cell></cell>
 
-        <div class="treeCell">Neoconservatism</div>
-        <div class="treeCell"><img src="./assets/grid/militaryl.svg"></div>
-        <div class="treeCell">Which gives the most power globally?</div>
-        <div class="treeCell"><img src="./assets/grid/nol.svg"></div>
-        <div class="treeCell">Should social mobility be promoted through state spending?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should big businesses have more social responsibilities?</div>
-        <div class="treeCell"><img src="./assets/grid/nor.svg"></div>
-        <div class="treeCell">Social liberalism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Paleoconservatism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Anarcho-capitalism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">How should separation of covenants occur?</div>
-        <div class="treeCell"><img src="./assets/grid/peacefullyr.svg"></div>
-        <div class="treeCell">Hoppeanism</div>
-    </div>
+        <cell>Which gives the most power globally?</cell>
+        <cell></cell>
+        <cell>Third way</cell>
+        <cell></cell>
+        <cell>Should the economy be tightly regulated?</cell>
+        <cell></cell>
+        <cell>Ordoliberalism</cell>
+        <cell></cell>
+        <cell>Should businesses that align with state goals be promoted?</cell>
+        <cell></cell>
+        <cell>Paleoconservatism</cell>
+        <cell></cell>
+        <cell>Mesoconservatism</cell>
+        <cell></cell>
+        <cell>Should covenant communities expel unwelcome individuals?</cell>
+        <cell></cell>
+        <cell>Nilssonianism</cell>
+
+        <cell><img src="./assets/grid/militaryb.svg"></cell>
+        <cell><img src="./assets/grid/notl.svg"></cell>
+        <cell><img src="./assets/grid/yest.svg"></cell>
+        <cell><img src="./assets/grid/nobl.svg"></cell>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell><img src="./assets/grid/yestr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell><img src="./assets/grid/nobr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nobl.svg"></cell>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell><img src="./assets/grid/aggressivelytr.svg"></cell>
+        <cell></cell>
+
+        <cell>Neoconservatism</cell>
+        <cell></cell>
+        <cell>Should the state spend to promote social mobility?</cell>
+        <cell></cell>
+        <cell>Should big businesses have more social responsibilities?</cell>
+        <cell><img src="./assets/grid/nor.svg"></cell>
+        <cell>Social liberalism</cell>
+        <cell></cell>
+        <cell>Dirigisme</cell>
+        <cell></cell>
+        <cell>Paternalistic conservatism</cell>
+        <cell></cell>
+        <cell>Anarcho-capitalism</cell>
+        <cell></cell>
+        <cell>How should separation of covenants occur?</cell>
+        <cell><img src="./assets/grid/peacefullyr.svg"></cell>
+        <cell>Hoppeanism</cell>
+    </grid>
     <h2 class="notice">Anti-private property tree</h2>
-    <div class="treeGrid">
-        <div class="treeCell">Syndicalism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Libertarian socialism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Market socialism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Guild socialism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Market anarchism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Mutualism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Anarcho-syndicalism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Sorelianism</div>
+    <grid id="tree2">
+        <cell>Syndicalism</cell>
+        <cell></cell>
+        <cell>Libertarian socialism</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>Market socialism</cell>
+        <cell></cell>
+        <cell>Guild socialism</cell>
+        <cell></cell>
+        <cell>Market anarchism</cell>
+        <cell></cell>
+        <cell>Mutualism</cell>
+        <cell></cell>
+        <cell>Anarcho-syndicalism</cell>
+        <cell></cell>
+        <cell>Sorelianism</cell>
 
-        <div class="treeCell"><img src="./assets/grid/yest.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/notr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yest.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/notr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/notr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/notr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/not.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/yestr.svg"></div>
-        <div class="treeCell"></div>
+        <cell><img src="./assets/grid/yest.svg"></cell>
+        <cell><img src="./assets/grid/notr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yest.svg"></cell>
+        <cell><img src="./assets/grid/notr.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/notr.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/notr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/not.svg"></cell>
+        <cell><img src="./assets/grid/yestr.svg"></cell>
+        <cell></cell>
 
-        <div class="treeCell">Should society be organized through unions?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Agrarian socialism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should public services be competitive?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should the economy be based on mutual credit?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">Should communities be ethnically homogenous?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">National anarchism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should we adopt the myth of our victory as our movement's unifier?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Libertarian municipalism</div>
+        <cell>Should society be organized through unions?</cell>
+        <cell></cell>
+        <cell>Utopian socialism</cell>
+        <cell></cell>
+        <cell>Technocracy</cell>
+        <cell></cell>
+        <cell>Should public services be competitive?</cell>
+        <cell></cell>
+        <cell>Should the economy be based on mutual credit?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Should communities be ethnically homogenous?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>National anarchism</cell>
+        <cell></cell>
+        <cell>Should we adopt the myth of our victory as our movement's unifier?</cell>
+        <cell></cell>
+        <cell>Libertarian municipalism</cell>
 
-        <div class="treeCell"><img src="./assets/grid/not.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/yestr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/notl.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nostatet.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yest.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yest.svg"></div>
+        <cell><img src="./assets/grid/not.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/notl.svg"></cell>
+        <cell><img src="./assets/grid/yest.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/not.svg"></cell>
+        <cell><img src="./assets/grid/nostatetr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yest.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yest.svg"></cell>
 
-        <div class="treeCell">Should the economy be centered on agriculture?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Democratic socialism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Technocracy</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should the state be governed by a single, central party?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">Should central planners allocate resources and industry?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">Langean socialism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Anarcho-collectivism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should society be organized through unions?</div>
-        <div class="treeCell"><img src="./assets/grid/nor.svg"></div>
-        <div class="treeCell">Should the state be opposed through local direct democracy?</div>
+        <cell>Should the economy be centered on agriculture?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Agrarian socialism</cell>
+        <cell></cell>
+        <cell>Should an expert committee optimize distribution to eliminate scarcity?</cell>
+        <cell></cell>
+        <cell>Should the state be governed by a single, central party?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Should central planners allocate resources and industry?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Langean socialism</cell>
+        <cell></cell>
+        <cell>Anarcho-collectivism</cell>
+        <cell></cell>
+        <cell>Should society be organized through unions?</cell>
+        <cell><img src="./assets/grid/nor.svg"></cell>
+        <cell>Should the state be opposed through local direct democracy?</cell>
 
-        <div class="treeCell"><img src="./assets/grid/not.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/electiont.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yest.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yest.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nob.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yestr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yestr.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nob.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
+        <cell><img src="./assets/grid/not.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yest.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yest.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nob.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yestr.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yestr.svg"></cell>
+        <cell><img src="./assets/grid/nob.svg"></cell>
+        <cell></cell>
+        <cell></cell>
 
-        <div class="treeCell">Should socialism be built and maintained through centralized authority?</div>
-        <div class="treeCell"><img src="./assets/grid/revolutionl.svg"></div>
-        <div class="treeCell">Which way should be used to bring about change?</div>
-        <div class="treeCell"><img src="./assets/grid/nol.svg"></div>
-        <div class="treeCell">Should an expert committee optimize distribution to eliminate scarcity?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell startCell">Should goods be distributed through markets?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Titoism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should labor vouchers be given in exchange for work?</div>
-        <div class="treeCell"><img src="./assets/grid/nor.svg"></div>
-        <div class="treeCell">Should agriculture be practiced?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should the working class be organized by a group of tacticians?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">Platformism</div>
+        <cell>Should socialism be built and maintained through centralized authority?</cell>
+        <cell><img src="./assets/grid/revolutionl.svg"></cell>
+        <cell>Which method should be used to abolish capitalism?</cell>
+        <cell><img src="./assets/grid/nol.svg"></cell>
+        <cell>Should all conflict be avoided when attempting change?</cell>
+        <cell></cell>
+        <cell class="startCell">Should goods be distributed through markets?</cell>
+        <cell></cell>
+        <cell>Titoism</cell>
+        <cell></cell>
+        <cell>Should labor vouchers be given in exchange for work?</cell>
+        <cell><img src="./assets/grid/nor.svg"></cell>
+        <cell>Should agriculture be practiced?</cell>
+        <cell></cell>
+        <cell>Should the working class be organized by a group of tacticians?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Platformism</cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesbr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/not.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nobl.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/notr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nob.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nobr.svg"></div>
-        <div class="treeCell"></div>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/electionb.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/not.svg"></cell>
+        <cell><img src="./assets/grid/nobl.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/notr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nob.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nobr.svg"></cell>
+        <cell></cell>
 
-        <div class="treeCell">Fourth theory</div>
-        <div class="treeCell"><img src="./assets/grid/yesl.svg"></div>
-        <div class="treeCell">Should we create multipolarity between civilizations?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should we reach a classless, stateless, moneyless society?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">Is a transitory state required for this?</div>
-        <div class="treeCell"><img src="./assets/grid/nor.svg"></div>
-        <div class="treeCell">Should capitalist relations be socialized through armed insurrection?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">Communization</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Anarcho-primitivism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Classical social democracy</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Anarcho-communism</div>
+        <cell>Should we create multipolarity between civilizations?</cell>
+        <cell></cell>
+        <cell>Democratic socialism</cell>
+        <cell></cell>
+        <cell>Should we reach a classless, stateless, moneyless society?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Is a transitory state required for this?</cell>
+        <cell><img src="./assets/grid/nor.svg"></cell>
+        <cell>Should capitalist relations be socialized through armed insurrection?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Communization</cell>
+        <cell></cell>
+        <cell>Anarcho-primitivism</cell>
+        <cell></cell>
+        <cell>Classical social democracy</cell>
+        <cell></cell>
+        <cell>Anarcho-communism</cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nob.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesb.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yestr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
+        <cell><img src="./assets/grid/nob.svg"></cell>
+        <cell><img src="./assets/grid/yesbr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yestr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
 
-        <div class="treeCell">State socialism</div>
-        <div class="treeCell"><img src="./assets/grid/nol.svg"></div>
-        <div class="treeCell">Should the nation come before all else?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Strasserism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should proletarian organization be based on democratic centralism?</div>
-        <div class="treeCell"><img src="./assets/grid/nor.svg"></div>
-        <div class="treeCell">Should there be a vanguard party to lead the working class?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">Should communists participate in parliamentary politics?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">Should we reform capitalism on the short term?</div>
-        <div class="treeCell"><img src="./assets/grid/nor.svg"></div>
-        <div class="treeCell">De leonism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
+        <cell>Should the nation come before all else?</cell>
+        <cell></cell>
+        <cell>Fourth theory</cell>
+        <cell></cell>
+        <cell>Strasserism</cell>
+        <cell></cell>
+        <cell>Should proletarian organization be based on democratic centralism?</cell>
+        <cell><img src="./assets/grid/nor.svg"></cell>
+        <cell>Should there be a vanguard party to lead the working class?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Should communists participate in parliamentary politics?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Should we reform capitalism on the short term?</cell>
+        <cell><img src="./assets/grid/nor.svg"></cell>
+        <cell>De leonism</cell>
+        <cell></cell>
+        <cell></cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesb.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yest.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesb.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nobr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nobr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell><img src="./assets/grid/nobr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yest.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nobr.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nobr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
 
-        <div class="treeCell">National syndicalism</div>
-        <div class="treeCell"><img src="./assets/grid/yesl.svg"></div>
-        <div class="treeCell">Should state-coordinated unions organize society?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should agriculture be the main focus of the economy?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Is socialism possible in a single country?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Trotskyism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should proletarian revolution be that of everyday life?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Will the dictatorship of the proletariat be a party dictatorship?</div>
-        <div class="treeCell"><img src="./assets/grid/nor.svg"></div>
-        <div class="treeCell">Dutch-german left communism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
+        <cell>Should state-coordinated unions organize society?</cell>
+        <cell></cell>
+        <cell>State socialism</cell>
+        <cell></cell>
+        <cell>Should agriculture be the main focus of the economy?</cell>
+        <cell></cell>
+        <cell>Is socialism possible in a single country?</cell>
+        <cell></cell>
+        <cell>Trotskyism</cell>
+        <cell></cell>
+        <cell>Should proletarian revolution be that of everyday life?</cell>
+        <cell></cell>
+        <cell>Will the dictatorship of the proletariat be a party dictatorship?</cell>
+        <cell><img src="./assets/grid/nor.svg"></cell>
+        <cell>Dutch-german left communism</cell>
+        <cell></cell>
+        <cell></cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nob.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/yestr.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nob.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesb.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nobr.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/yest.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesb.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nobr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesbr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell><img src="./assets/grid/nobr.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yestr.svg"></cell>
+        <cell><img src="./assets/grid/nob.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell><img src="./assets/grid/nobr.svg"></cell>
+        <cell><img src="./assets/grid/yest.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell><img src="./assets/grid/nobr.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesbr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
 
-        <div class="treeCell">National bolshevism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Are jews the cause for harsh worker conditions?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Niekischism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should commodity production occur under socialism?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should communists support national liberation?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Situationism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should there be a dictatorship of the proletariat?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Is an exit back in nature the only way to escape capitalism?</div>
-        <div class="treeCell"><img src="./assets/grid/nor.svg"></div>
-        <div class="treeCell">Bordigism</div>
+        <cell>National syndicalism</cell>
+        <cell></cell>
+        <cell>Are race and class closely and inseparately related?</cell>
+        <cell></cell>
+        <cell>Niekischism</cell>
+        <cell></cell>
+        <cell>Should commodity production occur under socialism?</cell>
+        <cell></cell>
+        <cell>Should communists support national liberation?</cell>
+        <cell></cell>
+        <cell>Situationism</cell>
+        <cell></cell>
+        <cell>Should there be a dictatorship of the proletariat?</cell>
+        <cell></cell>
+        <cell>Is an exit back in nature the only way to escape capitalism?</cell>
+        <cell><img src="./assets/grid/nor.svg"></cell>
+        <cell>Bordigism</cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/vanguardtl.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nob.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesb.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nobr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/nobr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesb.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nobr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesbr.svg"></div>
-        <div class="treeCell"></div>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nob.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell><img src="./assets/grid/nobr.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nobr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell><img src="./assets/grid/nobr.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesbr.svg"></cell>
+        <cell></cell>
 
-        <div class="treeCell">Limonovism</div>
-        <div class="treeCell"><img src="./assets/grid/parliamentl.svg"></div>
-        <div class="treeCell">How should the will of the people be executed?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Marxism-leninism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should protracted guerrilla warfare be used to remove the old society?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Bukharinism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Damenism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Council communism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Libertarian marxism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Camattism</div>
+        <cell>National bolshevism</cell>
+        <cell><img src="./assets/grid/vanguardl.svg"></cell>
+        <cell>How should the will of the people be executed?</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>Should protracted guerrilla warfare be used to remove the old society?</cell>
+        <cell></cell>
+        <cell>Bukharinism</cell>
+        <cell></cell>
+        <cell>Damenism</cell>
+        <cell></cell>
+        <cell>Council communism</cell>
+        <cell></cell>
+        <cell>Libertarian marxism</cell>
+        <cell></cell>
+        <cell>Camattism</cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/directdemocracybl.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/not.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nobl.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/yesb.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
+        <cell></cell>
+        <cell><img src="./assets/grid/parliamentbl.svg"></cell>
+        <cell><img src="./assets/grid/directdemocracyb.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nob.svg"></cell>
+        <cell><img src="./assets/grid/yesbr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
 
-        <div class="treeCell">Third international theory</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Is giving resource precedence to the military necessary?</div>
-        <div class="treeCell"><img src="./assets/grid/yesl.svg"></div>
-        <div class="treeCell">Should the revolution's main priority be the nation's liberation?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Are these tactics applicable across all countries?</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Should civilians be allowed to run independent enterprises?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">Dengism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
+        <cell>Limonovism</cell>
+        <cell></cell>
+        <cell>Third international theory</cell>
+        <cell></cell>
+        <cell>Marxism-leninism</cell>
+        <cell><img src="./assets/grid/nol.svg"></cell>
+        <cell>Should the revolution's main priority be the nation's liberation?</cell>
+        <cell></cell>
+        <cell>Are these tactics applicable across all countries?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Marxism-leninism-maoism</cell>
+        <cell></cell>
+        <cell>Should civilians be allowed to run independent enterprises?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Dengism</cell>
+        <cell></cell>
+        <cell></cell>
 
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesbl.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nob.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/yesbl.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nob.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"><img src="./assets/grid/not.svg"></div>
-        <div class="treeCell"><img src="./assets/grid/nobr.svg"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/yesb.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nobr.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/notr.svg"></cell>
+        <cell></cell>
+        <cell><img src="./assets/grid/nobr.svg"></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
 
-        <div class="treeCell">Juche</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">National communism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Marxism-leninism-maoism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Is the first world working class an anti-revolutionary one?</div>
-        <div class="treeCell"><img src="./assets/grid/yesr.svg"></div>
-        <div class="treeCell">Maoism-third-worldism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell">Maoism</div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-        <div class="treeCell"></div>
-    </div>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell>Juche</cell>
+        <cell><img src="./assets/grid/yesl.svg"></cell>
+        <cell>Is giving resource precedence to the military necessary?</cell>
+        <cell><img src="./assets/grid/nor.svg"></cell>
+        <cell>National communism</cell>
+        <cell></cell>
+        <cell>Is the first world working class an anti-revolutionary one?</cell>
+        <cell><img src="./assets/grid/yesr.svg"></cell>
+        <cell>Maoism-third-worldism</cell>
+        <cell></cell>
+        <cell>Maoism</cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+    </grid>
         <button class="button small back" onclick="show('home')"><span><img src="./assets/buttons/back.svg"></span>Back</button>
     </section>
     <section id="svgHolder">
-        <p class="footer">
-            <a target="_blank" href="https://github.com/QUARK88">Quark 2024</a>
-        </p>
-        <img src="./assets/sites/discord.svg" class="socialsicon" onclick="navigator.clipboard.writeText('realquark');confirm('Discord tag copied!');">
-        <a target="_blank" href="https://www.reddit.com/user/QK_QUARK88"><img src="./assets/sites/reddit.svg" class="socialsicon"></a>
-        <a target="_blank" href="https://x.com/RenaudBeaulieuQ"><img src="./assets/sites/x.svg" class="socialsicon"></a>
+        <h2 class="footer"><a target="_blank" href="https://github.com/QUARK88">Quark 2024</a></h2>
+        <img src="./assets/logos/discord.svg" class="socialsicon" onclick="navigator.clipboard.writeText('realquark');confirm('Discord tag copied! (realquark)')">
+        <a target="_blank" href="https://www.reddit.com/user/QK_QUARK88"><img src="./assets/logos/reddit.svg" class="socialsicon"></a>
+        <a target="_blank" href="https://x.com/RenaudBeaulieuQ"><img src="./assets/logos/x.svg" class="socialsicon"></a>
     </section>
 </body>
 <script src="./script.js">
