@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="site" style="opacity: 0;">
 
 <head>
     <link rel="stylesheet" href="./style.css">
@@ -9,7 +9,7 @@
     <meta property="og:title" content="IdeoSorter">
     <meta property="og:type" content="website">
     <meta property="og:description"
-        content="Discover your political ideology in only a few questions using a flowchart quiz!">
+        content="Discover your political ideology with only a few questions using a flowchart quiz.">
     <meta property="og:url" content="https://quark88.github.io/ideosorter">
     <meta property="og:image" content="https://quark88.github.io/ideosorter/assets/logos/embed.png">
     <meta name="theme-color" content="hsl(200,100%,50%)" data-react-helmet="true">
@@ -18,61 +18,52 @@
 </head>
 
 <body>
+    <script>0</script>
     <div id="nav">
-        <div title="Show/hide navigation tools" class="navButton" onclick="navigate()"><img id="navToggle" class="navIcon" src="./assets/buttons/navigation.svg"></div>
+        <div title="Show/hide navigation tools" class="navButton" onclick="navigate()"><img id="navToggle" src="./assets/buttons/navigation.svg"></div>
         <div id="navToggled">
-            <div title="Home" class="navButton" onclick="show('home')"><img class="navIcon" src="./assets/buttons/home.svg"></div>
-            <div title="Quiz" class="navButton" onclick="show('quiz'),q_privateProperty()"><img class="navIcon" src="./assets/buttons/yes.svg"></div>
-            <div title="Create" class="navButton" onclick="show('create')"><img class="navIcon" src="./assets/buttons/create.svg"></div>
-            <div title="About" class="navButton" onclick="show('about')"><img class="navIcon" src="./assets/buttons/about.svg"></div>
-            <div title="Tree" class="navButton" onclick="show('tree')"><img class="navIcon" src="./assets/buttons/tree.svg"></div>
+            <div title="Home" class="navButton" onclick="show('home')"><img src="./assets/buttons/home.svg"></div>
+            <div title="Quiz" class="navButton" onclick="show('quiz'),q_privateProperty()"><img src="./assets/buttons/yes.svg"></div>
+            <div title="Create" class="navButton" onclick="show('create')"><img src="./assets/buttons/create.svg"></div>
+            <div title="About" class="navButton" onclick="show('about')"><img src="./assets/buttons/about.svg"></div>
+            <div title="Tree" class="navButton" onclick="show('tree')"><img src="./assets/buttons/tree.svg"></div>
         </div>
     </div>
     <section id="title">
         <div class="version"></div>
         <img src="./assets/logos/title.svg" id="logo">
-        <div class="version">
-            <a title="🥙" target="_blank" href="https://youtu.be/tLq0npAVQm8">V2.7.0</a>
-        </div>
+        <a class="version" title="🥯" target="_blank" href="https://youtu.be/p8LiP0ZZbHA">V2.7.1</a>
     </section>
     <section id="home">
-        <h2 class="intro">Discover your political ideology in only a few questions</h2>
+        <h2 class="intro">Discover your political ideology with only a few questions</h2>
         <button class="button" id="startButton" onclick="show('quiz'),q_privateProperty()">
             Start
-            <span>
                 <img class="startIcon" src="./assets/buttons/start.svg">
-            </span>
         </button>
-        <div class="smallButtons">
+        <div class="homeNav">
             <button class="button small" onclick="show('create')">
-                <span>
                     <img src="./assets/buttons/create.svg">
-                </span>
                 Create
             </button>
             <button class="button small" onclick="show('about')">
-                <span>
                     <img src="./assets/buttons/about.svg">
-                </span>
                 About
             </button>
             <button class="button small" onclick="show('tree')">
-                <span>
                     <img src="./assets/buttons/tree.svg">
-                </span>
                 Tree
             </button>
         </div>
         <h2 class="notice">Check out those other cool tests also</h2>
-        <div id="homeTests">
+        <div id="otherTests">
             <a target="_blank" href="https://quark88.github.io/dozenvalues">
-                <button class="button homeTest">DozenValues<img class="testIcon" src="./assets/logos/dv.svg"></button>
+                <button class="button otherTest">DozenValues<img src="./assets/logos/dv.svg"></button>
             </a>
             <a target="_blank" href="https://quark88.github.io/polithex">
-                <button class="button homeTest">PolitHex<img class="testIcon" src="./assets/logos/ph.svg"></button>
+                <button class="button otherTest">PolitHex<img src="./assets/logos/ph.svg"></button>
             </a>
             <a target="_blank" href="https://quark88.github.io/sapplykiller">
-                <button class="button homeTest">SapplyKiller<img class="testIcon" src="./assets/logos/sk.svg"></button>
+                <button class="button otherTest">SapplyKiller<img src="./assets/logos/sk.svg"></button>
             </a>
         </div>
         <h2 class="mention">Special thanks to uamee, XS Project, GSPD, DJ Blyatman, Alan Aztec, Russian Village Boys, Hard Bass School, milda, Hotzzen, Starslav, SrpskiBass, Badwor7h and the hardbass community in general for making the music that gave me the energy to create all of this</h2>
@@ -80,25 +71,25 @@
     </section>
     <section id="quiz">
         <h2 id="question">Loading...</h2>
-        <button class="button" id="button1">Loading...</button>
-        <button class="button" id="button2">Loading...</button>
-        <button class="button" id="button3">Loading...</button>
-        <button class="button" id="button4">Loading...</button>
-        <button class="button" id="button5">Loading...</button>
-        <button class="button small back" id="quizBack"><span><img src="./assets/buttons/back.svg"></span>Back</button>
+        <button class="button quizButton" id="button1">Loading...</button>
+        <button class="button quizButton" id="button2">Loading...</button>
+        <button class="button quizButton" id="button3">Loading...</button>
+        <button class="button quizButton" id="button4">Loading...</button>
+        <button class="button quizButton" id="button5">Loading...</button>
+        <button class="button small back" id="quizBack"><img src="./assets/buttons/back.svg">Back</button>
     </section>
     <section id="results">
         <div id="screenshot" class="screenshot">
             <h2 id="match" class="match">Ideology</h2>
             <div id="switchBar">
-            <button class="button switch" id="lSwitch"><span><img src="./assets/buttons/left.svg"></span></button>
+            <button class="button switch" id="lSwitch"><img src="./assets/buttons/left.svg"></button>
             <img id="flag" class="flag">
-            <button class="button switch" id="rSwitch"><span><img src="./assets/buttons/right.svg"></span></button>
+            <button class="button switch" id="rSwitch"><img src="./assets/buttons/right.svg"></button>
             </div>
             <h2 id="quote" class="quote">Quote</h2>
             <h2 id="author" class="author">Author</h2>
         </div>
-        <button class="button small back" id="resultsBack"><span><img src="./assets/buttons/back.svg"></span>Back</button>
+        <button class="button small back" id="resultsBack"><img src="./assets/buttons/back.svg">Back</button>
     </section>
     <section id="create">
         <div id="createScreenshot" class="screenshot">
@@ -107,14 +98,14 @@
             <h2 id="createQuote" class="quote" onclick="editText(this, 'quote')">Loading...</h2>
             <h2 id="createAuthor" class="author" onclick="editText(this, 'author')">Loading...</h2>
         </div>
-        <button class="button small back" onclick="show('home')"><span><img src="./assets/buttons/back.svg"></span>Back</button>
+        <button class="button small back" onclick="show('home')"><img src="./assets/buttons/back.svg">Back</button>
     </section>
     <section id="about">
         <h2 class="notice">About</h2>
         <p>IdeoSorter is a political test website created entirely by myself (Quark), including a custom result maker and a tool to view all possible results. It is based on TheGhostOfInky's <a target="_blank" href="https://ideosorter.github.io">own site</a> of the same name, which operates on a similar concept, but which i felt fell short in scope, efficiency and presentation. Knowing it would not be updated further, i went ahead and developed my own take on it. After nine years in development, hopefully it will have been worth the wait. I can be reached at <a target="_blank" href="mailto:beaulieu.renaud@gmail.com">beaulieu.renaud@gmail.com</a>, and my favorite ideology is neocameralism.</p>
-        <h2 class="question">What is the quiz's purpose?</h2>
+        <h2 class="aboutQuestion">What is the quiz's purpose?</h2>
         <p>While many tests prioritize covering as many ideologies as possible, down to the smallest detail, whereas others attempt to provide a quiz focused on a specific political group, IdeoSorter instead aims for generality and ease of comprehension. Rather than asking a plethora of advanced questions for hardened ideologists, it avoids all the math work and offers a predetermined result drawn from the path chosen by the user, as they select their stances on simple, broad topics. It is thus rather beginner-friendly, and intended as a means of discovering one's likely ideological affiliations, or to confirm them beyond doubt.</p>
-        <h2 class="question">My ideology is missing, could you add it?</h2>
+        <h2 class="aboutQuestion">My ideology is missing, could you add it?</h2>
         <p>Perhaps you will wander around the website and notice that your preferred political label is absent. You go through the 100 available options, and the proposed result just isn't fitting enough, if at all. Prior to contacting me so that i implement it, consider the following guidelines:</p>
         <ul>
             <li>This is a political test, not a philosophical one. What is evalutated here is not your outlook on politics as a whole, but your position within it. All questions implicitly abstain from engaging in the "why?" behind your opinions, all that matters is the concrete implications. As such, political philosophies, such as "stirnerite egoism", "reactionaryism", "marxism", "machiavellianism", etc. do not fit the test and will be rejected if adjured.</li>
@@ -122,25 +113,31 @@
             <li>Whilst ideologies are fixed in time and internally consistent, people oftentimes are not. If your suggested addition revolves around a person or group of persons, such as "trumpism" or "putinism", and isn't linked to any written and well-defined doctrine, unlike the case of maoism or georgism, then it is wholly invalid. Similarly, buzzwords or otherwise ill-defined and widely controversial designations, as per "alt-right" or "neo-fascism", are equally worthless to this project.</li>
         </ul>
         <p>If you believe you have found something that would meet all of the above criteria, you can <a target="_blank" href="https://github.com/QUARK88/ideosorter/issues/new">open a GitHub issue</a> explaining and justifying it, or do the same through email at my address (beaulieu.renaud@gmail.com), or contact me at one of my social media accounts found at the bottom of every page (realquark on Discord, <a target="_blank" href="https://www.reddit.com/user/QK_QUARK88">u/QK_QUARK88</a> on Reddit and <a target="_blank" href="https://x.com/RenaudBeaulieuQ">@RenaudBeaulieuQ</a> on X).</p>
-        <h2 class="question">Can i reuse your code and assets?</h2>
+        <h2 class="aboutQuestion">Can i reuse your code and assets?</h2>
         <p>Sure. All of it is open-source on <a target="_blank" href="https://github.com/QUARK88/ideosorter">GitHub</a> for you to look at or simply copy-paste or download. You can even have a try at creating your own version of the test, but i can't guarantee that you will be able to understand how my programming works, or that people won't make fun of you for it (Potentially including me). Be aware that the entirety of the project's iterations are under the <a target="_blank" href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License</a>, meaning that you can copy, distribute and edit any of its parts at will, but you are strictly forbidden from making people pay to use it afterwards, or prevent them from accessing your source code openly and freely. My generosity comes at the cost of yours.</p>
-        <h2 class="question">Other questions?</h2>
+        <h2 class="aboutQuestion">Other questions?</h2>
         <p>Go ahead and contact me at the places i have linked. It can be for partnerships, general propositions, clarifications, whatever. I'm nowhere near open-minded or welcoming, but i can recognize a good idea when i see one.</p>
-        <button class="button small back" onclick="show('home')"><span><img src="./assets/buttons/back.svg"></span>Back</button>
+        <button class="button small back" onclick="show('home')"><img src="./assets/buttons/back.svg">Back</button>
     </section>
     <section id="tree">
-        <select id="matches">
-            <option>Select result to view...</option>
-        </select>
-        <h2 class="notice">Legend</h2>
-        <div id="legend">
-            <div class="legendBox" id="startBox">Start</div>
-            <div class="legendBox" id="questionBox">Question</div>
-            <div class="legendBox" id="resultBox">Result</div>
+        <div id="treeInfo">
+            <div class="treeInfoHalf">
+                <h2 class="tip" id="matchesTip">All possible results, alphabetically</h2>
+                <select id="matches">
+                    <option>Select result to view...</option>
+                </select>
+            </div>
+            <div class="treeInfoHalf">
+                <h2 class="tip">Legend (Click on a result to view it)</h2>
+                <div id="legend">
+                    <div class="legendBox" id="startBox">Start</div>
+                    <div class="legendBox" id="questionBox">Question</div>
+                    <div class="legendBox" id="resultBox">Result</div>
+                </div>
+            </div>
         </div>
-        <h2 class="tip">Tip: Click on a result box to view it</h2>
         <h2 class="notice">Pro-private property tree</h2>
-    <grid id="tree1">
+        <grid id="tree1">
         <cell></cell>
         <cell></cell>
         <cell></cell>
@@ -215,7 +212,7 @@
 
         <cell>Yellow socialism</cell>
         <cell><img src="./assets/grid/yesl.svg"></cell>
-        <cell>Should worker unions be supported in their struggle for higher wages?</cell>
+        <cell>Should worker unions be backed in their struggle for higher wages?</cell>
         <cell></cell>
         <cell>Should property be made as widely owned as possible?</cell>
         <cell></cell>
@@ -227,9 +224,9 @@
         <cell></cell>
         <cell>Hereditary monarchy</cell>
         <cell></cell>
-        <cell>Right-libertarianism</cell>
-        <cell></cell>
         <cell>Paleolibertarianism</cell>
+        <cell></cell>
+        <cell>Right-libertarianism</cell>
 
         <cell></cell>
         <cell></cell>
@@ -245,8 +242,8 @@
         <cell><img src="./assets/grid/notr.svg"></cell>
         <cell></cell>
         <cell></cell>
-        <cell><img src="./assets/grid/not.svg"></cell>
-        <cell><img src="./assets/grid/yestr.svg"></cell>
+        <cell><img src="./assets/grid/yest.svg"></cell>
+        <cell><img src="./assets/grid/notr.svg"></cell>
         <cell></cell>
 
         <cell>Clerical fascism</cell>
@@ -554,9 +551,9 @@
         <cell>How should separation of covenants occur?</cell>
         <cell><img src="./assets/grid/peacefullyr.svg"></cell>
         <cell>Hoppeanism</cell>
-    </grid>
-    <h2 class="notice">Anti-private property tree</h2>
-    <grid id="tree2">
+        </grid>
+        <h2 class="notice">Anti-private property tree</h2>
+        <grid id="tree2">
         <cell>Syndicalism</cell>
         <cell></cell>
         <cell>Libertarian socialism</cell>
@@ -607,7 +604,7 @@
         <cell><img src="./assets/grid/yesr.svg"></cell>
         <cell>National anarchism</cell>
         <cell></cell>
-        <cell>Should we adopt the myth of our victory as our movement's unifier?</cell>
+        <cell>Should we use the myth of victory to unify our movement?</cell>
         <cell></cell>
         <cell>Libertarian municipalism</cell>
 
@@ -665,7 +662,7 @@
         <cell></cell>
         <cell></cell>
 
-        <cell>Should socialism be built and maintained through centralized authority?</cell>
+        <cell>Should centralized authority build and maintain socialism?</cell>
         <cell><img src="./assets/grid/revolutionl.svg"></cell>
         <cell>Which method should be used to abolish capitalism?</cell>
         <cell><img src="./assets/grid/nol.svg"></cell>
@@ -707,9 +704,9 @@
         <cell></cell>
         <cell>Should we reach a classless, stateless, moneyless society?</cell>
         <cell><img src="./assets/grid/yesr.svg"></cell>
-        <cell>Is a transitory state required for this?</cell>
+        <cell>Should there be a temporary state apparatus?</cell>
         <cell><img src="./assets/grid/nor.svg"></cell>
-        <cell>Should capitalist relations be socialized through armed insurrection?</cell>
+        <cell>Should capitalist relations be socialized through insurrection?</cell>
         <cell><img src="./assets/grid/yesr.svg"></cell>
         <cell>Communization</cell>
         <cell></cell>
@@ -743,7 +740,7 @@
         <cell></cell>
         <cell>Strasserism</cell>
         <cell></cell>
-        <cell>Should proletarian organization be based on democratic centralism?</cell>
+        <cell>Should democratic centralism lead proletarian organization?</cell>
         <cell><img src="./assets/grid/nor.svg"></cell>
         <cell>Should there be a vanguard party to lead the working class?</cell>
         <cell><img src="./assets/grid/yesr.svg"></cell>
@@ -934,15 +931,17 @@
         <cell>Maoism</cell>
         <cell></cell>
         <cell></cell>
-        <cell></cell>
-    </grid>
-        <button class="button small back" onclick="show('home')"><span><img src="./assets/buttons/back.svg"></span>Back</button>
+        </grid>
+        <button class="button small back" onclick="show('home')"><img src="./assets/buttons/back.svg">Back</button>
     </section>
-    <section id="svgHolder">
-        <h2 class="footer"><a target="_blank" href="https://github.com/QUARK88">Quark 2024</a></h2>
-        <img src="./assets/logos/discord.svg" class="socialsicon" onclick="navigator.clipboard.writeText('realquark');confirm('Discord tag copied! (realquark)')">
-        <a target="_blank" href="https://www.reddit.com/user/QK_QUARK88"><img src="./assets/logos/reddit.svg" class="socialsicon"></a>
-        <a target="_blank" href="https://x.com/RenaudBeaulieuQ"><img src="./assets/logos/x.svg" class="socialsicon"></a>
+    <section id="footer">
+        <h2 id="creator"><a title="Quark on GitHub" target="_blank" href="https://github.com/QUARK88">Quark 2024</a></h2>
+        <div id="socials">
+            <img title="Quark on Discord" src="./assets/logos/discord.svg" class="socialIcon" onclick="navigator.clipboard.writeText('realquark');confirm('Discord tag copied! (realquark)')">
+            <a target="_blank" href="https://x.com/RenaudBeaulieuQ"><img title="Quark on X" src="./assets/logos/x.svg" class="socialIcon"></a>
+            <img title="Quark on Tlon" src="./assets/logos/tlon.svg" class="socialIcon" onclick="navigator.clipboard.writeText('~worlyt-nillex');confirm('Urbit ID copied! (~worlyt-nillex)')"</img>
+            <a target="_blank" href="https://www.reddit.com/user/QK_QUARK88"><img title="Quark on Reddit" src="./assets/logos/reddit.svg" class="socialIcon"></a>
+        </div>
     </section>
 </body>
 <script src="./script.js">

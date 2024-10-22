@@ -6,7 +6,8 @@ function DomProxy() {
     }
     return new Proxy({}, handler)
 }
-const { navToggle,
+const { site,
+    navToggle,
     navToggled,
     home,
     quiz,
@@ -30,9 +31,20 @@ const { navToggle,
     createMatch,
     createFlag,
     createQuote,
+    matchesTip,
     matches,
     tree,
+    tree1,
+    tree2,
     about } = DomProxy()
+let domReady = (cb) => {
+    document.readyState === "interactive" || document.readyState === "complete"
+        ? cb()
+        : document.addEventListener("DOMContentLoaded", cb)
+}
+domReady(() => {
+    site.style.opacity = "1"
+});
 const sections = ["home", "quiz", "results", "create", "about", "tree"]
 const buttons = [button1, button2, button3, button4, button5]
 const defaultColors = ["hsl(120,70%,45%)", "hsl(0,70%,45%)", "hsl(0,0%,25%)", "hsl(0,0%,25%)", "hsl(0,0%,25%)"]
@@ -49,7 +61,9 @@ async function fetchData() {
     }
 }
 matches.addEventListener("change", function () {
-    r("tree", matches.options[matches.selectedIndex].text)
+    if (matches.options[matches.selectedIndex].text != "Select result to view...") {
+        r("tree", matches.options[matches.selectedIndex].text)
+    }
 })
 let ideologies
 (async () => {
@@ -65,6 +79,7 @@ let ideologies
 fetchData().then(ideologies => {
     if (!ideologies) return
     const titles = Object.keys(ideologies)
+    matchesTip.innerText = "All " + titles.length + " possible results, alphabetically"
     document.querySelectorAll("grid cell").forEach(cell => {
         const text = cell.childNodes.length === 1 && cell.childNodes[0].nodeType === Node.TEXT_NODE ? cell.textContent.trim() : ""
         if (text && titles.includes(text)) {
@@ -79,18 +94,21 @@ fetchData().then(ideologies => {
 })
 function show(section = "home") {
     document.documentElement.scrollTop = 0
-    for (i of sections) {
-        if (i == section) {
-            eval(i).style.display = "block"
-            if (section == "create") {
-                createMatch.innerText = "Click to change name"
-                createFlag.src = "./assets/flags/Drop.svg"
-                createQuote.innerText = "Click to change quote"
-                createAuthor.innerText = "Click to change author"
-                createScreenshot.scrollIntoView({ behavior: "auto" })
+    for (let i of sections) {
+        const element = eval(i)
+        if (element) {
+            if (i == section) {
+                element.style.display = "block"
+                if (section == "create") {
+                    createMatch.innerText = "Click to change name"
+                    createFlag.src = "./assets/flags/Drop.svg"
+                    createQuote.innerText = "Click to change quote"
+                    createAuthor.innerText = "Click to change author"
+                    createScreenshot.scrollIntoView({ behavior: "auto" })
+                }
+            } else {
+                element.style.display = "none"
             }
-        } else {
-            eval(i).style.display = "none"
         }
     }
 }
@@ -116,7 +134,7 @@ function selectFile() {
     fileInput.type = "file"
     fileInput.addEventListener("change", function () {
         const selectedFile = this.files[0]
-        if (selectedFile) {
+        if (selectedFile && selectedFile.type.startsWith("image")) {
             const reader = new FileReader()
             reader.onload = function (e) {
                 const imageUrl = e.target.result
@@ -143,7 +161,7 @@ function dropHandler(event) {
         const reader = new FileReader()
         reader.onload = function (e) {
             const imageUrl = e.target.result
-            document.getElementById("createFlag").src = imageUrl
+            createFlag.src = imageUrl
         }
         reader.readAsDataURL(imageFile)
     } else {
@@ -151,18 +169,18 @@ function dropHandler(event) {
     }
 }
 function q(p = "", q = "Loading...", b1 = "", n1 = "", b2 = "", n2 = "", b3 = "", n3 = "", b4 = "", n4 = "", b5 = "", n5 = "", c = "", s = "", i = "") {
-    quiz.style.display = "block"
-    results.style.display = "none"
+    show("quiz")
+    document.documentElement.scrollTop = 0
     for (x of buttons) {
         x.innerText = ""
     }
     if (i == "") {
         for (let x in buttons) {
-            buttons[x].innerHTML = `<span><img src="./assets/buttons/${defaultIcons[x]}.svg"></span>`
+            buttons[x].innerHTML = `<img src="./assets/buttons/${defaultIcons[x]}.svg">`
         }
     } else {
         for (let x in i) {
-            buttons[x].innerHTML = `<span><img src="./assets/buttons/${i[x]}.svg"></span>`
+            buttons[x].innerHTML = `<img src="./assets/buttons/${i[x]}.svg">`
         }
     }
     question.innerText = q
@@ -202,12 +220,11 @@ function q(p = "", q = "Loading...", b1 = "", n1 = "", b2 = "", n2 = "", b3 = ""
     for (let x of buttons) {
         x.style.display = x.innerText ? "flex" : "none"
     }
-    document.documentElement.scrollTop = 0
 }
 function s(ideology) {
     selected = list.indexOf(ideology)
-    lSwitch.style.display = "block"
-    rSwitch.style.display = "block"
+    lSwitch.style.display = "flex"
+    rSwitch.style.display = "flex"
     resultsBack.onclick = () => show("tree")
     if (selected > 0) {
         lSwitch.onclick = () => r("tree", list[selected - 1])
@@ -221,7 +238,7 @@ function s(ideology) {
     }
 }
 document.addEventListener("keydown", event => {
-    if (results.style.display == "block" && (lSwitch.style.display == "block" || rSwitch.style.display == "block")) {
+    if (results.style.display == "block" && (lSwitch.style.display == "flex" || rSwitch.style.display == "flex")) {
         selected = list.indexOf(selectedIdeology)
         if (event.key === "ArrowLeft") {
             if (selected > 0) {
@@ -277,7 +294,7 @@ function q_constitution() {
     q(q_privateProperty, "Should the state be strictly limited in its scope?", "Yes", q_minarchy, "No", q_stateFunctions, "The state should not exist", q_counterEcon, "", "", "", "", ["hsl(120,70%,45%)", "hsl(0,70%,45%)", "hsl(280,60%,35%)"], ["hsl(120,70%,30%)", "hsl(0,70%,30%)", "hsl(280,60%,20%)"], ["yes", "no", "nostate"])
 }
 function q_minarchy() {
-    q(q_constitution, "Should the state only enforce law, property and defense?", "Yes", () => r(q_minarchy, "Minarchism"), "No", q_distBert)
+    q(q_constitution, "Should the state only enforce courts, property and defense?", "Yes", () => r(q_minarchy, "Minarchism"), "No", q_distBert)
 }
 function q_distBert() {
     q(q_minarchy, "Should property be made as widely owned as possible?", "Yes", () => r(q_distBert, "Libertarian distributism"), "No", q_singleTax)
@@ -382,7 +399,7 @@ function q_corpo() {
     q(q_total, "Should profession groups partake in policy making?", "Yes", q_yellow, "No", q_natDist)
 }
 function q_yellow() {
-    q(q_corpo, "Should worker unions be supported in their struggle for higher wages?", "Yes", () => r(q_yellow, "Yellow socialism"), "No", () => r(q_yellow, "State corporatism"))
+    q(q_corpo, "Should worker unions be backed in their struggle for higher wages?", "Yes", () => r(q_yellow, "Yellow socialism"), "No", () => r(q_yellow, "State corporatism"))
 }
 function q_natDist() {
     q(q_corpo, "Should property be made as widely owned as possible?", "Yes", () => r(q_natDist, "National distributism"), "No", q_authWelf)
@@ -436,10 +453,10 @@ function q_communism() {
     q(q_markets, "Should we reach a classless, stateless, moneyless society?", "Yes", q_commieState, "No", q_weed)
 }
 function q_commieState() {
-    q(q_communism, "Is a transitory state required for this?", "Yes", q_demCent, "No", q_communization)
+    q(q_communism, "Should there be a temporary state apparatus?", "Yes", q_demCent, "No", q_communization)
 }
 function q_demCent() {
-    q(q_commieState, "Should proletarian organization be based on democratic centralism?", "Yes", q_oneCountrySoc, "No", q_party)
+    q(q_commieState, "Should democratic centralism lead proletarian organization?", "Yes", q_oneCountrySoc, "No", q_party)
 }
 function q_oneCountrySoc() {
     q(q_demCent, "Is socialism possible in a single country?", "Yes", q_socCommodity, "No", q_natLib)
@@ -490,7 +507,7 @@ function q_dotp() {
     q(q_commodity, "Should there be a dictatorship of the proletariat?", "Yes", () => r(q_dotp, "Council communism"), "No", () => r(q_dotp, "Libertarian marxism"))
 }
 function q_communization() {
-    q(q_commieState, "Should capitalist relations be socialized through armed insurrection?", "Yes", () => r(q_communization, "Communization"), "No", q_vouchers)
+    q(q_commieState, "Should capitalist relations be socialized through insurrection?", "Yes", () => r(q_communization, "Communization"), "No", q_vouchers)
 }
 function q_vouchers() {
     q(q_communization, "Should labor vouchers be given in exchange for work?", "Yes", () => r(q_vouchers, "Anarcho-collectivism"), "No", q_agriculture)
@@ -502,7 +519,7 @@ function q_anarchoUnions() {
     q(q_agriculture, "Should society be organized through unions?", "Yes", q_myth, "No", q_bookchin)
 }
 function q_myth() {
-    q(q_anarchoUnions, "Should we adopt the myth of our victory as our movement's unifier?", "Yes", () => r(q_myth, "Sorelianism"), "No", () => r(q_myth, "Anarcho-syndicalism"))
+    q(q_anarchoUnions, "Should we use the myth of victory to unify our movement?", "Yes", () => r(q_myth, "Sorelianism"), "No", () => r(q_myth, "Anarcho-syndicalism"))
 }
 function q_bookchin() {
     q(q_anarchoUnions, "Should the state be opposed through local direct democracy?", "Yes", () => r(q_bookchin, "Libertarian municipalism"), "No", q_platform)
@@ -520,7 +537,7 @@ function q_transition() {
     q(q_weed, "Which way should be used to abolish capitalism?", "Election", () => r(q_transition, "Democratic socialism"), "Revolution", q_authSoc, "", "", "", "", "", "", ["hsl(335,70%,45%)", "hsl(10,70%,35%)"], ["hsl(335,70%,30%)", "hsl(10,70%,20%)"], ["election", "revolution"])
 }
 function q_authSoc() {
-    q(q_transition, "Should socialism be built and maintained through centralized authority?", "Yes", q_dugin, "No", q_agrSoc)
+    q(q_transition, "Should centralized authority build and maintain socialism?", "Yes", q_dugin, "No", q_agrSoc)
 }
 function q_dugin() {
     q(q_authSoc, "Should we create multipolarity between civilizations?", "Yes", () => r(q_dugin, "Fourth theory"), "No", q_natSocAuth)

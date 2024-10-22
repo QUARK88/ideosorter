@@ -1,40 +1,62 @@
+/*Yay, CSS comments! An entertaining window on the dark and twisted thoughts of the developer! Nah but really the old formatting was pretty shitty so i reorganized it with clear labels as to be in-line with my autism. As per all medium to large stylesheets, there's no right way of organizing it, but some ways are righter (?) than others.*/
+
+/*Palette*/
+
+:root {
+    --background: hsl(0, 0%, 6%);
+    /*Very very dark, neutral gray, for the site background. Almost black, but not quite. Black is too painful on the eyes, even for my vampire-esque retinas.*/
+    --text: hsl(0, 0%, 100%);
+    /*Pure white, for all textual elements. I think it gives the cleanest and clearest contrast with both the background and buttons. Anything darker gets muddy.*/
+    --button: hsl(0, 0%, 25%);
+    /*Dark, neutral gray, for the buttons. Good middle ground between the background and the text, while still looking cool.*/
+    --buttonShadow: hsl(0, 0%, 17.5%);
+    /*Very dark, neutral gray, for the nice 3D effect that goes under all buttons. It gives that special charm to the site's aesthetic.*/
+}
+
+/*Fonts*/
+
 @font-face {
     font-family: heavitas;
+    /*Base font for the title, text and buttons.*/
     src: url(./assets/fonts/heavitas.ttf);
 }
 
 @font-face {
-    font-family: bebasneue;
-    src: url(./assets/fonts/bebasneue.otf);
-}
-
-@font-face {
     font-family: expressway;
+    /*It features lowercase letters and it's not T H I C C so it's more readable in a paragraph.*/
     src: url(./assets/fonts/expressway.ttf);
 }
 
-:root {
-    --background: hsl(0, 0%, 6%);
-    --text: hsl(0, 0%, 100%);
-    --button: hsl(0, 0%, 25%);
-    --buttonShadow: hsl(0, 0%, 17.5%);
+@font-face {
+    font-family: bebasneue;
+    /*That really thin font for the tree. Mid-looking otherwise.*/
+    src: url(./assets/fonts/bebasneue.otf);
 }
+
+/*Site*/
 
 * {
     font-family: heavitas, sans-serif;
+    /*Backup font in case people have a really bad internet.*/
     color: var(--text);
-    text-align: center;
-    margin: 0;
-    font-weight: 100;
     text-transform: uppercase;
+    /*The font messes up when this isn't specified. Not sure why.*/
+    font-weight: 100;
+    /*I like text bold but not THAT bold.*/
+    text-align: center;
+    /*Most text is centered, better make it the rule than the exception.*/
+    margin: 0;
+    /*You never know.*/
+    /*outline-offset: -1px;
+    outline: solid 1px #0f0 !important;
+    /*For wireframe kiddies*/
 }
 
 html,
 body {
     background-color: var(--background);
     width: 100%;
-    margin: auto;
-    position: relative;
+    /*This should be the default behavior but whatever.*/
 }
 
 a,
@@ -43,127 +65,386 @@ a:hover,
 a:focus,
 a:active {
     color: var(--text);
+    /*Prevents "links" from having an ugly color.*/
     text-decoration: none;
+    /*Prevents links from having ugly underlines and hyperlink icons.*/
 }
 
+section {
+    width: 85vw;
+    /*Consistency is great.*/
+    padding: 2vw 0;
+    margin: auto;
+}
+
+#quiz,
+#results {
+    padding: 0;
+}
+
+/*Navigation*/
+
 #nav {
-    padding: 1vmax;
     position: fixed;
-    z-index: 1000;
-    cursor: pointer;
+    /*This makes it so that it keeps annoying you in the corner no matter how much you scroll. Despicable, isn't it?*/
+    z-index: 88;
+    /*Why 88, you may ask? I like to see people lose their shit over obvious jokes. The dumber, the more intense the reaction. "Oh no, the darned z-index is at effin' eighty-eight, this is scandalous!", or something. It's also a BIG number so it works well.*/
+    padding: 1vw;
+    /*Meg.*/
 }
 
 .navButton {
     background-color: var(--button);
-    width: 4vmax;
-    height: 4vmax;
+    width: 4vw;
+    height: 4vw;
     margin: auto;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1vmax;
+    margin: 0 0 1vw 0;
     border: none;
     display: flex;
-    padding: .5vmax;
+    padding: .5vw;
     cursor: pointer;
-    outline: none;
     position: relative;
     background-color: var(--button);
-    box-shadow: 0 .5vmax var(--buttonShadow);
-    border-radius: 1vmax;
+    box-shadow: 0 .5vw var(--buttonShadow);
+    border-radius: 1vw;
 }
 
-.navIcon {
-    width: 3vmax;
-    height: 3vmax;
+.navButton img {
+    width: 3vw;
+    /*It's important that the icons are bigger. That's the only thing inside the buttons.*/
 }
 
-h2 {
-    font-size: 2vmax;
-}
-
-section {
-    max-width: 86.5vmax;
-    margin: auto;
-}
+/*Title*/
 
 #title {
     display: flex;
-    width: 50vmax;
+    justify-content: center;
 }
 
 #logo {
-    width: 40vmax;
-    margin: 2vmax auto;
+    width: 40vw;
 }
 
 .version {
     text-align: left;
-    display: inline-block;
-    width: 4vmax;
-    font-size: 1vmax;
-    top: 4vmax;
+    width: 5vw;
+    height: fit-content;
+    font-size: 1.25vw;
     position: relative;
-    height: 4vmax;
+    top: 2vw;
 }
 
-#svgHolder {
-    margin-top: 16vmax;
-    margin-bottom: 1vmax;
-}
-
-.footer {
-    text-align: center;
-    font-size: 2vmax;
-    margin: 2vmax;
-}
-
-.socialsicon {
-    height: 4vmax;
-    width: 4vmax;
-    margin: 0 1vmax;
-    display: inline-block;
-    cursor: pointer;
-    border-radius: 100%;
-    transition: .1s ease-in-out;
-}
-
-.socialsicon:hover {
-    scale: 1.1;
-}
+/*Home*/
 
 .intro {
-    font-size: 2vmax;
-    margin: 2vmax auto;
-    width: 50vmax;
+    font-size: 2vw;
+    width: 50vw;
+    margin: auto;
+}
+
+.button {
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto .5vw auto;
+    border: none;
+    /*Vile crap, another thing that should have always been the default parameter.*/
+    display: flex;
+    /*Flex is important since almost all buttons include an icon with the text.*/
+    padding: 1.5vw;
+    font-size: 2vw;
+    cursor: pointer;
+    width: 30vw;
+    position: relative;
+    background-color: var(--button);
+    box-shadow: 0 .5vw var(--buttonShadow);
+    /*The 3D effect under buttons.*/
+    border-radius: 1vw;
+}
+
+.navButton:hover,
+.button:hover,
+#matches:hover {
+    filter: brightness(1.1);
+    /*Making buttons responsive to hovering, with a slightly increased brightness. Subtle feedback is insanely important when using an application.*/
+}
+
+.button:active,
+.navButton:active {
+    box-shadow: none !important;
+    /*Removes the 3D effect under the button while it is being pressed.*/
+    top: .5vw;
+    /*Shifts the button downwards without messing up spacing to give the impression that it is truly being pressed in 3D.*/
+}
+
+.button img {
+    margin-right: .5vw;
+    width: 2vw;
+    height: 2vw;
+}
+
+.back {
+    width: 15vw !important;
+    margin: auto !important;
 }
 
 #startButton {
-    width: 38vmax;
-    margin-bottom: .5vmax;
+    margin: 1vw auto .5vw auto;
+    width: 38vw;
 }
 
 #startButton img {
     margin-right: 0;
-    margin-left: .5vmax;
+    margin-left: .5vw;
+}
+
+.homeNav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1vw;
+    width: 38vw;
+    margin: 1.5vw auto 0 auto;
+}
+
+.small {
+    width: 12vw;
+    font-size: 1.5vw;
+    padding: 1vw;
+    height: 4vw;
 }
 
 .notice {
-    font-size: 3vmax;
-    margin: 2vmax auto;
+    font-size: 3vw;
+    margin: 2vw auto;
+}
+
+#otherTests {
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+    justify-content: center;
+}
+
+#otherTests a {
+    width: 100%;
+}
+
+.otherTest {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.otherTest img {
+    display: block;
+    height: 8vw;
+    width: auto !important;
+    margin: 1vw auto !important;
+}
+
+.mention {
+    font-size: 1.25vw;
+    margin: 2vw auto 0 auto;
+}
+
+/*Quiz*/
+
+#question {
+    font-size: 3vw;
+    width: 60vw;
+    margin: 0 auto 1vw auto;
+}
+
+.quizButton {
+    margin: 0 auto 1vw auto;
+}
+
+/*Results*/
+
+.screenshot {
+    width: fit-content;
+    padding: .25vw 3.5vw;
+    margin: 0 auto 1vw auto;
+}
+
+.match {
+    font-size: 3vw;
+    width: fit-content;
+    max-width: 50vw;
+    margin: 1vw auto;
+}
+
+#switchBar {
+    display: flex;
+    width: 42vw;
+    justify-content: space-between;
+    margin: 1vw auto 1.5vw auto;
+}
+
+.switch {
+    width: 4vw;
+    height: 8vw;
+    margin: auto 0;
+}
+
+.switch img {
+    margin: 0 !important;
+}
+
+.flag {
+    margin: auto;
+    max-width: 42vw;
+    min-height: 10vw;
+    max-height: 20vw;
+    border-radius: 3vw;
+}
+
+.quote {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.5vw;
+    width: fit-content;
+    max-width: 50vw;
+    min-height: 4vw;
+    margin: auto;
+    position: relative;
+}
+
+.quote::before,
+.quote::after {
+    font-size: 3vw;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.quote::before {
+    content: '“';
+    left: -2.5vw;
+}
+
+.quote::after {
+    content: '”';
+    right: -2.5vw;
+}
+
+.author {
+    font-size: 1.25vw;
+    width: fit-content;
+    margin: 1vw auto;
+    position: relative;
+}
+
+.author::before {
+    font-size: 1.25vw;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    content: '-';
+    left: -1vw;
+}
+
+/*Custom*/
+
+#createMatch,
+#createQuote,
+#createAuthor {
+    min-width: 4vw;
+    min-height: 2vw;
+    border-radius: 1vw;
+}
+
+#createMatch,
+#createQuote {
+    min-height: 4vw;
+}
+
+#createMatch:hover,
+#createFlag:hover,
+#createQuote:hover,
+#createAuthor:hover {
+    outline: solid .25vw var(--text);
+    cursor: pointer;
+    filter: brightness(1.1);
+}
+
+/*About*/
+
+p,
+p a {
+    text-align: left;
+    font-size: 2vw;
+    font-family: expressway;
+    text-transform: none !important;
+    margin: 1vw 0 3vw 0;
+}
+
+p a {
+    color: #00a0ff !important;
+}
+
+.aboutQuestion {
+    text-align: left;
+    font-size: 2.5vw;
+    margin: 1vw 0;
+}
+
+ul,
+li {
+    text-align: left;
+    font-size: 2vw;
+    font-family: expressway;
+    text-transform: none !important;
+    margin: 0 0 2vw 0;
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+/*Tree*/
+
+.tip {
+    margin: 0 auto 1vw auto;
+    font-size: 1.5vw;
+}
+
+#treeInfo {
+    display: flex;
+    width: 100%;
+    gap: 2vw;
+}
+
+.treeInfoHalf {
+    width: 100%;
+}
+
+#matches,
+option {
+    width: 30vw;
+    background-color: var(--button);
+    box-shadow: 0 .5vw var(--buttonShadow);
+    border: none;
+    padding: 1.5vw;
+    font-size: 1vw;
+    cursor: pointer;
+    border-radius: 1vw;
+    text-align: left;
+    margin: 1.5vw auto 0 auto;
 }
 
 #legend {
     display: flex;
     justify-content: center;
     margin: auto;
-    gap: 1vmax;
+    gap: 1.5vw;
 }
 
 .legendBox {
     display: flex;
-    width: 9vmax;
-    height: 6vmax;
-    font-size: 1.25vmax;
+    width: 9vw;
+    height: 6vw;
+    font-size: 1.25vw;
     justify-content: center;
     align-items: center;
 }
@@ -171,7 +452,6 @@ section {
 #startBox {
     background-color: #ffffff;
     color: #000000;
-    outline: 3px solid #808080;
 }
 
 #questionBox {
@@ -183,307 +463,31 @@ section {
     background-size: cover;
     background-position: center;
     text-shadow: 0 0 4px #000000ff;
-}
-
-.tip {
-    margin: 2vmax auto;
-    font-size: 1.5vmax;
-}
-
-.mention {
-    margin: 4vmax auto;
-    max-width: 90vmax;
-    font-size: 1.5vmax;
-}
-
-#homeTests {
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-    gap: 2vmax !important;
-    align-items: center;
-    justify-content: center;
-}
-
-#homeTests a {
-    width: 100%;
-}
-
-.homeTest {
-    display: flex;
-    width: 100% !important;
-    flex-direction: column;
-    margin: 0 auto !important;
-}
-
-.testIcon {
-    display: block;
-    height: 8vmax !important;
-    width: auto !important;
-    margin: 1vmax auto !important;
-}
-
-#question {
-    font-size: 3vmax;
-    width: 60vmax;
-    min-height: 4vmax;
-    margin: auto;
-}
-
-#home,
-#quiz,
-#results,
-#create,
-#about {
-    padding: 0 0 2vmax 0;
-}
-
-#quiz {
-    width: fit-content;
-    padding: 1vmax 0 2vmax 0;
-}
-
-#about {
-    width: 80vmax;
-    padding: 4vmax 0 0 0;
-}
-
-p,
-p>a {
-    text-align: left;
-    font-size: 2vmax;
-    font-family: expressway;
-    text-transform: none !important;
-    margin: 1vmax 0 3vmax 0;
-}
-
-p>a {
-    color: #00a0ff !important;
-}
-
-ul,
-li {
-    text-align: left;
-    font-size: 2vmax;
-    font-family: expressway;
-    text-transform: none !important;
-    margin: 0 0 2vmax 0;
-    list-style-position: inside;
-    padding-left: 0;
-}
-
-.question {
-    text-align: left;
-    font-size: 2.5vmax;
-    margin: 1vmax 0;
-}
-
-.screenshot {
-    width: fit-content;
-    padding: .5vmax 3vmax;
-    margin: 1vmax auto;
-}
-
-.match {
-    font-size: 3vmax;
-    width: fit-content;
-    max-width: 50vmax;
-    min-height: 4vmax;
-    margin: 1vmax auto;
-}
-
-.quote {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    font-size: 1.5vmax;
-    width: fit-content;
-    max-width: 50vmax;
-    min-height: 4vmax;
-    margin: 1vmax auto 0 auto;
-    padding: 1vmax;
-    position: relative;
-}
-
-.quote::before,
-.quote::after {
-    font-size: 3vmax;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.quote::before {
-    content: '“';
-    left: -2vmax;
-}
-
-.quote::after {
-    content: '”';
-    right: -2vmax;
-}
-
-.author {
-    font-size: 1.5vmax;
-    width: fit-content;
-    margin: auto;
-    padding: 1vmax;
-    position: relative;
-}
-
-.author::before {
-    font-size: 1.5vmax;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    content: '-';
-    left: -.5vmax;
-}
-
-.button {
-    align-items: center;
-    justify-content: center;
-    margin: 1vmax auto;
-    border: none;
-    display: flex;
-    padding: 1.5vmax;
-    font-size: 2vmax;
-    cursor: pointer;
-    width: 30vmax;
-    outline: none;
-    position: relative;
-    background-color: var(--button);
-    box-shadow: 0 .5vmax var(--buttonShadow);
-    border-radius: 1vmax;
-}
-
-.navButton:hover,
-.button:hover,
-.homeTest:hover,
-#matches:hover {
-    filter: brightness(1.1);
-}
-
-.navButton:active,
-.button:active,
-.homeTest:active {
-    box-shadow: none !important;
-    top: .5vmax;
-}
-
-.button img {
-    margin-right: .5vmax;
-    width: 2vmax;
-}
-
-.button span {
-    align-items: center;
-    display: flex;
-}
-
-.smallButtons {
-    display: flex;
-    width: 39vmax;
-    margin: auto;
-}
-
-.small {
-    width: 12vmax;
-    font-size: 1.5vmax;
-    padding: 1vmax;
-}
-
-.back {
-    width: 15vmax !important;
-    margin: auto !important;
-}
-
-.flag {
-    max-width: 30vmax;
-    min-height: 10vmax;
-    max-height: 20vmax;
-    border-radius: 3vmax;
-    margin: auto;
-}
-
-#switchBar {
-    display: flex;
-    width: 44vmax;
-    margin: auto;
-}
-
-.switch {
-    width: 4vmax;
-    height: 8vmax;
-    margin: auto;
-    padding: 1vmax;
-}
-
-.switch img {
-    padding: 0 !important;
-}
-
-#createMatch,
-#createQuote,
-#createAuthor {
-    cursor: pointer;
-    min-width: 4vmax;
-    border-radius: 1vmax;
-}
-
-#createFlag:hover,
-#createMatch:hover,
-#createQuote:hover,
-#createAuthor:hover {
-    outline: solid .25vmax var(--text);
-}
-
-#createFlag:hover {
-    cursor: pointer;
-    filter: brightness(1.1);
-}
-
-#matches,
-option {
-    width: 30vmax;
-    background-color: var(--button);
-    box-shadow: 0 .5vmax var(--buttonShadow);
-    border: none;
-    padding: 1.5vmax;
-    font-size: 1vmax;
-    cursor: pointer;
-    border-radius: 1vmax;
-    text-align: left;
-    margin: 2vmax auto;
+    border-radius: .75vw;
 }
 
 grid {
-    margin: 2vmax auto;
+    margin: 2vw auto;
     display: grid;
     grid-column-gap: 0;
     grid-row-gap: 0;
     text-align: center;
-    color: #ffffff;
-    width: 92.5vmax;
-    position: relative;
 }
 
 #tree1 {
-    font-size: .8vmax;
-    grid-template-columns: 3fr 2fr 3fr 2fr 3fr 2fr 3fr 2fr 3fr 2fr 3fr 2fr 3fr 2fr 3fr 2fr 3fr;
-    grid-template-rows: repeat(23, 1fr);
+    grid-template-columns: repeat(8, 3fr 1.5fr) 3fr;
+    grid-template-rows: repeat(11, 1fr .75fr) 1fr;
     aspect-ratio: 43/46;
 }
 
 #tree2 {
-    font-size: .7vmax;
-    grid-template-columns: 3fr 2fr 3fr 2fr 3fr 2fr 3fr 2fr 3fr 2fr 3fr 2fr 3fr 2fr 3fr 2fr 3fr;
-    grid-template-rows: repeat(21, 1fr);
+    grid-template-columns: repeat(8, 3fr 1.5fr) 3fr;
+    grid-template-rows: repeat(10, 1fr .75fr) 1fr;
     aspect-ratio: 43/42;
 }
 
 cell {
+    font-size: .85vw;
     position: relative;
     display: flex;
     align-items: center;
@@ -496,17 +500,26 @@ cell {
 }
 
 cell img {
+    width: 100%;
     height: 100%;
 }
 
 .questionCell {
+    z-index: 1;
     background-color: var(--button);
-    padding: .25vmax;
+    padding: .35vw;
 }
 
 .resultCell {
-    padding: .2vmax;
+    z-index: 1;
     cursor: pointer;
+    border-radius: .6vw;
+    padding: .35vw;
+}
+
+.resultCell:hover {
+    box-shadow: 0 .25vw .5vw #000000;
+    scale: 1.03;
 }
 
 .resultCell::before {
@@ -517,7 +530,10 @@ cell img {
     right: 0;
     bottom: 0;
     background-color: #00000040;
-    z-index: 1;
+}
+
+.resultCell:hover::before {
+    background-color: transparent;
 }
 
 .resultCellText {
@@ -525,156 +541,333 @@ cell img {
     word-wrap: break-word;
     overflow: hidden;
     font-family: bebasneue;
-    z-index: 2;
+    z-index: 1;
 }
 
 .startCell {
     background-color: #ffffff;
     color: #000000;
-    outline: 2px solid #808080;
+}
+
+/*Footer*/
+
+#footer {
+    margin-top: 8vw;
+    font-size: 0;
+}
+
+#creator {
+    font-size: 2vw;
+    margin-bottom: 2vw;
+}
+
+#socials {
+    display: flex;
+    gap: 1vw;
+    justify-content: center;
+}
+
+#socials a {
+    border-radius: 100%;
+}
+
+.socialIcon {
+    height: 4vw;
+    width: 4vw;
+    cursor: pointer;
+    border-radius: 100%;
+    transition: .1s ease-in-out;
+}
+
+.socialIcon:hover {
+    scale: 1.1;
+    box-shadow: 0 .25vw .5vw #000000;
 }
 
 @media only screen and (max-width: 800px) {
-
     section {
-        max-width: 95%;
+        width: 95vw;
+        padding: 2vh 0;
+    }
+
+    #nav {
+        padding: 1vh;
+    }
+
+    .navButton {
+        width: 4vh;
+        height: 4vh;
+        margin: 0 0 1vh 0;
+        padding: .5vh;
+        box-shadow: 0 .5vh var(--buttonShadow);
+        border-radius: 1vh;
+    }
+
+    .navButton img {
+        width: 3vh;
+    }
+
+    #logo {
+        width: 70vw;
+    }
+
+    .version {
+        width: 10vw;
+        font-size: 1.25vh;
+        top: 2vh;
+    }
+
+    .intro {
+        font-size: 2vh;
+        width: 95vw;
+    }
+
+    .button {
+        margin: 0 auto .5vh auto;
+        padding: 1.5vh;
+        font-size: 2vh;
+        width: 30vh;
+        height: 10vh;
+        box-shadow: 0 .5vh var(--buttonShadow);
+        border-radius: 1vh;
+    }
+
+    .button:active,
+    .navButton:active {
+        top: .5vh;
+    }
+
+    .button img {
+        margin-right: .5vh;
+        width: 2vh;
+        height: 2vh;
+    }
+
+    .back {
+        width: 15vh !important;
+    }
+
+    #startButton {
+        font-size: 4vh;
+        margin: 1vh auto 1vh auto;
+        width: 80vw;
+    }
+
+    #startButton img {
+        margin-left: 1vh;
+        height: 4vh;
+        width: 4vh;
+    }
+
+    .homeNav {
+        gap: 1vh;
+        width: 80vw;
+        margin: 1.5vh auto 0 auto;
+    }
+
+    .small {
+        font-size: 1.75vh;
+        padding: 1vh;
+        height: 8vh;
+    }
+
+    .notice {
+        font-size: 1.5vh;
+        margin: 1vh auto;
+    }
+
+    #otherTests {
+        width: 80vw;
         margin: auto;
+        gap: 2vw;
+    }
+
+    .otherTest {
+        font-size: 1vh;
+        height: 12vh;
+        width: 100%;
+    }
+
+    .otherTest img {
+        height: 6vh;
+        margin: 1vh auto !important;
+    }
+
+    .mention {
+        font-size: 1.5vh;
+        margin: 1vh auto 0 auto;
+    }
+
+    #question {
+        font-size: 3vh;
+        width: 95vw;
+        margin: 0 auto 1vh auto;
+    }
+
+    .quizButton {
+        margin: 0 auto 1vh auto;
     }
 
     .screenshot {
         padding: 0;
+        margin: 0 auto 1vh auto;
         width: 100%;
     }
 
-    #home,
-    #results,
-    #create {
-        padding: 0;
-    }
-
-    h2 {
-        font-size: 6vmin;
-    }
-
-    #logo {
-        width: 70vmin;
-    }
-
-    .notice {
-        font-size: 4vmin;
-    }
-
-    .mention {
-        font-size: 3vmin;
-    }
-
-    #homeTests {
-        flex-direction: column;
-    }
-
-    #homeTests a {
-        width: 80vmin;
-    }
-
-    .socialsicon {
-        height: 12vmin;
-        width: 12vmin;
-        margin: 0 2vmin;
-    }
-
-    .socialsicon:hover {
-        scale: 1.1;
-    }
-
-    #svgHolder {
-        margin-top: 32vmin;
-    }
-
-    .footer {
-        font-size: 6vmin;
-    }
-
-    .intro {
-        width: 80vmin;
-    }
-
-    #startButton {
-        width: 80vmin;
-        margin-bottom: 1vmax;
-    }
-
-    #startButton img {
-        margin-left: 2vmin;
-    }
-
-    #question {
-        width: 80vmin;
-    }
-
-    .button {
-        font-size: 6vmin;
-        padding: 8vmin 4vmin;
-        width: 80vmin;
-    }
-
-    .button img {
-        width: 6vmin;
-        padding-right: 2vmin;
-    }
-
-    .smallButtons {
-        display: flex;
-        width: 84vmin;
-        margin: auto;
-    }
-
-    .small {
-        width: 24vmin;
-        font-size: 3vmin;
-        padding: 6vmin 2vmin;
-    }
-
-    .small img {
-        width: 4vmin;
+    .match {
+        font-size: 3vh;
+        max-width: 70vw;
+        margin: 1vh auto;
     }
 
     #switchBar {
-        width: 90vmin;
+        width: 100%;
+        margin: 1vh auto 1.5vh auto;
     }
 
     .switch {
-        width: 10vmin;
-        height: 20vmin;
-        padding: 2vmin;
+        width: 12vw;
+        height: 24vw;
+        margin: auto 0;
+    }
+
+    .switch img {
+        width: 6vw;
+        height: 6vw;
+    }
+
+    .flag {
+        max-width: 80vw;
+        min-height: 10vh;
+        max-height: 20vh;
+        border-radius: 3vh;
     }
 
     .quote {
-        max-width: 80vmin;
-        font-size: 3vmin;
+        font-size: 1.5vh;
+        max-width: 85vw;
+        min-height: 4vh;
     }
 
-    #createMatch {
-        max-width: 80vmin;
+    .quote::before,
+    .quote::after {
+        font-size: 3vh;
+    }
+
+    .quote::before {
+        left: -2vh;
+    }
+
+    .quote::after {
+        right: -2vh;
+    }
+
+    .author {
+        font-size: 1.25vh;
+        margin: 1vh auto;
+    }
+
+    .author::before {
+        font-size: 1.25vh;
+        left: -1vh;
+    }
+
+    #createMatch,
+    #createQuote,
+    #createAuthor {
+        min-width: 4vh;
+        min-height: 2vh;
+        border-radius: 1vh;
+    }
+
+    #createMatch,
+    #createQuote {
+        min-height: 4vh;
+    }
+
+    #createMatch:hover,
+    #createFlag:hover,
+    #createQuote:hover,
+    #createAuthor:hover {
+        outline: solid 0 var(--text);
+    }
+
+    p,
+    p a {
+        font-size: 2vh;
+        margin: 1vh 0 3vh 0;
+    }
+
+    .aboutQuestion {
+        font-size: 2.5vh;
+        margin: 1vh 0;
+    }
+
+    ul,
+    li {
+        font-size: 2vh;
+        margin: 0 0 2vh 0;
+    }
+
+    .tip {
+        margin: 0 auto 1vh auto;
+        font-size: 1.5vh;
+    }
+
+    #treeInfo {
+        flex-direction: column;
+        gap: 2vh;
+    }
+
+    #matches,
+    option {
+        width: 80vw;
+        height: 8vh;
+        box-shadow: 0 .5vh var(--buttonShadow);
+        padding: 1.5vh;
+        font-size: 1vh;
+        border-radius: 1vh;
+        margin: 1.5vh auto 0 auto;
+    }
+
+    #legend {
+        gap: 1.5vh;
+    }
+
+    .legendBox {
+        width: 24vw;
+        height: 8vh;
+        font-size: 1.25vh;
+    }
+
+    #resultBox {
+        text-shadow: 0 0 4px #000000ff;
+        border-radius: 2vw;
     }
 
     grid {
-        width: 95vmin;
-        font-size: .7vmin;
+        margin: 1vh auto;
     }
 
-    .questionCell {
-        font-size: .8vmin;
+    #footer {
+        margin-top: 12vh;
     }
 
-    .resultCell {
-        font-size: .9vmin;
+    #creator {
+        font-size: 3vh;
+        margin-bottom: 1vh;
     }
 
-    .startCell {
-        outline: 1px solid #808080;
+    #socials {
+        gap: 3vw;
     }
 
-    #startBox {
-        outline: 2px solid #808080;
+    .socialIcon {
+        height: 6vh;
+        width: 6vh;
+    }
+
+    .socialIcon:hover {
+        box-shadow: 0 .25vh .5vh #000000;
     }
 }

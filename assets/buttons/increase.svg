@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xml:space="preserve"
+   id="svg1"
+   width="512"
+   height="512"
+   version="1.1"
+   viewBox="0 0 135.46666 135.46667"
+   sodipodi:docname="increase.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1" /><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="0.71289062"
+     inkscape:cx="255.29863"
+     inkscape:cy="256"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" /><style
+     id="style1"
+     type="text/css">.st0{fill:#000}</style><path
+     id="rect1"
+     style="fill:#ffffff;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:128;paint-order:stroke fill markers;fill-opacity:1;stroke:none"
+     d="M 50.799999 0 L 50.799999 50.799999 L 0 50.799999 L 0 84.666666 L 50.799999 84.666666 L 50.799999 135.46666 L 84.666666 135.46666 L 84.666666 84.666666 L 135.46666 84.666666 L 135.46666 50.799999 L 84.666666 50.799999 L 84.666666 0 L 50.799999 0 z " /></svg>
