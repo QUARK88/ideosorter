@@ -44,7 +44,7 @@ let domReady = (cb) => {
 }
 domReady(() => {
     site.style.opacity = "1"
-});
+})
 const sections = ["home", "quiz", "results", "create", "about", "tree"]
 const buttons = [button1, button2, button3, button4, button5]
 const defaultColors = ["hsl(120,70%,45%)", "hsl(0,70%,45%)", "hsl(0,0%,25%)", "hsl(0,0%,25%)", "hsl(0,0%,25%)"]
@@ -78,11 +78,14 @@ let ideologies
 })()
 fetchData().then(ideologies => {
     if (!ideologies) return
+    const arrows = ["aggressivelytr", "apathyr", "biologybr", "directdemocracyb", "electedofficialsb", "electionb", "godtl", "illegaltrader", "inheritancetr", "insurrectionbr", "landownershiptr", "militaryb", "nob", "nobl", "nobr", "nol", "nor", "nostatebr", "nostater", "not", "notl", "notr", "parliamentbl", "peacefullyr", "revolutionl", "selectionr", "shareholdingr", "sovereigntr", "spiritsr", "strengtht", "strongmantl", "terrorb", "tradet", "vanguardl", "wisdomb", "yesb", "yesbl", "yesbr", "yesl", "yesr", "yest", "yestl", "yestr"]
     const titles = Object.keys(ideologies)
     matchesTip.innerText = "All " + titles.length + " possible results, alphabetically"
     document.querySelectorAll("grid cell").forEach(cell => {
         const text = cell.childNodes.length === 1 && cell.childNodes[0].nodeType === Node.TEXT_NODE ? cell.textContent.trim() : ""
-        if (text && titles.includes(text)) {
+        if (text && arrows.includes(text)) {
+            cell.innerHTML = `<img src="./assets/grid/${text}.svg">`
+        } else if (text && titles.includes(text)) {
             cell.style.backgroundImage = `url("./assets/flags/${text}.svg")`
             cell.classList.add("resultCell")
             cell.onclick = () => r("tree", text)
@@ -504,7 +507,7 @@ function q_commodity() {
     q(q_party, "Should proletarian revolution be that of everyday life?", "Yes", () => r(q_commodity, "Situationism"), "No", q_dotp)
 }
 function q_dotp() {
-    q(q_commodity, "Should there be a dictatorship of the proletariat?", "Yes", () => r(q_dotp, "Council communism"), "No", () => r(q_dotp, "Libertarian marxism"))
+    q(q_commodity, "Should there be a dictatorship of the proletariat?", "Yes", () => r(q_dotp, "Council communism"), "No", () => r(q_dotp, "Autonomism"))
 }
 function q_communization() {
     q(q_commieState, "Should capitalist relations be socialized through insurrection?", "Yes", () => r(q_communization, "Communization"), "No", q_vouchers)

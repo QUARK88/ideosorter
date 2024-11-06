@@ -279,7 +279,7 @@ section {
     display: flex;
     width: 42vw;
     justify-content: space-between;
-    margin: 1vw auto 1.5vw auto;
+    margin: 0 auto;
 }
 
 .switch {
@@ -293,7 +293,7 @@ section {
 }
 
 .flag {
-    margin: auto;
+    margin: 0 auto;
     max-width: 42vw;
     min-height: 10vw;
     max-height: 20vw;
@@ -308,7 +308,7 @@ section {
     width: fit-content;
     max-width: 50vw;
     min-height: 4vw;
-    margin: auto;
+    margin: 1vw auto 0 auto;
     position: relative;
 }
 
