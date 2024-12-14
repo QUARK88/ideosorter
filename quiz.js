@@ -119,7 +119,7 @@ function q_natDist() {
     q(q_corpo, "Should property be made as widely owned as possible?", "Yes", () => r(q_natDist, "National distributism"), "No", q_authWelf)
 }
 function q_authWelf() {
-    q(q_natDist, "Should compliant citizens receive extensive welfare?", "Yes", () => r(q_authWelf, "Social authoritarianism"), "No", q_soe)
+    q(q_natDist, "Should compliant citizens receive extensive welfare?", "Yes", () => r(q_authWelf, "Social autocracy"), "No", q_soe)
 }
 function q_soe() {
     q(q_authWelf, "Should the state get involved in the allocation of capital?", "Yes", q_zeBugz, "No", q_klepto)
