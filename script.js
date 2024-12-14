@@ -321,5 +321,3 @@ document.addEventListener("keydown", event => {
     }
 })
 // Terrible code really.
-show("tree")
-tree1.scrollIntoView({ behavior: "instant" })
