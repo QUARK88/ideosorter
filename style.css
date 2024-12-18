@@ -346,7 +346,7 @@ section {
     left: -1vw;
 }
 
-/*Custom*/
+/*Create*/
 
 #createMatch,
 #createQuote,
@@ -370,10 +370,15 @@ section {
     filter: brightness(1.1);
 }
 
+#fileInput {
+    display: none !important;
+}
+
 /*About*/
 
 p,
-p a {
+p a,
+li a {
     text-align: left;
     font-size: 2vw;
     font-family: expressway;
@@ -381,7 +386,8 @@ p a {
     margin: 1vw 0 3vw 0;
 }
 
-p a {
+p a,
+li a {
     color: #00a0ff !important;
 }
 

@@ -167,6 +167,7 @@ function customFlag(event = null, isDrop = false) {
     }
     // Handles files selected by clicking the custom results zone.
     const fileInput = document.createElement("input")
+    fileInput.id = "fileInput"
     fileInput.type = "file"
     fileInput.addEventListener("change", () => {
         const selectedFile = fileInput.files[0]

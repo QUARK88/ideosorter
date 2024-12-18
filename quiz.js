@@ -257,7 +257,7 @@ function q_authSoc() {
     q(q_transition, "Should centralized authority build and maintain socialism?", "Yes", q_dugin, "No", q_agrSoc)
 }
 function q_dugin() {
-    q(q_authSoc, "Should we create multipolarity between civilizations?", "Yes", () => r(q_dugin, "Fourth theory"), "No", q_natSocAuth)
+    q(q_authSoc, "Should we create multipolarity between civilizations?", "Yes", () => r(q_dugin, "Duginism"), "No", q_natSocAuth)
 }
 function q_natSocAuth() {
     q(q_dugin, "Should the nation come before all else?", "Yes", q_natSynd, "No", q_benefactor)
