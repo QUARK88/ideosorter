@@ -104,7 +104,7 @@ function q_fashClergy() {
     q(q_palingenesis, "Should the clergy be part of the government?", "Yes", () => r(q_fashClergy, "Clerical fascism"), "No", () => r(q_fashClergy, "Fascism"))
 }
 function q_castes() {
-    q(q_palingenesis, "Should a system of castes be in place?", "Yes", q_control, "No", () => r(q_castes, "Jacobinism"))
+    q(q_palingenesis, "Should a system of castes be in place?", "Yes", q_control, "No", () => r(q_castes, "Montagnardism"))
 }
 function q_control() {
     q(q_castes, "How should control over society be ensured?", "Apathy", () => r(q_control, "Fordism"), "Terror", () => r(q_control, "English socialism"), "", "", "", "", "", "", ["hsl(320,50%,65%)", "hsl(0,70%,40%)"], ["hsl(320,50%,55%)", "hsl(0,70%,25%)"], ["apathy", "terror"])
