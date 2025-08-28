@@ -8,7 +8,7 @@ function getElements() {
     return new Proxy({}, handler)
 }
 // All of the IDs in index.html converted into constants.
-const { navToggle, navToggled, home, quiz, question, button1, button2, button3, button4, button5, quizBack, results, screenshot, match, flag, quote, resultsBack, lSwitch, rSwitch, create, createScreenshot, createMatch, createFlag, createQuote, matchesTip, matches, about, tree, tree1, tree2 } = getElements()
+const { navToggle, navToggled, home, quiz, question, button1, button2, button3, button4, button5, quizBack, results, screenshot, match, flag, quote, resultsBack, lSwitch, rSwitch, create, createScreenshot, createMatch, createFlag, createQuote, matchesTip, matches, about, flagExplanations, tree, tree1, tree2 } = getElements()
 // Lists the site's sections in an array.
 const sections = ["home", "quiz", "results", "create", "about", "tree"]
 // Lists the quiz's buttons in an array.
@@ -75,8 +75,21 @@ document.addEventListener("DOMContentLoaded", async function () {
             tree2.innerHTML = await tree2Response.text()
             // Puts the ideologies in a readily available constant.
             ideologies = await ideologiesResponse.json()
-            // Builds the dropdown menu from the ideologies list.
+            // Builds the flag explanations and the dropdown menu from the ideologies list.
             for (x in ideologies) {
+                const flagExplanation = document.createElement("div")
+                flagExplanation.classList.add("flagExplanation")
+                const flagExplanationImage = document.createElement("img")
+                flagExplanationImage.src = `./assets/flags/${x}.svg`
+                flagExplanationImage.onclick = (function (ideology) {
+                    return () => r("about", ideology)
+                }(x))
+                const imageDiv = document.createElement("div")
+                imageDiv.appendChild(flagExplanationImage)
+                const textDiv = document.createElement("div")
+                textDiv.innerHTML = `<p>${x}</p><p>${ideologies[x][2]}</p>`
+                flagExplanation.append(imageDiv, textDiv)
+                flagExplanations.appendChild(flagExplanation)
                 const option = document.createElement("option")
                 option.innerHTML = x
                 matches.appendChild(option)
@@ -232,8 +245,6 @@ function s(ideology) {
     // Shows the switch buttons.
     lSwitch.style.display = "flex"
     rSwitch.style.display = "flex"
-    // Makes the back button bring you back to the tree viewer tool.
-    resultsBack.onclick = () => show("tree")
     if (selected > 0) { // If you want to go to the previous result and aren't at the start, go to the previous one.
         lSwitch.onclick = () => r("tree", list[selected - 1])
     } else { // Otherwise, go to the last result of the list.
@@ -256,8 +267,10 @@ function r(p, ideology) {
     quote.innerText = ideologies[ideology][0] || "No quote"
     // Displays the author, or "No author" if there isn't any.
     author.innerText = ideologies[ideology][1] || "No author"
-    if (p === "tree") { // If the result display comes from the tree, turn on the switch buttons.
+    if (p === "about" || p === "tree") { // If the result display comes from the about or the tree, turn on the switch buttons.
         s(ideology)
+        // Makes the back button bring you back to the section you came from.
+        resultsBack.onclick = () => show(p)
     } else { // Otherwise, don't.
         lSwitch.style.display = rSwitch.style.display = "none"
         resultsBack.onclick = p || (() => show("home"))
@@ -266,6 +279,18 @@ function r(p, ideology) {
     show("results")
     // Scrolls the page to view the result screenshot zone.
     screenshot.scrollIntoView({ behavior: "instant" })
+}
+// Handles displaying and hiding the flag explanations.
+function toggleView(elementId, button) {
+    const element = document.getElementById(elementId)
+    const buttonText = button.textContent.trim()
+    if (buttonText === "Show") {
+        button.innerHTML = `<img src="./assets/buttons/hide.svg">Hide`
+        element.style.display = "flex"
+    } else if (buttonText === "Hide") {
+        button.innerHTML = `<img src="./assets/buttons/show.svg">Show`
+        element.style.display = "none"
+    }
 }
 // Allows for site navigation through keyboard inputs.
 document.addEventListener("keydown", event => {
@@ -316,6 +341,8 @@ document.addEventListener("keydown", event => {
                 r("tree", list[selected < list.length - 1 ? selected + 1 : 0])
             }
         }
+    } else if (isVisible(about) && key === "Enter") {  // Otherwise, if the about section is displayed, enter shows the flag explanations.
+        toggleView('flagExplanations', flagExplanationsButton)
     } else if (isVisible(tree) && key === "Enter") {  // Otherwise, if the tree section is displayed, enter shows the first result of the list.
         if (matches.selectedIndex === 0) matches.selectedIndex = 1
         r("tree", matches.options[matches.selectedIndex].text)

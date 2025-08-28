@@ -44,7 +44,7 @@ function q_separation() {
     q(q_covenant, "How should separation of covenants occur?", "Peacefully", () => r(q_separation, "Hoppeanism"), "Aggressively", () => r(q_separation, "Nilssonianism"), "", "", "", "", "", "", ["hsl(40,100%,60%)", "hsl(25,70%,45%)"], ["hsl(40,100%,40%)", "hsl(25,70%,30%)"], ["peacefully", "aggressively"])
 }
 function q_stateFunctions() {
-    q(q_constitution, "Who should assume state functions?", "Elected officials", q_dist, "Strongman", q_racism, "Sovereign", q_integral, "", "", "", "", ["hsl(220,65%,45%)", "hsl(350,70%,45%)", "hsl(45,80%,50%)"], ["hsl(220,65%,30%)", "hsl(350,70%,30%)", "hsl(45,80%,30%)"], ["elected officials", "strongman", "sovereign"])
+    q(q_constitution, "Who should assume state functions?", "Elected officials", q_dist, "Strongman", q_racism, "Sovereign", q_organic, "", "", "", "", ["hsl(220,65%,45%)", "hsl(350,70%,45%)", "hsl(45,80%,50%)"], ["hsl(220,65%,30%)", "hsl(350,70%,30%)", "hsl(45,80%,30%)"], ["elected officials", "strongman", "sovereign"])
 }
 function q_dist() {
     q(q_stateFunctions, "Should property be made as widely owned as possible?", "Yes", q_distNeeds, "No", q_lvt)
@@ -98,10 +98,13 @@ function q_total() {
     q(q_racism, "Should the state have a role in all aspects of society?", "Yes", q_palingenesis, "No", q_corpo)
 }
 function q_palingenesis() {
-    q(q_total, "Should we secure the nation through a rebirth or revival?", "Yes", q_fashClergy, "No", q_castes)
+    q(q_total, "Should we secure the nation through a rebirth or revival?", "Yes", q_antiSpaghetti, "No", q_castes)
+}
+function q_antiSpaghetti() {
+    q(q_palingenesis, "Can state institutions fully embody the nation's rebirth?", "Yes", q_fashClergy, "No", () => r(q_antiSpaghetti, "Futurism"))
 }
 function q_fashClergy() {
-    q(q_palingenesis, "Should the clergy be part of the government?", "Yes", () => r(q_fashClergy, "Clerical fascism"), "No", () => r(q_fashClergy, "Fascism"))
+    q(q_antiSpaghetti, "Should the clergy be part of the government?", "Yes", () => r(q_fashClergy, "Clerical fascism"), "No", () => r(q_fashClergy, "Fascism"))
 }
 function q_castes() {
     q(q_palingenesis, "Should a system of castes be in place?", "Yes", q_control, "No", () => r(q_castes, "Montagnardism"))
@@ -130,11 +133,14 @@ function q_zeBugz() {
 function q_klepto() {
     q(q_soe, "Should state regulations favor large conglomerates?", "Yes", () => r(q_klepto, "Corporatocracy"), "No", () => r(q_klepto, "Autocratic capitalism"))
 }
-function q_integral() {
-    q(q_stateFunctions, "Should spiritual, economic and political groups be merged?", "Yes", () => r(q_integral, "Integralism"), "No", q_sovereignType)
+function q_organic() {
+    q(q_stateFunctions, "Should spiritual, economic and political groups be merged?", "Yes", q_iSwearImARealBaronAndMagicIsRealAndShit, "No", q_sovereignType)
+}
+function q_iSwearImARealBaronAndMagicIsRealAndShit() {
+    q(q_organic, "Who should assume spiritual functions?", "Clerics", () => r(q_iSwearImARealBaronAndMagicIsRealAndShit, "Integralism"), "Warriors", () => r(q_iSwearImARealBaronAndMagicIsRealAndShit, "Superfascism"), "", "", "", "", "", "", ["hsl(50,70%,45%)", "hsl(350,70%,30%)"], ["hsl(50,70%,30%)", "hsl(350,70%,20%)"], ["clerics", "warriors"])
 }
 function q_sovereignType() {
-    q(q_integral, "Where should the sovereign's legitimacy come from?", "Inheritance", q_sovereignRole, "Wisdom", () => r(q_sovereignType, "Noocracy"), "God", q_guelph, "Selection", q_electMon, "Strength", q_weak, ["hsl(230,70%,60%)", "hsl(70,70%,45%)", "hsl(290,70%,45%)", "hsl(35,80%,55%)", "hsl(350,70%,45%)"], ["hsl(230,60%,50%)", "hsl(70,70%,30%)", "hsl(290,70%,30%)", "hsl(35,80%,40%)", "hsl(350,70%,30%)"], ["inheritance", "wisdom", "god", "selection", "strength"])
+    q(q_organic, "Where should the sovereign's legitimacy come from?", "Inheritance", q_sovereignRole, "Wisdom", () => r(q_sovereignType, "Noocracy"), "God", q_guelph, "Selection", q_electMon, "Strength", q_weak, ["hsl(230,70%,60%)", "hsl(70,70%,45%)", "hsl(290,70%,45%)", "hsl(35,80%,55%)", "hsl(350,70%,45%)"], ["hsl(230,60%,50%)", "hsl(70,70%,30%)", "hsl(290,70%,30%)", "hsl(35,80%,40%)", "hsl(350,70%,30%)"], ["inheritance", "wisdom", "god", "selection", "strength"])
 }
 function q_sovereignRole() {
     q(q_sovereignType, "What should be the sovereign's primary role?", "Judgment", () => r(q_sovereignRole, "Feudal monarchy"), "Commandment", () => r(q_sovereignRole, "Absolute monarchy"), "Management", () => r(q_sovereignRole, "Cameralism"), "", "", "", "", ["hsl(20,45%,50%)", "hsl(270,50%,50%)", "hsl(135,45%,40%)"], ["hsl(20,45%,35%)", "hsl(270,50%,35%)", "hsl(135,45%,25%)"], ["judgment", "commandment", "management"])
@@ -257,19 +263,19 @@ function q_authSoc() {
     q(q_transition, "Should centralized authority build and maintain socialism?", "Yes", q_dugin, "No", q_agrSoc)
 }
 function q_dugin() {
-    q(q_authSoc, "Should we create multipolarity between civilizations?", "Yes", () => r(q_dugin, "Duginism"), "No", q_natSocAuth)
-}
-function q_natSocAuth() {
-    q(q_dugin, "Should the nation come before all else?", "Yes", q_natSynd, "No", q_benefactor)
-}
-function q_natSynd() {
-    q(q_natSocAuth, "Should state-coordinated unions organize society?", "Yes", () => r(q_natSynd, "National syndicalism"), "No", q_daJoos)
+    q(q_authSoc, "Should we create multipolarity between civilizations?", "Yes", () => r(q_dugin, "Duginism"), "No", q_daJoos)
 }
 function q_daJoos() {
-    q(q_natSynd, "Are race and class closely and inseparately related?", "Yes", q_agrNazi, "No", q_nazbol)
+    q(q_dugin, "Are race and class closely and inseparately related?", "Yes", q_agrNazi, "No", q_natSocAuth)
 }
 function q_agrNazi() {
     q(q_daJoos, "Should agriculture be the main focus of the economy?", "Yes", () => r(q_agrNazi, "Strasserism"), "No", () => r(q_agrNazi, "Niekischism"))
+}
+function q_natSocAuth() {
+    q(q_daJoos, "Should the nation come before all else?", "Yes", q_natSynd, "No", q_benefactor)
+}
+function q_natSynd() {
+    q(q_natSocAuth, "Should state-coordinated unions organize society?", "Yes", () => r(q_natSynd, "National syndicalism"), "No", q_daJoos)
 }
 function q_nazbol() {
     q(q_daJoos, "How should the will of the people be executed?", "Vanguard", () => r(q_nazbol, "National bolshevism"), "Parliament", () => r(q_nazbol, "Limonovism"), "Direct democracy", () => r(q_nazbol, "Third international theory"), "", "", "", "", ["hsl(0,70%,45%)", "hsl(340,70%,45%)", "hsl(15,70%,45%)"], ["hsl(0,70%,30%)", "hsl(340,70%,30%)", "hsl(15,70%,30%)"], ["vanguard", "parliament", "direct democracy"])

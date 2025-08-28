@@ -48,7 +48,8 @@
     margin: 0;
     /*You never know.*/
     /*outline-offset: -1px;
-    outline: solid 1px #0f0 !important; /*For wireframe kiddies*/
+    outline: solid 1px #0f0 !important;
+    /*For wireframe kiddies*/
 }
 
 html,
@@ -412,6 +413,58 @@ li {
     padding-left: 0;
 }
 
+#flagExplanationsButton {
+    margin-bottom: 2vw;
+}
+
+#flagExplanations {
+    display: none;
+    flex-direction: column;
+}
+
+.flagExplanation {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    width: 97.5%;
+    margin: auto;
+    padding: 1vw;
+}
+
+.flagExplanation>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flagExplanation>div:first-child {
+    flex: 0 0 auto;
+    width: 18.5%;
+}
+
+.flagExplanation>div:last-child {
+    flex: 1;
+    gap: .75vw;
+}
+
+.flagExplanation>div>img {
+    border-radius: 1.5vw;
+    cursor: pointer;
+}
+
+.flagExplanation>div>p {
+    margin: 0;
+}
+
+.flagExplanation>div>p:first-child {
+    font-size: 2.5vw;
+}
+
+.flagExplanation>div>p:last-child,
+.flagExplanation>div>p>a:last-child {
+    font-size: 1.75vw;
+}
+
 /*Tree*/
 
 .tip {
@@ -486,8 +539,8 @@ tree {
 
 #tree1 {
     grid-template-columns: repeat(9, 1.5fr .75fr) 1.5fr;
-    grid-template-rows: repeat(11, 1fr .75fr) 1fr;
-    aspect-ratio: 21.75/20.25;
+    grid-template-rows: repeat(12, 1fr .75fr) 1fr;
+    aspect-ratio: 21.75/22;
 }
 
 #tree2 {
@@ -838,6 +891,23 @@ cell {
     li {
         font-size: 2vh;
         margin: 0 0 2vh 0;
+    }
+
+    .flagExplanation>div:first-child {
+        width: 25%;
+    }
+
+    .flagExplanation>div>img {
+        border-radius: 2.5vw;
+    }
+
+    .flagExplanation>div>p:first-child {
+        font-size: 4vw;
+    }
+
+    .flagExplanation>div>p:last-child,
+    .flagExplanation>div>p>a:last-child {
+        font-size: 2.25vw;
     }
 
     .tip {
