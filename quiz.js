@@ -137,7 +137,7 @@ function q_organic() {
     q(q_stateFunctions, "Should spiritual, economic and political groups be merged?", "Yes", q_iSwearImARealBaronAndMagicIsRealAndShit, "No", q_sovereignType)
 }
 function q_iSwearImARealBaronAndMagicIsRealAndShit() {
-    q(q_organic, "Who should assume spiritual functions?", "Clerics", () => r(q_iSwearImARealBaronAndMagicIsRealAndShit, "Integralism"), "Warriors", () => r(q_iSwearImARealBaronAndMagicIsRealAndShit, "Superfascism"), "", "", "", "", "", "", ["hsl(50,70%,45%)", "hsl(350,70%,30%)"], ["hsl(50,70%,30%)", "hsl(350,70%,20%)"], ["clerics", "warriors"])
+    q(q_organic, "Who should assume spiritual functions?", "Clerics", () => r(q_iSwearImARealBaronAndMagicIsRealAndShit, "Integralism"), "Warriors", () => r(q_iSwearImARealBaronAndMagicIsRealAndShit, "Superfascism"), "", "", "", "", "", "", ["hsl(210,65%,35%)", "hsl(350,70%,30%)"], ["hsl(210,65%,25%)", "hsl(350,70%,20%)"], ["clerics", "warriors"])
 }
 function q_sovereignType() {
     q(q_organic, "Where should the sovereign's legitimacy come from?", "Inheritance", q_sovereignRole, "Wisdom", () => r(q_sovereignType, "Noocracy"), "God", q_guelph, "Selection", q_electMon, "Strength", q_weak, ["hsl(230,70%,60%)", "hsl(70,70%,45%)", "hsl(290,70%,45%)", "hsl(35,80%,55%)", "hsl(350,70%,45%)"], ["hsl(230,60%,50%)", "hsl(70,70%,30%)", "hsl(290,70%,30%)", "hsl(35,80%,40%)", "hsl(350,70%,30%)"], ["inheritance", "wisdom", "god", "selection", "strength"])
