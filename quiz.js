@@ -275,10 +275,10 @@ function q_natSocAuth() {
     q(q_daJoos, "Should the nation come before all else?", "Yes", q_natSynd, "No", q_benefactor)
 }
 function q_natSynd() {
-    q(q_natSocAuth, "Should state-coordinated unions organize society?", "Yes", () => r(q_natSynd, "National syndicalism"), "No", q_daJoos)
+    q(q_natSocAuth, "Should state-coordinated unions organize society?", "Yes", () => r(q_natSynd, "National syndicalism"), "No", q_nazbol)
 }
 function q_nazbol() {
-    q(q_daJoos, "How should the will of the people be executed?", "Vanguard", () => r(q_nazbol, "National bolshevism"), "Parliament", () => r(q_nazbol, "Limonovism"), "Direct democracy", () => r(q_nazbol, "Third international theory"), "", "", "", "", ["hsl(0,70%,45%)", "hsl(340,70%,45%)", "hsl(15,70%,45%)"], ["hsl(0,70%,30%)", "hsl(340,70%,30%)", "hsl(15,70%,30%)"], ["vanguard", "parliament", "direct democracy"])
+    q(q_natSynd, "How should the will of the people be executed?", "Vanguard", () => r(q_nazbol, "National bolshevism"), "Parliament", () => r(q_nazbol, "Limonovism"), "Direct democracy", () => r(q_nazbol, "Third international theory"), "", "", "", "", ["hsl(0,70%,45%)", "hsl(340,70%,45%)", "hsl(15,70%,45%)"], ["hsl(0,70%,30%)", "hsl(340,70%,30%)", "hsl(15,70%,30%)"], ["vanguard", "parliament", "direct democracy"])
 }
 function q_benefactor() {
     q(q_natSocAuth, "Should all aspects of life be subjected to state planning?", "Yes", () => r(q_benefactor, "Benefactorism"), "No", () => r(q_benefactor, "State socialism"))
