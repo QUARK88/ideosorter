@@ -112,6 +112,18 @@ section {
     border-radius: 1vw;
 }
 
+button,
+.navButton,
+.legendBox,
+.arrowCell,
+.questionCell,
+.resultCellText {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .navButton img {
     width: 3vw;
     /*It's important that the icons are bigger. That's the only thing inside the buttons.*/
