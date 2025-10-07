@@ -666,7 +666,10 @@ cell {
     text-shadow: 0 0 2px #000000;
 }
 
-.questionCell,
+.questionCell {
+    padding: .2vw;
+}
+
 .resultCell {
     padding: .4vw;
 }
