@@ -89,7 +89,7 @@ function q_hegemony() {
     q(q_mobility, "Which gives the most power globally?", "Trade", () => r(q_hegemony, "Neoliberalism"), "Military", () => r(q_hegemony, "Neoconservatism"), "", "", "", "", "", "", ["hsl(350,70%,45%)", "hsl(230,70%,45%)"], ["hsl(350,70%,30%)", "hsl(230,70%,30%"], ["trade", "military"])
 }
 function q_pragmaticStrongman() {
-    q(q_stateFunctions, "Should the regime's objectives be ideologically defined?", "Yes", q_racism, "No", q_strongmanLegit)
+    q(q_stateFunctions, "Should the regime's objectives be ideological/economical?", "Yes", q_racism, "No", q_strongmanLegit)
 }
 function q_strongmanLegit() {
     q(q_pragmaticStrongman, "Where should the strongman's authority mainly come from?", "Charisma", () => r(q_strongmanLegit, "Personal autocracy"), "Armed forces", () => r(q_strongmanLegit, "Stratocracy"), "Connections", () => r(q_strongmanLegit, "Patronalism"), "", "", "", "", ["hsl(20,40%,30%)", "hsl(80,40%,30%)", "hsl(200,40%,30%)"], ["hsl(20,40%,15%)", "hsl(80,40%,15%)", "hsl(200,40%,15%)"], ["charisma", "armed forces", "connections"])
