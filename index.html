@@ -19,7 +19,7 @@
 <body>
     <script>0</script>
     <div id="nav">
-        <div title="Show/hide navigation tools" class="navButton" onclick="navigate()"><img id="navToggle" src="./assets/buttons/navigation.svg"></div>
+        <div title="Show navigation tools" class="navButton" onclick="navigate()"><img id="navToggle" src="./assets/buttons/navigation.svg"></div>
         <div id="navToggled" style="display:none">
             <div title="Home" class="navButton" onclick="show('home')"><img src="./assets/buttons/home.svg"></div>
             <div title="Quiz" class="navButton" onclick="show('quiz'),q_privateProperty()"><img src="./assets/buttons/yes.svg"></div>
@@ -31,7 +31,7 @@
     <section id="title">
         <div class="version"></div>
         <img src="./assets/logos/title.svg" id="logo">
-        <a class="version" title="🚘" target="_blank" href="https://youtu.be/00uQ5FODnLk?t=22">V2.10.1</a>
+        <a class="version" title="🇰🇿" target="_blank" href="https://youtu.be/acq0rU6EVAM">V2.11.0</a>
     </section>
     <section id="home">
         <h2 class="intro">Discover your political ideology with only a few questions</h2>
@@ -66,7 +66,7 @@
             </a>
         </div>
         <a title="IdeoSlopper" target="_blank" href="https://quark88.github.io/ideoslopper"><button id="ideoslopperButton" class="button otherTest">See the rejected ideology proposals here</button></a>
-        <h2 class="mention">Special thanks to uamee, XS Project, GSPD, DEAD BLONDE, DJ Blyatman, Alan Aztec, Russian Village Boys, Hard Bass School, milda, Hotzzen, Starslav, SrpskiBass, Badwor7h, Ley O'Lantern and the hardbass community in general for making the music that gave me the energy to create all of this</h2>
+        <h2 class="mention">Special thanks to uamee, Carpenter Brut, XS Project, GSPD, DEAD BLONDE, DJ Blyatman, Alan Aztec, Russian Village Boys, Hard Bass School, Starslav, SrpskiBass, Badwor7h and the hardbass community in general for making the music that gave me the energy to create all of this</h2>
         <h2 class="mention">Also thanks to the Free PolCompBall community for helping me in the conception, design (and other synonyms for "thinking") of the test's function and structure, through feedback, information, popularization and drawing. Also Mish wants me to mention "Kill The Leader"</h2>
     </section>
     <section id="quiz">
@@ -108,7 +108,7 @@
         <h2 class="aboutQuestion">What is the quiz's purpose?</h2>
         <p>While many tests prioritize covering as many ideologies as possible, down to the smallest detail, whereas others attempt to provide a quiz focused on a specific political group, IdeoSorter instead aims for generality and ease of comprehension. Rather than asking a plethora of advanced questions for hardened ideologists, it avoids all the math work and offers a predetermined result drawn from the path chosen by the user, as they select their stances on simple, broad topics. It is thus rather beginner-friendly, and intended as a means of discovering one's likely ideological affiliations, or to confirm them beyond doubt.</p>
         <h2 class="aboutQuestion">My ideology is missing, could you add it?</h2>
-        <p>Perhaps you will wander around the website and notice that your preferred political label is absent. You go through the 108 available options, and the proposed result just isn't fitting enough, if at all. Prior to contacting me so that i implement it, consider the following guidelines:</p>
+        <p>Perhaps you will wander around the website and notice that your preferred political label is absent. You go through the 112 available options, and the proposed result just isn't fitting enough, if at all. Prior to contacting me so that i implement it, consider the following guidelines:</p>
         <ul>
             <li>This is a political test, not a philosophical one. What is evalutated here is not your outlook on politics as a whole, but your position within it. All questions implicitly abstain from delving in the "why?" behind your opinions, all that matters is the concrete implications. As such, political philosophies, such as "stirnerite egoism", "reactionaryism", "marxism", "machiavellianism", etc. do not fit the test's purview and will be rejected if adjured. Refer to the <a title="Ideology - Wikipedia" target="_blank" href="https://en.wikipedia.org/wiki/Ideology#Political_ideologies">definition of a political ideology</a> for more insight.</li>
             <li>The test's granularity is defined by the largest denomination which is accurate to label anything falling under it. Once a degree of precision is reached at which people can be correctly described with the match they get, no further fragmentation is required. Something like "socialism of the 21st century" fits under the democratic socialist umbrella, and as such would be superfluous. Same goes for any distinction of cultural or regional order. "Anti-LGBT+ neoliberalism" is still a form of neoliberalism, and "singaporean state capitalism" is still state capitalism.</li>
@@ -120,9 +120,12 @@
         <h2 class="aboutQuestion">Other questions?</h2>
         <p>Go ahead and contact me at the places i have linked. It can be for partnerships, general propositions, clarifications, whatever. I'm nowhere near open-minded or welcoming, but i can recognize a good idea when i see one.</p>
         <h2 class="aboutQuestion">What do the flag designs stand for?</h2>
-        <p>More than what first meets the eye. They are taken from several sources, but are overwhelmingly either used by the movement's proponents as brand recognition or were conceived by the Political Compass Ball community and uploaded to their wikis. Residually, some are taken from Wikipedia, various subreddits, videogame assets or even are an original creation of mine in dire cases. I mainly base myself off Google's reverse image search feature and upload dates to determine their origin, so do inform me if you find wrongly attributed ones. Here they are right below:</p>
+        <p>More than what first meets the eye. They are taken from several sources, but are overwhelmingly either used by the movement's proponents as brand recognition or were conceived by the Political Compass Ball community and uploaded to their wikis. Residually, some are taken from Wikipedia, various subreddits, videogame assets or even are an original creation of mine in dire cases. I mainly base myself off Google's reverse image search feature and upload dates to determine their origin, so do inform me if you find wrongly attributed ones. The explanations which i am giving make heavy use of <a title="Divisions of the field" target="_blank" href="https://en.wikipedia.org/wiki/Division_of_the_field">heraldic terminology</a>. Here they are right below:</p>
         <button class="button" id="flagExplanationsButton" onclick="toggleView('flagExplanations',this)"><img src="./assets/buttons/show.svg">Show</button>
-        <div id="flagExplanations"></div>
+        <div id="flagExplanations">
+            <div id="flagColors"></div>
+            <div id="flagLetters"></div>
+        </div>
         <button class="button small back" onclick="show('home')"><img src="./assets/buttons/back.svg">Back</button>
     </section>
     <section id="tree">

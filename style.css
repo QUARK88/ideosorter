@@ -429,6 +429,43 @@ li {
     margin-bottom: 2vw;
 }
 
+#flagColors {
+    width: 90vw;
+    margin: 1vw auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.paletteCell {
+    display: flex;
+    flex-direction: column;
+    gap: .5vw;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    height: 6vw;
+    text-shadow: 0 0 1px #000000ff, 0 0 2px #000000ff, 0 0 3px #000000ff, 0 0 4px #000000ff;
+}
+
+#flagLetters {
+    display: flex;
+    position: sticky;
+    top: 0;
+    margin: auto;
+    padding: .5vw 6vw;
+    background-color: var(--background);
+    width: 90%;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    text-align: center;
+}
+
+.letter {
+    flex-grow: 1;
+    font-size: 2vw;
+    cursor: pointer;
+}
+
 #flagExplanations {
     display: none;
     flex-direction: column;
@@ -441,6 +478,7 @@ li {
     width: 97.5%;
     margin: auto;
     padding: 1vw;
+    scroll-margin-top: 4vw;
 }
 
 .flagExplanation>div {
@@ -903,6 +941,34 @@ cell {
     li {
         font-size: 2vh;
         margin: 0 0 2vh 0;
+    }
+
+    #flagColors {
+        width: 100%;
+        margin: 2vh auto;
+    }
+
+    .paletteCell {
+        gap: .5vh;
+        width: 50%;
+        height: 8vh;
+        font-size: 2vh;
+    }
+
+    #flagLetters {
+        width: 100%;
+        height: 16vh;
+        padding: 6vh 0 0 0;
+        flex-wrap: wrap;
+        gap: 1.5vh;
+    }
+
+    .letter {
+        font-size: 6vh;
+    }
+
+    .flagExplanation {
+        scroll-margin-top: 22vh;
     }
 
     .flagExplanation>div:first-child {

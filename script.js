@@ -8,7 +8,7 @@ function getElements() {
     return new Proxy({}, handler)
 }
 // All of the IDs in index.html converted into constants.
-const { navToggle, navToggled, home, quiz, question, button1, button2, button3, button4, button5, quizBack, results, screenshot, match, flag, quote, resultsBack, lSwitch, rSwitch, create, createScreenshot, createMatch, createFlag, createQuote, matchesTip, matches, about, flagExplanations, tree, tree1, tree2 } = getElements()
+const { navToggle, navToggled, home, quiz, question, button1, button2, button3, button4, button5, quizBack, results, screenshot, match, flag, quote, resultsBack, lSwitch, rSwitch, create, createScreenshot, createMatch, createFlag, createQuote, matchesTip, matches, about, flagColors, flagLetters, flagExplanations, tree, tree1, tree2 } = getElements()
 // Lists the site's sections in an array.
 const sections = ["home", "quiz", "results", "create", "about", "tree"]
 // Lists the quiz's buttons in an array.
@@ -65,19 +65,35 @@ document.addEventListener("DOMContentLoaded", async function () {
     (async function () {
         try {
             // Gets the trees and the ideologies from the related files.
-            const [tree1Response, tree2Response, ideologiesResponse] = await Promise.all([
+            const [tree1Response, tree2Response, ideologiesResponse, colorsResponse] = await Promise.all([
                 fetch("./tree1.html"),
                 fetch("./tree2.html"),
-                fetch("./ideologies.json")
+                fetch("./ideologies.json"),
+                fetch("./colors.json")
             ])
             // Injects the HTML from the tree files into the tree section's tree holders.
             tree1.innerHTML = await tree1Response.text()
             tree2.innerHTML = await tree2Response.text()
             // Puts the ideologies in a readily available constant.
             ideologies = await ideologiesResponse.json()
+            // Puts the colors in a readily available constant.
+            colors = await colorsResponse.json()
             // Builds the flag explanations and the dropdown menu from the ideologies list.
+            letters = []
             for (x in ideologies) {
+                // Flag explanations
                 const flagExplanation = document.createElement("div")
+                // Flag explanation index
+                letter = x.charAt(0)
+                if (letters.includes(letter) === false) {
+                    letters.push(letter)
+                    flagExplanation.id = letter
+                    const letterDiv = document.createElement("a")
+                    letterDiv.setAttribute("href", "#" + letter)
+                    letterDiv.classList.add("letter")
+                    letterDiv.innerHTML = letter
+                    flagLetters.append(letterDiv)
+                }
                 flagExplanation.classList.add("flagExplanation")
                 const flagExplanationImage = document.createElement("img")
                 flagExplanationImage.src = `./assets/flags/${x}.svg`
@@ -87,9 +103,15 @@ document.addEventListener("DOMContentLoaded", async function () {
                 const imageDiv = document.createElement("div")
                 imageDiv.appendChild(flagExplanationImage)
                 const textDiv = document.createElement("div")
-                textDiv.innerHTML = `<p>${x}</p><p>${ideologies[x][2]}</p>`
+                if (ideologies[x][2] !== "") {
+                    textDiv.innerHTML = `<p>${x}</p><p>${ideologies[x][2]}</p>`
+                }
+                else {
+                    textDiv.innerHTML = `<p>${x}</p><p>No flag explanation.</p>`
+                }
                 flagExplanation.append(imageDiv, textDiv)
                 flagExplanations.appendChild(flagExplanation)
+                // Dropdown menu
                 const option = document.createElement("option")
                 option.innerHTML = x
                 matches.appendChild(option)
@@ -119,6 +141,14 @@ document.addEventListener("DOMContentLoaded", async function () {
                     cell.classList.add("questionCell")
                 }
             })
+            // Builds the color palette.
+            for (x in colors) {
+                const paletteCell = document.createElement("div")
+                paletteCell.classList.add("paletteCell")
+                paletteCell.innerHTML = `<div>${x}</div><div>${colors[x]}</div>`
+                paletteCell.style.backgroundColor = "#" + colors[x]
+                flagColors.append(paletteCell)
+            }
         } catch (error) { // In case it goes wrong.
             console.error("Error fetching resources:", error)
         }
@@ -147,9 +177,11 @@ show("home")
 function navigate() {
     if (navToggled.style.display == "none") { // If it's closed, open it.
         navToggle.src = "./assets/buttons/no.svg"
+        navToggle.title = "Hide navigation tools"
         navToggled.style.display = "block"
     } else { // If it's opened, close it.
         navToggle.src = "./assets/buttons/navigation.svg"
+        navToggle.title = "Show navigation tools"
         navToggled.style.display = "none"
     }
 }
