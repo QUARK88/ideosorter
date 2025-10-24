@@ -7,8 +7,6 @@ function getElements() {
     }
     return new Proxy({}, handler)
 }
-// All of the IDs in index.html converted into constants.
-const { navToggle, navToggled, home, quiz, question, button1, button2, button3, button4, button5, quizBack, results, screenshot, match, flag, quote, resultsBack, lSwitch, rSwitch, create, createScreenshot, createMatch, createFlag, createQuote, matchesTip, matches, about, flagColors, flagLetters, flagExplanations, tree, tree1, tree2 } = getElements()
 // Lists the site's sections in an array.
 const sections = ["home", "quiz", "results", "create", "about", "tree"]
 // Lists the quiz's buttons in an array.
