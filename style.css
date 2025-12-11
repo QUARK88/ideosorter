@@ -116,7 +116,6 @@ button,
 .navButton,
 .legendBox,
 .arrowCell,
-.questionCell,
 .resultCellText {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -1052,4 +1051,5 @@ cell {
     .socialIcon:hover {
         box-shadow: 0 .25vh .5vh #000000;
     }
+
 }

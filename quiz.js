@@ -152,7 +152,10 @@ function q_sovereignRole() {
     q(q_sovereignType, "What should be the sovereign's primary role?", "Judgment", () => r(q_sovereignRole, "Feudal monarchy"), "Commandment", () => r(q_sovereignRole, "Absolute monarchy"), "Management", () => r(q_sovereignRole, "Cameralism"), "", "", "", "", ["hsl(20,45%,50%)", "hsl(270,50%,50%)", "hsl(135,45%,40%)"], ["hsl(20,45%,35%)", "hsl(270,50%,35%)", "hsl(135,45%,25%)"], ["judgment", "commandment", "management"])
 }
 function q_guelph() {
-    q(q_sovereignType, "Should the government engage in secular legislation?", "Yes", () => r(q_guelph, "Divine monarchy"), "No", () => r(q_guelph, "Theocracy"))
+    q(q_sovereignType, "Which authority should hold primacy over the state?", "Spiritual", () => r(q_guelph, "Theocracy"), "Temporal", q_wifeBad, "", "", "", "", "", "", ["hsl(245,35%,45%)", "hsl(85,40%,35%)"], ["hsl(245,35%,30%)", "hsl(85,40%,20%)"], ["spiritual", "temporal"])
+}
+function q_wifeBad() {
+    q(q_guelph, "Should temporal authority lead religious institutions?", "Yes", () => r(q_wifeBad, "Caesaropapism"), "No", () => r(q_wifeBad, "Divine monarchy"))
 }
 function q_electMon() {
     q(q_sovereignType, "What should grant power to select the sovereign?", "Birthright", () => r(q_electMon, "Aristocracy"), "Land ownership", () => r(q_electMon, "Timocracy"), "Share holding", () => r(q_electMon, "Neocameralism"), "", "", "", "", ["hsl(230,40%,55%)", "hsl(100,50%,55%)", "hsl(25,75%,55%)"], ["hsl(230,40%,40%)", "hsl(100,50%,40%)", "hsl(25,75%,40%)"], ["birthright", "land ownership", "share holding"])
@@ -275,7 +278,7 @@ function q_daJoos() {
     q(q_dugin, "Are race and class closely and inseparately related?", "Yes", q_agrNazi, "No", q_natSocAuth)
 }
 function q_agrNazi() {
-    q(q_daJoos, "Should agriculture be the main focus of the economy?", "Yes", () => r(q_agrNazi, "Strasserism"), "No", () => r(q_agrNazi, "Niekischism"))
+    q(q_daJoos, "Should the economy be centered on agriculture?", "Yes", () => r(q_agrNazi, "Strasserism"), "No", () => r(q_agrNazi, "Niekischism"))
 }
 function q_natSocAuth() {
     q(q_daJoos, "Should the nation come before all else?", "Yes", q_natSynd, "No", q_benefactor)
