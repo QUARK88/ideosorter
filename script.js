@@ -95,6 +95,10 @@ document.addEventListener("DOMContentLoaded", async function () {
                 flagExplanation.classList.add("flagExplanation")
                 const flagExplanationImage = document.createElement("img")
                 flagExplanationImage.src = `./assets/flags/${x}.svg`
+                flagExplanationImage.onerror = function () {
+                    this.src = `./assets/flags/Missing.svg`
+                    this.onerror = null
+                }
                 flagExplanationImage.onclick = (function (ideology) {
                     return () => r("about", ideology)
                 }(x))
@@ -293,6 +297,10 @@ function r(p, ideology) {
     match.innerText = ideology
     // Displays the flag
     flag.src = `./assets/flags/${ideology}.svg`
+    flag.onerror = function () {
+        this.src = `./assets/flags/Missing.svg`
+        this.onerror = null
+    }
     // Displays the quote, or "No quote" if there isn't any.
     quote.innerText = ideologies[ideology][0] || "No quote"
     // Displays the author, or "No author" if there isn't any.

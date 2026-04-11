@@ -95,10 +95,13 @@ function q_strongmanLegit() {
     q(q_pragmaticStrongman, "Where should the strongman's authority mainly come from?", "Charisma", () => r(q_strongmanLegit, "Personal autocracy"), "Armed forces", () => r(q_strongmanLegit, "Stratocracy"), "Connections", () => r(q_strongmanLegit, "Patronalism"), "", "", "", "", ["hsl(20,40%,30%)", "hsl(80,40%,30%)", "hsl(200,40%,30%)"], ["hsl(20,40%,15%)", "hsl(80,40%,15%)", "hsl(200,40%,15%)"], ["charisma", "armed forces", "connections"])
 }
 function q_racism() {
-    q(q_pragmaticStrongman, "Should the state be devoted to a race superior to all others?", "Yes", q_raceLarp, "No", q_total)
+    q(q_pragmaticStrongman, "Should the state be devoted to a race superior to all others?", "Yes", q_naziLarp, "No", q_total)
+}
+function q_naziLarp() {
+    q(q_racism, "How should the race assert itself?", "Politics", q_raceLarp, "Guerrilla", () => r(q_naziLarp, "Nazi maoism"), "Terrorism", () => r(q_naziLarp, "Siegism"), "", "", "", "", ["hsl(30,50%,35%)", "hsl(345,50%,35%)", "hsl(60,50%,35%)"], ["hsl(30,50%,20%)", "hsl(345,50%,20%)", "hsl(60,50%,20%)"], ["politics", "guerrilla", "terrorism"])
 }
 function q_raceLarp() {
-    q(q_racism, "What gives that race such superiority?", "Biology", () => r(q_raceLarp, "National socialism"), "Spirits", () => r(q_raceLarp, "Esoteric nazism"), "", "", "", "", "", "", ["hsl(170,60%,35%)", "hsl(320,60%,35%)"], ["hsl(170,60%,20%)", "hsl(320,60%,20%)"], ["biology", "spirits"])
+    q(q_naziLarp, "What gives the race its superiority?", "Biology", () => r(q_raceLarp, "National socialism"), "Spirits", () => r(q_raceLarp, "Esoteric nazism"), "", "", "", "", "", "", ["hsl(170,60%,35%)", "hsl(320,60%,35%)"], ["hsl(170,60%,20%)", "hsl(320,60%,20%)"], ["biology", "spirits"])
 }
 function q_total() {
     q(q_racism, "Should the state have a role in all aspects of society?", "Yes", q_palingenesis, "No", q_corpo)
