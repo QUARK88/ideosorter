@@ -629,11 +629,14 @@ cell {
 
 .questionCell {
     z-index: 1;
+    padding: .2vw;
+    cursor: pointer;
     background-color: var(--button);
 }
 
 .resultCell {
     z-index: 1;
+    padding: .4vw;
     cursor: pointer;
     border-radius: .6vw;
 }
@@ -663,14 +666,6 @@ cell {
     font-family: bebasneue;
     z-index: 1;
     text-shadow: 0 0 2px #000000;
-}
-
-.questionCell {
-    padding: .2vw;
-}
-
-.resultCell {
-    padding: .4vw;
 }
 
 .startCell {

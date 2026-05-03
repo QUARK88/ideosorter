@@ -138,9 +138,13 @@ document.addEventListener("DOMContentLoaded", async function () {
                     cell.style.backgroundImage = `url("./assets/flags/${text}.svg")`
                     cell.classList.add("resultCell")
                     cell.onclick = () => r("tree", text)
+                    cell.title = ideologies[text]?.[3] ?? "No category"
                     cell.innerHTML = `<span class="resultCellText">${textWbr.replace("|", "<wbr>")}</span>`
                 } else if (text) { // For if it's a question.
                     cell.classList.add("questionCell")
+                    cell.innerHTML = textWbr.split("|")[0]
+                    cell.onclick = () => window[textWbr.split("|")[1]]()
+                    cell.title = textWbr.split("|")[1]
                 }
             })
             // Builds the color palette.
