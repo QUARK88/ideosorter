@@ -33,7 +33,7 @@ function generateArrow(input) {
     if (text.length < 6) {
         fontSize = 160
     } else {
-        fontSize = 90
+        fontSize = 100
     }
     // The possible arrow directions.
     const directions = {
@@ -78,21 +78,40 @@ document.addEventListener("DOMContentLoaded", async function () {
             colors = await colorsResponse.json()
             // Builds the flag explanations and the dropdown menu from the ideologies list.
             letters = []
+            groupLetters = []
             for (x in ideologies) {
-                // Flag explanations
                 const flagExplanation = document.createElement("div")
-                // Flag explanation index
+                const letterAnchor = document.createElement("div")
+                // Flag explanation index.
                 letter = x.charAt(0)
-                if (letters.includes(letter) === false) {
+                groupLetter = ideologies[x][3].charAt(0)
+                // Ideology letters.
+                if (!letters.includes(letter)) {
                     letters.push(letter)
-                    flagExplanation.id = letter
+                    letterAnchor.classList.add("anchor")
+                    letterAnchor.id = letter
                     const letterDiv = document.createElement("a")
                     letterDiv.setAttribute("href", "#" + letter)
                     letterDiv.classList.add("letter")
                     letterDiv.innerHTML = letter
                     flagLetters.append(letterDiv)
+                    flagExplanation.appendChild(letterAnchor)
                 }
+                // Group letters.
+                if (!groupLetters.includes(groupLetter)) {
+                    groupLetters.push(groupLetter)
+                    const letterDiv = document.createElement("a")
+                    letterDiv.setAttribute("href", "#group" + groupLetter)
+                    letterDiv.classList.add("letter")
+                    letterDiv.innerHTML = groupLetter
+                    flagGroupLetters.append(letterDiv)
+                }
+                // Alphabetical sorting of group letters.
+                const groupLetterElements = Array.from(flagGroupLetters.children)
+                groupLetterElements.sort((a, b) => a.textContent.localeCompare(b.textContent))
+                groupLetterElements.forEach(groupLetterElement => flagGroupLetters.appendChild(groupLetterElement))
                 flagExplanation.classList.add("flagExplanation")
+                // Building the explanation's flag.
                 const flagExplanationImage = document.createElement("img")
                 flagExplanationImage.src = `./assets/flags/${x}.svg`
                 flagExplanationImage.onerror = function () {
@@ -103,17 +122,21 @@ document.addEventListener("DOMContentLoaded", async function () {
                     return () => r("about", ideology)
                 }(x))
                 const imageDiv = document.createElement("div")
+                imageDiv.classList.add("imageDiv")
                 imageDiv.appendChild(flagExplanationImage)
+                // Building the explanation's text.
                 const textDiv = document.createElement("div")
+                textDiv.classList.add("textDiv")
                 if (ideologies[x][2] !== "") {
-                    textDiv.innerHTML = `<p>${x}</p><p>${ideologies[x][2]}</p>`
+                    textDiv.innerHTML = `<p class="explanationTitle">${x} (${ideologies[x][3]})</p><p>${ideologies[x][2]}</p>`
                 }
                 else {
                     textDiv.innerHTML = `<p>${x}</p><p>No flag explanation.</p>`
                 }
+                // Building the explanation.
                 flagExplanation.append(imageDiv, textDiv)
-                flagExplanations.appendChild(flagExplanation)
-                // Dropdown menu
+                flagExplanationsList.appendChild(flagExplanation)
+                // Dropdown menu.
                 const option = document.createElement("option")
                 option.innerHTML = x
                 matches.appendChild(option)
@@ -232,7 +255,7 @@ function customFlag(event = null, isDrop = false) {
 createFlag.addEventListener("click", () => customFlag())
 createFlag.addEventListener("dragover", event => event.preventDefault())
 createFlag.addEventListener("drop", event => customFlag(event, true))
-// The q function is used to display quiz questions. Syntax: q(Previous event, Question text, First button text, First button event, Second button text, Second button event, Third button text, Third button event, Fourth button text, Fourth button event, Fifth button text, Fifth button event, Array of button colors, Array of button shadows, Array of button icons)
+// The q function is used to display quiz questions. Syntax: q(Previous event, Question text, First button text, First button event, Second button text, Second button event, Third button text, Third button event, Fourth button text, Fourth button event, Fifth button text, Fifth button event, Array of button colors, Array of button shadows, Array of button icons).
 function q(p = "", q = "Error loading question", b1 = "", n1 = "", b2 = "", n2 = "", b3 = "", n3 = "", b4 = "", n4 = "", b5 = "", n5 = "", c = "", s = "", i = "") {
     // Empties buttons.
     for (x in buttons) {
@@ -294,12 +317,12 @@ function s(ideology) {
         rSwitch.onclick = () => r("tree", list[0])
     }
 }
-// The r function is used to display a result. Syntax: r(Previous event, Ideology to display)
+// The r function is used to display a result. Syntax: r(Previous event, Ideology to display).
 function r(p, ideology) {
     selectedIdeology = ideology
     // Displays the title.
     match.innerText = ideology
-    // Displays the flag
+    // Displays the flag.
     flag.src = `./assets/flags/${ideology}.svg`
     flag.onerror = function () {
         this.src = `./assets/flags/Missing.svg`
@@ -325,13 +348,62 @@ function r(p, ideology) {
 // Handles displaying and hiding the flag explanations.
 function toggleView(elementId, button) {
     const element = document.getElementById(elementId)
-    const buttonText = button.textContent.trim()
+    const buttonText = button.textContent
     if (buttonText === "Show") {
         button.innerHTML = `<img src="./assets/buttons/hide.svg">Hide`
         element.style.display = "flex"
     } else if (buttonText === "Hide") {
         button.innerHTML = `<img src="./assets/buttons/show.svg">Show`
         element.style.display = "none"
+    }
+}
+// Handles toggling the sort type of the flag explanations.
+function toggleExplanationSort(button) {
+    const buttonText = button.textContent
+    if (buttonText === "Sort by ideology") {
+        button.innerHTML = `<img src="./assets/buttons/group.svg">Sort by group`
+        flagLetters.style.display = "flex"
+        flagGroupLetters.style.display = "none"
+        const items = Array.from(flagExplanationsList.querySelectorAll('.flagExplanation'))
+        items.sort((a, b) => {
+            const titleA = a.querySelector('.explanationTitle')?.textContent || ''
+            const titleB = b.querySelector('.explanationTitle')?.textContent || ''
+            const firstPartA = titleA.split('(')[0].trim()
+            const firstPartB = titleB.split('(')[0].trim()
+            return firstPartA.localeCompare(firstPartB)
+        })
+        items.forEach(item => flagExplanationsList.appendChild(item))
+    } else if (buttonText === "Sort by group") {
+        button.innerHTML = `<img src="./assets/buttons/ideology.svg">Sort by ideology`
+        flagLetters.style.display = "none"
+        flagGroupLetters.style.display = "flex"
+        const items = Array.from(flagExplanationsList.querySelectorAll('.flagExplanation'))
+        items.sort((a, b) => {
+            const titleA = a.querySelector('.explanationTitle')?.textContent || ''
+            const titleB = b.querySelector('.explanationTitle')?.textContent || ''
+            const parenthesisMatchA = titleA.match(/\(([^)]+)\)/)
+            const parenthesisMatchB = titleB.match(/\(([^)]+)\)/)
+            const secondPartA = parenthesisMatchA ? parenthesisMatchA[1].trim() : ''
+            const secondPartB = parenthesisMatchB ? parenthesisMatchB[1].trim() : ''
+            return secondPartA.localeCompare(secondPartB)
+        })
+        items.forEach(item => flagExplanationsList.appendChild(item))
+        // Removes old group anchors.
+        document.querySelectorAll(".groupAnchor").forEach(anchor => anchor.remove())
+        const usedGroupLetters = []
+        items.forEach(item => {
+            const title = item.querySelector('.explanationTitle')?.textContent || ''
+            const match = title.match(/\(([^)]+)\)/)
+            if (!match) return
+            const groupLetter = match[1].trim().charAt(0)
+            if (!usedGroupLetters.includes(groupLetter)) {
+                usedGroupLetters.push(groupLetter)
+                const anchor = document.createElement("div")
+                anchor.classList.add("anchor", "groupAnchor")
+                anchor.id = "group" + groupLetter
+                item.prepend(anchor)
+            }
+        })
     }
 }
 // Allows for site navigation through keyboard inputs.

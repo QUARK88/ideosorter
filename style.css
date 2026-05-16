@@ -429,10 +429,10 @@ li {
 }
 
 #flagColors {
-    width: 90vw;
-    margin: 1vw auto;
-    display: flex;
-    flex-wrap: wrap;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin: 0 0 1vw 0;
 }
 
 .paletteCell {
@@ -441,43 +441,52 @@ li {
     gap: .5vw;
     justify-content: center;
     align-items: center;
-    width: 15vw;
     height: 6vw;
     text-shadow: 0 0 1px #000000ff, 0 0 2px #000000ff, 0 0 3px #000000ff, 0 0 4px #000000ff;
 }
 
-#flagLetters {
+.letters {
     display: flex;
     position: sticky;
-    top: 0;
     margin: auto;
-    padding: .5vw 6vw;
     background-color: var(--background);
-    width: 90%;
+    width: 100%;
+    height: 3vw;
     justify-content: space-between;
     flex-wrap: nowrap;
     text-align: center;
+    z-index: 67;
+    top: 0;
 }
 
 .letter {
     flex-grow: 1;
     font-size: 2vw;
+    height: 100%;
     cursor: pointer;
+}
+
+#ExplanationSortButton {
+    margin: 1vw auto 0 auto;
 }
 
 #flagExplanations {
     display: none;
     flex-direction: column;
+    width: 100%;
+}
+
+.anchor {
+    width: 0;
+    height: 0;
+    scroll-margin-top: 4vw;
 }
 
 .flagExplanation {
     display: flex;
     flex-direction: row;
-    gap: 2vw;
-    width: 97.5%;
-    margin: auto;
-    padding: 1vw;
-    scroll-margin-top: 4vw;
+    width: 100%;
+    margin: 2vw 0 0 0;
 }
 
 .flagExplanation>div {
@@ -486,26 +495,27 @@ li {
     justify-content: center;
 }
 
-.flagExplanation>div:first-child {
+.imageDiv {
     flex: 0 0 auto;
     width: 18.5%;
+    margin: 0 2vw 0 0;
 }
 
-.flagExplanation>div:last-child {
-    flex: 1;
-    gap: .75vw;
-}
-
-.flagExplanation>div>img {
+.imageDiv img {
     border-radius: 1.5vw;
     cursor: pointer;
 }
 
-.flagExplanation>div>p {
+.textDiv {
+    flex: 1;
+    gap: .75vw;
+}
+
+.textDiv p {
     margin: 0;
 }
 
-.flagExplanation>div>p:first-child {
+.explanationTitle {
     font-size: 2.5vw;
 }
 
@@ -940,11 +950,6 @@ cell {
         margin: 0 0 2vh 0;
     }
 
-    #flagColors {
-        width: 100%;
-        margin: 2vh auto;
-    }
-
     .paletteCell {
         gap: .5vh;
         width: 50%;
@@ -952,7 +957,7 @@ cell {
         font-size: 2vh;
     }
 
-    #flagLetters {
+    .letters {
         width: 100%;
         height: 16vh;
         padding: 6vh 0 0 0;
@@ -964,11 +969,11 @@ cell {
         font-size: 6vh;
     }
 
-    .flagExplanation {
+    .anchor {
         scroll-margin-top: 22vh;
     }
 
-    .flagExplanation>div:first-child {
+    .imageDiv {
         width: 25%;
     }
 
@@ -976,7 +981,7 @@ cell {
         border-radius: 2.5vw;
     }
 
-    .flagExplanation>div>p:first-child {
+    .explanationTitle {
         font-size: 4vw;
     }
 

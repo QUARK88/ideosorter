@@ -30,7 +30,7 @@
     <section id="title">
         <div class="version"></div>
         <img src="./assets/logos/title.svg" id="logo">
-        <a class="version" title="🫧" target="_blank" href="https://youtu.be/jrukZluLkiE">V2.14.0</a>
+        <a class="version" title="🫧" target="_blank" href="https://youtu.be/jrukZluLkiE">V2.14.1</a>
     </section>
     <section id="home">
         <h2 class="intro">Discover your political ideology with only a few questions</h2>
@@ -123,7 +123,10 @@
         <button class="button" id="flagExplanationsButton" onclick="toggleView('flagExplanations',this)"><img src="./assets/buttons/show.svg">Show</button>
         <div id="flagExplanations">
             <div id="flagColors"></div>
-            <div id="flagLetters"></div>
+            <div id="flagLetters" class="letters"></div>
+            <div id="flagGroupLetters" class="letters" style="display:none;"></div>
+            <button class="button" id="ExplanationSortButton" onclick="toggleExplanationSort(this)"><img src="./assets/buttons/group.svg">Sort by group</button>
+            <div id="flagExplanationsList"></div>
         </div>
         <button class="button small back" onclick="show('home')"><img src="./assets/buttons/back.svg">Back</button>
     </section>
