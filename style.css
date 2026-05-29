@@ -431,17 +431,17 @@ li {
 #flagColors {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr  1fr 1fr 1fr;
     margin: 0 0 1vw 0;
 }
 
 .paletteCell {
     display: flex;
     flex-direction: column;
-    gap: .5vw;
+    gap: .25vw;
     justify-content: center;
     align-items: center;
-    height: 6vw;
+    height: 4.55vw;
     text-shadow: 0 0 1px #000000ff, 0 0 2px #000000ff, 0 0 3px #000000ff, 0 0 4px #000000ff;
 }
 
@@ -952,21 +952,19 @@ cell {
 
     .paletteCell {
         gap: .5vh;
-        width: 50%;
         height: 8vh;
-        font-size: 2vh;
+        font-size: 1vh;
     }
 
     .letters {
-        width: 100%;
-        height: 16vh;
-        padding: 6vh 0 0 0;
+        height: 4vh;
+        padding: 0 0 6vh 0;
         flex-wrap: wrap;
         gap: 1.5vh;
     }
 
     .letter {
-        font-size: 6vh;
+        font-size: 3vh;
     }
 
     .anchor {

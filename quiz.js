@@ -62,13 +62,13 @@ function q_trad() {
     q(q_lvt, "Should the state and society prioritize order and stability?", "Yes", q_safetyNet, "No", q_needs)
 }
 function q_safetyNet() {
-    q(q_trad, "Should a social safety net protect the poor?", "Yes", q_deuxCentQuaranteSixFromages, "No", q_conIntervention)
+    q(q_trad, "Should a social safety net protect the poor?", "Yes", q_deuxCentQuaranteSixFromages, "No", q_identityLevel)
 }
 function q_deuxCentQuaranteSixFromages() {
     q(q_safetyNet, "Should businesses that align with state goals be promoted?", "Yes", () => r(q_deuxCentQuaranteSixFromages, "Dirigisme"), "No", () => r(q_deuxCentQuaranteSixFromages, "Paternalistic conservatism"))
 }
-function q_conIntervention() {
-    q(q_safetyNet, "Should the government intervene in wars overseas?", "Yes", () => r(q_conIntervention, "Mesoconservatism"), "No", () => r(q_conIntervention, "Paleoconservatism"))
+function q_identityLevel() {
+    q(q_safetyNet, "Which identity level should hold more power?", "National", () => r(q_identityLevel, "National conservatism"), "Regional", () => r(q_identityLevel, "Paleoconservatism"), "", "", "", "", "", "", ["hsl(220,50%,30%)", "hsl(40,65%,40%)"], ["hsl(220,50%,20%)", "hsl(40,65%,25%)"], ["national", "regional"])
 }
 function q_needs() {
     q(q_trad, "Should people's needs be met unconditionally?", "Yes", q_socCorp, "No", q_regulation)
@@ -113,10 +113,7 @@ function q_palingenesis() {
     q(q_total, "Should we secure the nation through a rebirth or revival?", "Yes", q_antiSpaghetti, "No", q_castes)
 }
 function q_antiSpaghetti() {
-    q(q_palingenesis, "Can state institutions fully embody the nation's rebirth?", "Yes", q_fashClergy, "No", () => r(q_antiSpaghetti, "Futurism"))
-}
-function q_fashClergy() {
-    q(q_antiSpaghetti, "Should the clergy be part of the government?", "Yes", () => r(q_fashClergy, "Clerical fascism"), "No", () => r(q_fashClergy, "Fascism"))
+    q(q_palingenesis, "Can state institutions fully embody the nation's rebirth?", "Yes", () => r(q_antiSpaghetti, "Fascism"), "No", () => r(q_antiSpaghetti, "Futurism"))
 }
 function q_castes() {
     q(q_palingenesis, "Should a system of castes be in place?", "Yes", q_control, "No", () => r(q_castes, "Montagnardism"))

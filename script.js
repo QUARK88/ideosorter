@@ -127,12 +127,8 @@ document.addEventListener("DOMContentLoaded", async function () {
                 // Building the explanation's text.
                 const textDiv = document.createElement("div")
                 textDiv.classList.add("textDiv")
-                if (ideologies[x][2] !== "") {
-                    textDiv.innerHTML = `<p class="explanationTitle">${x} (${ideologies[x][3]})</p><p>${ideologies[x][2]}</p>`
-                }
-                else {
-                    textDiv.innerHTML = `<p>${x}</p><p>No flag explanation.</p>`
-                }
+                const [, , description, subtitle] = ideologies[x]
+                textDiv.innerHTML = `<p class="explanationTitle">${x}${subtitle ? ` (${subtitle})` : ''}</p><p>${description || 'No flag explanation.'}</p>`
                 // Building the explanation.
                 flagExplanation.append(imageDiv, textDiv)
                 flagExplanationsList.appendChild(flagExplanation)
