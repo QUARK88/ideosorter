@@ -2,7 +2,7 @@ function q_privateProperty() {
     q(() => show("home"), "Should private property exist?", "Yes", q_constitution, "No", q_markets)
 }
 function q_constitution() {
-    q(q_privateProperty, "Should the state be strictly limited in its scope?", "Yes", q_minarchy, "No", q_stateFunctions, "The state should not exist", q_counterEcon, "", "", "", "", ["hsl(120,70%,45%)", "hsl(0,70%,45%)", "hsl(280,60%,35%)"], ["hsl(120,70%,30%)", "hsl(0,70%,30%)", "hsl(280,60%,20%)"], ["yes", "no", "nostate"])
+    q(q_privateProperty, "Should the state take active measures to shape public life?", "Yes", q_stateFunctions, "No", q_minarchy, "The state should not exist", q_counterEcon, "", "", "", "", ["hsl(120,70%,45%)", "hsl(0,70%,45%)", "hsl(280,60%,35%)"], ["hsl(120,70%,30%)", "hsl(0,70%,30%)", "hsl(280,60%,20%)"], ["yes", "no", "nostate"])
 }
 function q_minarchy() {
     q(q_constitution, "Should the state only enforce courts, property and defense?", "Yes", () => r(q_minarchy, "Minarchism"), "No", q_distBert)
@@ -59,7 +59,7 @@ function q_geoWelf() {
     q(q_lvt, "Should the revenue from land rents be spent on welfare?", "Yes", () => r(q_geoWelf, "Social georgism"), "No", () => r(q_geoWelf, "Georgism"))
 }
 function q_trad() {
-    q(q_lvt, "Should the state and society prioritize order and stability?", "Yes", q_safetyNet, "No", q_needs)
+    q(q_lvt, "Should social institutions favor stability over reform?", "Yes", q_safetyNet, "No", q_needs)
 }
 function q_safetyNet() {
     q(q_trad, "Should a social safety net protect the poor?", "Yes", q_deuxCentQuaranteSixFromages, "No", q_identityLevel)
@@ -161,7 +161,7 @@ function q_wifeBad() {
     q(q_guelph, "Should temporal authority lead religious institutions?", "Yes", () => r(q_wifeBad, "Caesaropapism"), "No", () => r(q_wifeBad, "Divine monarchy"))
 }
 function q_electMon() {
-    q(q_sovereignType, "What should grant power to select the sovereign?", "Birthright", () => r(q_electMon, "Aristocracy"), "Land ownership", () => r(q_electMon, "Timocracy"), "Share holding", () => r(q_electMon, "Neocameralism"), "", "", "", "", ["hsl(230,40%,55%)", "hsl(100,50%,55%)", "hsl(25,75%,55%)"], ["hsl(230,40%,40%)", "hsl(100,50%,40%)", "hsl(25,75%,40%)"], ["birthright", "land ownership", "share holding"])
+    q(q_sovereignType, "What should grant power to select the sovereign?", "Birthright", () => r(q_electMon, "Aristocracy"), "Share holding", () => r(q_electMon, "Neocameralism"), "Land ownership", () => r(q_electMon, "Aristotelian timocracy"), "Military honors", "", "", "", ["hsl(350,60%,50%)", "hsl(25,75%,55%)", "hsl(100,50%,55%)", "hsl(230,40%,55%)"], ["hsl(350,60%,35%)", "hsl(25,75%,40%)", "hsl(100,50%,40%)", "hsl(230,40%,40%)"], ["birthright", "share holding", "land ownership", "military honors"])
 }
 function q_weak() {
     q(q_sovereignType, "Should the weak be subjugated?", "Yes", () => r(q_weak, "Kraterocracy"), "No", () => r(q_weak, "Combatocracy"))
