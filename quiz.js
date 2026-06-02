@@ -161,7 +161,7 @@ function q_wifeBad() {
     q(q_guelph, "Should temporal authority lead religious institutions?", "Yes", () => r(q_wifeBad, "Caesaropapism"), "No", () => r(q_wifeBad, "Divine monarchy"))
 }
 function q_electMon() {
-    q(q_sovereignType, "What should grant power to select the sovereign?", "Birthright", () => r(q_electMon, "Aristocracy"), "Share holding", () => r(q_electMon, "Neocameralism"), "Land ownership", () => r(q_electMon, "Aristotelian timocracy"), "Military honors", "", "", "", ["hsl(350,60%,50%)", "hsl(25,75%,55%)", "hsl(100,50%,55%)", "hsl(230,40%,55%)"], ["hsl(350,60%,35%)", "hsl(25,75%,40%)", "hsl(100,50%,40%)", "hsl(230,40%,40%)"], ["birthright", "share holding", "land ownership", "military honors"])
+    q(q_sovereignType, "What should grant power to select the sovereign?", "Birthright", () => r(q_electMon, "Aristocracy"), "Share holding", () => r(q_electMon, "Neocameralism"), "Land ownership", () => r(q_electMon, "Aristotelian timocracy"), "Military honors", () => r(q_electMon, "Platonic timocracy"), "", "", ["hsl(350,60%,50%)", "hsl(25,75%,55%)", "hsl(100,50%,55%)", "hsl(230,40%,55%)"], ["hsl(350,60%,35%)", "hsl(25,75%,40%)", "hsl(100,50%,40%)", "hsl(230,40%,40%)"], ["birthright", "share holding", "land ownership", "military honors"])
 }
 function q_weak() {
     q(q_sovereignType, "Should the weak be subjugated?", "Yes", () => r(q_weak, "Kraterocracy"), "No", () => r(q_weak, "Combatocracy"))
