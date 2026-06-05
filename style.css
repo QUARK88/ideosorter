@@ -267,8 +267,8 @@ button,
 /*Quiz*/
 
 #question {
-    font-size: 3vw;
-    width: 60vw;
+    font-size: 2.5vw;
+    width: 56vw;
     margin: 0 auto 1vw auto;
 }
 
@@ -431,7 +431,7 @@ li {
 #flagColors {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr  1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     margin: 0 0 1vw 0;
 }
 
@@ -840,7 +840,7 @@ cell {
     }
 
     #question {
-        font-size: 3vh;
+        font-size: 2.5vh;
         width: 95vw;
         margin: 0 auto 1vh auto;
     }

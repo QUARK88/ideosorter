@@ -101,10 +101,13 @@ function q_racism() {
     q(q_pragmaticStrongman, "Should we be devoted to a race superior to all others?", "Yes", q_naziLarp, "No", q_total)
 }
 function q_naziLarp() {
-    q(q_racism, "How should the race assert itself?", "Politics", q_raceLarp, "Guerrilla", () => r(q_naziLarp, "Nazi maoism"), "Terrorism", () => r(q_naziLarp, "Siegism"), "", "", "", "", ["hsl(30,50%,35%)", "hsl(345,50%,35%)", "hsl(60,50%,35%)"], ["hsl(30,50%,20%)", "hsl(345,50%,20%)", "hsl(60,50%,20%)"], ["politics", "guerrilla", "terrorism"])
+    q(q_racism, "How should the race assert itself?", "Politics", q_artaman, "Guerrilla", () => r(q_naziLarp, "Nazi maoism"), "Terrorism", () => r(q_naziLarp, "Siegism"), "", "", "", "", ["hsl(30,50%,35%)", "hsl(345,50%,35%)", "hsl(60,50%,35%)"], ["hsl(30,50%,20%)", "hsl(345,50%,20%)", "hsl(60,50%,20%)"], ["politics", "guerrilla", "terrorism"])
+}
+function q_artaman() {
+    q(q_naziLarp, "Does urban life weaken the race?", "Yes", () => r(q_artaman, "Agrarian nazism"), "No", q_raceLarp)
 }
 function q_raceLarp() {
-    q(q_naziLarp, "What gives the race its superiority?", "Biology", () => r(q_raceLarp, "National socialism"), "Spirits", () => r(q_raceLarp, "Esoteric nazism"), "", "", "", "", "", "", ["hsl(170,60%,35%)", "hsl(320,60%,35%)"], ["hsl(170,60%,20%)", "hsl(320,60%,20%)"], ["biology", "spirits"])
+    q(q_artaman, "What gives the race its superiority?", "Biology", () => r(q_raceLarp, "National socialism"), "Spirits", () => r(q_raceLarp, "Esoteric nazism"), "", "", "", "", "", "", ["hsl(190,65%,35%)", "hsl(315,50%,35%)"], ["hsl(190,65%,20%)", "hsl(315,50%,20%)"], ["biology", "spirits"])
 }
 function q_total() {
     q(q_racism, "Should the state have a role in all aspects of society?", "Yes", q_palingenesis, "No", q_corpo)
@@ -296,8 +299,11 @@ function q_benefactor() {
     q(q_natSocAuth, "Should all aspects of life be subjected to state planning?", "Yes", () => r(q_benefactor, "Benefactorism"), "No", () => r(q_benefactor, "State socialism"))
 }
 function q_agrSoc() {
-    q(q_authSoc, "Should the economy be centered on agriculture?", "Yes", () => r(q_agrSoc, "Agrarian socialism"), "No", q_unions)
+    q(q_authSoc, "Should the economy be centered on agriculture?", "Yes", () => r(q_agrSoc, "Agrarian socialism"), "No", q_dogshit)
+}
+function q_dogshit() {
+    q(q_agrSoc, "Should division of labor be abolished in the workplace?", "Yes", () => r(q_dogshit, "Participism"), "No", q_unions)
 }
 function q_unions() {
-    q(q_agrSoc, "Should society be organized through unions?", "Yes", () => r(q_unions, "Syndicalism"), "No", () => r(q_unions, "Libertarian socialism"))
+    q(q_dogshit, "Should society be organized through unions?", "Yes", () => r(q_unions, "Syndicalism"), "No", () => r(q_unions, "Libertarian socialism"))
 }
