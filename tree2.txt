@@ -1,0 +1,23 @@
+;;;;;;Strass|erism;;Niek|ischism;;Bene|factorism;;State| socialism;;National| bolshevism;;Limo|novism
+;;;;;;|Yes|t;|No|tr;;;;|Yes|tl;|No|t;;|Vanguard|t|hsl(355,70%,40%);|Parliament|tr|hsl(325,70%,40%);
+;;;;;;q_agrNazi;|Yes|l;q_daJoos;|No|r;q_natSocAuth;|No|r;q_benefactor;;q_nazbol;|Direct democracy|r|hsl(25,70%,40%);Third inter|national theory
+;;;;;;;;|No|t;;;|Yes|br;;|No|tr;;;
+Syndi|calism;;Parti|cipism;|Yes|l;q_dogshit;|No|l;q_agrSoc;;q_dugin;|Yes|r;Dugin|ism;;q_natSynd;;Langean| socialism;;Tito|ism
+;|Yes|tl;;|No|bl;;;|Yes|b;|No|tl;|Yes|t;;;;|Yes|b;;|Yes|t;|No|tr;
+Libertarian| socialism;|No|l;q_unions;;Owen|ism;;Agrarian| socialism;;q_authSoc;;Blan|quism;;National| syndicalism;;q_lange;;Market| socialism
+;;;;;|Cooperation|tl|hsl(25,55%,45%);;;|Revolution|t|hsl(25,70%,40%);|Coup|tr|hsl(355,70%,40%);;;;|Yes|tr;;|Yes|tr;
+Mao|ism;|No|l;q_chingChong;;Four|ierism;|Passion|l|hsl(340,55%,45%);q_hippies;;q_transition;|Election|r|hsl(325,70%,40%);Democratic| socialism;;q_authMarkSoc;|No|r;q_guilds;|No|r;Guild| socialism
+;|Yes|bl;|No|t;;;|Production|bl|hsl(270,55%,45%);|No|t;;|No|t;;;|Yes|tr;|The state should not exist|b|hsl(280,60%,35%);;;;
+Deng|ism;;q_laborAristocracy;;Saint-|Simonianism;;q_experts;|Yes|l;q_weed;;*q_markets;;q_mutual;|Yes|r;q_ethnic;|Yes|r;National| anarchism
+;|Yes|bl;|No|t;;;;|Yes|b;;|No|t;|No|bl;;;|No|b;;|No|b;;
+Maoism-|third-worldism;;q_universalPPW;;q_socCommodity;;Techno|cracy;;q_communism;|Yes|r;q_commieState;;Market| anarchism;;Mutu|alism;;
+;|Yes|bl;|Yes|t;|Yes|bl;|No|b;|Yes|tl;;;;|Yes|bl;;|No|br;;;;;
+Marxism-|leninism-maoism;;q_peopleWar;;Bukh|arinism;;q_oneCountrySoc;|Yes|l;q_demCent;;Council| communism;;q_communization;|Yes|r;Commun|ization;;
+;;|No|b;;;|No|bl;;|No|bl;;;|Yes|t;;|No|b;;;;
+Marxism-|leninism;|No|l;q_natCom;;q_natLib;;q_party;|No|r;q_commodity;|No|r;q_dotp;;q_vouchers;|Yes|r;Anarcho-|collectivism;;
+;|Yes|bl;;|Yes|bl;|No|b;;|Yes|b;;|Yes|b;;|No|b;;|No|b;;;;
+q_songun;;Trot|skyism;;Damen|ism;;q_parliament;;Situa|tionism;;Auto|nomism;;q_agriculture;|No|r;Anarcho-|primitivism;;
+|No|b;|Yes|br;;;;|No|bl;;|Yes|br;;;;|Yes|bl;;;;;
+National| communism;;Ju|che;;q_partyDict;|No|r;Dutch-|german left communism;;q_reform;;q_anarchoUnions;|No|r;q_bookchin;|No|r;q_platform;;
+;;;|Yes|bl;;;;|Yes|bl;|No|b;;|Yes|b;;|Yes|b;;|Yes|b;|No|br;
+Cama|ttism;|Yes|l;q_nature;|No|r;Bordi|gism;;Classical| social democracy;;De| leonism;;Anarcho-|syndicalism;;Libertarian| municipalism;;Platfo|rmism;;Anarcho-|communism

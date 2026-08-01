@@ -29,11 +29,15 @@ function generateArrow(input) {
     const [text, direction, color] = input.split('|')
     // If it's yes or no, put the corresponding color. Otherwise, take the specified color, and if none, put gray.
     let arrowColor = color || (text == "Yes" ? defaultColors[0] : text == "No" ? defaultColors[1] : defaultColors[2])
-    // If the arrow's text is smaller than the width (Approximately), make it bigger.
-    if (text.length < 6) {
-        fontSize = 160
+    // Adjusts the size of the text in the arrow cells to more or less fit.
+    if (text.length < 4) {
+        fontSize = 175
+    } else if (text.length < 6) {
+        fontSize = 150
+    } else if (text.length < 10) {
+        fontSize = 90
     } else {
-        fontSize = 100
+        fontSize = 65
     }
     // The possible arrow directions.
     const directions = {
@@ -56,24 +60,23 @@ function generateArrow(input) {
     // Creates an adjusted version of the template paths.
     const adjustedPath = path.replace('<path', `<path fill="${arrowColor}" transform="rotate(${degrees} 67.734 67.734)"`)
     // Gives the cell's content.
-    return `<img src="data:image/svg+xml;base64,${btoa(adjustedPath)}"/><div style="position: absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:${fontSize}%;">${text}</div>`
+    return `<img src="data:image/svg+xml;base64,${btoa(adjustedPath)}"/><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:${fontSize}%;">${text}</div>`
 }
 // That one big asynchronous function that handles a bunch of stuff.
 document.addEventListener("DOMContentLoaded", async function () {
     (async function () {
         try {
             // Gets the trees and the ideologies from the related files.
-            const [tree1Response, tree2Response, ideologiesResponse, colorsResponse] = await Promise.all([
-                fetch("./tree1.html"),
-                fetch("./tree2.html"),
+            const [ideologiesResponse, colorsResponse, tree1Response, tree2Response] = await Promise.all([
                 fetch("./ideologies.json"),
-                fetch("./colors.json")
+                fetch("./colors.json"),
+                fetch("./tree1.txt"),
+                fetch("./tree2.txt")
             ])
-            // Injects the HTML from the tree files into the tree section's tree holders.
-            tree1.innerHTML = await tree1Response.text()
-            tree2.innerHTML = await tree2Response.text()
             // Puts the ideologies in a readily available constant.
             ideologies = await ideologiesResponse.json()
+            // Orders the ideologies alphabetically.
+            ideologies = Object.fromEntries(Object.entries(ideologies).sort((a, b) => a[0].localeCompare(b[0])))
             // Puts the colors in a readily available constant.
             colors = await colorsResponse.json()
             // Builds the flag explanations and the dropdown menu from the ideologies list.
@@ -144,28 +147,45 @@ document.addEventListener("DOMContentLoaded", async function () {
                 }
             })
             matchesTip.innerText = "All " + list.length + " possible results, alphabetically"
+            amount.innerText = list.length
             // Builds the trees.
-            document.querySelectorAll("cell").forEach(cell => {
-                // Checks what the cell's content is.
-                const textWbr = cell.textContent
-                const text = textWbr.replace("|", "")
-                // Edits the cell depending on what's inside it.
-                if (textWbr[0] == "|") { // For if it's an arrow.
-                    cell.innerHTML = generateArrow(text)
-                    cell.classList.add("arrowCell")
-                } else if (list.includes(text)) { // For if it's a flag.
-                    cell.style.backgroundImage = `url("./assets/flags/${text}.svg")`
-                    cell.classList.add("resultCell")
-                    cell.onclick = () => r("tree", text)
-                    cell.title = ideologies[text]?.[3] ?? "No category"
-                    cell.innerHTML = `<span class="resultCellText">${textWbr.replace("|", "<wbr>")}</span>`
-                } else if (text) { // For if it's a question.
-                    cell.classList.add("questionCell")
-                    cell.innerHTML = textWbr.split("|")[0]
-                    cell.onclick = () => window[textWbr.split("|")[1]]()
-                    cell.title = textWbr.split("|")[1]
+            const buildTree = async (element, response) => {
+                const rows = (await response.text()).trimEnd().split("\n")
+                element.innerHTML = ""
+                for (const row of rows) {
+                    for (const value of row.split(";")) {
+                        const cell = document.createElement("div")
+                        let textWbr = value
+                        if (textWbr[0] == "*") { // For if it's the starting question.
+                            textWbr = textWbr.slice(1)
+                            cell.classList.add("startCell")
+                        }
+                        const text = textWbr.replace("|", "")
+                        if (textWbr[0] == "|") { // For if it's an arrow.
+                            cell.innerHTML = generateArrow(text)
+                            cell.classList.add("arrowCell")
+                        } else if (list.includes(text)) { // For if it's a result.
+                            cell.style.backgroundImage = `url("./assets/flags/${text}.svg")`
+                            cell.classList.add("resultCell")
+                            cell.onclick = () => r("tree", text)
+                            cell.title = ideologies[text]?.[3] ?? "No category"
+                            cell.innerHTML = `<span class="resultCellText">${textWbr.replace("|", "<wbr>")}</span>`
+                        } else if (text) { // For if it's a question.
+                            cell.classList.add("questionCell")
+                            const functionName = text.trim()
+                            cell.innerHTML = window[functionName].toString().match(/q\([^,]+,\s*"([^"]+)"/)[1]
+                            cell.onclick = () => window[functionName]()
+                            cell.title = functionName
+                        }
+                        if (text) { cell.classList.add("cell") }
+                        element.appendChild(cell)
+                    }
                 }
-            })
+            }
+            await Promise.all([
+                buildTree(tree1, tree1Response),
+                buildTree(tree2, tree2Response)
+            ])
             // Builds the color palette.
             for (x in colors) {
                 const paletteCell = document.createElement("div")
@@ -198,6 +218,24 @@ function show(section = "home") {
 }
 // Shows the home section to begin with.
 show("home")
+// Function to swap between sections of the About section.
+function showAbout(section = 1) {
+    if (section == 1) {
+        aboutSection1.style.display = "block"
+        aboutSection2.style.display = "none"
+        aboutSection3.style.display = "none"
+    } else if (section == 2) {
+        aboutSection1.style.display = "none"
+        aboutSection2.style.display = "block"
+        aboutSection3.style.display = "none"
+    } else if (section == 3) {
+        aboutSection1.style.display = "none"
+        aboutSection2.style.display = "none"
+        aboutSection3.style.display = "block"
+    }
+}
+// Shows the "What is ideosorter?" section to begin with.
+showAbout(1)
 // Opens or closes the navigation bar.
 function navigate() {
     if (navToggled.style.display == "none") { // If it's closed, open it.
@@ -251,44 +289,44 @@ function customFlag(event = null, isDrop = false) {
 createFlag.addEventListener("click", () => customFlag())
 createFlag.addEventListener("dragover", event => event.preventDefault())
 createFlag.addEventListener("drop", event => customFlag(event, true))
-// The q function is used to display quiz questions. Syntax: q(Previous event, Question text, First button text, First button event, Second button text, Second button event, Third button text, Third button event, Fourth button text, Fourth button event, Fifth button text, Fifth button event, Array of button colors, Array of button shadows, Array of button icons).
-function q(p = "", q = "Error loading question", b1 = "", n1 = "", b2 = "", n2 = "", b3 = "", n3 = "", b4 = "", n4 = "", b5 = "", n5 = "", c = "", s = "", i = "") {
+// The q function is used to display quiz questions. Syntax: q(Previous event, Question text, [[Colors], [Shadows], [Icons]], Button 1 text, Button 1 event, Button 2 text, Button 2 event, Button 3 text, Button 3 event, Button 4 text, Button 4 event, Button 5 text, Button 5 event).
+function q(p = "", q = "Error loading question", options = [], b1 = "", n1 = "", b2 = "", n2 = "", b3 = "", n3 = "", b4 = "", n4 = "", b5 = "", n5 = "") {
     // Empties buttons.
-    for (x in buttons) {
+    for (let x in buttons) {
         buttons[x].style.backgroundColor = defaultColors[x]
         buttons[x].style.boxShadow = `0 .5vmax ${defaultShadowColors[x]}`
         buttons[x].innerHTML = ""
         buttons[x].onclick = ""
     }
     // Lists the order for the text/event pairs.
-    bs = [b1, b2, b3, b4, b5]
-    ns = [n1, n2, n3, n4, n5]
+    let bs = [b1, b2, b3, b4, b5]
+    let ns = [n1, n2, n3, n4, n5]
+    // Parses styling options if provided.
+    let colors = options[0] || []
+    let shadows = options[1] || []
+    let icons = options[2] || []
+    let hasCustomOptions = options.length > 0
     // If there is no p (Previous event) to go back to, makes the back button bring you to the home section. Otherwise, makes it bring you to the previous event.
     quizBack.onclick = p
     // Puts the question text in the question spot.
     question.innerText = q
-    // Checks whether the buttons are the default Yes/No or something custom, and applies the appropriate color, shadow, icon, text and event to each button.
-    if (c != "" && s != "" && i != "") {
-        for (x in buttons) {
-            if (bs[x] != "") {
-                buttons[x].style.backgroundColor = c[x]
-                buttons[x].style.boxShadow = `0 .5vmax ${s[x]}`
-                buttons[x].innerHTML = `<img src="./assets/buttons/${i[x]}.svg">${bs[x]}`
-                buttons[x].onclick = ns[x]
-            }
-        }
-    } else {
-        for (x in buttons) {
-            if (bs[x] != "") {
+    // Checks whether custom options are provided, and applies the appropriate color, shadow, icon, text and event to each button.
+    for (let x in buttons) {
+        if (bs[x] != "") {
+            if (hasCustomOptions && colors[x] && shadows[x] && icons[x]) {
+                buttons[x].style.backgroundColor = colors[x]
+                buttons[x].style.boxShadow = `0 .5vmax ${shadows[x]}`
+                buttons[x].innerHTML = `<img src="./assets/buttons/${icons[x]}.svg" onerror="this.onerror=null;this.src='./assets/buttons/missing.svg'">${bs[x]}`
+            } else {
                 buttons[x].style.backgroundColor = defaultColors[x]
                 buttons[x].style.boxShadow = `0 .5vmax ${defaultShadowColors[x]}`
-                buttons[x].innerHTML = `<img src="./assets/buttons/${defaultIcons[x]}.svg">${bs[x]}`
-                buttons[x].onclick = ns[x]
+                buttons[x].innerHTML = `<img src="./assets/buttons/${defaultIcons[x]}.svg" onerror="this.onerror=null;this.src='./assets/buttons/missing.svg'">${bs[x]}`
             }
+            buttons[x].onclick = ns[x]
         }
     }
     // Displays buttons if they contain something and keeps them hidden if empty.
-    for (x of buttons) {
+    for (let x of buttons) {
         x.style.display = x.innerText ? "flex" : "none"
     }
     // Displays the quiz section.

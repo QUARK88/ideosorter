@@ -201,22 +201,22 @@ button,
     margin: auto !important;
 }
 
-#startButton {
-    margin: 1vw auto .5vw auto;
+.homeButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1vw;
+    margin: 1vw auto;
     width: 38vw;
+}
+
+.homeButtons button {
+    width: 100%;
 }
 
 #startButton img {
     margin-right: 0;
     margin-left: .5vw;
-}
-
-.homeNav {
-    display: flex;
-    justify-content: space-between;
-    gap: 1vw;
-    width: 38vw;
-    margin: 1.5vw auto 0 auto;
 }
 
 .small {
@@ -392,9 +392,20 @@ button,
 
 /*About*/
 
+#aboutButtons {
+    display: flex;
+    gap: 1.5vw;
+}
+
+#aboutButtons button {
+    width: 100%;
+    font-size: 1.5vw;
+}
+
 p,
 p a,
-li a {
+li a,
+p span {
     text-align: left;
     font-size: 2vw;
     font-family: expressway;
@@ -552,7 +563,6 @@ option {
     cursor: pointer;
     border-radius: 1vw;
     text-align: left;
-    margin: 1.5vw auto 0 auto;
 }
 
 #legend {
@@ -574,21 +584,24 @@ option {
 #startBox {
     background-color: #ffffff;
     color: #000000;
+    box-shadow: inset 0 -.5vw #c0c0c0;
 }
 
 #questionBox {
     background-color: var(--button);
+    box-shadow: inset 0 -.5vw var(--buttonShadow);
 }
 
 #resultBox {
-    background-image: url("assets/flags/Neocameralism.svg");
+    background-image: url("assets/flags/Platonic timocracy.svg");
     background-size: cover;
     background-position: center;
     text-shadow: 0 0 4px #000000ff;
     border-radius: .75vw;
+    box-shadow: inset 0 -.5vw #00000040;
 }
 
-tree {
+.tree {
     margin: 2vw auto;
     display: grid;
     grid-column-gap: 0;
@@ -597,19 +610,18 @@ tree {
 }
 
 #tree1 {
-    grid-template-columns: repeat(9, 1.5fr .75fr) 1.5fr;
-    grid-template-rows: repeat(12, 1fr .75fr) 1fr;
-    aspect-ratio: 21.75/22;
+    grid-template-columns: repeat(9, 1.725fr .75fr) 1.725fr;
+    grid-template-rows: repeat(13, 1.15fr .75fr) 1.15fr;
+    aspect-ratio: 24/25.85;
 }
 
 #tree2 {
-    grid-template-columns: repeat(8, 1.5fr .75fr) 1.5fr;
-    grid-template-rows: repeat(10, 1fr .75fr) 1fr;
-    aspect-ratio: 19.5/18.5;
+    grid-template-columns: repeat(8, 1.725fr .75fr) 1.725fr;
+    grid-template-rows: repeat(11, 1.15fr .75fr) 1.15fr;
+    aspect-ratio: 21.525/22.05;
 }
 
-cell {
-    font-size: .8vw;
+.cell {
     position: relative;
     display: flex;
     align-items: center;
@@ -623,7 +635,6 @@ cell {
 .arrowCell div {
     font-family: bebasneue;
     display: flex;
-    font-size: 90%;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -638,10 +649,12 @@ cell {
 }
 
 .questionCell {
+    font-size: .8vw;
     z-index: 1;
     padding: .2vw;
     cursor: pointer;
     background-color: var(--button);
+    box-shadow: inset 0 -.25vw var(--buttonShadow);
 }
 
 .resultCell {
@@ -649,10 +662,11 @@ cell {
     padding: .4vw;
     cursor: pointer;
     border-radius: .6vw;
+    box-shadow: inset 0 -.25vw #00000040;
 }
 
 .resultCell:hover {
-    box-shadow: 0 .25vw .5vw #000000;
+    box-shadow: 0 .25vw .5vw #000000, inset 0 -.25vw #00000040;
     scale: 1.03;
 }
 
@@ -682,6 +696,7 @@ cell {
     background-color: #ffffff;
     color: #000000;
     outline: none;
+    box-shadow: inset 0 -.25vw #c0c0c0;
 }
 
 /*Footer*/
@@ -719,27 +734,27 @@ cell {
     box-shadow: 0 .25vw .5vw #000000;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1280px) {
     section {
         width: 95vw;
-        padding: 2vh 0;
+        padding: 2vmax 0;
     }
 
     #nav {
-        padding: 1vh;
+        padding: 1vmax;
     }
 
     .navButton {
-        width: 4vh;
-        height: 4vh;
-        margin: 0 0 1vh 0;
-        padding: .5vh;
-        box-shadow: 0 .5vh var(--buttonShadow);
-        border-radius: 1vh;
+        width: 4vmax;
+        height: 4vmax;
+        margin: 0 0 1vmax 0;
+        padding: .5vmax;
+        box-shadow: 0 .5vmax var(--buttonShadow);
+        border-radius: 1vmax;
     }
 
     .navButton img {
-        width: 3vh;
+        width: 3vmax;
     }
 
     #logo {
@@ -748,67 +763,81 @@ cell {
 
     .version {
         width: 10vw;
-        font-size: 1.25vh;
-        top: 2vh;
+        font-size: 1.25vmax;
+        top: 2vmax;
     }
 
     .intro {
-        font-size: 2vh;
+        font-size: 2vmax;
         width: 95vw;
     }
 
     .button {
-        margin: 0 auto .5vh auto;
-        padding: 1.5vh;
-        font-size: 2vh;
-        width: 30vh;
-        height: 10vh;
-        box-shadow: 0 .5vh var(--buttonShadow);
-        border-radius: 1vh;
+        margin: 0 auto .5vmax auto;
+        padding: 1.5vmax;
+        font-size: 2vmax;
+        width: 30vmax;
+        height: 10vmax;
+        box-shadow: 0 .5vmax var(--buttonShadow);
+        border-radius: 1vmax;
     }
 
     .button:active,
     .navButton:active {
-        top: .5vh;
+        top: .5vmax;
     }
 
     .button img {
-        margin-right: .5vh;
-        width: 2vh;
-        height: 2vh;
+        margin-right: .5vmax;
+        width: 2vmax;
+        height: 2vmax;
     }
 
     .back {
-        width: 15vh !important;
+        width: 15vmax !important;
+    }
+
+    .homeButtons {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 2vmax;
+        margin: 1vw auto;
+        width: 80vw;
+    }
+
+    .homeButtons button {
+        font-size: 4vmax;
+        height: 16vmax;
+        width: 100%;
+    }
+
+    .homeButtons button img {
+        margin-right: 2vmax;
+        height: 6vmax;
+        width: 6vmax;
     }
 
     #startButton {
-        font-size: 4vh;
-        margin: 1vh auto 1vh auto;
-        width: 80vw;
+        font-size: 6vmax;
     }
 
     #startButton img {
-        margin-left: 1vh;
-        height: 4vh;
-        width: 4vh;
-    }
-
-    .homeNav {
-        gap: 1vh;
-        width: 80vw;
-        margin: 1.5vh auto 0 auto;
+        margin-right: 0;
+        margin-left: 2vmax;
+        height: 8vmax;
+        width: 8vmax;
     }
 
     .small {
-        font-size: 1.75vh;
-        padding: 1vh;
-        height: 8vh;
+        font-size: 1.75vmax;
+        padding: 1vmax;
+        height: 8vmax;
     }
 
     .notice {
-        font-size: 1.5vh;
-        margin: 1vh auto;
+        font-size: 1.5vmax;
+        margin: 1vmax auto;
     }
 
     #otherTests {
@@ -818,14 +847,14 @@ cell {
     }
 
     .otherTest {
-        font-size: 1vh;
-        height: 12vh;
+        font-size: 1vmax;
+        height: 12vmax;
         width: 100%;
     }
 
     .otherTest img {
-        height: 6vh;
-        margin: 1vh auto !important;
+        height: 6vmax;
+        margin: 1vmax auto !important;
     }
 
     #ideoslopperButton {
@@ -835,35 +864,35 @@ cell {
     }
 
     .mention {
-        font-size: 1.5vh;
-        margin: 1vh auto 0 auto;
+        font-size: 1.5vmax;
+        margin: 1vmax auto 0 auto;
     }
 
     #question {
-        font-size: 2.5vh;
+        font-size: 2.5vmax;
         width: 95vw;
-        margin: 0 auto 1vh auto;
+        margin: 0 auto 1vmax auto;
     }
 
     .quizButton {
-        margin: 0 auto 1vh auto;
+        margin: 0 auto 1vmax auto;
     }
 
     .screenshot {
         padding: 0;
-        margin: 0 auto 1vh auto;
+        margin: 0 auto 1vmax auto;
         width: 100%;
     }
 
     .match {
-        font-size: 3vh;
+        font-size: 3vmax;
         max-width: 70vw;
-        margin: 1vh auto;
+        margin: 1vmax auto;
     }
 
     #switchBar {
         width: 100%;
-        margin: 1vh auto 1.5vh auto;
+        margin: 1vmax auto 1.5vmax auto;
     }
 
     .switch {
@@ -879,51 +908,51 @@ cell {
 
     .flag {
         max-width: 80vw;
-        min-height: 10vh;
-        max-height: 20vh;
-        border-radius: 3vh;
+        min-height: 10vmax;
+        max-height: 20vmax;
+        border-radius: 3vmax;
     }
 
     .quote {
-        font-size: 1.5vh;
+        font-size: 1.5vmax;
         max-width: 85vw;
-        min-height: 4vh;
+        min-height: 4vmax;
     }
 
     .quote::before,
     .quote::after {
-        font-size: 3vh;
+        font-size: 3vmax;
     }
 
     .quote::before {
-        left: -2vh;
+        left: -2vmax;
     }
 
     .quote::after {
-        right: -2vh;
+        right: -2vmax;
     }
 
     .author {
-        font-size: 1.25vh;
-        margin: 1vh auto;
+        font-size: 1.25vmax;
+        margin: 1vmax auto;
     }
 
     .author::before {
-        font-size: 1.25vh;
-        left: -1vh;
+        font-size: 1.25vmax;
+        left: -1vmax;
     }
 
     #createMatch,
     #createQuote,
     #createAuthor {
-        min-width: 4vh;
-        min-height: 2vh;
-        border-radius: 1vh;
+        min-width: 4vmax;
+        min-height: 2vmax;
+        border-radius: 1vmax;
     }
 
     #createMatch,
     #createQuote {
-        min-height: 4vh;
+        min-height: 4vmax;
     }
 
     #createMatch:hover,
@@ -935,40 +964,40 @@ cell {
 
     p,
     p a {
-        font-size: 2vh;
-        margin: 1vh 0 3vh 0;
+        font-size: 2vmax;
+        margin: 1vmax 0 3vmax 0;
     }
 
     .aboutQuestion {
-        font-size: 2.5vh;
-        margin: 1vh 0;
+        font-size: 2.5vmax;
+        margin: 1vmax 0;
     }
 
     ul,
     li {
-        font-size: 2vh;
-        margin: 0 0 2vh 0;
+        font-size: 2vmax;
+        margin: 0 0 2vmax 0;
     }
 
     .paletteCell {
-        gap: .5vh;
-        height: 8vh;
-        font-size: 1vh;
+        gap: .5vmax;
+        height: 8vmax;
+        font-size: 1vmax;
     }
 
     .letters {
-        height: 4vh;
-        padding: 0 0 6vh 0;
+        height: 4vmax;
+        padding: 0 0 6vmax 0;
         flex-wrap: wrap;
-        gap: 1.5vh;
+        gap: 1.5vmax;
     }
 
     .letter {
-        font-size: 3vh;
+        font-size: 3vmax;
     }
 
     .anchor {
-        scroll-margin-top: 22vh;
+        scroll-margin-top: 22vmax;
     }
 
     .imageDiv {
@@ -989,34 +1018,34 @@ cell {
     }
 
     .tip {
-        margin: 0 auto 1vh auto;
-        font-size: 1.5vh;
+        margin: 0 auto 1vmax auto;
+        font-size: 1.5vmax;
     }
 
     #treeInfo {
         flex-direction: column;
-        gap: 2vh;
+        gap: 2vmax;
     }
 
     #matches,
     option {
         width: 80vw;
-        height: 8vh;
-        box-shadow: 0 .5vh var(--buttonShadow);
-        padding: 1.5vh;
-        font-size: 1vh;
-        border-radius: 1vh;
-        margin: 1.5vh auto 0 auto;
+        height: 8vmax;
+        box-shadow: 0 .5vmax var(--buttonShadow);
+        padding: 1.5vmax;
+        font-size: 1vmax;
+        border-radius: 1vmax;
+        margin: 1.5vmax auto 0 auto;
     }
 
     #legend {
-        gap: 1.5vh;
+        gap: 1.5vmax;
     }
 
     .legendBox {
         width: 24vw;
-        height: 8vh;
-        font-size: 1.25vh;
+        height: 8vmax;
+        font-size: 1.25vmax;
     }
 
     #resultBox {
@@ -1024,17 +1053,21 @@ cell {
         border-radius: 2vw;
     }
 
-    tree {
-        margin: 1vh auto;
+    .tree {
+        margin: 1vmax auto;
+    }
+
+    .cell {
+        font-size: .8vw;
     }
 
     #footer {
-        margin-top: 12vh;
+        margin-top: 12vmax;
     }
 
     #creator {
-        font-size: 3vh;
-        margin-bottom: 1vh;
+        font-size: 3vmax;
+        margin-bottom: 1vmax;
     }
 
     #socials {
@@ -1042,12 +1075,12 @@ cell {
     }
 
     .socialIcon {
-        height: 6vh;
-        width: 6vh;
+        height: 6vmax;
+        width: 6vmax;
     }
 
     .socialIcon:hover {
-        box-shadow: 0 .25vh .5vh #000000;
+        box-shadow: 0 .25vmax .5vmax #000000;
     }
 
 }
