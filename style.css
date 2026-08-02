@@ -823,7 +823,7 @@ option {
     }
 
     .homeButtons button {
-        height: 16vmax;
+        height: 8vmax;
         width: 100%;
     }
 
@@ -863,7 +863,7 @@ option {
 
     .otherTest {
         font-size: 1vmax;
-        height: 12vmax;
+        height: 8vmax;
         width: 100%;
     }
 
