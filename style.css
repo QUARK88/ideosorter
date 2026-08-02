@@ -214,6 +214,10 @@ button,
     width: 100%;
 }
 
+#startButton {
+    grid-area: 1/1/2/4;
+}
+
 #startButton img {
     margin-right: 0;
     margin-left: .5vw;
@@ -224,6 +228,18 @@ button,
     font-size: 1.5vw;
     padding: 1vw;
     height: 4vw;
+}
+
+#createButton {
+    grid-area: 2/1/3/2;
+}
+
+#aboutButton {
+    grid-area: 2/2/3/3;
+}
+
+#treeButton {
+    grid-area: 2/3/3/4;
 }
 
 .notice {
@@ -801,32 +817,31 @@ option {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr;
-        gap: 2vmax;
+        gap: 1vmax;
         margin: 1vw auto;
-        width: 80vw;
+        width: 95vw;
     }
 
     .homeButtons button {
-        font-size: 4vmax;
         height: 16vmax;
         width: 100%;
     }
 
     .homeButtons button img {
-        margin-right: 2vmax;
-        height: 6vmax;
-        width: 6vmax;
+        margin-right: 1vmax;
+        height: 3vmax;
+        width: 3vmax;
     }
 
     #startButton {
-        font-size: 6vmax;
+        font-size: 4vmax;
     }
 
     #startButton img {
         margin-right: 0;
-        margin-left: 2vmax;
-        height: 8vmax;
-        width: 8vmax;
+        margin-left: 1.5vmax;
+        height: 4vmax;
+        width: 4vmax;
     }
 
     .small {
@@ -841,7 +856,7 @@ option {
     }
 
     #otherTests {
-        width: 80vw;
+        width: 95vw;
         margin: auto;
         gap: 2vw;
     }
@@ -858,7 +873,7 @@ option {
     }
 
     #ideoslopperButton {
-        width: 80vw;
+        width: 95vw;
         margin-top: 2vw;
         font-size: 2.5vw;
     }
@@ -962,8 +977,17 @@ option {
         outline: solid 0 var(--text);
     }
 
+    #aboutButtons {
+        gap: 1.5vmax;
+    }
+
+    #aboutButtons button {
+        font-size: 1.5vmax;
+    }
+
     p,
-    p a {
+    p a,
+    li a {
         font-size: 2vmax;
         margin: 1vmax 0 3vmax 0;
     }
