@@ -16,52 +16,13 @@ const defaultColors = ["hsl(120,70%,45%)", "hsl(0,70%,45%)", "hsl(0,0%,25%)", "h
 // Lists default button shadow colors in an array.
 const defaultShadowColors = ["hsl(120,70%,30%)", "hsl(0,70%,30%)", "hsl(0,0%,17.5%)", "hsl(0,0%,17.5%)", "hsl(0,0%,17.5%)"]
 // Lists default button icons in an array.
-const defaultIcons = ["yes", "no", "none", "none", "none"]
+const defaultIcons = ["yes", "no", "missing", "missing", "missing"]
 // Global scope bullshit.
 let ideologies, list
 selectedIdeology = ""
 // Tree arrow paths.
 const straightArrow = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135.467 135.467"><path d="M67.733332,0 33.866666,59.266668h25.4v76.200002h16.933333l0,-76.200002H101.6Z"/></svg>'
 const diagonalArrow = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135.467 135.467"><path d="M135.46666 0L69.611254 17.960661L87.571915 35.920804L0 123.49324L0 135.46666L11.973429 135.46666L99.545861 47.89475L117.506 65.855411L135.46666 0z"/></svg>'
-// That one function that creates the tree arrows.
-function generateArrow(input) {
-    // Gets the arrow parameters.
-    const [text, direction, color] = input.split('|')
-    // If it's yes or no, put the corresponding color. Otherwise, take the specified color, and if none, put gray.
-    let arrowColor = color || (text == "Yes" ? defaultColors[0] : text == "No" ? defaultColors[1] : defaultColors[2])
-    // Adjusts the size of the text in the arrow cells to more or less fit.
-    if (text.length < 4) {
-        fontSize = 175
-    } else if (text.length < 6) {
-        fontSize = 150
-    } else if (text.length < 10) {
-        fontSize = 90
-    } else {
-        fontSize = 65
-    }
-    // The possible arrow directions.
-    const directions = {
-        t: { degrees: 0, path: straightArrow },
-        r: { degrees: 90, path: straightArrow },
-        b: { degrees: 180, path: straightArrow },
-        l: { degrees: 270, path: straightArrow },
-        tr: { degrees: 0, path: diagonalArrow },
-        br: { degrees: 90, path: diagonalArrow },
-        bl: { degrees: 180, path: diagonalArrow },
-        tl: { degrees: 270, path: diagonalArrow }
-    }
-    // If it doesn't work, warn.
-    if (!directions[direction]) {
-        console.error("Invalid direction.")
-        return
-    }
-    // Gets the corresponding direction instructions.
-    const { degrees, path } = directions[direction]
-    // Creates an adjusted version of the template paths.
-    const adjustedPath = path.replace('<path', `<path fill="${arrowColor}" transform="rotate(${degrees} 67.734 67.734)"`)
-    // Gives the cell's content.
-    return `<img src="data:image/svg+xml;base64,${btoa(adjustedPath)}"/><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:${fontSize}%;">${text}</div>`
-}
 // That one big asynchronous function that handles a bunch of stuff.
 document.addEventListener("DOMContentLoaded", async function () {
     (async function () {
@@ -83,6 +44,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             letters = []
             groupLetters = []
             for (x in ideologies) {
+                // Fixes the ideology data if whoever made the file is incompetent.
+                while (ideologies[x].length < 4) {
+                    ideologies[x].push("")
+                }
+                // Creates the list elements.
                 const flagExplanation = document.createElement("div")
                 const letterAnchor = document.createElement("div")
                 // Flag explanation index.
@@ -149,38 +115,129 @@ document.addEventListener("DOMContentLoaded", async function () {
             matchesTip.innerText = "All " + list.length + " possible results, alphabetically"
             amount.innerText = list.length
             // Builds the trees.
+            const tree1Width = 11
+            const tree1Height = 14
+            const tree2Width = 9
+            const tree2Height = 12
+            const getWidthRatio = cols => cols * 1.725 + (cols - 1) * 0.75
+            const getHeightRatio = rows => rows * 1.15 + (rows - 1) * 0.75
+            tree1.style.gridTemplateColumns = `repeat(${tree1Width - 1}, 1.725fr .75fr) 1.725fr`
+            tree1.style.gridTemplateRows = `repeat(${tree1Height - 1}, 1.15fr .75fr) 1.15fr`
+            tree1.style.aspectRatio = `${getWidthRatio(tree1Width)} / ${getHeightRatio(tree1Height)}`
+            tree2.style.gridTemplateColumns = `repeat(${tree2Width - 1}, 1.725fr .75fr) 1.725fr`
+            tree2.style.gridTemplateRows = `repeat(${tree2Height - 1}, 1.15fr .75fr) 1.15fr`
+            tree2.style.aspectRatio = `${getWidthRatio(tree2Width)} / ${getHeightRatio(tree2Height)}`
+            function getArrowData(functionName) {
+                const source = window[functionName].toString()
+                const arrayMatch = source.match(/q\([^,]+,\s*"[^"]*",\s*(\[[\s\S]*?\]),\s*"[^"]*"/)
+                let colors = defaultColors
+                if (arrayMatch && arrayMatch[1] != "[]") {
+                    colors = [...arrayMatch[1].matchAll(/"([^"]+)"/g)].map(match => match[1])
+                }
+                const labels = [...source.matchAll(/"([^"]+)"\s*,\s*(?:\(\)\s*=>|q_)/g)].map(match => match[1])
+                if (arrayMatch?.[1] == "[]" || !arrayMatch) {
+                    if (labels.length > 0) {
+                        labels[0] = "Yes"
+                    }
+                    if (labels.length > 1) {
+                        labels[1] = "No"
+                    }
+                }
+                return { labels, colors }
+            }
+            function generateArrow(input) {
+                const [text, direction, color] = input.split("|")
+                let arrowColor = color || (text == "Yes" ? defaultColors[0] : text == "No" ? defaultColors[1] : defaultColors[2])
+                if (text.length < 4) {
+                    fontSize = 175
+                } else if (text.length < 6) {
+                    fontSize = 150
+                } else if (text.length < 10) {
+                    fontSize = 90
+                } else {
+                    fontSize = 65
+                }
+                const directions = { t: { degrees: 0, path: straightArrow }, r: { degrees: 90, path: straightArrow }, b: { degrees: 180, path: straightArrow }, l: { degrees: 270, path: straightArrow }, tr: { degrees: 0, path: diagonalArrow }, br: { degrees: 90, path: diagonalArrow }, bl: { degrees: 180, path: diagonalArrow }, tl: { degrees: 270, path: diagonalArrow } }
+                const { degrees, path } = directions[direction]
+                const adjustedPath = path.replace("<path", `<path fill="${arrowColor}" transform="rotate(${degrees} 67.734 67.734)"`)
+                return `<img src="data:image/svg+xml;base64,${btoa(adjustedPath)}"/><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:${fontSize}%;">${text}</div>`
+            }
+            function addArrow(layer, row, column, direction, text, color) {
+                const arrowCell = document.createElement("div")
+                arrowCell.classList.add("arrowCell")
+                arrowCell.style.gridRow = row
+                arrowCell.style.gridColumn = column
+                arrowCell.innerHTML = generateArrow(`${text}|${direction}|${color}`)
+                layer.appendChild(arrowCell)
+            }
             const buildTree = async (element, response) => {
-                const rows = (await response.text()).trimEnd().split("\n")
+                const rows = (await response.text()).trimEnd().split("\n").map(row => row.replace(/\r$/, "").split(";"))
                 element.innerHTML = ""
-                for (const row of rows) {
-                    for (const value of row.split(";")) {
+                const arrowLayer = document.createElement("div")
+                arrowLayer.classList.add("arrowLayer")
+                arrowLayer.style.position = "absolute"
+                arrowLayer.style.inset = "0"
+                arrowLayer.style.display = "grid"
+                arrowLayer.style.gridTemplateColumns = getComputedStyle(element).gridTemplateColumns
+                arrowLayer.style.gridTemplateRows = getComputedStyle(element).gridTemplateRows
+                arrowLayer.style.pointerEvents = "none"
+                element.style.position = "relative"
+                const cells = []
+                for (let row = 0; row < rows.length; row++) {
+                    cells[row] = []
+                    for (let column = 0; column < rows[row].length; column++) {
+                        let value = rows[row][column]
                         const cell = document.createElement("div")
-                        let textWbr = value
-                        if (textWbr[0] == "*") { // For if it's the starting question.
-                            textWbr = textWbr.slice(1)
+                        cell.style.gridRow = row * 2 + 1
+                        cell.style.gridColumn = column * 2 + 1
+                        if (value[0] == "*") {
+                            value = value.slice(1)
                             cell.classList.add("startCell")
                         }
-                        const text = textWbr.replace("|", "")
-                        if (textWbr[0] == "|") { // For if it's an arrow.
-                            cell.innerHTML = generateArrow(text)
-                            cell.classList.add("arrowCell")
-                        } else if (list.includes(text)) { // For if it's a result.
-                            cell.style.backgroundImage = `url("./assets/flags/${text}.svg")`
-                            cell.classList.add("resultCell")
-                            cell.onclick = () => r("tree", text)
-                            cell.title = ideologies[text]?.[3] ?? "No category"
-                            cell.innerHTML = `<span class="resultCellText">${textWbr.replace("|", "<wbr>")}</span>`
-                        } else if (text) { // For if it's a question.
+                        value = value.replace(/\r$/, "")
+                        if (value.startsWith("q_")) {
+                            const [functionName, arrowDirections = ""] = value.split("|")
+                            const questionFunction = window[functionName]
+                            const match = questionFunction.toString().match(/q\([^,]+,\s*"((?:[^"\\]|\\.)*)"/)
+                            const questionText = match ? match[1].replace(/\\"/g, '"') : null
                             cell.classList.add("questionCell")
-                            const functionName = text.trim()
-                            cell.innerHTML = window[functionName].toString().match(/q\([^,]+,\s*"([^"]+)"/)[1]
-                            cell.onclick = () => window[functionName]()
+                            cell.innerHTML = questionText
+                            cell.onclick = () => questionFunction()
                             cell.title = functionName
+                            cells[row][column] = { cell, functionName, arrowDirections }
+                        } else if (list.includes(value)) {
+                            cell.style.backgroundImage = `url("./assets/flags/${value}.svg")`
+                            cell.classList.add("resultCell")
+                            cell.onclick = () => r("tree", value)
+                            cell.title = ideologies[value]?.[3] ?? "No category"
+                            cell.innerHTML = `<span class="resultCellText">${value.slice(0, ideologies[value][4])}<wbr>${value.slice(ideologies[value][4])}</span>`
+                            cells[row][column] = { cell, functionName: null, arrowDirections: "" }
+                        } else {
+                            cells[row][column] = null
+                            continue
                         }
-                        if (text) { cell.classList.add("cell") }
+                        cell.classList.add("cell")
                         element.appendChild(cell)
                     }
                 }
+                const arrowPositions = [[-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1], [0, -1], [-1, -1]]
+                const directionNames = ["t", "tr", "r", "br", "b", "bl", "l", "tl"]
+                for (let row = 0; row < cells.length; row++) {
+                    for (let column = 0; column < cells[row].length; column++) {
+                        const node = cells[row][column]
+                        if (!node?.arrowDirections) { continue }
+                        const { labels, colors } = getArrowData(node.functionName)
+                        for (let i = 0; i < node.arrowDirections.length; i++) {
+                            const directionNumber = Number(node.arrowDirections[i])
+                            const direction = directionNames[directionNumber]
+                            const [rowOffset, columnOffset] = arrowPositions[directionNumber]
+                            const arrowRow = row * 2 + 1 + rowOffset
+                            const arrowColumn = column * 2 + 1 + columnOffset
+                            addArrow(arrowLayer, arrowRow, arrowColumn, direction, labels[i], colors[i])
+                        }
+                    }
+                }
+                element.appendChild(arrowLayer)
             }
             await Promise.all([
                 buildTree(tree1, tree1Response),
@@ -236,6 +293,11 @@ function showAbout(section = 1) {
 }
 // Shows the "What is ideosorter?" section to begin with.
 showAbout(1)
+// Makes the word "neocameralism" show the corresponding ideology.
+neocameralismFakeLink.addEventListener("click", function (event) {
+    event.preventDefault()
+    r("about", "Neocameralism")
+})
 // Opens or closes the navigation bar.
 function navigate() {
     if (navToggled.style.display == "none") { // If it's closed, open it.
@@ -275,15 +337,14 @@ function customFlag(event = null, isDrop = false) {
     }
     // Handles files selected by clicking the custom results zone.
     const fileInput = document.createElement("input")
-    fileInput.id = "fileInput"
     fileInput.type = "file"
     fileInput.addEventListener("change", () => {
         const selectedFile = fileInput.files[0]
-        processFile(selectedFile)
-        document.body.removeChild(fileInput)
+        if (selectedFile) {
+            processFile(selectedFile)
+        }
     })
     fileInput.click()
-    document.body.appendChild(fileInput)
 }
 // Makes the custom tool's elements interactive.
 createFlag.addEventListener("click", () => customFlag())
@@ -312,16 +373,10 @@ function q(p = "", q = "Error loading question", options = [], b1 = "", n1 = "",
     question.innerText = q
     // Checks whether custom options are provided, and applies the appropriate color, shadow, icon, text and event to each button.
     for (let x in buttons) {
-        if (bs[x] != "") {
-            if (hasCustomOptions && colors[x] && shadows[x] && icons[x]) {
-                buttons[x].style.backgroundColor = colors[x]
-                buttons[x].style.boxShadow = `0 .5vmax ${shadows[x]}`
-                buttons[x].innerHTML = `<img src="./assets/buttons/${icons[x]}.svg" onerror="this.onerror=null;this.src='./assets/buttons/missing.svg'">${bs[x]}`
-            } else {
-                buttons[x].style.backgroundColor = defaultColors[x]
-                buttons[x].style.boxShadow = `0 .5vmax ${defaultShadowColors[x]}`
-                buttons[x].innerHTML = `<img src="./assets/buttons/${defaultIcons[x]}.svg" onerror="this.onerror=null;this.src='./assets/buttons/missing.svg'">${bs[x]}`
-            }
+        if (bs[x] !== "") {
+            buttons[x].style.backgroundColor = (hasCustomOptions && colors[x]) || defaultColors[x]
+            buttons[x].style.boxShadow = `0 .5vmax ${(hasCustomOptions && shadows[x]) || defaultShadowColors[x]}`
+            buttons[x].innerHTML = `<img src="./assets/buttons/${(hasCustomOptions && icons[x]) || defaultIcons[x]}.svg" onerror="this.onerror=null;this.src='./assets/buttons/missing.svg'">${bs[x]}`
             buttons[x].onclick = ns[x]
         }
     }
@@ -335,20 +390,20 @@ function q(p = "", q = "Error loading question", options = [], b1 = "", n1 = "",
     document.documentElement.scrollTop = 0
 }
 // The s function is used to switch to the previous or next result in the results viewer tool.
-function s(ideology) {
+function s(p, ideology) {
     selected = list.indexOf(ideology)
     // Shows the switch buttons.
     lSwitch.style.display = "flex"
     rSwitch.style.display = "flex"
     if (selected > 0) { // If you want to go to the previous result and aren't at the start, go to the previous one.
-        lSwitch.onclick = () => r("tree", list[selected - 1])
+        lSwitch.onclick = () => r(p, list[selected - 1])
     } else { // Otherwise, go to the last result of the list.
-        lSwitch.onclick = () => r("tree", list[list.length - 1])
+        lSwitch.onclick = () => r(p, list[list.length - 1])
     }
     if (selected < list.length - 1) { // If you want to go to the next result and aren't at the end, go to the next one.
-        rSwitch.onclick = () => r("tree", list[selected + 1])
+        rSwitch.onclick = () => r(p, list[selected + 1])
     } else { // Otherwise, go to the first result of the list.
-        rSwitch.onclick = () => r("tree", list[0])
+        rSwitch.onclick = () => r(p, list[0])
     }
 }
 // The r function is used to display a result. Syntax: r(Previous event, Ideology to display).
@@ -367,7 +422,7 @@ function r(p, ideology) {
     // Displays the author, or "No author" if there isn't any.
     author.innerText = ideologies[ideology][1] || "No author"
     if (p === "about" || p === "tree") { // If the result display comes from the about or the tree, turn on the switch buttons.
-        s(ideology)
+        s(p, ideology)
         // Makes the back button bring you back to the section you came from.
         resultsBack.onclick = () => show(p)
     } else { // Otherwise, don't.

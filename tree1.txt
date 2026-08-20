@@ -1,27 +1,14 @@
-Diri|gism;;Liberal| conservatism;;National| conservatism;|National|l|hsl(220,50%,30%);q_identityLevel;|Regional|r|hsl(40,65%,40%);Paleo|conservatism;;;;;;;;;;
-|State officials|t|hsl(260,40%,45%);;;|Values|tl|hsl(10,60%,40%);;|Identity|tr|hsl(80,60%,40%);;;;;;;;;;;;;
-q_deuxCentQuaranteSixFromages;;Classical| conservatism;|Institutions|l|hsl(240,35%,40%);q_con;;Social| georgism;;Geo|rgism;;Theo|cracy;;Divine| monarchy;|No|l;q_wifeBad;|Yes|r;Caesaro|papism;;Aristo|cracy
-|Social elites|b|hsl(25,50%,45%);|Yes|tl;;|No|tr;;;|Yes|t;|No|tr;;;;|Spiritual|tl|hsl(245,35%,45%);;|Temporal|tr|hsl(85,40%,35%);;;;|Birthright|tr|hsl(350,60%,50%);
-Paternalistic| conservatism;;q_safetyNet;|Yes|l;q_trad;;q_geoWelf;;Social| distributism;;Distri|butism;;q_guelph;;Noo|cracy;;q_electMon;|Share holding|r|hsl(25,75%,55%);Neo|cameralism
-;;;;|No|b;|No|tl;|Yes|t;;|Yes|t;|No|tr;;;;|God|tl|hsl(290,70%,45%);|Wisdom|t|hsl(70,70%,45%);|Selection|tr|hsl(35,80%,55%);|Military honors|b|hsl(230,40%,55%);|Land ownership|br|hsl(100,50%,55%);
-Social| corporatism;|Yes|l;q_socCorp;|Yes|l;q_needs;;q_lvt;;q_distNeeds;;Kratero|cracy;|Yes|l;q_weak;|Strength|l|hsl(350,70%,45%);q_sovereignType;;Platonic| timocracy;;Aristotelian| timocracy
-;|No|bl;;|No|bl;;;;|No|tl;|Yes|t;;;|No|bl;;|No|tr;;|Inheritance|br|hsl(230,70%,60%);;;
-Social| democracy;;q_regulation;|Yes|r;q_fairness;|Fair competition|r|hsl(20,65%,45%);Ordo|liberalism;;q_dist;;Combato|cracy;;q_organic;;Feudal| monarchy;|Judgment|l|hsl(20,45%,50%);q_sovereignRole;|Commandment|r|hsl(270,50%,50%);Absolute| monarchy
-;;|No|b;;|Fair outcomes|b|hsl(150,65%,35%);;;;;|Elected officials|tl|hsl(220,65%,45%);;|Sovereign|tr|hsl(45,80%,45%);;|Yes|br;;;;|Management|br|hsl(135,45%,40%);
-National| liberalism;|Yes|l;q_natLibButTheOtherKind;;q_liberalLiberalLiberalLiberalHappyFunLaLaLa;;Patron|alism;;Strato|cracy;;q_stateFunctions;;Min|archism;;q_iSwearImARealBaronAndMagicIsRealAndShit;|Clerics|r|hsl(210,65%,35%);Inte|gralism;;Came|ralism
-;|No|bl;;|No|bl;|Yes|b;;;|Connections|tl|hsl(200,40%,30%);|Armed forces|t|hsl(80,40%,30%);;|Strongman|b|hsl(350,70%,45%);|Yes|tl;;|Yes|tl;;|Warriors|br|hsl(350,70%,30%);;;
-q_mobility;;Progressive| liberalism;;Social| liberalism;;Personal| autocracy;|Charisma|l|hsl(20,40%,30%);q_strongmanLegit;|No|l;q_pragmaticStrongman;;*q_constitution;|No|r;q_minarchy;;Super|fascism;;Libertarian| distributism
-|No|b;|Yes|br;;;;;;;;|Yes|bl;;|The state should not exist|bl|hsl(280,60%,35%);;;;|No|br;;|Yes|tr;
-q_hegemony;;Third| way;;Nazi| maoism;;Sieg|ism;;q_racism;;q_counterEcon;|Illegal trade|r|hsl(0,0%,50%);q_redMarket;|Yes|r;Avar|itionism;;q_distBert;;Geo|libertarianism
-|Economic leverage|b|hsl(350,70%,45%);|Military readiness|br|hsl(230,70%,45%);;;;|Guerrilla|tl|hsl(345,50%,35%);|Terrorism|t|hsl(60,50%,35%);|Yes|bl;|No|b;;;|Insurrection|br|hsl(40,80%,50%);;|No|br;;;;|No|br;|Yes|t
-Neo|liberalism;;Neocon|servatism;;q_artaman;|Politics|l|hsl(30,50%,35%);q_naziLarp;;q_total;;Anarcho-|distributism;|Yes|l;q_anDist;;Ago|rism;;Geo|anarchism;;q_singleTax
-;;;|No|bl;|Yes|b;;;|Yes|bl;|No|b;;;;;|No|br;;|Yes|tr;;|No|bl;
-National| socialism;|Biology|l|hsl(190,65%,35%);q_raceLarp;;Agrarian| nazism;;q_palingenesis;;q_corpo;|Yes|r;q_corpoFocus;|State|r|hsl(200,65%,45%);State| corporatism;;q_landRent;;q_ubi;|Yes|r;Social| libertarianism
-;|Spirits|bl|hsl(315,50%,35%);;;;|Yes|bl;|No|b;;|No|b;;|Business|b|hsl(45,70%,45%);|Labor|br|hsl(350,65%,45%);;;|No|b;;|No|b;;
-Esoteric| nazism;;Fasc|ism;|Yes|l;q_antiSpaghetti;;q_castes;;q_natDist;;Develop|mentalism;;Yellow| socialism;;q_coop;;q_bertWar;|Yes|r;Neo|libertarianism
-;;;|No|bl;;|No|bl;|Yes|b;;|No|b;|Yes|br;;;;|Yes|bl;|No|b;;|No|b;;
-;;Futu|rism;;Montagn|ardism;;q_control;;q_authWelf;;National| distributism;;Left-|rothbardianism;;q_covenant;;q_bertTrad;|Yes|r;Paleo|libertarianism
-;;;;;|Apathy|bl|hsl(320,50%,65%);|Terror|b|hsl(0,70%,40%);;|Yes|b;|No|br;;;;;|No|b;|Yes|br;;|No|br;
-;;;;Ford|ism;;English| socialism;;Social| autocracy;;q_soe;|No|r;q_klepto;;Anarcho-|capitalism;;q_separation;;Right-|libertarianism
-;;;;;;;;;|Yes|bl;;;|Yes|b;|No|br;;;|Aggressively|b|hsl(25,70%,45%);|Peacefully|br|hsl(40,100%,60%);
-;;;;;;Stakeholder| capitalism;|Yes|l;q_zeBugz;|No|r;State| capitalism;;Corporato|cracy;;Autocratic| capitalism;;Nilsson|ianism;;Hoppe|anism
+Dirigism;Paternalistic conservatism;National conservatism;q_identityLevel|62;Paleoconservatism;;;;Caesaropapism;Divine monarchy;
+q_deuxCentQuaranteSixFromages|01;q_safetyNet|62;q_con|213;Classical conservatism;Social georgism;Aristocracy;Neocameralism;Aristotelian timocracy;q_wifeBad|01;Theocracy;
+Social corporatism;q_socCorp|65;q_trad|75;Liberal conservatism;q_geoWelf|02;Georgism;q_electMon|7012;Platonic timocracy;q_guelph|10;Feudal monarchy;
+Social democracy;q_needs|04;q_fairness|34;q_lvt|17;Social distributism;Distributism;Noocracy;q_sovereignType|2617;q_sovereignRole|123;Absolute monarchy;
+National liberalism;q_regulation|15;q_oilDividends|54;Ordoliberalism;q_dist|27;q_distNeeds|70;q_organic|31;q_sidMeier|23;Archeofuturism;Cameralism;
+q_natLibButTheOtherKind|04;Tripartite corporatism;q_liberalLiberalLiberalLiberalHappyFunLaLaLa|45;Stratocracy;Personal autocracy;q_stateFunctions|741;Minarchism;q_heartland|03;Right-eurasianism;Integralism;
+q_mobility|34;Progressive liberalism;Social liberalism;Patronalism;q_strongmanLegit|076;q_pragmaticStrongman|56;*q_constitution|725;q_minarchy|73;q_iSwearImARealBaronAndMagicIsRealAndShit|123;Superfascism;
+q_hegemony|43;Third way;Nazi maoism;Siegism;q_racism|54;q_counterEcon|23;q_redMarket|23;Avaritionism;q_distBert|43;Scholar-bureaucracy;
+Neoliberalism;Neoconservatism;q_artaman|45;q_naziLarp|670;q_total|54;Anarcho-distributism;q_anDist|63;Agorism;Libertarian distributism;q_singleTax|24;Geolibertarianism
+National socialism;q_raceLarp|65;Agrarian nazism;q_palingenesis|54;q_corpo|24;q_corpoFocus|234;State corporatism;q_landRent|32;Geoanarchism;q_ubi|24;Social libertarianism
+Esoteric nazism;Fascism;q_antiSpaghetti|65;q_castes|45;q_natDist|43;Developmentalism;Yellow socialism;Left-rothbardianism;q_coop|64;q_bertWar|24;Neolibertarianism
+;Futurism;Montagnardism;q_control|43;National distributism;q_authGeo|42;q_authWelf|24;Social autocracy;q_covenant|34;q_bertTrad|23;Paleolibertarianism
+;;;Fordism;English socialism;National georgism;q_soe|52;q_klepto|43;Anarcho-capitalism;q_separation|34;Right-libertarianism
+;;;;Stakeholder capitalism;q_zeBugz|62;State capitalism;Corporatocracy;Autocratic capitalism;Nilssonianism;Hoppeanism
