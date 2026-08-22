@@ -910,13 +910,13 @@ option {
     }
 
     #switchBar {
-        width: 100%;
-        margin: 1vmax auto 1.5vmax auto;
+        width: 60vw;
+        margin: 1vmax auto 2vmax auto;
     }
 
     .switch {
         width: 12vw;
-        height: 24vw;
+        height: 20vmax;
         margin: auto 0;
     }
 
