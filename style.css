@@ -501,6 +501,7 @@ li {
     display: none;
     flex-direction: column;
     width: 100%;
+    margin-bottom: 2vw;
 }
 
 .anchor {
@@ -910,7 +911,8 @@ option {
     }
 
     #switchBar {
-        width: 60vw;
+        width: fit-content;
+        gap: 4vw;
         margin: 1vmax auto 2vmax auto;
     }
 
