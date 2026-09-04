@@ -1,12 +1,12 @@
 ;;;Strasserism;Niekischism;Benefactorism;State socialism;National bolshevism;Limonovism
-;;;q_agrNazi|01;q_daJoos|62;q_natSocAuth|32;q_benefactor|70;q_nazbol|012;Third international theory
-Syndicalism;Participism;q_dogshit|65;q_agrSoc|46;q_clown|20;Left-eurasianism;q_natSynd|41;Langean socialism;Titoism
-Libertarian socialism;q_unions|76;Owenism;Agrarian socialism;q_authSoc|07;Blanquism;National syndicalism;q_lange|01;Market socialism
-Maoism;q_chingChong|56;Fourierism;q_hippies|765;q_transition|210;Democratic socialism;q_authMarkSoc|124;q_guilds|12;Guild socialism
-Dengism;q_laborAristocracy|50;Saint-Simonianism;q_experts|40;q_weed|60;*q_markets|15;q_mutual|24;q_ethnic|24;National anarchism
-Maoism-third-worldism;q_universalPPW|50;Bukharinism;Technocracy;q_communism|20;q_commieState|43;Market anarchism;Mutualism;
-Marxism-leninism-maoism;Marxism-leninism;q_peopleWar|75;q_socCommodity|67;q_oneCountrySoc|65;q_demCent|64;q_communization|24;Communization;
-Juche;q_natCom|50;Damenism;q_natLib|56;q_party|54;Situationism;q_vouchers|23;Anarcho-collectivism;
-q_songun|04;Posadism;q_sendNukes|65;q_parliament|35;q_commodity|12;q_dotp|24;Council communism;q_agriculture|52;Anarcho-primitivism
-National communism;Trotskyism;q_partyDict|52;Dutch-german left communism;q_reform|54;Autonomism;q_anarchoUnions|52;q_bookchin|52;q_platform|54
-Camattism;q_nature|62;Bordigism;Classical social democracy;De leonism;Anarcho-syndicalism;Libertarian municipalism;Platformism;Anarcho-communism
+Syndicalism;Participism;;q_agrNazi|01;q_daJoos|62;q_natSocAuth|32;q_benefactor|70;q_nazbol|012;Third international theory
+Libertarian socialism;q_unions|76;q_dogshit|76;q_agrSoc|46;q_clown|20;Left-eurasianism;q_natSynd|41;Langean socialism;Titoism
+Dengism;Maoism;Owenism;Agrarian socialism;q_authSoc|07;Blanquism;National syndicalism;q_lange|01;Market socialism
+Maoism-third-worldism;q_chingChong|70;Fourierism;q_hippies|765;q_transition|210;Democratic socialism;q_authMarkSoc|124;q_guilds|12;Guild socialism
+Marxism-leninism-maoism;q_laborAristocracy|70;Saint-Simonianism;q_experts|40;q_weed|60;*q_markets|15;q_mutual|24;q_ethnic|24;National anarchism
+Juche;q_universalPPW|70;Bukharinism;Technocracy;q_communism|20;q_commieState|43;Market anarchism;Mutualism;
+National communism;q_songun|76;q_peopleWar|75;q_socCommodity|67;q_oneCountrySoc|65;q_demCent|65;q_communization|24;Communization;
+Marxism-leninism;q_natCom|06;Damenism;q_natLib|56;q_party|54;Situationism;q_vouchers|23;Anarcho-collectivism;
+Centrist marxism;Posadism;q_sendNukes|65;q_parliament|53;q_commodity|12;q_dotp|24;Council communism;q_agriculture|52;Anarcho-primitivism
+q_landwehrkanal|40;Trotskyism;q_voteVoteVoteWeReGonnaVote|52;Evolutionary communism;q_partyDict|54;Autonomism;q_anarchoUnions|52;q_bookchin|52;q_platform|54
+Spartakism;q_reform|72;De leonism;Bordigism;Dutch-german left communism;Anarcho-syndicalism;Libertarian municipalism;Platformism;Anarcho-communism

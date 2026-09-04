@@ -70,7 +70,7 @@ function q_communism() { q(q_markets, "Should society be classless, stateless an
 function q_commieState() { q(q_communism, "Should there be a temporary state apparatus?", [], "Yes", q_demCent, "No", q_communization) }
 function q_demCent() { q(q_commieState, "Should democratic centralism lead proletarian organization?", [], "Yes", q_oneCountrySoc, "No", q_party) }
 function q_oneCountrySoc() { q(q_demCent, "Should socialism first be built in a single country?", [], "Yes", q_socCommodity, "No", q_natLib) }
-function q_socCommodity() { q(q_oneCountrySoc, "Should commodity production occur under socialism?", [], "Yes", q_peopleWar, "No", () => r(q_socCommodity, "Bukharinism")) }
+function q_socCommodity() { q(q_oneCountrySoc, "", [], "Yes", q_peopleWar, "No", () => r(q_socCommodity, "Bukharinism")) }
 function q_peopleWar() { q(q_socCommodity, "Should protracted guerrilla warfare be used to remove the old society?", [], "Yes", q_universalPPW, "No", q_natCom) }
 function q_universalPPW() { q(q_peopleWar, "Should these tactics be attempted regardless of the country?", [], "Yes", () => r(q_universalPPW, "Marxism-leninism-maoism"), "No", q_laborAristocracy) }
 function q_laborAristocracy() { q(q_universalPPW, "Should first-world workers only engage in anti-imperialist actions?", [], "Yes", () => r(q_laborAristocracy, "Maoism-third-worldism"), "No", q_chingChong) }
@@ -80,10 +80,11 @@ function q_songun() { q(q_natCom, "Should the military be given priority in reso
 function q_natLib() { q(q_oneCountrySoc, "Should communists support national liberation?", [], "Yes", q_sendNukes, "No", () => r(q_natLib, "Damenism")) }
 function q_sendNukes() { q(q_natLib, "Should a global nuclear war be sparked at the first opportunity?", [], "Yes", () => r(q_sendNukes, "Posadism"), "No", () => r(q_sendNukes, "Trotskyism")) }
 function q_party() { q(q_demCent, "Should a vanguard party lead the working class?", [], "Yes", q_parliament, "No", q_commodity) }
-function q_parliament() { q(q_party, "Should communists participate in parliamentary politics?", [], "Yes", q_reform, "No", q_partyDict) }
-function q_reform() { q(q_parliament, "Should capitalism be reformed on the short term?", [], "Yes", () => r(q_reform, "Classical social democracy"), "No", () => r(q_reform, "De leonism")) }
-function q_partyDict() { q(q_parliament, "Should the dictatorship of the proletariat be a party dictatorship?", [], "Yes", q_nature, "No", () => r(q_partyDict, "Dutch-german left communism")) }
-function q_nature() { q(q_partyDict, "Should the means of production be dismantled rather than seized?", [], "Yes", () => r(q_nature, "Camattism"), "No", () => r(q_nature, "Bordigism")) }
+function q_parliament() { q(q_party, "Should communists participate in parliamentary politics?", [], "Yes", q_voteVoteVoteWeReGonnaVote, "No", q_partyDict) }
+function q_voteVoteVoteWeReGonnaVote() { q(q_parliament, "", [], "Yes", () => r(q_voteVoteVoteWeReGonnaVote, "Evolutionary communism"), "No", q_reform) }
+function q_reform() { q(q_voteVoteVoteWeReGonnaVote, "Should capitalism be reformed on the short term?", [], "Yes", q_landwehrkanal, "No", () => r(q_reform, "De leonism")) }
+function q_landwehrkanal() { q(q_reform, "", [], "Yes", () => r(q_landwehrkanal, "Spartakism"), "No", () => r(q_landwehrkanal, "Centrist marxism")) }
+function q_partyDict() { q(q_parliament, "Should the dictatorship of the proletariat be a party dictatorship?", [], "Yes", () => r(q_partyDict, "Bordigism"), "No", () => r(q_partyDict, "Dutch-german left communism")) }
 function q_commodity() { q(q_party, "Should the act of consumption be stripped from its passive elements?", [], "Yes", () => r(q_commodity, "Situationism"), "No", q_dotp) }
 function q_dotp() { q(q_commodity, "Should there be a dictatorship of the proletariat?", [], "Yes", () => r(q_dotp, "Council communism"), "No", () => r(q_dotp, "Autonomism")) }
 function q_communization() { q(q_commieState, "Should insurrection replace the socialization phase?", [], "Yes", () => r(q_communization, "Communization"), "No", q_vouchers) }

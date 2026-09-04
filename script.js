@@ -148,19 +148,10 @@ document.addEventListener("DOMContentLoaded", async function () {
             function generateArrow(input) {
                 const [text, direction, color] = input.split("|")
                 let arrowColor = color || (text == "Yes" ? defaultColors[0] : text == "No" ? defaultColors[1] : defaultColors[2])
-                if (text.length < 4) {
-                    fontSize = 175
-                } else if (text.length < 6) {
-                    fontSize = 150
-                } else if (text.length < 10) {
-                    fontSize = 90
-                } else {
-                    fontSize = 65
-                }
                 const directions = { t: { degrees: 0, path: straightArrow }, r: { degrees: 90, path: straightArrow }, b: { degrees: 180, path: straightArrow }, l: { degrees: 270, path: straightArrow }, tr: { degrees: 0, path: diagonalArrow }, br: { degrees: 90, path: diagonalArrow }, bl: { degrees: 180, path: diagonalArrow }, tl: { degrees: 270, path: diagonalArrow } }
                 const { degrees, path } = directions[direction]
                 const adjustedPath = path.replace("<path", `<path fill="${arrowColor}" transform="rotate(${degrees} 67.734 67.734)"`)
-                return `<img src="data:image/svg+xml;base64,${btoa(adjustedPath)}"/><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:${fontSize}%;">${text}</div>`
+                return `<img src="data:image/svg+xml;base64,${btoa(adjustedPath)}"/><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">${text}</div>`
             }
             function addArrow(layer, row, column, direction, text, color) {
                 const arrowCell = document.createElement("div")
@@ -201,7 +192,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                             const match = questionFunction.toString().match(/q\([^,]+,\s*"((?:[^"\\]|\\.)*)"/)
                             const questionText = match ? match[1].replace(/\\"/g, '"') : null
                             cell.classList.add("questionCell")
-                            cell.innerHTML = questionText
+                            cell.innerHTML = `<span class="questionCellText">${questionText}</span>`
                             cell.onclick = () => questionFunction()
                             cell.title = functionName
                             cells[row][column] = { cell, functionName, arrowDirections }
