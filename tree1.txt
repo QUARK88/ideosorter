@@ -1,14 +1,14 @@
 Dirigism;Paternalistic conservatism;National conservatism;q_identityLevel|62;Paleoconservatism;;;;Caesaropapism;Divine monarchy;
 q_deuxCentQuaranteSixFromages|01;q_safetyNet|62;q_con|213;Classical conservatism;Social georgism;Aristocracy;Neocameralism;Aristotelian timocracy;q_wifeBad|01;Theocracy;
 Social corporatism;q_socCorp|65;q_trad|75;Liberal conservatism;q_geoWelf|02;Georgism;q_electMon|7012;Platonic timocracy;q_guelph|10;Feudal monarchy;
-Social democracy;q_needs|04;q_fairness|34;q_lvt|17;Social distributism;Distributism;Noocracy;q_sovereignType|2617;q_sovereignRole|123;Absolute monarchy;
-National liberalism;q_regulation|15;q_oilDividends|54;Ordoliberalism;q_dist|27;q_distNeeds|70;q_organic|31;q_sidMeier|23;Archeofuturism;Cameralism;
+Social democracy;q_needs|04;q_fairness|34;q_lvt|17;Guild distributism;Classical distributism;Noocracy;q_sovereignType|2617;q_sovereignRole|123;Absolute monarchy;
+National liberalism;q_regulation|15;q_oilDividends|54;Ordoliberalism;q_dist|27;q_distFocus|07;q_organic|31;q_sidMeier|23;Archeofuturism;Cameralism;
 q_natLibButTheOtherKind|04;Tripartite corporatism;q_liberalLiberalLiberalLiberalHappyFunLaLaLa|45;Stratocracy;Personal autocracy;q_stateFunctions|741;Minarchism;q_heartland|03;Right-eurasianism;Integralism;
 q_mobility|34;Progressive liberalism;Social liberalism;Patronalism;q_strongmanLegit|076;q_pragmaticStrongman|56;*q_constitution|725;q_minarchy|73;q_iSwearImARealBaronAndMagicIsRealAndShit|123;Superfascism;
-q_hegemony|43;Third way;Nazi maoism;Siegism;q_racism|54;q_counterEcon|23;q_redMarket|23;Avaritionism;q_distBert|43;Scholar-bureaucracy;
+q_hegemony|43;Third way;Nazi maoism;Siegism;q_racism|54;q_counterEcon|23;q_redMarket|23;Hitmanarchism;q_distBert|43;Scholar-bureaucracy;
 Neoliberalism;Neoconservatism;q_artaman|45;q_naziLarp|670;q_total|54;Anarcho-distributism;q_anDist|63;Agorism;Libertarian distributism;q_singleTax|24;Geolibertarianism
 National socialism;q_raceLarp|65;Agrarian nazism;q_palingenesis|54;q_corpo|24;q_corpoFocus|234;State corporatism;q_landRent|32;Geoanarchism;q_ubi|24;Social libertarianism
-Esoteric nazism;Fascism;q_antiSpaghetti|65;q_castes|45;q_natDist|43;Developmentalism;Yellow socialism;Left-rothbardianism;q_coop|64;q_bertWar|24;Neolibertarianism
-;Futurism;Montagnardism;q_control|43;National distributism;q_authGeo|42;q_authWelf|24;Social autocracy;q_covenant|34;q_bertTrad|23;Paleolibertarianism
-;;;Fordism;English socialism;National georgism;q_soe|52;q_klepto|43;Anarcho-capitalism;q_separation|34;Right-libertarianism
+Esoteric nazism;Fascism;q_antiSpaghetti|65;q_concert|54;q_natDist|43;Developmentalism;Yellow socialism;Left-rothbardianism;q_coop|64;q_bertWar|24;Neolibertarianism
+;Futurism;Virtue republicanism;Immobilism;National distributism;q_authGeo|42;q_authWelf|24;Social autocracy;q_covenant|34;q_bertTrad|23;Paleolibertarianism
+;;;;;National georgism;q_soe|52;q_klepto|43;Anarcho-capitalism;q_separation|34;Right-libertarianism
 ;;;;Stakeholder capitalism;q_zeBugz|62;State capitalism;Corporatocracy;Autocratic capitalism;Nilssonianism;Hoppeanism

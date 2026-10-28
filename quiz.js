@@ -6,16 +6,16 @@ function q_singleTax() { q(q_distBert, "Should the only tax be a levy on public 
 function q_ubi() { q(q_singleTax, "Should there be a universal basic income?", [], "Yes", () => r(q_ubi, "Social libertarianism"), "No", q_bertWar) }
 function q_bertWar() { q(q_ubi, "Should freedom be spread around the globe by force?", [], "Yes", () => r(q_bertWar, "Neolibertarianism"), "No", q_bertTrad) }
 function q_bertTrad() { q(q_bertWar, "Should local communities ensure law and order?", [], "Yes", () => r(q_bertTrad, "Paleolibertarianism"), "No", () => r(q_bertTrad, "Right-libertarianism")) }
-function q_counterEcon() { q(q_constitution, "Which method should be used to bring down the state?", [["hsl(0,0%,50%)", "hsl(40,80%,50%)"], ["hsl(0,0%,35%)", "hsl(40,80%,35%)"], ["illegal trade", "insurrection"]], "Illegal trade", q_redMarket, "Insurrection", q_anDist) }
-function q_redMarket() { q(q_counterEcon, "Should coercive markets be tolerated?", [], "Yes", () => r(q_redMarket, "Avaritionism"), "No", () => r(q_redMarket, "Agorism")) }
+function q_counterEcon() { q(q_constitution, "Which method should be used to bring down the state?", [["hsl(40,70%,50%)", "hsl(10,70%,40%)"], ["hsl(40,70%,35%)", "hsl(10,70%,25%)"], ["illegal markets", "insurrection"]], "Illegal markets", q_redMarket, "Insurrection", q_anDist) }
+function q_redMarket() { q(q_counterEcon, "Should coercive markets be tolerated?", [], "Yes", () => r(q_redMarket, "Hitmanarchism"), "No", () => r(q_redMarket, "Agorism")) }
 function q_anDist() { q(q_counterEcon, "Should property be mainly owned by families and guilds?", [], "Yes", () => r(q_anDist, "Anarcho-distributism"), "No", q_landRent) }
 function q_landRent() { q(q_anDist, "Should homesteaded property include the land it is built on?", [], "Yes", q_coop, "No", () => r(q_landRent, "Geoanarchism")) }
 function q_coop() { q(q_landRent, "Should property gained through state involvement be expropriated?", [], "Yes", () => r(q_coop, "Left-rothbardianism"), "No", q_covenant) }
 function q_covenant() { q(q_coop, "Should covenant communities expel unwelcome individuals?", [], "Yes", q_separation, "No", () => r(q_covenant, "Anarcho-capitalism")) }
 function q_separation() { q(q_covenant, "How should separation of covenants occur?", [["hsl(40,100%,60%)", "hsl(25,70%,45%)"], ["hsl(40,100%,40%)", "hsl(25,70%,30%)"], ["peacefully", "aggressively"]], "Peacefully", () => r(q_separation, "Hoppeanism"), "Aggressively", () => r(q_separation, "Nilssonianism")) }
 function q_stateFunctions() { q(q_constitution, "Who should assume state functions?", [["hsl(220,65%,45%)", "hsl(350,70%,45%)", "hsl(45,80%,45%)"], ["hsl(220,65%,30%)", "hsl(350,70%,30%)", "hsl(45,80%,30%)"], ["elected officials", "strongman", "sovereign"]], "Elected officials", q_dist, "Strongman", q_pragmaticStrongman, "Sovereign", q_organic) }
-function q_dist() { q(q_stateFunctions, "Should property be mainly owned by families and guilds?", [], "Yes", q_distNeeds, "No", q_lvt) }
-function q_distNeeds() { q(q_dist, "Should people's needs be met unconditionally?", [], "Yes", () => r(q_distNeeds, "Social distributism"), "No", () => r(q_distNeeds, "Distributism")) }
+function q_dist() { q(q_stateFunctions, "Should property be mainly owned by families and guilds?", [], "Yes", q_distFocus, "No", q_lvt) }
+function q_distFocus() { q(q_dist, "Which groups should hold regulatory authority?", [["hsl(30,60%,40%)", "hsl(345,60%,30%)"], ["hsl(30,60%,25%)", "hsl(345,60%,20%)"], ["families", "guilds"]], "Families", () => r(q_distFocus, "Classical distributism"), "Guilds", () => r(q_distFocus, "Guild distributism")) }
 function q_lvt() { q(q_dist, "Should land rents be given back to society?", [], "Yes", q_geoWelf, "No", q_trad) }
 function q_geoWelf() { q(q_lvt, "Should the revenue from land rents be spent on welfare?", [], "Yes", () => r(q_geoWelf, "Social georgism"), "No", () => r(q_geoWelf, "Georgism")) }
 function q_trad() { q(q_lvt, "Should social institutions favor stability over reform?", [], "Yes", q_safetyNet, "No", q_needs) }
@@ -39,10 +39,9 @@ function q_naziLarp() { q(q_racism, "How should the struggle for the race manife
 function q_artaman() { q(q_naziLarp, "Should rural life be actively promoted to strengthen the race?", [], "Yes", () => r(q_artaman, "Agrarian nazism"), "No", q_raceLarp) }
 function q_raceLarp() { q(q_artaman, "What gives the race its superiority?", [["hsl(190,65%,35%)", "hsl(315,50%,35%)"], ["hsl(190,65%,20%)", "hsl(315,50%,20%)"], ["biology", "spirits"]], "Biology", () => r(q_raceLarp, "National socialism"), "Spirits", () => r(q_raceLarp, "Esoteric nazism")) }
 function q_total() { q(q_racism, "Should the state have a role in all aspects of society?", [], "Yes", q_palingenesis, "No", q_corpo) }
-function q_palingenesis() { q(q_total, "Should the nation be secured through a rebirth or revival?", [], "Yes", q_antiSpaghetti, "No", q_castes) }
-function q_antiSpaghetti() { q(q_palingenesis, "Can state institutions fully embody the nation's rebirth?", [], "Yes", () => r(q_antiSpaghetti, "Fascism"), "No", () => r(q_antiSpaghetti, "Futurism")) }
-function q_castes() { q(q_palingenesis, "Should a system of castes be in place?", [], "Yes", q_control, "No", () => r(q_castes, "Montagnardism")) }
-function q_control() { q(q_castes, "How should control over society be ensured?", [["hsl(320,50%,65%)", "hsl(0,70%,40%)"], ["hsl(320,50%,55%)", "hsl(0,70%,25%)"], ["apathy", "terror"]], "Apathy", () => r(q_control, "Fordism"), "Terror", () => r(q_control, "English socialism")) }
+function q_palingenesis() { q(q_total, "Should the nation be secured through a rebirth or revival?", [], "Yes", q_antiSpaghetti, "No", q_concert) }
+function q_antiSpaghetti() { q(q_palingenesis, "Can state institutions fully embody national rebirth?", [], "Yes", () => r(q_antiSpaghetti, "Fascism"), "No", () => r(q_antiSpaghetti, "Futurism")) }
+function q_concert() { q(q_palingenesis, "Which duty should the state primarily uphold?", [["hsl(10,45%,35%)", "hsl(250,45%,35%)"], ["hsl(10,45%,20%)", "hsl(250,45%,20%)"], ["civic virtue", "social order"]], "Civic virtue", () => r(q_concert, "Virtue republicanism"), "Social order", () => r(q_concert, "Immobilism")) }
 function q_corpo() { q(q_total, "Should profession groups partake in policy making?", [], "Yes", q_corpoFocus, "No", q_natDist) }
 function q_corpoFocus() { q(q_corpo, "Whose interests should hold primacy during bargaining?", [["hsl(200,65%,45%)", "hsl(350,65%,45%)", "hsl(45,70%,45%)"], ["hsl(200,65%,30%)", "hsl(350,65%,30%)", "hsl(45,70%,30%)"], ["state", "labor", "business"]], "State", () => r(q_corpoFocus, "State corporatism"), "Labor", () => r(q_corpoFocus, "Yellow socialism"), "Business", () => r(q_corpoFocus, "Developmentalism")) }
 function q_natDist() { q(q_corpo, "Should property be mainly owned by families and guilds?", [], "Yes", () => r(q_natDist, "National distributism"), "No", q_authGeo) }
@@ -52,7 +51,7 @@ function q_soe() { q(q_authWelf, "Should the state get involved in the allocatio
 function q_zeBugz() { q(q_soe, "Should all actors in supply chains be of equal concern?", [], "Yes", () => r(q_zeBugz, "Stakeholder capitalism"), "No", () => r(q_zeBugz, "State capitalism")) }
 function q_klepto() { q(q_soe, "Should state regulations favor large conglomerates?", [], "Yes", () => r(q_klepto, "Corporatocracy"), "No", () => r(q_klepto, "Autocratic capitalism")) }
 function q_organic() { q(q_stateFunctions, "Should spiritual, economic and political groups be merged?", [], "Yes", q_heartland, "No", q_sovereignType) }
-function q_heartland() { q(q_organic, "Should we end hegemony by dividing the world into blocs?", [], "Yes", q_sidMeier, "No", q_iSwearImARealBaronAndMagicIsRealAndShit) }
+function q_heartland() { q(q_organic, "Should hegemony be ended by dividing the world into blocs?", [], "Yes", q_sidMeier, "No", q_iSwearImARealBaronAndMagicIsRealAndShit) }
 function q_sidMeier() { q(q_heartland, "How should civilization be revitalized?", [["hsl(165,85%,30%)", "hsl(285,75%,30%)"], ["hsl(165,85%,20%)", "hsl(285,75%,20%)"], ["technology", "mythology"]], "Technology", () => r(q_sidMeier, "Archeofuturism"), "Mythology", () => r(q_sidMeier, "Right-eurasianism")) }
 function q_iSwearImARealBaronAndMagicIsRealAndShit() { q(q_heartland, "Who should assume spiritual functions?", [["hsl(210,65%,35%)", "hsl(350,70%,30%)", "hsl(40,60%,40%)"], ["hsl(210,65%,25%)", "hsl(350,70%,20%)", "hsl(40,60%,30%)"], ["clerics", "warriors", "bureaucrats"]], "Clerics", () => r(q_iSwearImARealBaronAndMagicIsRealAndShit, "Integralism"), "Warriors", () => r(q_iSwearImARealBaronAndMagicIsRealAndShit, "Superfascism"), "Bureaucrats", () => r(q_iSwearImARealBaronAndMagicIsRealAndShit, "Scholar-bureaucracy")) }
 function q_sovereignType() { q(q_organic, "Where should the sovereign's legitimacy come from?", [["hsl(230,70%,60%)", "hsl(70,70%,45%)", "hsl(290,70%,45%)", "hsl(35,80%,55%)"], ["hsl(230,60%,50%)", "hsl(70,70%,30%)", "hsl(290,70%,30%)", "hsl(35,80%,40%)"], ["inheritance", "wisdom", "god", "selection"]], "Inheritance", q_sovereignRole, "Wisdom", () => r(q_sovereignType, "Noocracy"), "God", q_guelph, "Selection", q_electMon) }
@@ -61,33 +60,33 @@ function q_guelph() { q(q_sovereignType, "Which authority should hold primacy ov
 function q_wifeBad() { q(q_guelph, "Should temporal authority lead religious institutions?", [], "Yes", () => r(q_wifeBad, "Caesaropapism"), "No", () => r(q_wifeBad, "Divine monarchy")) }
 function q_electMon() { q(q_sovereignType, "What should grant power to select the sovereign?", [["hsl(350,60%,50%)", "hsl(25,75%,55%)", "hsl(100,50%,55%)", "hsl(230,40%,55%)"], ["hsl(350,60%,35%)", "hsl(25,75%,40%)", "hsl(100,50%,40%)", "hsl(230,40%,40%)"], ["birthright", "share holding", "land ownership", "military honors"]], "Birthright", () => r(q_electMon, "Aristocracy"), "Share holding", () => r(q_electMon, "Neocameralism"), "Land ownership", () => r(q_electMon, "Aristotelian timocracy"), "Military honors", () => r(q_electMon, "Platonic timocracy")) }
 function q_markets() { q(q_privateProperty, "Should goods be distributed through markets?", [], "Yes", q_authMarkSoc, "No", q_communism) }
-function q_authMarkSoc() { q(q_markets, "Should the state be governed by a single, central party?", [["hsl(120,70%,45%)", "hsl(0,70%,45%)", "hsl(280,60%,35%)"], ["hsl(120,70%,30%)", "hsl(0,70%,30%)", "hsl(280,60%,20%)"], ["yes", "no", "nostate"]], "Yes", q_lange, "No", q_guilds, "The state should not exist", q_mutual) }
+function q_authMarkSoc() { q(q_markets, "Should the state be governed by a single, central party?", [["hsl(120,70%,45%)", "hsl(0,70%,45%)", "hsl(280,60%,35%)"], ["hsl(120,70%,30%)", "hsl(0,70%,30%)", "hsl(280,60%,20%)"], ["yes", "no", "nostate"]], "Yes", q_lange, "No", q_guilds, "The state should not exist", q_pompous) }
 function q_lange() { q(q_authMarkSoc, "Should central planners allocate resources and industry?", [], "Yes", () => r(q_lange, "Langean socialism"), "No", () => r(q_lange, "Titoism")) }
 function q_guilds() { q(q_authMarkSoc, "Should public services be competitive?", [], "Yes", () => r(q_guilds, "Market socialism"), "No", () => r(q_guilds, "Guild socialism")) }
-function q_mutual() { q(q_authMarkSoc, "Should the economy be based on mutual credit?", [], "Yes", q_ethnic, "No", () => r(q_mutual, "Market anarchism")) }
-function q_ethnic() { q(q_mutual, "Should communities be ethnically homogenous?", [], "Yes", () => r(q_ethnic, "National anarchism"), "No", () => r(q_ethnic, "Mutualism")) }
+function q_pompous() { q(q_authMarkSoc, "Should communities be segregated from one another?", [], "Yes", q_gooning, "No", q_mutual) }
+function q_gooning() { q(q_pompous, "Should communities be fully nomadic?", [], "Yes", () => r(q_gooning, "Donovanism"), "No", () => r(q_gooning, "National anarchism")) }
+function q_mutual() { q(q_pompous, "Should the economy be based on mutual credit?", [], "Yes", () => r(q_mutual, "Mutualism"), "No", () => r(q_mutual, "Market anarchism")) }
 function q_communism() { q(q_markets, "Should society be classless, stateless and moneyless?", [], "Yes", q_commieState, "No", q_weed) }
 function q_commieState() { q(q_communism, "Should there be a temporary state apparatus?", [], "Yes", q_demCent, "No", q_communization) }
 function q_demCent() { q(q_commieState, "Should democratic centralism lead proletarian organization?", [], "Yes", q_oneCountrySoc, "No", q_party) }
 function q_oneCountrySoc() { q(q_demCent, "Should socialism first be built in a single country?", [], "Yes", q_socCommodity, "No", q_natLib) }
-function q_socCommodity() { q(q_oneCountrySoc, "", [], "Yes", q_peopleWar, "No", () => r(q_socCommodity, "Bukharinism")) }
+function q_socCommodity() { q(q_oneCountrySoc, "?", [], "Yes", q_peopleWar, "No", () => r(q_socCommodity, "Bukharinism")) }
 function q_peopleWar() { q(q_socCommodity, "Should protracted guerrilla warfare be used to remove the old society?", [], "Yes", q_universalPPW, "No", q_natCom) }
 function q_universalPPW() { q(q_peopleWar, "Should these tactics be attempted regardless of the country?", [], "Yes", () => r(q_universalPPW, "Marxism-leninism-maoism"), "No", q_laborAristocracy) }
-function q_laborAristocracy() { q(q_universalPPW, "Should first-world workers only engage in anti-imperialist actions?", [], "Yes", () => r(q_laborAristocracy, "Maoism-third-worldism"), "No", q_chingChong) }
-function q_chingChong() { q(q_laborAristocracy, "Should civilians be allowed to run independent enterprises?", [], "Yes", () => r(q_chingChong, "Dengism"), "No", () => r(q_chingChong, "Maoism")) }
-function q_natCom() { q(q_peopleWar, "Should the revolution's main priority be the nation's liberation?", [], "Yes", q_songun, "No", () => r(q_natCom, "Marxism-leninism")) }
+function q_laborAristocracy() { q(q_universalPPW, "Should first-world workers only engage in anti-imperialist actions?", [], "Yes", () => r(q_laborAristocracy, "Maoism-third-worldism"), "No", () => r(q_laborAristocracy, "Maoism")) }
+function q_natCom() { q(q_peopleWar, "Should the revolution's main priority be national liberation?", [], "Yes", q_songun, "No", () => r(q_natCom, "Marxism-leninism")) }
 function q_songun() { q(q_natCom, "Should the military be given priority in resource allocation?", [], "Yes", () => r(q_songun, "Juche"), "No", () => r(q_songun, "National communism")) }
-function q_natLib() { q(q_oneCountrySoc, "Should communists support national liberation?", [], "Yes", q_sendNukes, "No", () => r(q_natLib, "Damenism")) }
+function q_natLib() { q(q_oneCountrySoc, "Should national liberation efforts be supported?", [], "Yes", q_sendNukes, "No", () => r(q_natLib, "Damenism")) }
 function q_sendNukes() { q(q_natLib, "Should a global nuclear war be sparked at the first opportunity?", [], "Yes", () => r(q_sendNukes, "Posadism"), "No", () => r(q_sendNukes, "Trotskyism")) }
 function q_party() { q(q_demCent, "Should a vanguard party lead the working class?", [], "Yes", q_parliament, "No", q_commodity) }
-function q_parliament() { q(q_party, "Should communists participate in parliamentary politics?", [], "Yes", q_voteVoteVoteWeReGonnaVote, "No", q_partyDict) }
-function q_voteVoteVoteWeReGonnaVote() { q(q_parliament, "", [], "Yes", () => r(q_voteVoteVoteWeReGonnaVote, "Evolutionary communism"), "No", q_reform) }
+function q_parliament() { q(q_party, "Should parliamentary politics be participated in?", [], "Yes", q_voteVoteVoteWeReGonnaVote, "No", q_partyDict) }
+function q_voteVoteVoteWeReGonnaVote() { q(q_parliament, "?", [], "Yes", () => r(q_voteVoteVoteWeReGonnaVote, "Evolutionary communism"), "No", q_reform) }
 function q_reform() { q(q_voteVoteVoteWeReGonnaVote, "Should capitalism be reformed on the short term?", [], "Yes", q_landwehrkanal, "No", () => r(q_reform, "De leonism")) }
-function q_landwehrkanal() { q(q_reform, "", [], "Yes", () => r(q_landwehrkanal, "Spartakism"), "No", () => r(q_landwehrkanal, "Centrist marxism")) }
+function q_landwehrkanal() { q(q_reform, "?", [], "Yes", () => r(q_landwehrkanal, "Spartakism"), "No", () => r(q_landwehrkanal, "Centrist marxism")) }
 function q_partyDict() { q(q_parliament, "Should the dictatorship of the proletariat be a party dictatorship?", [], "Yes", () => r(q_partyDict, "Bordigism"), "No", () => r(q_partyDict, "Dutch-german left communism")) }
 function q_commodity() { q(q_party, "Should the act of consumption be stripped from its passive elements?", [], "Yes", () => r(q_commodity, "Situationism"), "No", q_dotp) }
 function q_dotp() { q(q_commodity, "Should there be a dictatorship of the proletariat?", [], "Yes", () => r(q_dotp, "Council communism"), "No", () => r(q_dotp, "Autonomism")) }
-function q_communization() { q(q_commieState, "Should insurrection replace the socialization phase?", [], "Yes", () => r(q_communization, "Communization"), "No", q_vouchers) }
+function q_communization() { q(q_commieState, "Should insurrection serve as the socialization phase?", [], "Yes", () => r(q_communization, "Communization"), "No", q_vouchers) }
 function q_vouchers() { q(q_communization, "Should labor vouchers be given in exchange for work?", [], "Yes", () => r(q_vouchers, "Anarcho-collectivism"), "No", q_agriculture) }
 function q_agriculture() { q(q_vouchers, "Should agriculture be practiced?", [], "Yes", q_anarchoUnions, "No", () => r(q_agriculture, "Anarcho-primitivism")) }
 function q_anarchoUnions() { q(q_agriculture, "Should society be organized through unions?", [], "Yes", () => r(q_anarchoUnions, "Anarcho-syndicalism"), "No", q_bookchin) }
@@ -98,7 +97,7 @@ function q_experts() { q(q_weed, "Should an expert committee optimize distributi
 function q_hippies() { q(q_experts, "Which principle should determinate task assignment?", [["hsl(25,55%,45%)", "hsl(340,55%,45%)", "hsl(270,55%,45%)"], ["hsl(25,55%,30%)", "hsl(340,55%,30%)", "hsl(270,55%,30%)"], ["cooperation", "variety", "skill"]], "Cooperation", () => r(q_hippies, "Owenism"), "Variety", () => r(q_hippies, "Fourierism"), "Skill", () => r(q_hippies, "Saint-Simonianism")) }
 function q_transition() { q(q_weed, "Which method should be used to abolish capitalism?", [["hsl(325,70%,40%)", "hsl(355,70%,40%)", "hsl(25,70%,40%)"], ["hsl(325,70%,25%)", "hsl(355,70%,25%)", "hsl(25,70%,25%)"], ["election", "coup", "revolution"]], "Election", () => r(q_transition, "Democratic socialism"), "Coup", () => r(q_transition, "Blanquism"), "Revolution", q_authSoc) }
 function q_authSoc() { q(q_transition, "Should centralized authority build and maintain socialism?", [], "Yes", q_clown, "No", q_agrSoc) }
-function q_clown() { q(q_authSoc, "Should we end imperialism by dividing the world into blocs?", [], "Yes", () => r(q_clown, "Left-eurasianism"), "No", q_daJoos) }
+function q_clown() { q(q_authSoc, "Should imperialism be ended by dividing the world into blocs?", [], "Yes", () => r(q_clown, "Left-eurasianism"), "No", q_daJoos) }
 function q_daJoos() { q(q_clown, "Should inferior races be excluded from worker status and society?", [], "Yes", q_agrNazi, "No", q_natSocAuth) }
 function q_agrNazi() { q(q_daJoos, "Should the economy be centered on agriculture?", [], "Yes", () => r(q_agrNazi, "Strasserism"), "No", () => r(q_agrNazi, "Niekischism")) }
 function q_natSocAuth() { q(q_daJoos, "Should the nation come before all else?", [], "Yes", q_natSynd, "No", q_benefactor) }

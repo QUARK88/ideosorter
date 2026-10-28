@@ -178,6 +178,8 @@ button,
     box-shadow: 0 .5vw var(--buttonShadow);
     /*The 3D effect under buttons.*/
     border-radius: 1vw;
+    transition: linear 0.05s;
+    top: 0;
 }
 
 .navButton:hover,
@@ -189,21 +191,35 @@ button,
 
 .button:active,
 .navButton:active {
-    box-shadow: none !important;
+    box-shadow: 0 0 var(--buttonShadow) !important;
     /*Removes the 3D effect under the button while it is being pressed.*/
     top: .5vw;
     /*Shifts the button downwards without messing up spacing to give the impression that it is truly being pressed in 3D.*/
 }
 
-.button img {
+.homeButton img, .quizButton img, .backButton img {
     margin-right: .5vw;
     width: 2vw;
     height: 2vw;
 }
 
-.back {
+#startButton img, .retakeButton img {
+    margin-left: .5vw;
+    width: 2vw;
+    height: 2vw;
+}
+
+.backButtonHolder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5vw;
+}
+
+.backButton, .retakeButton {
     width: 15vw !important;
-    margin: auto !important;
+    margin: 0 !important;
 }
 
 .homeButtons {
@@ -301,8 +317,8 @@ button,
 
 .screenshot {
     width: fit-content;
-    padding: .25vw 3.5vw;
-    margin: 0 auto 1vw auto;
+    padding: 0 3.5vw .25vw;
+    margin: 0 auto;
 }
 
 .match {
@@ -327,6 +343,8 @@ button,
 
 .switch img {
     margin: 0 !important;
+    width: 2vw;
+    height: 2vw;
 }
 
 .flag {
@@ -463,7 +481,7 @@ li {
 #flagColors {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     margin: 0 0 1vw 0;
 }
 
@@ -829,7 +847,7 @@ option {
         height: 2vmax;
     }
 
-    .back {
+    .backButton {
         width: 15vmax !important;
     }
 

@@ -30,18 +30,18 @@
     <section id="title">
         <div class="version"></div>
         <img src="./assets/logos/title.svg" id="logo">
-        <a class="version" title="🏰" target="_blank" href="https://youtu.be/imbqF5h9U0s">V2.20.0</a>
+        <a class="version" title="" target="_blank" href="">V2.20.0</a>
     </section>
     <section id="home">
         <h2 class="intro">Discover your political ideology with only a few questions</h2>
         <div class="homeButtons">
             <button class="button" id="startButton" onclick="show('quiz'),q_privateProperty()">Start<img class="startIcon" src="./assets/buttons/start.svg">
             </button>
-            <button class="button small" id="createButton" onclick="show('create')"><img src="./assets/buttons/create.svg">Create
+            <button class="button small homeButton" id="createButton" onclick="show('create')"><img src="./assets/buttons/create.svg">Create
             </button>
-            <button class="button small" id="aboutButton" onclick="show('about')"><img src="./assets/buttons/about.svg">About
+            <button class="button small homeButton" id="aboutButton" onclick="show('about')"><img src="./assets/buttons/about.svg">About
             </button>
-            <button class="button small" id="treeButton" onclick="show('tree')"><img src="./assets/buttons/tree.svg">Tree
+            <button class="button small homeButton" id="treeButton" onclick="show('tree')"><img src="./assets/buttons/tree.svg">Tree
             </button>
         </div>
         <!--<h2 class="notice">Check out those other cool tests also</h2>
@@ -67,7 +67,7 @@
         <button class="button quizButton" id="button3">Loading...</button>
         <button class="button quizButton" id="button4">Loading...</button>
         <button class="button quizButton" id="button5">Loading...</button>
-        <button class="button small back" id="quizBack"><img src="./assets/buttons/back.svg">Back</button>
+        <button class="button small backButton" id="quizBack"><img src="./assets/buttons/back.svg">Back</button>
     </section>
     <section id="results">
         <div id="screenshot" class="screenshot">
@@ -80,7 +80,10 @@
             <h2 id="quote" class="quote">Quote</h2>
             <h2 id="author" class="author">Author</h2>
         </div>
-        <button class="button small back" id="resultsBack"><img src="./assets/buttons/back.svg">Back</button>
+        <div class="backButtonHolder">
+            <button class="button small backButton" id="resultsBack"><img src="./assets/buttons/back.svg">Back</button>
+            <button class="button small retakeButton" id="resultsRetake">Retake<img src="./assets/buttons/start.svg"></button>
+        </div>
     </section>
     <section id="create">
         <div id="createScreenshot" class="screenshot">
@@ -89,7 +92,7 @@
             <h2 id="createQuote" class="quote" onclick="editText(this, 'quote')">Loading...</h2>
             <h2 id="createAuthor" class="author" onclick="editText(this, 'author')">Loading...</h2>
         </div>
-        <button class="button small back" onclick="show('home')">
+        <button class="button small backButton" onclick="show('home')">
             <img src="./assets/buttons/back.svg">Back
         </button>
     </section>
@@ -109,7 +112,7 @@
             <p>Sure. All of it is open-source on <a title="IdeoSorter's GitHub repository" target="_blank" href="https://github.com/QUARK88/ideosorter">GitHub</a> for you to look at or simply copy-paste or download. You can even have a try at creating your own version of the test, but i can't guarantee that you will be able to understand how my programming works, or that people won't make fun of you for it (Potentially including me). Be aware that the entirety of the project's iterations are under the <a title="The GNU license" target="_blank" href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License</a>, meaning that you can copy, distribute and edit any of its parts at will, but you are strictly forbidden from making people pay to use it afterwards, or prevent them from accessing your source code openly and freely. My generosity comes at the cost of yours.</p>
             <h2 class="aboutQuestion">Other questions?</h2>
             <p>Go ahead and contact me at these places: <a title="IdeoSorter's GitHub issues section" target="_blank" href="https://github.com/QUARK88/ideosorter/issues/new">open a GitHub issue</a>, email me at my address (<a title="My email address" target="_blank" href="mailto:beaulieu.renaud@gmail.com">beaulieu.renaud@gmail.com</a>), message me at one of my social media accounts found at the bottom of every page (realquark on Discord, <a title="My X account" target="_blank" href="https://x.com/RenaudBeaulieuQ">@RenaudBeaulieuQ</a> on X, ~worlyt-nillex on Tlon and <a title="My Reddit account" target="_blank" href="https://www.reddit.com/user/QK_QUARK88">u/QK_QUARK88</a> on Reddit). It can be for partnerships, general propositions, clarifications, anything of the sort works. I'm nowhere near open-minded or welcoming, but i can recognize a good idea when i see one.</p>
-            <button class="button small back" onclick="show('home')"><img src="./assets/buttons/back.svg">Back</button>
+            <button class="button small backButton" onclick="show('home')"><img src="./assets/buttons/back.svg">Back</button>
         </div>
         <div id="aboutSection2">
             <h2 class="aboutQuestion">My ideology is missing, could you add it?</h2>
@@ -120,7 +123,7 @@
                 <li>Whilst ideologies are fixed in time and internally consistent, people oftentimes are not. If your suggested addition revolves around a person or group of persons, such as "trumpism" or "putinism", and isn't linked to any written and well-defined doctrine, unlike the case of maoism or georgism, then it is wholly invalid. Similarly, buzzwords or otherwise ill-defined and widely controversial designations, as per "alt-right" or "neofascism", are equally worthless to this project.</li>
             </ul>
             <p>If you believe you have found something that would meet all of the above criteria, you can <a title="IdeoSorter's GitHub issues section" target="_blank" href="https://github.com/QUARK88/ideosorter/issues/new">open a GitHub issue</a> explaining and justifying it, or do the same through email at my address (<a title="My email address" target="_blank" href="mailto:beaulieu.renaud@gmail.com">beaulieu.renaud@gmail.com</a>), or contact me at one of my social media accounts found at the bottom of every page (realquark on Discord, <a title="My X account" target="_blank" href="https://x.com/RenaudBeaulieuQ">@RenaudBeaulieuQ</a> on X, ~worlyt-nillex on Tlon and <a title="My Reddit account" target="_blank" href="https://www.reddit.com/user/QK_QUARK88">u/QK_QUARK88</a> on Reddit).</p>
-            <button class="button small back" onclick="show('home')"><img src="./assets/buttons/back.svg">Back</button>
+            <button class="button small backButton" onclick="show('home')"><img src="./assets/buttons/back.svg">Back</button>
         </div>
         <div id="aboutSection3">
             <h2 class="aboutQuestion">What do the flag designs stand for?</h2>
@@ -133,7 +136,7 @@
                 <button class="button" id="ExplanationSortButton" onclick="toggleExplanationSort(this)"><img src="./assets/buttons/group.svg">Sort by group</button>
                 <div id="flagExplanationsList"></div>
             </div>
-            <button class="button small back" onclick="show('home')"><img src="./assets/buttons/back.svg">Back</button>
+            <button class="button small backButton" onclick="show('home')"><img src="./assets/buttons/back.svg">Back</button>
         </div>
     </section>
     <section id="tree">
@@ -157,7 +160,7 @@
         <div class="tree" id="tree1"></div>
         <h2 class="notice">Anti-private property tree</h2>
         <div class="tree" id="tree2"></div>
-        <button class="button small back" onclick="show('home')"><img src="./assets/buttons/back.svg">Back</button>
+        <button class="button small backButton" onclick="show('home')"><img src="./assets/buttons/back.svg">Back</button>
     </section>
     <section id="footer">
         <h2 id="creator"><a title="Quark's personal page" target="_blank" href="https://quark88.github.io">Quark 2026</a></h2>
